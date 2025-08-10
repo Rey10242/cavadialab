@@ -9,6 +9,7 @@ import Results from "@/components/sections/Results";
 import Guarantee from "@/components/sections/Guarantee";
 import FinalCTA from "@/components/sections/FinalCTA";
 import SiteFooter from "@/components/SiteFooter";
+import Contact from "@/components/sections/Contact";
 
 const Index: React.FC = () => {
   React.useEffect(() => {
@@ -52,11 +53,35 @@ const Index: React.FC = () => {
       document.head.appendChild(script);
     }
     script.textContent = JSON.stringify(ld);
+
+    // WebSite + SearchAction
+    const ldWebsite = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "NEXO",
+      url: window.location.origin,
+      inLanguage: "es",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: window.location.origin + "/?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    };
+    let scriptWebsite = document.getElementById("ld-website") as HTMLScriptElement | null;
+    if (!scriptWebsite) {
+      scriptWebsite = document.createElement("script") as HTMLScriptElement;
+      scriptWebsite.id = "ld-website";
+      scriptWebsite.type = "application/ld+json";
+      document.head.appendChild(scriptWebsite);
+    }
+    scriptWebsite.textContent = JSON.stringify(ldWebsite);
   }, []);
 
   React.useEffect(() => {
     const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mql.matches) return;
+
+    document.body.classList.add('spotlight');
 
     const root = document.documentElement;
     let raf = 0;
@@ -85,11 +110,12 @@ const Index: React.FC = () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('touchmove', onTouchMove);
       cancelAnimationFrame(raf);
+      document.body.classList.remove('spotlight');
     };
   }, []);
 
   return (
-    <main className="spotlight">
+    <main>
       <NexoNavbar />
       <Hero />
       <Problem />
@@ -98,6 +124,7 @@ const Index: React.FC = () => {
       <Pricing />
       <Results />
       <Guarantee />
+      <Contact />
       <FinalCTA />
       <SiteFooter />
     </main>

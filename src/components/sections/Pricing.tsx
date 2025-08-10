@@ -37,11 +37,11 @@ const plans = [
 
 const Pricing: React.FC = () => {
   return (
-    <section id="paquetes" className="border-t border-border/60">
+  <section id="paquetes" className="border-t border-border/60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-10 text-center">
+        <header className="mb-10 text-center animate-fade-in">
           <h2 className="text-3xl font-bold">Planes de escalamiento</h2>
-          <p className="mt-2 text-muted-foreground">Elige el plan que mejor se ajusta a tu momento.</p>
+          <p className="mt-2 text-muted-foreground">Transparente y sin permanencia. Cancela cuando quieras.</p>
         </header>
         <div className="grid gap-6 md:grid-cols-3">
           {plans.map((p) => (

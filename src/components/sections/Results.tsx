@@ -12,11 +12,11 @@ const data = [
 
 const Results: React.FC = () => {
   return (
-    <section id="casos" className="border-t border-border/60">
+  <section id="casos" className="border-t border-border/60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-8 text-center">
+        <header className="mb-8 text-center animate-fade-in">
           <h2 className="text-3xl font-bold">Resultados reales</h2>
-          <p className="mt-2 text-muted-foreground">Crecimiento sostenido con NEXO.</p>
+          <p className="mt-2 text-muted-foreground">Incremento sostenido de ventas en 90 días.</p>
         </header>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border border-border/60 bg-card p-4">

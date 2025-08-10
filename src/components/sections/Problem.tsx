@@ -11,10 +11,10 @@ const bullets = [
 
 const Problem: React.FC = () => {
   return (
-    <section id="problema" className="border-t border-border/60">
+    <section id="problema" className="border-t border-border/60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <header className="mb-8">
-          <h2 className="text-3xl font-bold">¿Por qué hoy no estás escalando?</h2>
+          <h2 className="text-3xl font-bold">¿Por qué tu marketing no está escalando?</h2>
         </header>
         <div className="grid gap-6 sm:grid-cols-2">
           {bullets.map(({ icon: Icon, text }) => (

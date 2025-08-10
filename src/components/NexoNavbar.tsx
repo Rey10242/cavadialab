@@ -27,7 +27,7 @@ const NexoNavbar: React.FC = () => {
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <a key={l.href} href={l.href} className="story-link text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               {l.label}
             </a>
           ))}
@@ -36,7 +36,8 @@ const NexoNavbar: React.FC = () => {
 
         <button
           className="inline-flex items-center justify-center rounded-md border border-border p-2 md:hidden"
-          aria-label="Abrir menú"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -49,7 +50,7 @@ const NexoNavbar: React.FC = () => {
             <CTAButton className="w-full" />
             <div className="grid grid-cols-1">
               {links.map((l) => (
-                <a key={l.href} href={l.href} className="py-2 text-sm font-medium text-foreground/80 hover:text-foreground">
+                <a key={l.href} href={l.href} className="story-link py-2 text-sm font-medium text-foreground/80 hover:text-foreground">
                   {l.label}
                 </a>
               ))}

@@ -1,0 +1,142 @@
+import React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+
+const schema = z.object({
+  name: z.string().min(2, "Ingresa tu nombre"),
+  email: z.string().email("Correo inválido"),
+  whatsapp: z.string().min(7, "Número inválido"),
+  website: z.string().url("URL inválida").optional().or(z.literal("")),
+  message: z.string().min(10, "Cuéntanos un poco más"),
+});
+
+type FormValues = z.infer<typeof schema>;
+
+const Contact: React.FC = () => {
+  const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { name: "", email: "", whatsapp: "", website: "", message: "" } });
+
+  const onSubmit = (values: FormValues) => {
+    const subject = encodeURIComponent("Diagnóstico gratuito NEXO");
+    const body = encodeURIComponent(
+      `Nombre: ${values.name}\nEmail: ${values.email}\nWhatsApp: ${values.whatsapp}\nSitio: ${values.website || "-"}\n\nMensaje:\n${values.message}`
+    );
+    window.location.href = `mailto:contacto@nexo.com?subject=${subject}&body=${body}`;
+  };
+
+  const waText = encodeURIComponent("Hola NEXO, quiero agendar un diagnóstico gratuito (30 min). ¿Tienen disponibilidad esta semana?");
+
+  return (
+    <section id="contacto" className="border-t border-border/60 scroll-mt-24">
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        <header className="mb-8 text-center animate-fade-in">
+          <h2 className="text-3xl font-bold">Agenda tu diagnóstico gratuito</h2>
+          <p className="mt-2 text-muted-foreground">Incluye: auditoría express, quick wins y plan de 90 días.</p>
+        </header>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="rounded-xl border border-border/60 bg-card p-6">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Nombre</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Tu nombre" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="tu@email.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="whatsapp"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>WhatsApp</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Tu número" {...field} />
+                      </FormControl>
+                      <FormDescription>Solo para coordinar el diagnóstico.</FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="website"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Sitio web (opcional)</FormLabel>
+                      <FormControl>
+                        <Input placeholder="https://" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Mensaje</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder="Cuéntanos sobre tu negocio y objetivos" rows={5} {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Button type="submit" className="w-full sm:w-auto">Enviar</Button>
+                  <Button asChild variant="secondary" className="w-full sm:w-auto">
+                    <a href={`https://wa.me/?text=${waText}`} target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+                  </Button>
+                </div>
+
+                <p className="text-xs text-muted-foreground">Al enviar aceptas ser contactado para coordinar la llamada. No compartimos tus datos.</p>
+              </form>
+            </Form>
+          </div>
+
+          <aside className="rounded-xl border border-border/60 bg-card p-6">
+            <h3 className="text-lg font-semibold">¿Qué obtienes en el diagnóstico?</h3>
+            <ul className="mt-3 space-y-2 text-sm text-foreground/90">
+              <li>• Auditoría express de tu embudo actual</li>
+              <li>• Quick wins aplicables en 7-14 días</li>
+              <li>• Plan de 90 días con prioridades</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
