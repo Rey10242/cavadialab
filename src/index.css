@@ -17,26 +17,32 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 216 33% 97%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 211 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Extras */
+    --primary-glow: 211 100% 60%;
+    --gradient-hero: radial-gradient(600px 300px at var(--x,50%) var(--y,30%), hsl(var(--primary) / 0.18), transparent 70%), linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 99%));
+    --shadow-elevated: 0 10px 30px -10px hsl(var(--primary) / 0.35);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -65,8 +71,8 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -101,5 +107,28 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'; }
+}
+
+@layer components {
+  .bg-hero { background: var(--gradient-hero); }
+  .card-elevated { box-shadow: var(--shadow-elevated); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spotlight { position: relative; isolation: isolate; }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: -10%;
+    background: radial-gradient(500px 250px at var(--x,50%) var(--y,30%), hsl(var(--primary) / 0.20), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity var(--transition-smooth, 300ms ease);
   }
 }
