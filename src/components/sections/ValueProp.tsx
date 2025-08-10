@@ -12,7 +12,7 @@ const ValueProp: React.FC = () => {
     <section id="servicios" className="border-t border-border/60">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <header className="mx-auto mb-10 max-w-3xl text-center">
-          <h2 className="text-3xl font-bold">NEXO: Estrategia, Automatización y Escalamiento en un solo lugar</h2>
+          <h2 className="text-3xl font-bold">Estrategia, Automatización y Escalamiento en un solo sistema</h2>
           <p className="mt-3 text-muted-foreground">No hacemos piezas sueltas. Diseñamos un sistema que genera clientes nuevos cada mes, automatiza el seguimiento y mide cada resultado para que crezcas con control.</p>
         </header>
         <div className="grid gap-6 md:grid-cols-3">

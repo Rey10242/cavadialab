@@ -40,8 +40,8 @@ const Pricing: React.FC = () => {
     <section id="paquetes" className="border-t border-border/60">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <header className="mb-10 text-center">
-          <h2 className="text-3xl font-bold">Paquetes</h2>
-          <p className="mt-2 text-muted-foreground">Opciones claras para acelerar tu crecimiento.</p>
+          <h2 className="text-3xl font-bold">Planes de escalamiento</h2>
+          <p className="mt-2 text-muted-foreground">Elige el plan que mejor se ajusta a tu momento.</p>
         </header>
         <div className="grid gap-6 md:grid-cols-3">
           {plans.map((p) => (

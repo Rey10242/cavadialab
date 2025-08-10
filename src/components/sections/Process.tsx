@@ -13,7 +13,7 @@ const Process: React.FC = () => {
       <div className="mx-auto max-w-6xl px-4 py-16">
         <header className="mb-10 text-center">
           <h2 className="text-3xl font-bold">Cómo trabajamos</h2>
-          <p className="mt-2 text-muted-foreground">Un proceso claro en 4 pasos para escalar con confianza.</p>
+          <p className="mt-2 text-muted-foreground">4 pasos para pasar de operativos a escalables.</p>
         </header>
         <ol className="grid gap-6 md:grid-cols-4">
           {steps.map((s, i) => (

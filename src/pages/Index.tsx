@@ -22,8 +22,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "NEXO | Estrategia, Automatización y Escalamiento";
-    setMeta("description", "Construimos tu máquina de ventas digital con estrategia, automatización e IA para escalar tu negocio.");
+    document.title = "Máquina de ventas digital | Estrategia, automatización e IA — NEXO";
+    setMeta("description", "Te construimos una máquina de ventas digital. Estrategia, automatización e IA para que vendas más y tu negocio dependa menos de ti.");
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -54,8 +54,42 @@ const Index: React.FC = () => {
     script.textContent = JSON.stringify(ld);
   }, []);
 
+  React.useEffect(() => {
+    const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mql.matches) return;
+
+    const root = document.documentElement;
+    let raf = 0;
+
+    const update = (x: number, y: number) => {
+      root.style.setProperty('--x', `${x}px`);
+      root.style.setProperty('--y', `${y}px`);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => update(e.clientX, e.clientY));
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (!t) return;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => update(t.clientX, t.clientY));
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchmove', onTouchMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
-    <main>
+    <main className="spotlight">
       <NexoNavbar />
       <Hero />
       <Problem />

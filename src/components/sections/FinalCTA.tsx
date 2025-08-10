@@ -9,7 +9,7 @@ const FinalCTA: React.FC = () => {
           Tu negocio puede seguir operando igual… o puede empezar a escalar hoy.
         </h2>
         <div className="mt-6 flex justify-center">
-          <CTAButton className="text-base px-6 py-6" />
+          <CTAButton className="text-base px-6 py-6">Agenda tu diagnóstico gratuito ahora</CTAButton>
         </div>
       </div>
     </section>

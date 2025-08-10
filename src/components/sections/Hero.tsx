@@ -3,29 +3,18 @@ import CTAButton from "@/components/CTAButton";
 import heroImg from "@/assets/hero-dashboard.jpg";
 
 const Hero: React.FC = () => {
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    el.style.setProperty("--x", `${x}%`);
-    el.style.setProperty("--y", `${y}%`);
-  };
 
   return (
-    <section id="inicio" ref={ref} onMouseMove={onMouseMove} className="spotlight bg-hero">
+    <section id="inicio" className="bg-hero">
       <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <article className="space-y-6">
             <p className="text-sm uppercase tracking-wider text-muted-foreground">Estrategia • Automatización • Escalamiento</p>
             <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">
-              De operativos a escalables: construimos tu máquina de ventas digital
+              Te construimos una máquina de ventas digital
             </h1>
             <p className="text-lg text-muted-foreground">
-              Estrategia, automatización e inteligencia artificial para que tu negocio venda más y dependa menos de ti.
+              Estrategia, automatización e IA para que vendas más y tu negocio dependa menos de ti.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <CTAButton className="shadow-lg" />

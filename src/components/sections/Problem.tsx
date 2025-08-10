@@ -3,10 +3,10 @@ import { AlertTriangle, Clock, Globe, Shuffle } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 
 const bullets = [
-  { icon: AlertTriangle, text: "Campañas que gastan presupuesto pero no generan ventas." },
-  { icon: Clock, text: "Leads que se pierden porque nadie les responde rápido." },
-  { icon: Globe, text: "Sitio web bonito pero que no convierte." },
-  { icon: Shuffle, text: "Dependes de clientes que llegan por casualidad." },
+  { icon: AlertTriangle, text: "Campañas que gastan presupuesto sin generar ventas." },
+  { icon: Clock, text: "Leads que se enfrían porque nadie responde a tiempo." },
+  { icon: Globe, text: "Un sitio bonito que no convierte." },
+  { icon: Shuffle, text: "Dependes de la suerte para conseguir clientes." },
 ];
 
 const Problem: React.FC = () => {
@@ -14,7 +14,7 @@ const Problem: React.FC = () => {
     <section id="problema" className="border-t border-border/60">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <header className="mb-8">
-          <h2 className="text-3xl font-bold">¿Por qué tu marketing no está escalando?</h2>
+          <h2 className="text-3xl font-bold">¿Por qué hoy no estás escalando?</h2>
         </header>
         <div className="grid gap-6 sm:grid-cols-2">
           {bullets.map(({ icon: Icon, text }) => (

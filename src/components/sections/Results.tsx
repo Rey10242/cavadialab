@@ -15,8 +15,8 @@ const Results: React.FC = () => {
     <section id="casos" className="border-t border-border/60">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <header className="mb-8 text-center">
-          <h2 className="text-3xl font-bold">Casos de Éxito / Resultados</h2>
-          <p className="mt-2 text-muted-foreground">Más de 50 empresas ya venden más con NEXO.</p>
+          <h2 className="text-3xl font-bold">Resultados reales</h2>
+          <p className="mt-2 text-muted-foreground">Crecimiento sostenido con NEXO.</p>
         </header>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border border-border/60 bg-card p-4">
