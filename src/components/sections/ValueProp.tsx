@@ -17,8 +17,8 @@ const ValueProp: React.FC = () => {
         </header>
         <div className="grid gap-6 md:grid-cols-3">
           {items.map(({ icon: Icon, title, desc }) => (
-            <article key={title} className="rounded-xl border border-border/60 bg-card p-6 card-elevated">
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-secondary">
+            <article key={title} className="h-full flex flex-col rounded-xl border border-border/60 bg-card p-6 card-elevated hover-lift">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-secondary">
                 <Icon className="text-primary" />
               </div>
               <h3 className="text-xl font-semibold">{title}</h3>

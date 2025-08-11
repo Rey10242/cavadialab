@@ -21,21 +21,21 @@ const Contact: React.FC = () => {
   const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { name: "", email: "", whatsapp: "", website: "", message: "" } });
 
   const onSubmit = (values: FormValues) => {
-    const subject = encodeURIComponent("Diagnóstico gratuito NEXO");
+    const subject = encodeURIComponent("Plan de crecimiento NEXO: desbloquear ventas");
     const body = encodeURIComponent(
       `Nombre: ${values.name}\nEmail: ${values.email}\nWhatsApp: ${values.whatsapp}\nSitio: ${values.website || "-"}\n\nMensaje:\n${values.message}`
     );
     window.location.href = `mailto:contacto@nexo.com?subject=${subject}&body=${body}`;
   };
 
-  const waText = encodeURIComponent("Hola NEXO, quiero agendar un diagnóstico gratuito (30 min). ¿Tienen disponibilidad esta semana?");
+  const waText = encodeURIComponent("Hola NEXO, quiero conversar sobre su plan para desbloquear mis ventas (30 min). ¿Tienen disponibilidad esta semana?");
 
   return (
     <section id="contacto" className="border-t border-border/60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-8 text-center animate-fade-in">
-          <h2 className="text-3xl font-bold">Agenda tu diagnóstico gratuito</h2>
-          <p className="mt-2 text-muted-foreground">Incluye: auditoría express, quick wins y plan de 90 días.</p>
+        <header className="mb-10 text-center animate-fade-in">
+          <h2 className="text-3xl font-bold">Plan de crecimiento: desbloquea tus ventas</h2>
+          <p className="mt-2 text-muted-foreground">Diagnóstico express, quick wins y un plan de 90 días para salir del estancamiento.</p>
         </header>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
                       <FormControl>
                         <Input placeholder="Tu número" {...field} />
                       </FormControl>
-                      <FormDescription>Solo para coordinar el diagnóstico.</FormDescription>
+                      <FormDescription>Solo para coordinar la sesión.</FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
                 />
 
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Button type="submit" className="w-full sm:w-auto">Enviar</Button>
+                  <Button type="submit" className="w-full sm:w-auto">Solicitar plan de crecimiento</Button>
                   <Button asChild variant="secondary" className="w-full sm:w-auto">
                     <a href={`https://wa.me/?text=${waText}`} target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
                   </Button>
@@ -125,14 +125,14 @@ const Contact: React.FC = () => {
             </Form>
           </div>
 
-          <aside className="rounded-xl border border-border/60 bg-card p-6">
-            <h3 className="text-lg font-semibold">¿Qué obtienes en el diagnóstico?</h3>
-            <ul className="mt-3 space-y-2 text-sm text-foreground/90">
-              <li>• Auditoría express de tu embudo actual</li>
-              <li>• Quick wins aplicables en 7-14 días</li>
-              <li>• Plan de 90 días con prioridades</li>
-            </ul>
-          </aside>
+        <aside className="rounded-xl border border-border/60 bg-card p-6">
+          <h3 className="text-lg font-semibold">¿Qué incluye la sesión?</h3>
+          <ul className="mt-3 space-y-2 text-sm text-foreground/90">
+            <li>• Auditoría express del embudo y canales</li>
+            <li>• Quick wins aplicables en 7-14 días</li>
+            <li>• Plan de 90 días enfocado en desbloquear ventas</li>
+          </ul>
+        </aside>
         </div>
       </div>
     </section>

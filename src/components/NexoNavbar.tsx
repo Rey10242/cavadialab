@@ -11,31 +11,63 @@ const links = [
 
 const NexoNavbar: React.FC = () => {
   const [open, setOpen] = React.useState(false);
+  const [active, setActive] = React.useState<string>(typeof window !== 'undefined' && window.location.hash ? window.location.hash : '#inicio');
 
   React.useEffect(() => {
-    const onHashClose = () => setOpen(false);
-    window.addEventListener("hashchange", onHashClose);
-    return () => window.removeEventListener("hashchange", onHashClose);
+    const onHash = () => {
+      setOpen(false);
+      setActive(window.location.hash || '#inicio');
+    };
+
+    const ids = ['servicios', 'paquetes', 'casos', 'contacto'];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) {
+          setActive(`#${visible.target.id}`);
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((s) => io.observe(s));
+    window.addEventListener('hashchange', onHash);
+    return () => {
+      sections.forEach((s) => io.unobserve(s));
+      io.disconnect();
+      window.removeEventListener('hashchange', onHash);
+    };
   }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#inicio" className="flex items-center gap-2" aria-label="NEXO Inicio">
+        <a href="#inicio" className="flex items-center gap-2 focus-ring" aria-label="NEXO Inicio">
           <img src="/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png" alt="Logo NEXO - Estrategia, Automatización y Escalamiento" className="h-8 w-auto" loading="eager" decoding="async" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="story-link text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <a
+              key={l.href}
+              href={l.href}
+              aria-current={active === l.href ? 'page' : undefined}
+              className={`story-link text-sm font-medium transition-colors focus-ring ${active === l.href ? 'text-foreground' : 'text-foreground/70 hover:text-foreground'}`}
+            >
               {l.label}
             </a>
           ))}
-          <CTAButton className="shadow-lg" />
+          <CTAButton className="shadow-lg focus-ring" />
         </div>
 
         <button
-          className="inline-flex items-center justify-center rounded-md border border-border p-2 md:hidden"
+          className="inline-flex items-center justify-center rounded-md border border-border p-2 md:hidden focus-ring"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}

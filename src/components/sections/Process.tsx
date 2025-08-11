@@ -17,7 +17,7 @@ const Process: React.FC = () => {
         </header>
         <ol className="grid gap-6 md:grid-cols-4">
           {steps.map((s, i) => (
-            <li key={s.title} className="relative rounded-xl border border-border/60 bg-card p-6">
+            <li key={s.title} className="relative flex h-full flex-col rounded-xl border border-border/60 bg-card p-6 hover-lift">
               <div className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
                 {i + 1}
               </div>

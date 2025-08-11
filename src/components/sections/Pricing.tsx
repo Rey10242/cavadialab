@@ -43,9 +43,9 @@ const Pricing: React.FC = () => {
           <h2 className="text-3xl font-bold">Planes de escalamiento</h2>
           <p className="mt-2 text-muted-foreground">Transparente y sin permanencia. Cancela cuando quieras.</p>
         </header>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid items-stretch gap-6 md:grid-cols-3">
           {plans.map((p) => (
-            <Card key={p.name} className={`relative ${p.highlighted ? 'border-primary ring-1 ring-primary/30 card-elevated' : ''}`}>
+            <Card key={p.name} className={`relative flex h-full flex-col hover-lift ${p.highlighted ? 'border-primary ring-1 ring-primary/30 card-elevated' : ''}`}>
               <CardHeader>
                 <CardTitle className="flex items-baseline justify-between">
                   <span>{p.name}</span>
@@ -54,7 +54,7 @@ const Pricing: React.FC = () => {
                   )}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1">
                 <div className="mb-4 text-3xl font-extrabold">{p.price}</div>
                 <ul className="space-y-2 text-sm text-foreground/90">
                   {p.features.map((f) => (
@@ -65,7 +65,7 @@ const Pricing: React.FC = () => {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="mt-auto">
                 <CTAButton className="w-full" />
               </CardFooter>
             </Card>

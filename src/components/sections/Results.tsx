@@ -21,7 +21,7 @@ const Results: React.FC = () => {
   return (
   <section id="casos" className="border-t border-border/60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-8 text-center animate-fade-in">
+        <header className="mb-10 text-center animate-fade-in">
           <h2 className="text-3xl font-bold">Resultados reales</h2>
           <p className="mt-2 text-muted-foreground">Incremento sostenido de ventas en 90 días.</p>
         </header>
@@ -37,13 +37,13 @@ const Results: React.FC = () => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-      <aside className="rounded-xl border border-border/60 bg-card p-6">
+      <aside className="relative rounded-xl border border-border/60 bg-card p-6">
             <h3 className="mb-4 text-base font-semibold text-foreground/90">Casos de éxito por sector</h3>
-            <Carousel opts={{ align: "start" }} className="w-full">
+            <Carousel opts={{ align: "start", loop: true, dragFree: true }} className="w-full">
               <CarouselContent>
                 {testimonials.map((t) => (
                   <CarouselItem key={t.sector} className="md:basis-1/2 lg:basis-1/3">
-                    <article className="h-full rounded-lg border border-border/60 bg-background/60 p-4 hover-scale">
+                    <article className="h-full rounded-lg border border-border/60 bg-background/60 p-4 hover-scale hover-lift">
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary">{t.sector}</Badge>
                         <span className="text-xs text-muted-foreground">{t.company}</span>
@@ -56,8 +56,8 @@ const Results: React.FC = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious aria-label="Anterior caso" />
-              <CarouselNext aria-label="Siguiente caso" />
+              <CarouselPrevious aria-label="Anterior caso" className="glass shadow-md left-2 top-1/2 -translate-y-1/2" />
+              <CarouselNext aria-label="Siguiente caso" className="glass shadow-md right-2 top-1/2 -translate-y-1/2" />
             </Carousel>
           </aside>
         </div>
