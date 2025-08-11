@@ -1,6 +1,7 @@
 import React from "react";
 import CTAButton from "@/components/CTAButton";
 import heroImg from "@/assets/hero-dashboard.jpg";
+import AutomationFlow from "@/components/AutomationFlow";
 
 const Hero: React.FC = () => {
 
@@ -18,7 +19,6 @@ const Hero: React.FC = () => {
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <CTAButton className="shadow-lg" />
-              <a href="#servicios" className="text-sm font-medium text-foreground/80 hover:text-foreground">Ver cómo lo hacemos</a>
             </div>
             <p className="text-xs text-muted-foreground">30 min. Sin costo ni compromiso.</p>
           </article>
@@ -31,6 +31,9 @@ const Hero: React.FC = () => {
               loading="eager"
               decoding="async"
             />
+            <div className="absolute inset-0 pointer-events-none hidden md:block">
+              <AutomationFlow />
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { Badge } from "@/components/ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 const data = [
   { name: "Ene", ventas: 12 },
   { name: "Feb", ventas: 18 },
@@ -18,6 +18,15 @@ const testimonials = [
 ];
 
 const Results: React.FC = () => {
+  const [api, setApi] = React.useState<CarouselApi | null>(null);
+  const pausedRef = React.useRef(false);
+  React.useEffect(() => {
+    if (!api) return;
+    const id = window.setInterval(() => {
+      if (!pausedRef.current) api.scrollNext();
+    }, 4000);
+    return () => window.clearInterval(id);
+  }, [api]);
   return (
   <section id="casos" className="border-t border-border/60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-16">
@@ -37,16 +46,15 @@ const Results: React.FC = () => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-      <aside className="relative rounded-xl border border-border/60 bg-card p-6">
+      <aside onMouseEnter={() => (pausedRef.current = true)} onMouseLeave={() => (pausedRef.current = false)} className="relative rounded-xl border border-border/60 bg-card p-6">
             <h3 className="mb-4 text-base font-semibold text-foreground/90">Casos de éxito por sector</h3>
-            <Carousel opts={{ align: "start", loop: true, dragFree: true }} className="w-full">
+            <Carousel opts={{ align: "start", loop: true, dragFree: true }} setApi={setApi} className="w-full">
               <CarouselContent>
                 {testimonials.map((t) => (
-                  <CarouselItem key={t.sector} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={t.sector} className="md:basis-1/2 lg:basis-1/2">
                     <article className="h-full rounded-lg border border-border/60 bg-background/60 p-4 hover-scale hover-lift">
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary">{t.sector}</Badge>
-                        <span className="text-xs text-muted-foreground">{t.company}</span>
                       </div>
                       <blockquote className="mt-2 text-sm leading-relaxed">
                         “{t.quote}”
