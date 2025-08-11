@@ -9,9 +9,9 @@ const FinalCTA: React.FC = () => {
           ¿Empezamos a escalar hoy?
         </h2>
         <div className="mt-6 flex justify-center">
-          <CTAButton className="text-base px-6 py-6">Agenda tu diagnóstico gratuito ahora</CTAButton>
+          <CTAButton className="text-base px-6 py-6">Destraba tus ventas hoy</CTAButton>
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">Agenda tu diagnóstico gratuito — 30 minutos.</p>
+        <p className="mt-3 text-xs text-muted-foreground">Sesión estratégica — 30 minutos.</p>
       </div>
     </section>
   );

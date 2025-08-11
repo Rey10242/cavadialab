@@ -1,6 +1,6 @@
 import React from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
-
+import { Badge } from "@/components/ui/badge";
 const data = [
   { name: "Ene", ventas: 12 },
   { name: "Feb", ventas: 18 },
@@ -8,6 +8,12 @@ const data = [
   { name: "Abr", ventas: 31 },
   { name: "May", ventas: 40 },
   { name: "Jun", ventas: 55 },
+];
+const testimonials = [
+  { sector: "Gastronómico", quote: "Triplicamos reservas en 60 días con automatizaciones y anuncios rentables.", author: "Dueña de restaurante", company: "Grupo Sabores" },
+  { sector: "Retail", quote: "Pasamos de ventas estancadas a un ROAS 4.2 en campañas omnicanal.", author: "Ecommerce Manager", company: "Moda Express" },
+  { sector: "Servicios B2B", quote: "Agenda llena 6 semanas con leads calificados y nurturing.", author: "Director Comercial", company: "Tech Solutions" },
+  { sector: "Educación", quote: "CPA -38% y tasa de inscripción +57% en 90 días.", author: "CMO", company: "Instituto Aprende" },
 ];
 
 const Results: React.FC = () => {
@@ -30,11 +36,22 @@ const Results: React.FC = () => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <aside className="flex flex-col justify-center rounded-xl border border-border/60 bg-card p-6">
-            <blockquote className="text-lg font-medium">
-              “En 90 días pasamos de prospectar manualmente a tener un flujo constante de leads calificados. NEXO se paga solo.”
-            </blockquote>
-            <p className="mt-3 text-sm text-muted-foreground">Director de Marketing, Empresa B2B</p>
+      <aside className="rounded-xl border border-border/60 bg-card p-6">
+            <h3 className="mb-4 text-base font-semibold text-foreground/90">Casos de éxito por sector</h3>
+            <ul className="space-y-4">
+              {testimonials.map((t) => (
+                <li key={t.sector} className="rounded-lg border border-border/60 bg-background/40 p-4">
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">{t.sector}</Badge>
+                    <span className="text-xs text-muted-foreground">{t.company}</span>
+                  </div>
+                  <blockquote className="mt-2 text-sm leading-relaxed">
+                    “{t.quote}”
+                  </blockquote>
+                  <p className="mt-1 text-xs text-muted-foreground">{t.author}</p>
+                </li>
+              ))}
+            </ul>
           </aside>
         </div>
       </div>
