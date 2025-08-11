@@ -1,6 +1,7 @@
 import React from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 const data = [
   { name: "Ene", ventas: 12 },
   { name: "Feb", ventas: 18 },
@@ -38,20 +39,26 @@ const Results: React.FC = () => {
           </div>
       <aside className="rounded-xl border border-border/60 bg-card p-6">
             <h3 className="mb-4 text-base font-semibold text-foreground/90">Casos de éxito por sector</h3>
-            <ul className="space-y-4">
-              {testimonials.map((t) => (
-                <li key={t.sector} className="rounded-lg border border-border/60 bg-background/40 p-4">
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary">{t.sector}</Badge>
-                    <span className="text-xs text-muted-foreground">{t.company}</span>
-                  </div>
-                  <blockquote className="mt-2 text-sm leading-relaxed">
-                    “{t.quote}”
-                  </blockquote>
-                  <p className="mt-1 text-xs text-muted-foreground">{t.author}</p>
-                </li>
-              ))}
-            </ul>
+            <Carousel opts={{ align: "start" }} className="w-full">
+              <CarouselContent>
+                {testimonials.map((t) => (
+                  <CarouselItem key={t.sector} className="md:basis-1/2 lg:basis-1/3">
+                    <article className="h-full rounded-lg border border-border/60 bg-background/60 p-4 hover-scale">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary">{t.sector}</Badge>
+                        <span className="text-xs text-muted-foreground">{t.company}</span>
+                      </div>
+                      <blockquote className="mt-2 text-sm leading-relaxed">
+                        “{t.quote}”
+                      </blockquote>
+                      <p className="mt-1 text-xs text-muted-foreground">{t.author}</p>
+                    </article>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious aria-label="Anterior caso" />
+              <CarouselNext aria-label="Siguiente caso" />
+            </Carousel>
           </aside>
         </div>
       </div>
