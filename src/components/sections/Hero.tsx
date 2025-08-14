@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
             {/* Stats Overlay */}
             <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-border/50">
               <div className="text-sm font-semibold text-primary">ROAS Promedio</div>
-              <div className="text-2xl font-bold text-foreground">4.2x</div>
+              <div className="text-2xl font-bold text-foreground">6.2x</div>
             </div>
             
             <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-border/50">
