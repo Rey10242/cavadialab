@@ -68,7 +68,7 @@ const CavadiaNavbar: React.FC = () => {
               {l.label}
             </a>
           ))}
-          <CTAButton className="shadow-lg focus-ring" />
+          <CTAButton className="shadow-lg focus-ring">Agenda diagnóstico</CTAButton>
         </div>
 
         <button
@@ -84,7 +84,7 @@ const CavadiaNavbar: React.FC = () => {
       {open && (
         <div className="md:hidden border-t border-border/60 bg-background">
           <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3">
-            <CTAButton className="w-full" />
+            <CTAButton className="w-full">Agenda diagnóstico</CTAButton>
             <div className="grid grid-cols-1">
               {links.map((l) => (
                 <a key={l.href} href={l.href} className="story-link py-2 text-sm font-medium text-foreground/80 hover:text-foreground">

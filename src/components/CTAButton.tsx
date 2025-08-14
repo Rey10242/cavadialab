@@ -10,7 +10,7 @@ type CTAButtonProps = {
 
 export const CTAButton: React.FC<CTAButtonProps> = ({
   href = "#contacto",
-  children = "Evaluar mi negocio ahora",
+  children,
   className,
 }) => {
   return (

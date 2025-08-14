@@ -7,30 +7,36 @@ const plans = [
     name: "Base de Escalamiento",
     price: "$2.000.000/mes",
     features: [
-      "Arquitectura digital básica",
-      "Campañas iniciales y medición",
-      "Automatizaciones esenciales",
+      "Landing/arquitectura digital lista para captar.",
+      "1 canal de tráfico (Google o Meta) + medición GA4/GTM.",
+      "Automatizaciones esenciales en WhatsApp.",
+      "Reporte mensual con quick wins.",
     ],
+    cta: "Agenda tu diagnóstico gratis",
     highlighted: false,
   },
   {
     name: "Máquina de Ventas",
     price: "$3.000.000/mes",
     features: [
-      "Sistema completo de captación",
-      "Automatizaciones avanzadas 24/7",
-      "Optimización semanal por datos",
+      "Sistema completo de captación (Google + Meta + remarketing).",
+      "Automatizaciones avanzadas 24/7 (CRM, scoring, nurtures).",
+      "SEO on-page + optimización semanal por datos.",
+      "Dashboard ejecutivo (ROAS, CPL, ventas).",
     ],
+    cta: "Quiero mi máquina de ventas",
     highlighted: true,
   },
   {
     name: "Escalamiento 360 Premium",
     price: "$5.000.000/mes",
     features: [
-      "Growth + CRO + SEO + Tráfico Pago",
-      "Dashboards ejecutivos personalizados",
-      "Tests continuos de escalamiento",
+      "Growth + CRO + SEO continuo + Tráfico Pago.",
+      "Dashboards personalizados por área (dirección, ventas, marketing).",
+      "Testing A/B constante y análisis predictivo con IA.",
+      "Sesiones estratégicas quincenales.",
     ],
+    cta: "Escala mi negocio ahora",
     highlighted: false,
   },
 ];
@@ -66,7 +72,7 @@ const Pricing: React.FC = () => {
                 </ul>
               </CardContent>
               <CardFooter className="mt-auto">
-                <CTAButton className="w-full" />
+                <CTAButton className="w-full">{p.cta}</CTAButton>
               </CardFooter>
             </Card>
           ))}

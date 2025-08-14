@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
               Estrategia, automatización e IA para atraer clientes cada mes, responder en minutos y convertir más sin depender de la suerte.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <CTAButton className="shadow-lg" />
+              <CTAButton className="shadow-lg">Evaluar mi negocio ahora</CTAButton>
             </div>
             <p className="text-xs text-muted-foreground">30 min. Sin costo ni compromiso.</p>
           </article>
