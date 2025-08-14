@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
               </span>
               Full Stack Marketer
             </div>
-            <h1 className="heading-primary text-5xl md:text-6xl bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h1 className="heading-primary text-5xl md:text-6xl bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent leading-[1.1] pb-2">
               Máquina de ventas digital para <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">escalar</span> tu negocio
             </h1>
             <p className="text-xl leading-relaxed text-muted-foreground max-w-lg">

@@ -25,10 +25,10 @@ const Problem: React.FC = () => {
               style={{animationDelay: `${index * 100}ms`}}
             >
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors mt-1">
                   <Icon className="text-destructive w-6 h-6" />
                 </div>
-                <p className="text-base text-foreground/90 leading-relaxed">{text}</p>
+                <p className="text-base text-foreground/90 leading-relaxed flex-1">{text}</p>
               </div>
             </div>
           ))}

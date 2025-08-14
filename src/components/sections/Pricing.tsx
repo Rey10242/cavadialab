@@ -43,36 +43,49 @@ const plans = [
 
 const Pricing: React.FC = () => {
   return (
-  <section id="paquetes" className="border-t border-border/60 scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-10 text-center animate-fade-in">
-          <h2 className="text-3xl font-bold">Planes de escalamiento</h2>
-          <p className="mt-2 text-muted-foreground">Transparente y sin permanencia. Cancela cuando quieras.</p>
+  <section id="paquetes" className="border-t border-border/60 scroll-mt-24 section-padding">
+      <div className="mx-auto max-w-6xl">
+        <header className="mb-16 text-center animate-fade-in">
+          <h2 className="heading-secondary mb-6">Planes de escalamiento</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-muted-foreground">Transparente y sin permanencia. Cancela cuando quieras.</p>
         </header>
-        <div className="grid items-stretch gap-6 md:grid-cols-3">
-          {plans.map((p) => (
-            <Card key={p.name} className={`relative flex h-full flex-col hover-lift ${p.highlighted ? 'border-primary ring-1 ring-primary/30 card-elevated' : ''}`}>
-              <CardHeader>
-                <CardTitle className="flex items-baseline justify-between">
-                  <span>{p.name}</span>
-                  {p.highlighted && (
-                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Recomendado</span>
-                  )}
+        <div className="grid gap-8 md:grid-cols-3">
+          {plans.map((p, index) => (
+            <Card 
+              key={p.name} 
+              className={`relative flex h-full flex-col card-interactive rounded-2xl ${p.highlighted ? 'border-primary ring-2 ring-primary/30 card-elevated scale-105' : ''}`}
+              style={{animationDelay: `${index * 150}ms`}}
+            >
+              {p.highlighted && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-gradient-cta text-primary-foreground px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    Más Popular
+                  </span>
+                </div>
+              )}
+              <CardHeader className="pb-4">
+                <CardTitle className="text-center">
+                  <div className="text-2xl font-bold mb-2">{p.name}</div>
+                  <div className="text-3xl font-extrabold text-primary">{p.price}</div>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-1">
-                <div className="mb-4 text-3xl font-extrabold">{p.price}</div>
-                <ul className="space-y-2 text-sm text-foreground/90">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <span className="mt-1 h-2 w-2 rounded-full bg-primary/80" />
-                      {f}
+              <CardContent className="flex-1 px-6">
+                <ul className="space-y-4">
+                  {p.features.map((f, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
+                      </div>
+                      <span className="text-sm text-foreground/90 leading-relaxed flex-1">{f}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter className="mt-auto">
-                <CTAButton className="w-full">{p.cta}</CTAButton>
+              <CardFooter className="mt-auto pt-6">
+                <CTAButton className={`w-full ${p.highlighted ? 'btn-primary-glow' : ''}`}>
+                  {p.cta}
+                </CTAButton>
               </CardFooter>
             </Card>
           ))}
