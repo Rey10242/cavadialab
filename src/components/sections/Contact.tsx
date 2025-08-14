@@ -41,15 +41,19 @@ const Contact: React.FC = () => {
         <div className="grid gap-12 lg:grid-cols-2">
           <div className="rounded-2xl border border-border/60 bg-card p-8 card-soft">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Nombre</FormLabel>
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-sm font-medium text-foreground">Nombre</FormLabel>
                       <FormControl>
-                        <Input placeholder="Tu nombre" {...field} />
+                        <Input 
+                          placeholder="Tu nombre" 
+                          className="h-12 rounded-xl border-border/60 focus:border-primary transition-colors" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -60,10 +64,15 @@ const Contact: React.FC = () => {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-sm font-medium text-foreground">Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="tu@email.com" {...field} />
+                        <Input 
+                          type="email" 
+                          placeholder="tu@email.com" 
+                          className="h-12 rounded-xl border-border/60 focus:border-primary transition-colors" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -74,12 +83,18 @@ const Contact: React.FC = () => {
                   control={form.control}
                   name="whatsapp"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>WhatsApp</FormLabel>
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-sm font-medium text-foreground">WhatsApp</FormLabel>
                       <FormControl>
-                        <Input placeholder="Tu número" {...field} />
+                        <Input 
+                          placeholder="Tu número" 
+                          className="h-12 rounded-xl border-border/60 focus:border-primary transition-colors" 
+                          {...field} 
+                        />
                       </FormControl>
-                      <FormDescription>Solo para coordinar la sesión.</FormDescription>
+                      <FormDescription className="text-xs text-muted-foreground">
+                        Solo para coordinar la sesión.
+                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -89,10 +104,14 @@ const Contact: React.FC = () => {
                   control={form.control}
                   name="website"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Sitio web (opcional)</FormLabel>
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-sm font-medium text-foreground">Sitio web (opcional)</FormLabel>
                       <FormControl>
-                        <Input placeholder="https://" {...field} />
+                        <Input 
+                          placeholder="https://" 
+                          className="h-12 rounded-xl border-border/60 focus:border-primary transition-colors" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -103,26 +122,35 @@ const Contact: React.FC = () => {
                   control={form.control}
                   name="message"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Mensaje</FormLabel>
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-sm font-medium text-foreground">Mensaje</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Cuéntanos sobre tu negocio y objetivos" rows={5} {...field} />
+                        <Textarea 
+                          placeholder="Cuéntanos sobre tu negocio y objetivos" 
+                          rows={5} 
+                          className="rounded-xl border-border/60 focus:border-primary transition-colors resize-none" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Button type="submit" variant="premium" size="lg" className="w-full sm:w-auto">
+                <div className="flex flex-col gap-4 sm:flex-row pt-4">
+                  <Button type="submit" variant="premium" size="lg" className="w-full sm:flex-1">
                     Solicitar plan de crecimiento
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                    <a href={`https://wa.me/?text=${waText}`} target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+                  <Button asChild variant="outline" size="lg" className="w-full sm:flex-1">
+                    <a href={`https://wa.me/?text=${waText}`} target="_blank" rel="noopener noreferrer">
+                      Hablar por WhatsApp
+                    </a>
                   </Button>
                 </div>
 
-                <p className="text-xs text-muted-foreground">Al enviar aceptas ser contactado para coordinar la llamada. No compartimos tus datos.</p>
+                <p className="text-xs text-muted-foreground text-center pt-2">
+                  Al enviar aceptas ser contactado para coordinar la llamada. No compartimos tus datos.
+                </p>
               </form>
             </Form>
           </div>
