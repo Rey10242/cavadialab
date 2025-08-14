@@ -14,7 +14,7 @@ const ValueProp: React.FC = () => {
         <header className="mx-auto mb-16 max-w-4xl text-center animate-fade-in">
           <h2 className="heading-secondary mb-6">Sistema Integral de Marketing y Ventas</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
-          <p className="text-xl leading-relaxed text-muted-foreground">Diseñamos e implementamos un sistema integral de marketing digital que atrae clientes cada mes, automatiza el proceso de seguimiento y optimiza resultados con datos reales, para que tu negocio crezca sin depender de la suerte.</p>
+          <p className="text-xl leading-relaxed text-muted-foreground">Integramos estrategia, tecnología y optimización continua para que tus ventas crezcan cada mes sin depender de la suerte</p>
         </header>
         <div className="grid gap-8 md:grid-cols-3">
           {items.map(({ icon: Icon, title, desc }, index) => (
