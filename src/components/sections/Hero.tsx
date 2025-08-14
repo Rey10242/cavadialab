@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
               Máquina de ventas digital para escalar tu negocio
             </h1>
             <p className="text-lg text-muted-foreground">
-              Estrategia, automatización e IA para atraer clientes cada mes, responder en minutos y convertir más sin depender de ti.
+              Estrategia, automatización e IA para atraer clientes cada mes, responder en minutos y convertir más sin depender de la suerte.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <CTAButton className="shadow-lg" />
