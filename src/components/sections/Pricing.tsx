@@ -49,7 +49,7 @@ const Pricing: React.FC = () => {
         <header className="mb-16 text-center animate-fade-in">
           <h2 className="heading-secondary mb-6">Invierte en crecimiento, no en promesas</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-muted-foreground">Pasa de perseguir clientes a tener una máquina que los genera. Sin contratos de permanencia, cancela cuando quieras.</p>
+          <p className="text-xl text-muted-foreground">Elige el plan que mejor se adapte a tu objetivo y escala cuando lo necesites. Sin contratos de permanencia, cancela cuando quieras.</p>
         </header>
         <div className="grid gap-8 md:grid-cols-3">
           {plans.map((p, index) => (
