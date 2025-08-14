@@ -14,7 +14,7 @@ const ValueProp: React.FC = () => {
         <header className="mx-auto mb-16 max-w-4xl text-center animate-fade-in">
           <h2 className="heading-secondary mb-6">Consultor de Marketing Digital</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
-          <p className="text-xl leading-relaxed text-muted-foreground">Estrategia, Automatización y Escalamiento de Ventas con WhatsApp</p>
+          <p className="text-xl leading-relaxed text-muted-foreground">Estrategia, Automatización y Escalamiento de Ventas</p>
         </header>
         <div className="grid gap-8 md:grid-cols-3">
           {items.map(({ icon: Icon, title, desc }, index) => (
