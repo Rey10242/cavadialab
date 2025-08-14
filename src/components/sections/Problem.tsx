@@ -24,8 +24,8 @@ const Problem: React.FC = () => {
               className="card-interactive rounded-2xl border border-border/60 bg-gradient-card p-6 group"
               style={{animationDelay: `${index * 100}ms`}}
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors mt-1">
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
                   <Icon className="text-destructive w-6 h-6" />
                 </div>
                 <p className="text-base text-foreground/90 leading-relaxed flex-1">{text}</p>
