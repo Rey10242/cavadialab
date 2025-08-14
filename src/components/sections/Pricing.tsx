@@ -49,7 +49,7 @@ const Pricing: React.FC = () => {
         <header className="mb-16 text-center animate-fade-in">
           <h2 className="heading-secondary mb-6">Planes de Marketing y Automatización para Escalar Ventas</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-muted-foreground">Automatización ventas WhatsApp y Google Ads transparente. Sin permanencia, cancela cuando quieras.</p>
+          <p className="text-xl text-muted-foreground">Pasa de perseguir clientes a tener una máquina que los genera, campañas de alto rendimiento en Google y Meta Ads. Sin contratos de permanencia, cancela cuando quieras.</p>
         </header>
         <div className="grid gap-8 md:grid-cols-3">
           {plans.map((p, index) => (
