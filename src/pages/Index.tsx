@@ -23,8 +23,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Máquina de ventas digital | Full Stack Marketing Lab — CavadiaLab";
-    setMeta("description", "Laboratorio de marketing full stack: estrategia, automatización e IA para construir tu máquina de ventas digital.");
+    document.title = "Máquina de ventas digital | Full Stack Marketing — CavadiaLab";
+    setMeta("description", "Laboratorio de marketing Digital: estrategia, automatización e IA para construir tu máquina de ventas digital.");
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
