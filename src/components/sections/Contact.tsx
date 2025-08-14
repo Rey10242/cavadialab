@@ -33,11 +33,6 @@ const Contact: React.FC = () => {
   return (
     <section id="contacto" className="border-t border-border/60 scroll-mt-24">
       <div className="mx-auto max-w-6xl px-4 py-16">
-        <header className="mb-10 text-center animate-fade-in">
-          <h2 className="text-3xl font-bold">Plan de crecimiento: desbloquea tus ventas</h2>
-          <p className="mt-2 text-muted-foreground">Diagnóstico express, quick wins y un plan de 90 días para salir del estancamiento.</p>
-        </header>
-
         <div className="mb-8 rounded-xl border border-border/60 bg-card p-6 text-center">
           <h2 className="text-xl font-semibold mb-2">¿Quién te guía?</h2>
           <p className="text-foreground/90">Reynaldo Montalvo – Full-stack marketer especializado en performance, tracking (GA4/GTM) y automatización con IA. ROAS objetivo: +10x.</p>
