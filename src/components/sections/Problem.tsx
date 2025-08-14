@@ -14,7 +14,7 @@ const Problem: React.FC = () => {
     <section id="problema" className="border-t border-border/60 scroll-mt-24 section-padding">
       <div className="mx-auto max-w-6xl">
         <header className="mb-12 text-center">
-          <h2 className="heading-secondary mb-4">¿Por qué tu marketing digital en Cartagena no está escalando?</h2>
+          <h2 className="heading-secondary mb-4">¿Por qué tu marketing digital no está escalando?</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full"></div>
         </header>
         <div className="grid gap-6 sm:grid-cols-2 mb-12">
