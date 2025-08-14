@@ -26,10 +26,10 @@ const Hero: React.FC = () => {
             </h1>
             <div className="space-y-4 mb-6">
               <p className="text-xl md:text-2xl font-semibold text-foreground">
-                Atrae más clientes, duplica tus Ventas y mantén tu negocio creciendo mes a mes, sin depender de tu tiempo.
+                Duplica tus ventas y atrae clientes cada mes, sin depender de tu tiempo.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
-                Somos especialistas en performance y expertos en campañas de alto rendimiento en Google Ads y Meta Ads, integradas con automatización de ventas por WhatsApp que convierte prospectos en clientes reales y multiplica tus resultados.
+               Expertos en Google Ads y Meta Ads, integramos automatización por WhatsApp para convertir prospectos en clientes reales y escalar tus resultados.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
