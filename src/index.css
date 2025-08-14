@@ -40,6 +40,7 @@ All colors MUST be HSL.
 
     /* Extras */
     --primary-glow: 211 100% 60%;
+    --lab-gradient: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)), hsl(var(--accent)));
     --gradient-hero: radial-gradient(600px 300px at var(--x,50%) var(--y,30%), hsl(var(--primary) / 0.18), transparent 70%), linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 99%));
     --shadow-elevated: 0 10px 30px -10px hsl(var(--primary) / 0.35);
     --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);

@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <article className="space-y-6">
-            <p className="text-sm uppercase tracking-wider text-muted-foreground">Estrategia • Automatización • Escalamiento</p>
+            <p className="text-sm uppercase tracking-wider text-muted-foreground">Full Stack Marketing Lab</p>
             <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">
               Máquina de ventas digital para escalar tu negocio
             </h1>

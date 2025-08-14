@@ -9,7 +9,7 @@ const links = [
   { href: "#contacto", label: "Contacto" },
 ];
 
-const RMCNavbar: React.FC = () => {
+const CavadiaNavbar: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   const [active, setActive] = React.useState<string>(typeof window !== 'undefined' && window.location.hash ? window.location.hash : '#inicio');
 
@@ -48,12 +48,12 @@ const RMCNavbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#inicio" className="flex items-center gap-2 focus-ring" aria-label="RMC Digital Inicio">
+        <a href="#inicio" className="flex items-center gap-2 focus-ring" aria-label="CavadiaLab Inicio">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
-              RMC
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-bold text-sm">
+              CL
             </div>
-            <span className="font-semibold text-lg">Digital</span>
+            <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">CavadiaLab</span>
           </div>
         </a>
 
@@ -99,4 +99,4 @@ const RMCNavbar: React.FC = () => {
   );
 };
 
-export default RMCNavbar;
+export default CavadiaNavbar;

@@ -7,19 +7,19 @@ const SiteFooter: React.FC = () => {
         <div className="grid gap-8 md:grid-cols-3">
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
-                RMC
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-bold text-sm">
+                CL
               </div>
-              <span className="font-semibold text-lg">Digital</span>
+              <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">CavadiaLab</span>
             </div>
             <p className="text-sm text-muted-foreground">Reynaldo Montalvo Cavadia</p>
-            <p className="text-xs text-muted-foreground">Estrategia • Automatización • Escalamiento</p>
+            <p className="text-xs text-muted-foreground">Full Stack Marketing Lab</p>
           </div>
           <div>
             <h3 className="text-sm font-semibold">Contacto</h3>
             <ul className="mt-3 space-y-2 text-sm text-foreground/90">
               <li><a href="https://wa.me/##########" target="_blank" rel="noreferrer" className="hover:opacity-90">WhatsApp</a></li>
-              <li><a href="mailto:reynaldo@rmcdigital.co" className="hover:opacity-90">reynaldo@rmcdigital.co</a></li>
+              <li><a href="mailto:reynaldo@cavadialab.com" className="hover:opacity-90">reynaldo@cavadialab.com</a></li>
               <li><span className="text-muted-foreground">Colombia</span></li>
             </ul>
           </div>
@@ -33,7 +33,7 @@ const SiteFooter: React.FC = () => {
           </div>
         </div>
         <p className="mt-8 text-xs text-muted-foreground">
-          Al enviar tus datos aceptas nuestra política de tratamiento de datos. © {new Date().getFullYear()} RMC Digital - Reynaldo Montalvo.
+          Al enviar tus datos aceptas nuestra política de tratamiento de datos. © {new Date().getFullYear()} CavadiaLab - Reynaldo Montalvo.
         </p>
       </div>
     </footer>

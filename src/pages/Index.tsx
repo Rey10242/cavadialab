@@ -1,5 +1,5 @@
 import React from "react";
-import RMCNavbar from "@/components/RMCNavbar";
+import CavadiaNavbar from "@/components/CavadiaNavbar";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
 import ValueProp from "@/components/sections/ValueProp";
@@ -23,8 +23,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Máquina de ventas digital | Estrategia, automatización e IA — RMC Digital";
-    setMeta("description", "Te construyo una máquina de ventas digital. Estrategia, automatización e IA para que vendas más y tu negocio dependa menos de ti.");
+    document.title = "Máquina de ventas digital | Full Stack Marketing Lab — CavadiaLab";
+    setMeta("description", "Laboratorio de marketing full stack: estrategia, automatización e IA para construir tu máquina de ventas digital.");
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -39,11 +39,11 @@ const Index: React.FC = () => {
     const ld = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "RMC Digital - Reynaldo Montalvo",
+      name: "CavadiaLab - Reynaldo Montalvo",
       url: window.location.origin,
       logo: "/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png",
       sameAs: [],
-      description: "Estrategia, automatización y escalamiento para tu negocio.",
+      description: "Full Stack Marketing Lab: experimentamos, optimizamos y escalamos tu negocio digital.",
     };
     let script = document.getElementById("ld-org") as HTMLScriptElement | null;
     if (!script) {
@@ -58,7 +58,7 @@ const Index: React.FC = () => {
     const ldWebsite = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "RMC Digital",
+      name: "CavadiaLab",
       url: window.location.origin,
       inLanguage: "es",
       potentialAction: {
@@ -116,7 +116,7 @@ const Index: React.FC = () => {
 
   return (
     <main>
-      <RMCNavbar />
+      <CavadiaNavbar />
       <Hero />
       <Problem />
       <ValueProp />
