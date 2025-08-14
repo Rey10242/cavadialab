@@ -12,7 +12,7 @@ const ValueProp: React.FC = () => {
     <section id="servicios" className="border-t border-border/60 scroll-mt-24 section-padding bg-muted/30">
       <div className="mx-auto max-w-6xl">
         <header className="mx-auto mb-16 max-w-4xl text-center animate-fade-in">
-          <h2 className="heading-secondary mb-6">Sistema Integral de Marketing y Ventas</h2>
+          <h2 className="heading-secondary mb-6">Sistema Integral de Marketing Digital y Ventas</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
           <p className="text-xl leading-relaxed text-muted-foreground">Integramos estrategia, tecnología y optimización continua para que tus ventas crezcan cada mes sin depender de la suerte</p>
         </header>
