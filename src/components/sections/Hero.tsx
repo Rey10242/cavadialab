@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              ✅ Consultor de marketing Cartagena
+              ✅ Full Stack Marketer
             </div>
             <h1 className="heading-primary text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] pb-4">
               Convierte más clientes con tu{" "}
@@ -26,10 +26,10 @@ const Hero: React.FC = () => {
             </h1>
             <div className="space-y-4 mb-6">
               <p className="text-xl md:text-2xl font-semibold text-foreground">
-                Automatización de ventas WhatsApp + Google Ads que funciona 24/7
+                Atrae más clientes, duplica tus Ventas y mantén tu negocio creciendo mes a mes, sin depender de tu tiempo.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
-                Agencia performance en Cartagena especializada en Meta Ads. Creamos sistemas de venta automatizados que escalan tu negocio mientras duermes.
+                Somos especialistas en performance y expertos en campañas de alto rendimiento en Google Ads y Meta Ads, integradas con automatización de ventas por WhatsApp que convierte prospectos en clientes reales y multiplica tus resultados.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
