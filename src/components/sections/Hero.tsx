@@ -16,30 +16,55 @@ const Hero: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Full Stack Marketer
+              ✅ Consultor de marketing Cartagena
             </div>
-            <h1 className="heading-primary text-5xl md:text-6xl bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent leading-[1.1] pb-2">
-              Consultor de marketing Cartagena: <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">automatización de ventas WhatsApp</span> y máquina de ventas digital
+            <h1 className="heading-primary text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] pb-4">
+              Convierte más clientes con tu{" "}
+              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                máquina de ventas digital
+              </span>
             </h1>
-            <p className="text-xl leading-relaxed text-muted-foreground max-w-lg">
-              Agencia performance Cartagena especializada en Google Ads y Meta Ads. Estrategia, automatización e IA para escalar tu negocio sin depender de la suerte.
-            </p>
+            <div className="space-y-4 mb-6">
+              <p className="text-xl md:text-2xl font-semibold text-foreground">
+                Automatización de ventas WhatsApp + Google Ads que funciona 24/7
+              </p>
+              <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
+                Agencia performance en Cartagena especializada en Meta Ads. Creamos sistemas de venta automatizados que escalan tu negocio mientras duermes.
+              </p>
+            </div>
             <div className="flex flex-col gap-4 sm:flex-row">
               <CTAButton 
                 className="btn-primary-glow text-lg px-8 py-4 h-auto font-semibold"
                 onClick={trackHeroCTA}
               >
-                Evaluar mi negocio ahora
+                🚀 Quiero mi máquina de ventas
               </CTAButton>
             </div>
-            <div className="flex items-center gap-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
+            
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-center gap-2 text-muted-foreground">
                 <div className="w-5 h-5 rounded-full bg-success flex items-center justify-center">
                   <svg className="w-3 h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <span>30 min. Sin costo ni compromiso</span>
+                <span>Consulta gratuita</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="w-5 h-5 rounded-full bg-success flex items-center justify-center">
+                  <svg className="w-3 h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <span>Sin compromisos</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="w-5 h-5 rounded-full bg-success flex items-center justify-center">
+                  <svg className="w-3 h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <span>30 minutos</span>
               </div>
             </div>
           </article>
@@ -48,13 +73,21 @@ const Hero: React.FC = () => {
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <img
               src={heroImg}
-              alt="Dashboard ROAS consultor marketing Cartagena - automatización ventas WhatsApp CavadiaLab"
+              alt="Dashboard resultados ROI consultor marketing digital Cartagena automatización WhatsApp"
               className="relative w-full rounded-2xl border border-border/50 card-interactive shadow-2xl"
               loading="eager"
               decoding="async"
             />
-            <div className="absolute inset-0 pointer-events-none hidden md:block">
-              <AutomationFlow />
+            
+            {/* Stats Overlay */}
+            <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-border/50">
+              <div className="text-sm font-semibold text-primary">ROAS Promedio</div>
+              <div className="text-2xl font-bold text-foreground">4.2x</div>
+            </div>
+            
+            <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 border border-border/50">
+              <div className="text-sm font-semibold text-primary">Automatización</div>
+              <div className="text-2xl font-bold text-foreground">24/7</div>
             </div>
           </div>
         </div>
