@@ -40,8 +40,8 @@ const Contact: React.FC = () => {
           <p className="text-lg text-foreground/90 leading-relaxed">Reynaldo Montalvo – Especialista en automatización ventas WhatsApp, Google Ads y Meta Ads Cartagena. Experto en performance, tracking (GA4/GTM) y automatización con IA. <span className="font-semibold text-primary">ROAS objetivo: +10x.</span></p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div className="rounded-2xl border border-border/60 bg-card p-8 card-soft">
+        <div className="grid gap-8 sm:gap-10 lg:gap-12 lg:grid-cols-2">
+          <div className="rounded-2xl border border-border/60 bg-card p-4 sm:p-6 lg:p-8 card-soft">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -140,7 +140,7 @@ const Contact: React.FC = () => {
                   )}
                 />
 
-                <div className="flex flex-col gap-3 sm:grid sm:grid-cols-2 sm:gap-4 pt-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 pt-4">
                   <Button type="submit" variant="premium" size="lg" className="w-full h-12">
                     Solicitar plan de crecimiento
                   </Button>
@@ -163,7 +163,7 @@ const Contact: React.FC = () => {
             </Form>
           </div>
 
-        <aside className="rounded-2xl border border-border/60 bg-card p-8 card-soft">
+        <aside className="rounded-2xl border border-border/60 bg-card p-4 sm:p-6 lg:p-8 card-soft">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
               <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">

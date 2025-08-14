@@ -51,34 +51,34 @@ const Pricing: React.FC = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground">Elige el plan que mejor se adapte a tu objetivo y escala cuando lo necesites. Sin contratos de permanencia.</p>
         </header>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((p, index) => (
             <Card 
               key={p.name} 
-              className={`relative flex h-full flex-col card-interactive rounded-2xl ${p.highlighted ? 'border-primary ring-2 ring-primary/30 card-elevated scale-105' : ''}`}
+              className={`relative flex h-full flex-col card-interactive rounded-2xl ${p.highlighted ? 'border-primary ring-1 sm:ring-2 ring-primary/30 card-elevated sm:scale-105' : ''}`}
               style={{animationDelay: `${index * 150}ms`}}
             >
               {p.highlighted && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-cta text-primary-foreground px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-gradient-cta text-primary-foreground px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
                     Más Popular
                   </span>
                 </div>
               )}
-              <CardHeader className="pb-4">
+              <CardHeader className="pb-3 sm:pb-4">
                 <CardTitle className="text-center">
-                  <div className="text-2xl font-bold mb-2">{p.name}</div>
-                  <div className="text-3xl font-extrabold text-primary">{p.price}</div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">{p.name}</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-primary">{p.price}</div>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-1 px-6">
-                <ul className="space-y-4">
+              <CardContent className="flex-1 px-4 sm:px-6">
+                <ul className="space-y-3 sm:space-y-4">
                   {p.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
+                    <li key={i} className="flex items-start gap-2 sm:gap-3">
+                      <div className="w-4 sm:w-5 h-4 sm:h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-primary" />
                       </div>
-                      <span className="text-sm text-foreground/90 leading-relaxed flex-1">{f}</span>
+                      <span className="text-xs sm:text-sm text-foreground/90 leading-relaxed flex-1">{f}</span>
                     </li>
                   ))}
                 </ul>
