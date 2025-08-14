@@ -38,6 +38,11 @@ const Contact: React.FC = () => {
           <p className="mt-2 text-muted-foreground">Diagnóstico express, quick wins y un plan de 90 días para salir del estancamiento.</p>
         </header>
 
+        <div className="mb-8 rounded-xl border border-border/60 bg-card p-6 text-center">
+          <h2 className="text-xl font-semibold mb-2">¿Quién te guía?</h2>
+          <p className="text-foreground/90">Reynaldo Montalvo – Full-stack marketer especializado en performance, tracking (GA4/GTM) y automatización con IA. ROAS objetivo: +10x.</p>
+        </div>
+
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border border-border/60 bg-card p-6">
             <Form {...form}>
