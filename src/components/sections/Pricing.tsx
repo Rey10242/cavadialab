@@ -47,7 +47,7 @@ const Pricing: React.FC = () => {
   <section id="paquetes" className="border-t border-border/60 scroll-mt-24 section-padding">
       <div className="mx-auto max-w-6xl">
         <header className="mb-16 text-center animate-fade-in">
-          <h2 className="heading-secondary mb-6">Planes de Marketing y Automatización para Escalar Ventas</h2>
+          <h2 className="heading-secondary mb-6">Invierte en crecimiento, no en promesas</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground">Pasa de perseguir clientes a tener una máquina que los genera. Sin contratos de permanencia, cancela cuando quieras.</p>
         </header>
