@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { trackFormStart, trackFormSubmit, trackWhatsAppClick } from "@/lib/gtag";
 
 const schema = z.object({
   name: z.string().min(2, "Ingresa tu nombre"),
@@ -21,6 +22,7 @@ const Contact: React.FC = () => {
   const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { name: "", email: "", whatsapp: "", website: "", message: "" } });
 
   const onSubmit = (values: FormValues) => {
+    trackFormSubmit();
     const subject = encodeURIComponent("Plan de crecimiento CavadiaLab: desbloquear ventas");
     const body = encodeURIComponent(
       `Nombre: ${values.name}\nEmail: ${values.email}\nWhatsApp: ${values.whatsapp}\nSitio: ${values.website || "-"}\n\nMensaje:\n${values.message}`
@@ -34,8 +36,8 @@ const Contact: React.FC = () => {
     <section id="contacto" className="border-t border-border/60 scroll-mt-24 section-padding bg-muted/30">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 rounded-2xl border border-border/60 bg-gradient-card p-8 text-center card-soft">
-          <h2 className="heading-tertiary mb-4">¿Quién te guía?</h2>
-          <p className="text-lg text-foreground/90 leading-relaxed">Reynaldo Montalvo – Full-stack marketer especializado en performance, tracking (GA4/GTM) y automatización con IA. <span className="font-semibold text-primary">ROAS objetivo: +10x.</span></p>
+          <h2 className="heading-tertiary mb-4">Consultor marketing Cartagena</h2>
+          <p className="text-lg text-foreground/90 leading-relaxed">Reynaldo Montalvo – Especialista en automatización ventas WhatsApp, Google Ads y Meta Ads Cartagena. Experto en performance, tracking (GA4/GTM) y automatización con IA. <span className="font-semibold text-primary">ROAS objetivo: +10x.</span></p>
         </div>
 
         <div className="grid gap-12 lg:grid-cols-2">
@@ -52,6 +54,7 @@ const Contact: React.FC = () => {
                         <Input 
                           placeholder="Tu nombre" 
                           className="h-12 rounded-xl border-border/60 focus:border-primary transition-colors" 
+                          onFocus={trackFormStart}
                           {...field} 
                         />
                       </FormControl>
@@ -142,7 +145,12 @@ const Contact: React.FC = () => {
                     Solicitar plan de crecimiento
                   </Button>
                   <Button asChild variant="outline" size="lg" className="w-full h-12">
-                    <a href={`https://wa.me/?text=${waText}`} target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href={`https://wa.me/?text=${waText}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={trackWhatsAppClick}
+                    >
                       Hablar por WhatsApp
                     </a>
                   </Button>

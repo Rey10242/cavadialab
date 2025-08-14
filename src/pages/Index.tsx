@@ -7,9 +7,11 @@ import Process from "@/components/sections/Process";
 import Pricing from "@/components/sections/Pricing";
 import Results from "@/components/sections/Results";
 import Guarantee from "@/components/sections/Guarantee";
+import FAQ from "@/components/sections/FAQ";
+import Contact from "@/components/sections/Contact";
 import FinalCTA from "@/components/sections/FinalCTA";
 import SiteFooter from "@/components/SiteFooter";
-import Contact from "@/components/sections/Contact";
+import { useScrollTracking } from "@/hooks/useScrollTracking";
 
 const Index: React.FC = () => {
   React.useEffect(() => {
@@ -114,6 +116,9 @@ const Index: React.FC = () => {
     };
   }, []);
 
+  // Initialize scroll tracking
+  useScrollTracking();
+
   return (
     <main>
       <CavadiaNavbar />
@@ -124,6 +129,7 @@ const Index: React.FC = () => {
       <Pricing />
       <Results />
       <Guarantee />
+      <FAQ />
       <Contact />
       <FinalCTA />
       <SiteFooter />

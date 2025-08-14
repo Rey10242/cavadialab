@@ -2,6 +2,7 @@ import React from "react";
 import CTAButton from "@/components/CTAButton";
 import heroImg from "@/assets/hero-dashboard.jpg";
 import AutomationFlow from "@/components/AutomationFlow";
+import { trackHeroCTA } from "@/lib/gtag";
 
 const Hero: React.FC = () => {
 
@@ -18,13 +19,18 @@ const Hero: React.FC = () => {
               Full Stack Marketer
             </div>
             <h1 className="heading-primary text-5xl md:text-6xl bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent leading-[1.1] pb-2">
-              Máquina de ventas digital para <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">escalar</span> tu negocio
+              Consultor de marketing Cartagena: <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">automatización de ventas WhatsApp</span> y máquina de ventas digital
             </h1>
             <p className="text-xl leading-relaxed text-muted-foreground max-w-lg">
-              Estrategia, automatización e IA para atraer clientes cada mes, responder en minutos y convertir más sin depender de la suerte.
+              Agencia performance Cartagena especializada en Google Ads y Meta Ads. Estrategia, automatización e IA para escalar tu negocio sin depender de la suerte.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <CTAButton className="btn-primary-glow text-lg px-8 py-4 h-auto font-semibold">Evaluar mi negocio ahora</CTAButton>
+              <CTAButton 
+                className="btn-primary-glow text-lg px-8 py-4 h-auto font-semibold"
+                onClick={trackHeroCTA}
+              >
+                Evaluar mi negocio ahora
+              </CTAButton>
             </div>
             <div className="flex items-center gap-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
@@ -42,7 +48,7 @@ const Hero: React.FC = () => {
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <img
               src={heroImg}
-              alt="Dashboard con métricas en crecimiento en laptop - RMC Digital"
+              alt="Dashboard ROAS consultor marketing Cartagena - automatización ventas WhatsApp CavadiaLab"
               className="relative w-full rounded-2xl border border-border/50 card-interactive shadow-2xl"
               loading="eager"
               decoding="async"

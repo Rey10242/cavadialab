@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import CTAButton from "@/components/CTAButton";
+import { trackPlanCardClick } from "@/lib/gtag";
 
 const plans = [
   {
@@ -46,9 +47,9 @@ const Pricing: React.FC = () => {
   <section id="paquetes" className="border-t border-border/60 scroll-mt-24 section-padding">
       <div className="mx-auto max-w-6xl">
         <header className="mb-16 text-center animate-fade-in">
-          <h2 className="heading-secondary mb-6">Planes de escalamiento</h2>
+          <h2 className="heading-secondary mb-6">Paquetes consultor marketing Cartagena</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-muted-foreground">Transparente y sin permanencia. Cancela cuando quieras.</p>
+          <p className="text-xl text-muted-foreground">Automatización ventas WhatsApp y Google Ads transparente. Sin permanencia, cancela cuando quieras.</p>
         </header>
         <div className="grid gap-8 md:grid-cols-3">
           {plans.map((p, index) => (
@@ -83,7 +84,10 @@ const Pricing: React.FC = () => {
                 </ul>
               </CardContent>
               <CardFooter className="mt-auto pt-6">
-                <CTAButton className={`w-full ${p.highlighted ? 'btn-primary-glow' : ''}`}>
+                <CTAButton 
+                  className={`w-full ${p.highlighted ? 'btn-primary-glow' : ''}`}
+                  onClick={() => trackPlanCardClick(p.name, p.price)}
+                >
                   {p.cta}
                 </CTAButton>
               </CardFooter>
