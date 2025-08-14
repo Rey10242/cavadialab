@@ -14,7 +14,7 @@ const ValueProp: React.FC = () => {
         <header className="mx-auto mb-16 max-w-4xl text-center animate-fade-in">
           <h2 className="heading-secondary mb-6">Servicios consultor marketing Cartagena: automatización ventas WhatsApp</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
-          <p className="text-xl leading-relaxed text-muted-foreground">Agencia performance Cartagena especializada en Google Ads y Meta Ads. No vendemos piezas sueltas, operamos un sistema completo que genera demanda cada mes, automatiza el seguimiento y optimiza por datos para crecer con control.</p>
+          <p className="text-xl leading-relaxed text-muted-foreground">Agencia performance especializada en Google Ads y Meta Ads. No vendemos piezas sueltas, operamos un sistema completo que genera demanda cada mes, automatiza el seguimiento y optimiza por datos para crecer con control.</p>
         </header>
         <div className="grid gap-8 md:grid-cols-3">
           {items.map(({ icon: Icon, title, desc }, index) => (
