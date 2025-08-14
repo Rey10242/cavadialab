@@ -47,7 +47,7 @@ const Pricing: React.FC = () => {
   <section id="paquetes" className="border-t border-border/60 scroll-mt-24 section-padding">
       <div className="mx-auto max-w-6xl">
         <header className="mb-16 text-center animate-fade-in">
-          <h2 className="heading-secondary mb-6">Paquetes consultor marketing Cartagena</h2>
+          <h2 className="heading-secondary mb-6">Planes de Marketing y Automatización para Escalar Ventas</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground">Automatización ventas WhatsApp y Google Ads transparente. Sin permanencia, cancela cuando quieras.</p>
         </header>
