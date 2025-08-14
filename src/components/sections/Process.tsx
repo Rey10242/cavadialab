@@ -12,7 +12,7 @@ const Process: React.FC = () => {
   <section id="proceso" className="border-t border-border/60 scroll-mt-24 section-padding">
       <div className="mx-auto max-w-6xl">
         <header className="mb-16 text-center animate-fade-in">
-          <h2 className="heading-secondary mb-6">Nuestro método en 4 pasos</h2>
+          <h2 className="heading-secondary mb-6">Nuestro proceso probado para multiplicar tus ventas en 4 pasos</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-muted-foreground">Implementamos rápido, medimos y optimizamos.</p>
         </header>
