@@ -31,15 +31,15 @@ const Contact: React.FC = () => {
   const waText = encodeURIComponent("Hola Reynaldo, quiero conversar sobre tu plan para desbloquear mis ventas (30 min). ¿Tienes disponibilidad esta semana?");
 
   return (
-    <section id="contacto" className="border-t border-border/60 scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <div className="mb-8 rounded-xl border border-border/60 bg-card p-6 text-center">
-          <h2 className="text-xl font-semibold mb-2">¿Quién te guía?</h2>
-          <p className="text-foreground/90">Reynaldo Montalvo – Full-stack marketer especializado en performance, tracking (GA4/GTM) y automatización con IA. ROAS objetivo: +10x.</p>
+    <section id="contacto" className="border-t border-border/60 scroll-mt-24 section-padding bg-muted/30">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-12 rounded-2xl border border-border/60 bg-gradient-card p-8 text-center card-soft">
+          <h2 className="heading-tertiary mb-4">¿Quién te guía?</h2>
+          <p className="text-lg text-foreground/90 leading-relaxed">Reynaldo Montalvo – Full-stack marketer especializado en performance, tracking (GA4/GTM) y automatización con IA. <span className="font-semibold text-primary">ROAS objetivo: +10x.</span></p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-xl border border-border/60 bg-card p-6">
+        <div className="grid gap-12 lg:grid-cols-2">
+          <div className="rounded-2xl border border-border/60 bg-card p-8 card-soft">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
@@ -113,9 +113,11 @@ const Contact: React.FC = () => {
                   )}
                 />
 
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Button type="submit" className="w-full sm:w-auto">Solicitar plan de crecimiento</Button>
-                  <Button asChild variant="secondary" className="w-full sm:w-auto">
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <Button type="submit" variant="premium" size="lg" className="w-full sm:w-auto">
+                    Solicitar plan de crecimiento
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
                     <a href={`https://wa.me/?text=${waText}`} target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
                   </Button>
                 </div>
@@ -125,12 +127,28 @@ const Contact: React.FC = () => {
             </Form>
           </div>
 
-        <aside className="rounded-xl border border-border/60 bg-card p-6">
-          <h3 className="text-lg font-semibold">¿Qué incluye la sesión?</h3>
-          <ul className="mt-3 space-y-2 text-sm text-foreground/90">
-            <li>• Auditoría express del embudo y canales</li>
-            <li>• Quick wins aplicables en 7-14 días</li>
-            <li>• Plan de 90 días enfocado en desbloquear ventas</li>
+        <aside className="rounded-2xl border border-border/60 bg-card p-8 card-soft">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 className="heading-tertiary">¿Qué incluye la sesión?</h3>
+          </div>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+              <span className="text-foreground/90 leading-relaxed">Auditoría express del embudo y canales</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+              <span className="text-foreground/90 leading-relaxed">Quick wins aplicables en 7-14 días</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+              <span className="text-foreground/90 leading-relaxed">Plan de 90 días enfocado en desbloquear ventas</span>
+            </li>
           </ul>
         </aside>
         </div>

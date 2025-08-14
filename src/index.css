@@ -38,12 +38,47 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Extras */
+    /* Enhanced Design System Tokens */
     --primary-glow: 211 100% 60%;
+    --primary-soft: 211 100% 96%;
+    --success: 142 76% 36%;
+    --success-foreground: 355 7% 97%;
+    
+    /* Enhanced Gradients */
     --lab-gradient: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)), hsl(var(--accent)));
     --gradient-hero: radial-gradient(600px 300px at var(--x,50%) var(--y,30%), hsl(var(--primary) / 0.18), transparent 70%), linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 99%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card) / 0.8));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    
+    /* Enhanced Shadows */
     --shadow-elevated: 0 10px 30px -10px hsl(var(--primary) / 0.35);
+    --shadow-soft: 0 4px 20px -8px hsl(var(--foreground) / 0.15);
+    --shadow-card: 0 2px 8px -2px hsl(var(--foreground) / 0.08);
+    --shadow-cta: 0 8px 25px -8px hsl(var(--primary) / 0.4);
+    
+    /* Enhanced Transitions */
     --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    
+    /* Spacing Scale */
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -117,8 +152,63 @@ All colors MUST be HSL.
 }
 
 @layer components {
+  /* Background Utilities */
   .bg-hero { background: var(--gradient-hero); }
-  .card-elevated { box-shadow: var(--shadow-elevated); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .bg-gradient-cta { background: var(--gradient-cta); }
+  
+  /* Enhanced Card Styles */
+  .card-elevated { 
+    box-shadow: var(--shadow-elevated); 
+    transition: all var(--transition-smooth);
+  }
+  .card-soft { 
+    box-shadow: var(--shadow-soft); 
+    transition: all var(--transition-smooth);
+  }
+  .card-interactive {
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition-smooth);
+    transform: translateY(0);
+  }
+  .card-interactive:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-4px);
+  }
+  
+  /* CTA Button Styles */
+  .btn-primary-glow {
+    background: var(--gradient-cta);
+    box-shadow: var(--shadow-cta);
+    transition: all var(--transition-smooth);
+  }
+  .btn-primary-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px -10px hsl(var(--primary) / 0.5);
+  }
+  
+  /* Typography Components */
+  .heading-primary {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  .heading-secondary {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .heading-tertiary {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  /* Section Spacing */
+  .section-padding { padding: var(--space-3xl) var(--space-md); }
+  .section-spacing { margin-bottom: var(--space-2xl); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -154,9 +244,21 @@ All colors MUST be HSL.
   .hover-scale { transition: transform 200ms ease; }
   .hover-scale:hover { transform: scale(1.05); }
 
-  /* Modern subtle lift effect */
-  .hover-lift { transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); will-change: transform; }
-  .hover-lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-elevated); }
+  /* Enhanced Hover Effects */
+  .hover-lift { 
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); 
+    will-change: transform; 
+  }
+  .hover-lift:hover { 
+    transform: translateY(-4px); 
+    box-shadow: var(--shadow-elevated); 
+  }
+  .hover-bounce { 
+    transition: transform var(--transition-bounce); 
+  }
+  .hover-bounce:hover { 
+    transform: scale(1.02) translateY(-2px); 
+  }
 
   /* Glassmorphism utility for overlays/controls */
   .glass { background-color: hsl(var(--background) / 0.6); backdrop-filter: blur(8px); border: 1px solid hsl(var(--border) / 0.8); }
