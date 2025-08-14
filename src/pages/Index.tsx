@@ -1,5 +1,5 @@
 import React from "react";
-import NexoNavbar from "@/components/NexoNavbar";
+import RMCNavbar from "@/components/RMCNavbar";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
 import ValueProp from "@/components/sections/ValueProp";
@@ -23,8 +23,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Máquina de ventas digital | Estrategia, automatización e IA — NEXO";
-    setMeta("description", "Te construimos una máquina de ventas digital. Estrategia, automatización e IA para que vendas más y tu negocio dependa menos de ti.");
+    document.title = "Máquina de ventas digital | Estrategia, automatización e IA — RMC Digital";
+    setMeta("description", "Te construyo una máquina de ventas digital. Estrategia, automatización e IA para que vendas más y tu negocio dependa menos de ti.");
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -39,7 +39,7 @@ const Index: React.FC = () => {
     const ld = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "NEXO",
+      name: "RMC Digital - Reynaldo Montalvo",
       url: window.location.origin,
       logo: "/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png",
       sameAs: [],
@@ -58,7 +58,7 @@ const Index: React.FC = () => {
     const ldWebsite = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "NEXO",
+      name: "RMC Digital",
       url: window.location.origin,
       inLanguage: "es",
       potentialAction: {
@@ -116,7 +116,7 @@ const Index: React.FC = () => {
 
   return (
     <main>
-      <NexoNavbar />
+      <RMCNavbar />
       <Hero />
       <Problem />
       <ValueProp />

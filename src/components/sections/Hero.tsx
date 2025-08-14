@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
           <div className="relative">
             <img
               src={heroImg}
-              alt="Dashboard con métricas en crecimiento en laptop - NEXO"
+              alt="Dashboard con métricas en crecimiento en laptop - RMC Digital"
               className="w-full rounded-xl border border-border card-elevated"
               loading="eager"
               decoding="async"

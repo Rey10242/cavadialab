@@ -9,7 +9,7 @@ const links = [
   { href: "#contacto", label: "Contacto" },
 ];
 
-const NexoNavbar: React.FC = () => {
+const RMCNavbar: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   const [active, setActive] = React.useState<string>(typeof window !== 'undefined' && window.location.hash ? window.location.hash : '#inicio');
 
@@ -48,8 +48,13 @@ const NexoNavbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#inicio" className="flex items-center gap-2 focus-ring" aria-label="NEXO Inicio">
-          <img src="/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png" alt="Logo NEXO - Estrategia, Automatización y Escalamiento" className="h-8 w-auto" loading="eager" decoding="async" />
+        <a href="#inicio" className="flex items-center gap-2 focus-ring" aria-label="RMC Digital Inicio">
+          <div className="flex items-center gap-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
+              RMC
+            </div>
+            <span className="font-semibold text-lg">Digital</span>
+          </div>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -94,4 +99,4 @@ const NexoNavbar: React.FC = () => {
   );
 };
 
-export default NexoNavbar;
+export default RMCNavbar;

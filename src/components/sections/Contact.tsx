@@ -21,14 +21,14 @@ const Contact: React.FC = () => {
   const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { name: "", email: "", whatsapp: "", website: "", message: "" } });
 
   const onSubmit = (values: FormValues) => {
-    const subject = encodeURIComponent("Plan de crecimiento NEXO: desbloquear ventas");
+    const subject = encodeURIComponent("Plan de crecimiento RMC Digital: desbloquear ventas");
     const body = encodeURIComponent(
       `Nombre: ${values.name}\nEmail: ${values.email}\nWhatsApp: ${values.whatsapp}\nSitio: ${values.website || "-"}\n\nMensaje:\n${values.message}`
     );
-    window.location.href = `mailto:contacto@nexo.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:reynaldo@rmcdigital.co?subject=${subject}&body=${body}`;
   };
 
-  const waText = encodeURIComponent("Hola NEXO, quiero conversar sobre su plan para desbloquear mis ventas (30 min). ¿Tienen disponibilidad esta semana?");
+  const waText = encodeURIComponent("Hola Reynaldo, quiero conversar sobre tu plan para desbloquear mis ventas (30 min). ¿Tienes disponibilidad esta semana?");
 
   return (
     <section id="contacto" className="border-t border-border/60 scroll-mt-24">

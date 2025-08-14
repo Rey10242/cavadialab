@@ -25,7 +25,7 @@ const Problem: React.FC = () => {
           ))}
         </div>
         <div className="mt-8 flex items-center gap-4">
-          <p className="text-sm text-muted-foreground">Si alguna de estas frases es tu realidad, NEXO es tu solución.</p>
+          <p className="text-sm text-muted-foreground">Si alguna de estas frases es tu realidad, te puedo ayudar.</p>
           <CTAButton />
         </div>
       </div>

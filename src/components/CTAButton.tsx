@@ -15,7 +15,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
 }) => {
   return (
     <Button asChild className={cn("shadow-md transition-transform active:scale-[0.98]", className)}>
-      <a href={href} aria-label="Agenda tu diagnóstico gratuito con NEXO">
+      <a href={href} aria-label="Agenda tu diagnóstico gratuito con Reynaldo Montalvo">
         {children}
       </a>
     </Button>
