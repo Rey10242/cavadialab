@@ -13,7 +13,7 @@ const SiteFooter: React.FC = () => {
               <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">CavadiaLab</span>
             </div>
             <p className="text-sm text-muted-foreground">Reynaldo Montalvo Cavadia</p>
-            <p className="text-xs text-muted-foreground">Full Stack Marketing Lab</p>
+            <p className="text-xs text-muted-foreground">Full Stack Marketer</p>
           </div>
           <div>
             <h3 className="text-sm font-semibold">Contacto</h3>
