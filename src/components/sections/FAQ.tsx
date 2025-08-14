@@ -44,7 +44,7 @@ const FAQ: React.FC = () => {
         <header className="mb-16 text-center animate-fade-in">
           <h2 className="heading-secondary mb-6">Preguntas frecuentes</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-muted-foreground">Automatización ventas WhatsApp y Google Ads Cartagena</p>
+          <p className="text-xl text-muted-foreground">Todo lo que necesitas saber para decidirte hoy y empezar a escalar tu negocio sin riesgos.</p>
         </header>
         
         <Accordion type="single" collapsible className="space-y-4">
