@@ -137,11 +137,11 @@ const Contact: React.FC = () => {
                   )}
                 />
 
-                <div className="flex flex-col gap-4 sm:flex-row pt-4">
-                  <Button type="submit" variant="premium" size="lg" className="w-full sm:flex-1">
+                <div className="flex flex-col gap-3 sm:grid sm:grid-cols-2 sm:gap-4 pt-4">
+                  <Button type="submit" variant="premium" size="lg" className="w-full h-12">
                     Solicitar plan de crecimiento
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="w-full sm:flex-1">
+                  <Button asChild variant="outline" size="lg" className="w-full h-12">
                     <a href={`https://wa.me/?text=${waText}`} target="_blank" rel="noopener noreferrer">
                       Hablar por WhatsApp
                     </a>
