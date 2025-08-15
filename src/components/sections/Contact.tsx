@@ -140,11 +140,11 @@ const Contact: React.FC = () => {
                   )}
                 />
 
-                <div className="flex flex-col gap-3 lg:flex-row lg:gap-4 pt-4">
-                  <Button type="submit" variant="premium" size="lg" className="w-full h-12 lg:flex-1">
+                <div className="flex flex-col gap-3 md:flex-row md:gap-4 pt-4">
+                  <Button type="submit" variant="premium" size="lg" className="w-full h-12 md:flex-1">
                     Solicitar plan de crecimiento
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="w-full h-12 lg:flex-1">
+                  <Button asChild variant="outline" size="lg" className="w-full h-12 md:flex-1">
                     <a 
                       href={`https://wa.me/?text=${waText}`} 
                       target="_blank" 
