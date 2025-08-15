@@ -55,14 +55,14 @@ const FAQ: React.FC = () => {
               className="rounded-2xl border border-border/60 bg-card card-soft"
             >
               <AccordionTrigger 
-                className="px-6 py-4 text-left hover:no-underline"
+                className="px-4 sm:px-6 py-4 text-left hover:no-underline"
                 onClick={() => handleAccordionClick(faq.question)}
               >
                 <span className="font-semibold text-foreground leading-relaxed pr-4">
                   {faq.question}
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6 text-muted-foreground leading-relaxed">
+              <AccordionContent className="px-4 sm:px-6 pb-6 text-muted-foreground leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

@@ -20,11 +20,11 @@ const Process: React.FC = () => {
           {/* Connection line */}
           <div className="hidden md:block absolute top-16 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-border to-transparent"></div>
           
-          <ol className="grid gap-8 md:grid-cols-4 relative">
+          <ol className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4 relative">
             {steps.map((s, i) => (
               <li 
                 key={s.title} 
-                className="relative flex h-full flex-col rounded-2xl border border-border/60 bg-card p-8 card-interactive group"
+                className="relative flex h-full flex-col rounded-2xl border border-border/60 bg-card p-6 sm:p-8 card-interactive group"
                 style={{animationDelay: `${i * 200}ms`}}
               >
                 <div className="mb-6 relative">
@@ -33,7 +33,7 @@ const Process: React.FC = () => {
                   </div>
                   {/* Connection dot for desktop */}
                   {i < steps.length - 1 && (
-                    <div className="hidden md:block absolute -right-4 top-8 w-8 h-0.5 bg-gradient-to-r from-primary to-transparent"></div>
+                    <div className="hidden lg:block absolute -right-4 top-8 w-8 h-0.5 bg-gradient-to-r from-primary to-transparent"></div>
                   )}
                 </div>
                 <h3 className="heading-tertiary mb-3">{s.title}</h3>

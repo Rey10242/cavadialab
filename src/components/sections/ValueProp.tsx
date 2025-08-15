@@ -16,11 +16,11 @@ const ValueProp: React.FC = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6"></div>
           <p className="text-xl leading-relaxed text-muted-foreground">Integramos estrategia, tecnología y optimización continua para que tu negocio crezca cada mes, con control total de tus resultados.</p>
         </header>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
           {items.map(({ icon: Icon, title, desc }, index) => (
             <article 
               key={title} 
-              className="h-full flex flex-col rounded-2xl border border-border/60 bg-card p-8 card-interactive group"
+              className="h-full flex flex-col rounded-2xl border border-border/60 bg-card p-6 sm:p-8 card-interactive group"
               style={{animationDelay: `${index * 150}ms`}}
             >
               <div className="mb-6 relative">

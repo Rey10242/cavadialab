@@ -17,18 +17,18 @@ const Problem: React.FC = () => {
           <h2 className="heading-secondary mb-4">¿Por qué tus campañas no generan ventas?</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full"></div>
         </header>
-        <div className="grid gap-6 sm:grid-cols-2 mb-12">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 mb-12">
           {bullets.map(({ icon: Icon, text }, index) => (
             <div 
               key={text} 
-              className="card-interactive rounded-2xl border border-border/60 bg-gradient-card p-6 group"
+              className="card-interactive rounded-2xl border border-border/60 bg-gradient-card p-4 sm:p-6 group"
               style={{animationDelay: `${index * 100}ms`}}
             >
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
-                  <Icon className="text-destructive w-6 h-6" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
+                  <Icon className="text-destructive w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <p className="text-base text-foreground/90 leading-relaxed flex-1">{text}</p>
+                <p className="text-sm sm:text-base text-foreground/90 leading-relaxed flex-1">{text}</p>
               </div>
             </div>
           ))}
