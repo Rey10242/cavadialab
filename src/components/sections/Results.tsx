@@ -5,13 +5,13 @@ import { TrendingUp, Clock, Award, Target } from "lucide-react";
 const metrics = [
   { label: "Crecimiento promedio", value: "320%", description: "en ventas en 90 días", icon: TrendingUp },
   { label: "Tiempo de retorno", value: "45 días", description: "promedio de inversión", icon: Clock },
-  { label: "ROAS promedio", value: "4.2x", description: "retorno de inversión", icon: Target },
+  { label: "ROAS promedio", value: "6.2x", description: "retorno de inversión", icon: Target },
   { label: "Casos de éxito", value: "98%", description: "de clientes satisfechos", icon: Award },
 ];
 
 const testimonials = [
   { sector: "Gastronómico", quote: "Triplicamos reservas en 60 días con automatizaciones y anuncios rentables.", author: "Dueña de restaurante", company: "Grupo Sabores", metric: "+200%" },
-  { sector: "Retail", quote: "Pasamos de ventas estancadas a un ROAS 4.2 en campañas omnicanal.", author: "Ecommerce Manager", company: "Moda Express", metric: "ROAS 4.2" },
+  { sector: "Retail", quote: "Pasamos de ventas estancadas a un ROAS 8.0 en campañas omnicanal.", author: "Ecommerce Manager", company: "Moda Express", metric: "ROAS 8.0" },
   { sector: "Servicios B2B", quote: "Agenda llena 6 semanas con leads calificados y nurturing.", author: "Director Comercial", company: "Tech Solutions", metric: "+380%" },
   { sector: "Educación", quote: "CPA -38% y tasa de inscripción +57% en 90 días.", author: "CMO", company: "Instituto Aprende", metric: "+57%" },
 ];
