@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 rounded-2xl border border-border/60 bg-gradient-card p-8 text-center card-soft">
           <h2 className="heading-tertiary mb-4">Reynaldo Montalvo Cavadia</h2>
-          <p className="text-lg text-foreground/90 leading-relaxed">Experto en desarrollo de presencia online (web y SEO), Google Ads, Meta Ads, y automatización de WhatsApp con IA. Experto en performance y tracking (GA4/GTM), maximizando resultados con un ROAS objetivo: +10x. <span className="font-semibold text-primary">ROAS objetivo: +10x.</span></p>
+          <p className="text-lg text-foreground/90 leading-relaxed">Ayudo a negocios a crecer con presencia online (web y SEO), Google Ads, Meta Ads y automatización con IA. Experto en performance y tracking (GA4/GTM), maximizando resultados con un ROAS objetivo: +10x. <span className="font-semibold text-primary">ROAS objetivo: +10x.</span></p>
         </div>
 
         <div className="grid gap-8 sm:gap-10 lg:gap-12 lg:grid-cols-2">
