@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
               ✅ Full Stack Marketer
             </div>
             <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] pb-2 sm:pb-4">
-             Convierte más leads en clientes y escala tu negocio con{" "}
+             Convierte Más Leads en Clientes y Haz Crecer tu Negocio con{" "}
               <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
                  Marketing + IA
               </span>
@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
                 Duplica tus ventas y atrae clientes cada mes, sin depender de tu tiempo.
               </p>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
-               Con Google Ads, Meta Ads y WhatsApp con IA. Convierto leads en clientes 24/7, maximizando ventas mientras lideras el crecimiento de tu empresa con resultados garantizados.
+               Con Google Ads, Meta Ads y WhatsApp con IA, convierto leads en clientes 24/7 con resultados garantizados.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
