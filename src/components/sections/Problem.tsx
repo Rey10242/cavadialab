@@ -5,8 +5,8 @@ import CTAButton from "@/components/CTAButton";
 const bullets = [
   { icon: AlertTriangle, text: "Campañas que gastan presupuesto sin generar ventas." },
   { icon: Clock, text: "Leads que se enfrían porque nadie responde a tiempo." },
-  { icon: Globe, text: "Un sitio bonito que no convierte." },
-  { icon: Shuffle, text: "Dependes de la suerte para conseguir clientes." },
+  { icon: Globe, text: "Sitio web atractivo pero que no convierte." },
+  { icon: Shuffle, text: "Dependencia total de ti para conseguir clientes." },
 ];
 
 const Problem: React.FC = () => {
@@ -14,7 +14,7 @@ const Problem: React.FC = () => {
     <section id="problema" className="border-t border-border/60 scroll-mt-24 section-padding">
       <div className="mx-auto max-w-6xl">
         <header className="mb-12 text-center">
-          <h2 className="heading-secondary mb-4">¿Por qué tus campañas no generan ventas?</h2>
+          <h2 className="heading-secondary mb-4">¿Por Qué Tus Campañas No Generan Ventas?</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full"></div>
         </header>
         <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 mb-12">
