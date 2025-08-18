@@ -19,9 +19,9 @@ const Hero: React.FC = () => {
               ✅ Full Stack Marketer
             </div>
             <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] pb-2 sm:pb-4">
-              Convierte más clientes con tu{" "}
+             Convierte más leads en clientes y{" "}
               <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                máquina de ventas digital
+                escala tu negocio con Marketing + IA
               </span>
             </h1>
             <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
