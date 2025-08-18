@@ -11,6 +11,7 @@ import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import FinalCTA from "@/components/sections/FinalCTA";
 import SiteFooter from "@/components/SiteFooter";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
 
 const Index: React.FC = () => {
@@ -133,6 +134,7 @@ const Index: React.FC = () => {
       <Contact />
       <FinalCTA />
       <SiteFooter />
+      <FloatingWhatsAppButton />
     </main>
   );
 };

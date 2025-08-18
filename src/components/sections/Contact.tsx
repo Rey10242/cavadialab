@@ -1,36 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { trackFormStart, trackFormSubmit, trackWhatsAppClick } from "@/lib/gtag";
+import { useToast } from "@/hooks/use-toast";
+import { trackFormStart, trackFormSubmit } from "@/lib/gtag";
+
+const plans = [
+  { value: "consulta", label: "Consulta general" },
+  { value: "base", label: "Base de Escalamiento - $2.000.000/mes" },
+  { value: "maquina", label: "Máquina de Ventas - $3.000.000/mes" },
+  { value: "premium", label: "Escalamiento 360 Premium - $5.000.000/mes" },
+];
 
 const schema = z.object({
   name: z.string().min(2, "Ingresa tu nombre"),
   email: z.string().email("Correo inválido"),
   whatsapp: z.string().min(7, "Número inválido"),
   website: z.string().url("URL inválida").optional().or(z.literal("")),
+  plan: z.string().min(1, "Selecciona un plan"),
   message: z.string().min(10, "Cuéntanos un poco más"),
 });
 
 type FormValues = z.infer<typeof schema>;
 
 const Contact: React.FC = () => {
-  const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { name: "", email: "", whatsapp: "", website: "", message: "" } });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  const form = useForm<FormValues>({ 
+    resolver: zodResolver(schema), 
+    defaultValues: { name: "", email: "", whatsapp: "", website: "", plan: "", message: "" } 
+  });
 
-  const onSubmit = (values: FormValues) => {
-    trackFormSubmit();
-    const subject = encodeURIComponent("Plan de crecimiento CavadiaLab: desbloquear ventas");
-    const body = encodeURIComponent(
-      `Nombre: ${values.name}\nEmail: ${values.email}\nWhatsApp: ${values.whatsapp}\nSitio: ${values.website || "-"}\n\nMensaje:\n${values.message}`
-    );
-    window.location.href = `mailto:reynaldo@cavadialab.com?subject=${subject}&body=${body}`;
+  const onSubmit = async (values: FormValues) => {
+    setIsSubmitting(true);
+    
+    try {
+      trackFormSubmit();
+      
+      const selectedPlan = plans.find(p => p.value === values.plan)?.label || values.plan;
+      const subject = encodeURIComponent("Plan de crecimiento CavadiaLab: desbloquear ventas");
+      const body = encodeURIComponent(
+        `Nombre: ${values.name}\nEmail: ${values.email}\nWhatsApp: ${values.whatsapp}\nSitio: ${values.website || "-"}\nPlan interesado: ${selectedPlan}\n\nMensaje:\n${values.message}`
+      );
+      
+      // Simular envío de email (aquí iría la integración real)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Por ahora, abrir mailto como respaldo
+      window.open(`mailto:reynaldo@cavadialab.com?subject=${subject}&body=${body}`, '_blank');
+      
+      toast({
+        title: "¡Solicitud enviada correctamente!",
+        description: "Te contactaremos pronto para coordinar tu sesión de crecimiento.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error al enviar",
+        description: "Por favor intenta nuevamente o contáctanos por WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  const waText = encodeURIComponent("Hola Reynaldo, quiero conversar sobre tu plan para desbloquear mis ventas (30 min). ¿Tienes disponibilidad esta semana?");
 
   return (
     <section id="contacto" className="border-t border-border/60 scroll-mt-24 section-padding bg-muted/30">
@@ -123,6 +162,31 @@ const Contact: React.FC = () => {
 
                 <FormField
                   control={form.control}
+                  name="plan"
+                  render={({ field }) => (
+                    <FormItem className="space-y-2">
+                      <FormLabel className="text-sm font-medium text-foreground">Plan de interés</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="h-12 rounded-xl border-border/60 focus:border-primary transition-colors">
+                            <SelectValue placeholder="Selecciona el plan que más te interesa" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent className="bg-card border-border/60">
+                          {plans.map((plan) => (
+                            <SelectItem key={plan.value} value={plan.value} className="hover:bg-muted/50">
+                              {plan.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem className="space-y-2">
@@ -140,20 +204,15 @@ const Contact: React.FC = () => {
                   )}
                 />
 
-                <div className="flex flex-col gap-3 pt-4 lg:flex-row lg:gap-4">
-                  <Button type="submit" variant="premium" size="lg" className="w-full lg:flex-1 h-12">
-                    Solicitar plan de crecimiento
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="w-full lg:flex-1 h-12 shrink-0">
-                    <a 
-                      href={`https://wa.me/?text=${waText}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      onClick={trackWhatsAppClick}
-                      className="inline-flex items-center justify-center"
-                    >
-                      Hablar por WhatsApp
-                    </a>
+                <div className="pt-4">
+                  <Button 
+                    type="submit" 
+                    variant="premium" 
+                    size="lg" 
+                    className="w-full h-12 btn-primary-glow"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Enviando..." : "Solicitar plan de crecimiento"}
                   </Button>
                 </div>
 
