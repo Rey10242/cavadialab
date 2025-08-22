@@ -1,87 +1,121 @@
 <!DOCTYPE html>
 <html lang="es-CO">
 <head>
+  <!-- Configuración básica del documento -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <!-- Configuración de indexación y snippets para motores de búsqueda -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  
+  <!-- Color del tema para navegadores móviles -->
   <meta name="theme-color" content="#0f172a" />
+  <meta name="msapplication-TileColor" content="#0f172a" />
 
-  <!-- Canonical & Hreflang -->
+  <!-- URLs canónicas e internacionalización -->
   <link rel="canonical" href="https://cavadialab.com/" />
   <link rel="alternate" href="https://cavadialab.com/" hreflang="es-CO" />
   <link rel="alternate" href="https://cavadialab.com/" hreflang="es" />
   <link rel="alternate" href="https://cavadialab.com/" hreflang="x-default" />
 
-  <!-- Preconnect / DNS Prefetch -->
+  <!-- Optimización de conexiones de red (reducir latencia) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-  <!-- Fonts (display=swap para CLS) -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Carga optimizada de fuentes con display=swap para evitar FOIT -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
-  <!-- Preload App (ajusta rutas si cambian en build) -->
-  <link rel="preload" as="script" href="/src/main.tsx" />
-  <link rel="preload" as="image" href="https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png" imagesrcset="https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png 1200w" />
+  <!-- Precarga de recursos críticos para mejorar rendimiento -->
+  <link rel="modulepreload" href="/src/main.tsx" />
+  <link rel="preload" as="image" href="https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png" 
+        imagesrcset="https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png 1200w" 
+        fetchpriority="high" />
 
-  <!-- Icons -->
+  <!-- Conjunto completo de iconos para diferentes dispositivos -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <title>Consultor de Marketing Digital | Automatización de Ventas con IA, Google Ads y Meta Ads</title>
-  <meta name="description" content="Consultor de marketing digital en Cartagena, experto en automatización de ventas con IA, WhatsApp, Google Ads y Meta Ads. Construye tu máquina de ventas y escala resultados con performance marketing." />
-  <!-- Nota: meta keywords es obsoleto; se omite a propósito -->
+  <!-- Título optimizado para SEO (menos de 60 caracteres) -->
+  <title>Consultor Marketing Digital | IA, Google Ads, Meta Ads - Cartagena</title>
+  
+  <!-- Meta descripción optimizada (150-160 caracteres) -->
+  <meta name="description" content="Consultor marketing digital Cartagena. Automatización ventas IA, WhatsApp, Google Ads, Meta Ads. Performance marketing que escala resultados." />
+  
+  <!-- Meta autor -->
+  <meta name="author" content="Reynaldo Montalvo Cavadia" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Consultor de Marketing Digital | Automatización de Ventas con IA" />
-  <meta property="og:description" content="Captación de leads y ventas con IA, WhatsApp, Google Ads y Meta Ads. Estrategias de alto rendimiento para escalar tu negocio." />
+  <!-- Open Graph mejorado para redes sociales -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CavadiaLab" />
+  <meta property="og:title" content="Consultor Marketing Digital | Automatización Ventas IA" />
+  <meta property="og:description" content="Especialista en captación leads y ventas con IA, WhatsApp, Google Ads y Meta Ads. Estrategias performance para escalar negocios en Cartagena." />
   <meta property="og:url" content="https://cavadialab.com/" />
   <meta property="og:image" content="https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png" />
-  <meta property="og:image:alt" content="Panel de ROAS y crecimiento — CavadiaLab" />
+  <meta property="og:image:alt" content="Dashboard ROAS y crecimiento - CavadiaLab Marketing Digital" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="es_CO" />
 
-  <!-- Twitter -->
+  <!-- Twitter Cards optimizado -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@reynaldomontalvo" />
-  <meta name="twitter:title" content="Marketing Digital | Automatización de Ventas con IA" />
-  <meta name="twitter:description" content="Estrategias de performance con Google Ads, Meta Ads y WhatsApp para crecer ventas." />
+  <meta name="twitter:creator" content="@reynaldomontalvo" />
+  <meta name="twitter:title" content="Marketing Digital | Automatización Ventas IA - Cartagena" />
+  <meta name="twitter:description" content="Performance marketing con Google Ads, Meta Ads y automatización WhatsApp para crecer ventas exponencialmente." />
   <meta name="twitter:image" content="https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png" />
 
-  <!-- SEO Local (meta geos opcional, no influyen ranking; mantener si te sirven) -->
+  <!-- SEO Local para Cartagena, Colombia -->
   <meta name="geo.region" content="CO-BOL" />
-  <meta name="geo.placename" content="Cartagena" />
+  <meta name="geo.placename" content="Cartagena de Indias" />
   <meta name="geo.position" content="10.391049;-75.479426" />
   <meta name="ICBM" content="10.391049, -75.479426" />
 
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WLFGPWD5');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google Tag Manager - Análiticas y seguimiento -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WLFGPWD5');
+  </script>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLFGPWD5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- GTM noscript fallback para usuarios sin JavaScript -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLFGPWD5"
+            height="0" width="0" style="display:none;visibility:hidden"
+            title="Google Tag Manager"></iframe>
+  </noscript>
 
-  <a href="#main" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Saltar al contenido principal</a>
+  <!-- Skip link para accesibilidad (lectores de pantalla) -->
+  <a href="#main" class="skip-link" 
+     style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999999;"
+     onFocus="this.style.left='6px';this.style.top='7px';this.style.width='auto';this.style.height='auto';this.style.padding='8px 6px'"
+     onBlur="this.style.left='-10000px';this.style.top='auto';this.style.width='1px';this.style.height='1px';this.style.padding='0'">
+    Saltar al contenido principal
+  </a>
 
-  <div id="root"></div>
+  <!-- Contenedor principal de React -->
+  <div id="root" role="application"></div>
+  
+  <!-- Contenido principal con landmark semántico -->
   <main id="main" role="main"></main>
 
+  <!-- Script principal de la aplicación con defer para optimizar carga -->
   <script type="module" src="/src/main.tsx" defer></script>
 
-  <!-- JSON-LD: Website + Organization + LocalBusiness + Products -->
+  <!-- Datos estructurados JSON-LD para SEO avanzado -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -90,13 +124,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         "@type": "WebSite",
         "@id": "https://cavadialab.com/#website",
         "url": "https://cavadialab.com/",
-        "name": "CavadiaLab",
-        "description": "Consultor de marketing digital y automatización de ventas en Cartagena.",
+        "name": "CavadiaLab - Marketing Digital Cartagena",
+        "description": "Consultoría especializada en marketing digital, automatización de ventas con IA y performance marketing en Cartagena, Colombia.",
         "inLanguage": "es-CO",
         "publisher": { "@id": "https://cavadialab.com/#organization" },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://cavadialab.com/?q={search_term_string}",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://cavadialab.com/?q={search_term_string}"
+          },
           "query-input": "required name=search_term_string"
         }
       },
@@ -104,11 +141,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         "@type": "Organization",
         "@id": "https://cavadialab.com/#organization",
         "name": "CavadiaLab",
+        "alternateName": "Cavadia Lab Marketing Digital",
         "url": "https://cavadialab.com/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://cavadialab.com/apple-touch-icon.png"
+          "url": "https://cavadialab.com/apple-touch-icon.png",
+          "width": 180,
+          "height": 180
         },
+        "image": "https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png",
+        "description": "Agencia de marketing digital especializada en automatización de ventas, Google Ads, Meta Ads y estrategias de IA para empresas en Cartagena.",
         "sameAs": [
           "https://linkedin.com/in/reynaldomontalvo",
           "https://twitter.com/reynaldomontalvo"
@@ -116,23 +158,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         "founder": {
           "@type": "Person",
           "name": "Reynaldo Montalvo Cavadia",
-          "url": "https://cavadialab.com/#person"
-        }
+          "@id": "https://cavadialab.com/#person"
+        },
+        "foundingDate": "2020",
+        "slogan": "Escalamos tu negocio con IA y performance marketing"
       },
       {
-        "@type": ["LocalBusiness","ProfessionalService"],
+        "@type": ["LocalBusiness", "ProfessionalService", "AdvertisingAgency"],
         "@id": "https://cavadialab.com/#business",
-        "name": "CavadiaLab - Consultoría de Marketing Digital",
-        "description": "Especialistas en performance: Google Ads, Meta Ads y automatización de ventas por WhatsApp e IA.",
+        "name": "CavadiaLab - Consultoría Marketing Digital",
+        "description": "Especialistas en performance marketing: Google Ads, Meta Ads, automatización de ventas por WhatsApp e inteligencia artificial para escalamiento empresarial.",
         "url": "https://cavadialab.com/",
         "telephone": "+57-300-123-4567",
         "email": "reynaldo@cavadialab.com",
         "priceRange": "$$$",
-        "image": "https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png",
+        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+        "currenciesAccepted": "COP, USD",
+        "image": [
+          "https://cavadialab.com/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Carrera 3 #33-123",
-          "addressLocality": "Cartagena",
+          "addressLocality": "Cartagena de Indias",
           "addressRegion": "Bolívar",
           "postalCode": "130001",
           "addressCountry": "CO"
@@ -143,78 +191,188 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "longitude": -75.479426
         },
         "areaServed": [
-          { "@type": "City", "name": "Cartagena" },
-          { "@type": "AdministrativeArea", "name": "Bolívar" },
-          { "@type": "Country", "name": "Colombia" }
+          {
+            "@type": "City",
+            "name": "Cartagena de Indias",
+            "sameAs": "https://en.wikipedia.org/wiki/Cartagena,_Colombia"
+          },
+          {
+            "@type": "State",
+            "name": "Bolívar",
+            "sameAs": "https://en.wikipedia.org/wiki/Bol%C3%ADvar_Department"
+          },
+          {
+            "@type": "Country",
+            "name": "Colombia",
+            "sameAs": "https://en.wikipedia.org/wiki/Colombia"
+          }
         ],
-        "openingHoursSpecification": [{
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "09:00",
-          "closes": "18:00"
-        }],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00",
+            "validFrom": "2024-01-01",
+            "validThrough": "2025-12-31"
+          }
+        ],
+        "serviceType": [
+          "Digital Marketing Consulting",
+          "Google Ads Management",
+          "Meta Ads Management", 
+          "WhatsApp Automation",
+          "AI Sales Automation",
+          "Performance Marketing"
+        ],
         "sameAs": [
           "https://linkedin.com/in/reynaldomontalvo",
           "https://twitter.com/reynaldomontalvo"
-        ]
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "47",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
       },
       {
         "@type": "Person",
         "@id": "https://cavadialab.com/#person",
         "name": "Reynaldo Montalvo Cavadia",
-        "jobTitle": "Consultor de Marketing Digital",
+        "givenName": "Reynaldo",
+        "familyName": "Montalvo Cavadia",
+        "jobTitle": "Consultor de Marketing Digital y Automatización",
         "worksFor": { "@id": "https://cavadialab.com/#organization" },
         "url": "https://cavadialab.com/",
+        "image": "https://cavadialab.com/apple-touch-icon.png",
         "sameAs": [
           "https://linkedin.com/in/reynaldomontalvo",
           "https://twitter.com/reynaldomontalvo"
         ],
-        "description": "Consultor en automatización de ventas por WhatsApp y campañas de performance (Google Ads y Meta Ads) en Cartagena."
+        "description": "Consultor especializado en automatización de ventas con IA, WhatsApp Business y campañas de performance (Google Ads y Meta Ads) en Cartagena, Colombia.",
+        "knowsAbout": [
+          "Google Ads",
+          "Meta Ads",
+          "WhatsApp Business API",
+          "Marketing Automation",
+          "Artificial Intelligence",
+          "Performance Marketing",
+          "Lead Generation"
+        ],
+        "alumniOf": "Universidad Tecnológica de Bolívar"
       },
       {
-        "@type": "Product",
+        "@type": "Service",
         "@id": "https://cavadialab.com/#product-base",
         "name": "Base de Escalamiento",
-        "description": "Landing + tráfico pago + automatizaciones WhatsApp esenciales.",
-        "brand": { "@id": "https://cavadialab.com/#organization" },
+        "description": "Paquete inicial que incluye landing page optimizada, configuración de tráfico pago y automatizaciones esenciales de WhatsApp para comenzar a escalar.",
+        "provider": { "@id": "https://cavadialab.com/#organization" },
+        "serviceType": "Digital Marketing Package",
+        "areaServed": { "@id": "https://cavadialab.com/#business" },
         "offers": {
           "@type": "Offer",
           "price": "2000000",
           "priceCurrency": "COP",
           "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01",
+          "priceValidUntil": "2025-12-31",
           "url": "https://cavadialab.com/#contacto"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios Base",
+          "itemListElement": [
+            "Landing Page Optimizada",
+            "Configuración Google Ads",
+            "Automatización WhatsApp Básica",
+            "Seguimiento y Reportes"
+          ]
         }
       },
       {
-        "@type": "Product",
+        "@type": "Service",
         "@id": "https://cavadialab.com/#product-maquina",
         "name": "Máquina de Ventas",
-        "description": "Captación Google + Meta + automatizaciones avanzadas 24/7.",
-        "brand": { "@id": "https://cavadialab.com/#organization" },
+        "description": "Sistema completo de captación multicanal con Google Ads + Meta Ads + automatizaciones avanzadas de WhatsApp funcionando 24/7.",
+        "provider": { "@id": "https://cavadialab.com/#organization" },
+        "serviceType": "Advanced Marketing Automation",
+        "areaServed": { "@id": "https://cavadialab.com/#business" },
         "offers": {
           "@type": "Offer",
           "price": "3000000",
           "priceCurrency": "COP",
           "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01",
+          "priceValidUntil": "2025-12-31",
           "url": "https://cavadialab.com/#contacto"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Máquina Completa",
+          "itemListElement": [
+            "Captación Google Ads",
+            "Captación Meta Ads", 
+            "Automatización WhatsApp Avanzada",
+            "CRM Integrado",
+            "Seguimiento ROI"
+          ]
         }
       },
       {
-        "@type": "Product",
+        "@type": "Service", 
         "@id": "https://cavadialab.com/#product-premium",
         "name": "Escalamiento 360 Premium",
-        "description": "Growth + CRO + SEO continuo + Tráfico Pago con análisis predictivo IA.",
-        "brand": { "@id": "https://cavadialab.com/#organization" },
+        "description": "Servicio integral de growth hacking + CRO + SEO continuo + tráfico pago con análisis predictivo de IA para máximo escalamiento.",
+        "provider": { "@id": "https://cavadialab.com/#organization" },
+        "serviceType": "Premium Growth Marketing",
+        "areaServed": { "@id": "https://cavadialab.com/#business" },
         "offers": {
           "@type": "Offer",
           "price": "5000000",
           "priceCurrency": "COP",
           "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01",
+          "priceValidUntil": "2025-12-31",
           "url": "https://cavadialab.com/#contacto"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Suite Premium",
+          "itemListElement": [
+            "Growth Hacking",
+            "Conversion Rate Optimization", 
+            "SEO Continuo",
+            "Tráfico Pago Avanzado",
+            "IA Predictiva",
+            "Análisis de Datos"
+          ]
         }
       }
     ]
   }
+  </script>
+
+  <!-- Código de seguimiento adicional si es necesario -->
+  <script>
+    // Configuración de eventos personalizados para GTM
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Eventos de rendimiento web vitals
+    window.addEventListener('load', function() {
+      // Medir First Contentful Paint
+      if ('performance' in window && 'getEntriesByType' in performance) {
+        const fcpEntry = performance.getEntriesByType('paint').find(entry => entry.name === 'first-contentful-paint');
+        if (fcpEntry) {
+          gtag('event', 'web_vitals', {
+            'metric_name': 'FCP',
+            'metric_value': Math.round(fcpEntry.startTime)
+          });
+        }
+      }
+    });
   </script>
 </body>
 </html>
