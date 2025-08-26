@@ -44,7 +44,7 @@ const Index: React.FC = () => {
       "@type": "Organization",
       name: "CavadiaLab - Reynaldo Montalvo",
       url: window.location.origin,
-      logo: "/lovable-uploads/f1c15801-958d-41b4-b919-77307a1fbe5d.png",
+      logo: "/src/assets/cavadialab-logo.png",
       sameAs: [],
       description: "Full Stack Marketing Lab: experimentamos, optimizamos y escalamos tu negocio digital.",
     };

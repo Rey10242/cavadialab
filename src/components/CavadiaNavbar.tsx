@@ -1,6 +1,7 @@
 import React from "react";
 import CTAButton from "./CTAButton";
 import { Menu, X } from "lucide-react";
+import cavadiaLogo from "@/assets/cavadialab-logo.png";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
@@ -50,9 +51,11 @@ const CavadiaNavbar: React.FC = () => {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <a href="#inicio" className="flex items-center gap-2 focus-ring" aria-label="CavadiaLab Inicio">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-bold text-sm">
-              CL
-            </div>
+            <img 
+              src={cavadiaLogo} 
+              alt="CavadiaLab Logo" 
+              className="h-8 w-8 rounded-lg"
+            />
             <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">CavadiaLab</span>
           </div>
         </a>

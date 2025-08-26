@@ -1,4 +1,5 @@
 import React from "react";
+import cavadiaLogo from "@/assets/cavadialab-logo.png";
 
 const SiteFooter: React.FC = () => {
   return (
@@ -7,9 +8,11 @@ const SiteFooter: React.FC = () => {
         <div className="grid gap-8 md:grid-cols-3">
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-bold text-sm">
-                CL
-              </div>
+              <img 
+                src={cavadiaLogo} 
+                alt="CavadiaLab Logo" 
+                className="h-8 w-8 rounded-lg"
+              />
               <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">CavadiaLab</span>
             </div>
             <p className="text-sm text-muted-foreground">Reynaldo Montalvo Cavadia</p>
