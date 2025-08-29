@@ -67,18 +67,11 @@ const ValueProp: React.FC = () => {
 
       <div className="mx-auto max-w-7xl relative">
         <header className="mx-auto mb-20 max-w-4xl text-center">
-          <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary border border-primary/20 mb-6 animate-fade-in">
-            <span className="relative flex h-2 w-2 mr-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            Sistema Integral
-          </div>
-          <h2 className="heading-secondary mb-6 animate-fade-in" style={{animationDelay: '100ms'}}>
+          <h2 className="heading-secondary mb-6 animate-fade-in">
             Tu Viaje Hacia el Crecimiento Digital
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-8 animate-fade-in" style={{animationDelay: '200ms'}}></div>
-          <p className="text-xl leading-relaxed text-muted-foreground animate-fade-in" style={{animationDelay: '300ms'}}>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-8 animate-fade-in" style={{animationDelay: '100ms'}}></div>
+          <p className="text-xl leading-relaxed text-muted-foreground animate-fade-in" style={{animationDelay: '200ms'}}>
             Cada fase de nuestro proceso está diseñada para <span className="text-foreground font-semibold">maximizar tu ROI</span> y crear un crecimiento sostenible que se acelera con el tiempo.
           </p>
         </header>
@@ -157,14 +150,6 @@ const ValueProp: React.FC = () => {
                           {step.desc}
                         </p>
                       </div>
-
-                      {/* Call to Action */}
-                      <div className="mt-6 pt-4 border-t border-border/50 group-hover:border-primary/20 transition-colors duration-300">
-                        <div className="flex items-center text-primary group-hover:text-primary-glow transition-colors duration-300">
-                          <span className="text-sm font-medium">Conoce más detalles</span>
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -177,17 +162,6 @@ const ValueProp: React.FC = () => {
                 )}
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center animate-fade-in" style={{animationDelay: '800ms'}}>
-          <p className="text-lg text-muted-foreground mb-4">
-            ¿Listo para comenzar tu transformación digital?
-          </p>
-          <div className="inline-flex items-center gap-2 text-primary font-semibold group cursor-pointer">
-            <span>Descubre cómo podemos acelerar tu crecimiento</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </div>
       </div>
