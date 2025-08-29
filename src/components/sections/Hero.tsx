@@ -18,53 +18,53 @@ const Hero: React.FC = () => {
               </span>
               ✅ Full Stack Marketer
             </div>
-            <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] pb-2 sm:pb-4">
+            <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 sm:mb-8">
               Ayudo a que tu negocio consiga más{" "}
               <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
                 clientes y ventas
               </span>
             </h1>
-            <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground">
+            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground leading-relaxed">
                 Con anuncios en Google y Facebook e inteligencia artificial, tus clientes llegan solos, 24/7.
               </p>
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto lg:mx-0">
                 No necesitas estar pendiente todo el tiempo, los sistemas trabajan solos para atraer clientes a tu negocio, en cualquier momento del día.
               </p>
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start mb-8 sm:mb-10">
               <CTAButton 
-                className="btn-primary-glow text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-semibold"
+                className="btn-primary-glow text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 h-auto font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
                 onClick={trackHeroCTA}
               >
                 🚀 Quiero que me ayuden a vender más
               </CTAButton>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm justify-center lg:justify-start">
-              <div className="flex items-center gap-2 text-muted-foreground justify-center sm:justify-start">
-                <div className="w-4 sm:w-5 h-4 sm:h-5 rounded-full bg-success flex items-center justify-center">
-                  <svg className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-sm justify-center lg:justify-start">
+              <div className="flex items-center gap-3 text-muted-foreground justify-center sm:justify-start">
+                <div className="w-5 h-5 rounded-full bg-success flex items-center justify-center flex-shrink-0">
+                  <svg className="w-3 h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <span>Consulta gratuita</span>
+                <span className="font-medium">Consulta gratuita</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground justify-center sm:justify-start">
-                <div className="w-4 sm:w-5 h-4 sm:h-5 rounded-full bg-success flex items-center justify-center">
-                  <svg className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-3 text-muted-foreground justify-center sm:justify-start">
+                <div className="w-5 h-5 rounded-full bg-success flex items-center justify-center flex-shrink-0">
+                  <svg className="w-3 h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <span>Sin compromisos</span>
+                <span className="font-medium">Sin compromisos</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground justify-center sm:justify-start">
-                <div className="w-4 sm:w-5 h-4 sm:h-5 rounded-full bg-success flex items-center justify-center">
-                  <svg className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-3 text-muted-foreground justify-center sm:justify-start">
+                <div className="w-5 h-5 rounded-full bg-success flex items-center justify-center flex-shrink-0">
+                  <svg className="w-3 h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <span>30 minutos</span>
+                <span className="font-medium">30 minutos</span>
               </div>
             </div>
           </article>
