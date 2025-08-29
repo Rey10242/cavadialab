@@ -8,9 +8,9 @@ const Hero: React.FC = () => {
 
   return (
     <section id="inicio" className="bg-hero scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16 md:py-20 lg:py-32">
-        <div className="grid items-center gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2">
-          <article className="space-y-6 sm:space-y-8 text-center lg:text-left">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="grid items-center gap-6 sm:gap-8 md:gap-12 lg:grid-cols-2">
+          <article className="space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center rounded-full bg-primary-soft/50 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-primary border border-primary/20">
               <span className="relative flex h-2 w-2 mr-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -18,15 +18,14 @@ const Hero: React.FC = () => {
               </span>
               ✅ Full Stack Marketer
             </div>
-            <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 sm:mb-8">
+            <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
               Ayudo a que tu negocio<br />
               consiga más{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                clientes<br />
-                y ventas
+              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent whitespace-nowrap">
+                clientes y ventas
               </span>
             </h1>
-            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+            <div className="space-y-4 mb-6">
               <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground leading-relaxed">
                 Con anuncios en Google y Facebook e inteligencia artificial, tus clientes llegan solos, 24/7.
               </p>
@@ -34,7 +33,7 @@ const Hero: React.FC = () => {
                 No necesitas estar pendiente todo el tiempo, los sistemas trabajan solos para atraer clientes a tu negocio, en cualquier momento del día.
               </p>
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start mb-8 sm:mb-10">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start mb-6">
               <CTAButton 
                 className="btn-primary-glow text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 h-auto font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
                 onClick={trackHeroCTA}
@@ -43,7 +42,7 @@ const Hero: React.FC = () => {
               </CTAButton>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-sm justify-center lg:justify-start">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm justify-center lg:justify-start">
               <div className="flex items-center gap-3 text-muted-foreground justify-center sm:justify-start">
                 <div className="w-5 h-5 rounded-full bg-success flex items-center justify-center flex-shrink-0">
                   <svg className="w-3 h-3 text-success-foreground" fill="currentColor" viewBox="0 0 20 20">
@@ -72,7 +71,7 @@ const Hero: React.FC = () => {
           </article>
 
           <div className="relative group order-first lg:order-last">
-            <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+            <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <img
               src={heroImg}
               alt="Dashboard resultados ROI consultor marketing digital automatización WhatsApp"
@@ -82,20 +81,20 @@ const Hero: React.FC = () => {
             />
             
             {/* Stats Overlay - Mejorados */}
-            <div className="absolute top-3 sm:top-6 left-3 sm:left-6 bg-background/95 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-border/50 shadow-lg">
-              <div className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">ROAS Promedio</div>
+            <div className="absolute top-4 left-4 bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-lg">
+              <div className="text-xs font-semibold text-primary uppercase tracking-wide">ROAS PROMEDIO</div>
               <div className="text-2xl sm:text-3xl font-bold text-foreground">6.2x</div>
               <div className="text-xs text-muted-foreground">Retorno garantizado</div>
             </div>
             
-            <div className="absolute bottom-3 sm:bottom-6 right-3 sm:right-6 bg-background/95 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-border/50 shadow-lg">
-              <div className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">Automatización</div>
+            <div className="absolute bottom-4 right-4 bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-lg">
+              <div className="text-xs font-semibold text-primary uppercase tracking-wide">AUTOMATIZACIÓN</div>
               <div className="text-2xl sm:text-3xl font-bold text-foreground">24/7</div>
               <div className="text-xs text-muted-foreground">Sin descanso</div>
             </div>
 
             {/* Badge de confianza adicional */}
-            <div className="absolute top-3 sm:top-6 right-3 sm:right-6 bg-success/90 backdrop-blur-md rounded-full px-3 py-2 border border-success/30 shadow-lg">
+            <div className="absolute top-4 right-4 bg-success/90 backdrop-blur-md rounded-full px-3 py-2 border border-success/30 shadow-lg">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-success-foreground rounded-full animate-pulse"></div>
                 <span className="text-xs font-semibold text-success-foreground">ACTIVO</span>
