@@ -34,7 +34,7 @@ const Problem: React.FC = () => {
           ))}
         </div>
         <div className="text-center">
-          <p className="text-lg text-muted-foreground mb-6">Si te identificas con alguna de estas situaciones, puedo ayudarte a cambiar esa realidad..</p>
+          <p className="text-lg text-muted-foreground mb-6">Si te identificas con alguna de estas situaciones, puedo ayudarte a cambiar esa realidad.</p>
           <CTAButton className="btn-primary-glow px-8 py-4 h-auto text-lg font-semibold">
             Agenda tu diagnóstico gratuito
           </CTAButton>
