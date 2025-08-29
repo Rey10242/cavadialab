@@ -2,10 +2,12 @@ import React from "react";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
+import Authority from "@/components/sections/Authority";
+import Transformation from "@/components/sections/Transformation";
 import ValueProp from "@/components/sections/ValueProp";
+import Results from "@/components/sections/Results";
 import Process from "@/components/sections/Process";
 import Pricing from "@/components/sections/Pricing";
-import Results from "@/components/sections/Results";
 import Guarantee from "@/components/sections/Guarantee";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
@@ -125,10 +127,12 @@ const Index: React.FC = () => {
       <CavadiaNavbar />
       <Hero />
       <Problem />
+      <Authority />
+      <Transformation />
       <ValueProp />
+      <Results />
       <Process />
       <Pricing />
-      <Results />
       <Guarantee />
       <FAQ />
       <Contact />
