@@ -19,9 +19,11 @@ const Hero: React.FC = () => {
               ✅ Full Stack Marketer
             </div>
             <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 sm:mb-8">
-              Ayudo a que tu negocio consiga más{" "}
+              Ayudo a que tu negocio<br />
+              consiga más{" "}
               <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                clientes y ventas
+                clientes<br />
+                y ventas
               </span>
             </h1>
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
