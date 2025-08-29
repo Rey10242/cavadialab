@@ -3,7 +3,7 @@ import { AlertTriangle, Clock, Globe, Shuffle } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 
 const bullets = [
-  { icon: AlertTriangle, text: "Campañas que gastan presupuesto sin generar ventas." },
+  { icon: AlertTriangle, text: "Gastas dinero en anuncios pero no ves resultados reales." },
   { icon: Clock, text: "Leads que se enfrían porque nadie responde a tiempo." },
   { icon: Globe, text: "Sitio web atractivo pero que no convierte." },
   { icon: Shuffle, text: "Dependencia total de ti para conseguir clientes." },
@@ -14,7 +14,7 @@ const Problem: React.FC = () => {
     <section id="problema" className="border-t border-border/60 scroll-mt-24 section-padding">
       <div className="mx-auto max-w-6xl">
         <header className="mb-12 text-center">
-          <h2 className="heading-secondary mb-4">¿Por Qué Tus Campañas No Generan Ventas?</h2>
+          <h2 className="heading-secondary mb-4">¿Quieres más clientes, pero no sabes cómo conseguirlos?</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full"></div>
         </header>
         <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 mb-12">
@@ -34,7 +34,7 @@ const Problem: React.FC = () => {
           ))}
         </div>
         <div className="text-center">
-          <p className="text-lg text-muted-foreground mb-6">Si alguna de estas frases es tu realidad, te puedo ayudar.</p>
+          <p className="text-lg text-muted-foreground mb-6">Si te identificas con alguna de estas situaciones, puedo ayudarte a cambiar esa realidad..</p>
           <CTAButton className="btn-primary-glow px-8 py-4 h-auto text-lg font-semibold">
             Agenda tu diagnóstico gratuito
           </CTAButton>
