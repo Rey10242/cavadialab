@@ -19,17 +19,17 @@ const Hero: React.FC = () => {
               ✅ Full Stack Marketer
             </div>
             <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] pb-2 sm:pb-4">
-             Convierte Más Leads en Clientes y Haz Crecer tu Negocio con{" "}
+              Ayudo a que tu negocio consiga más{" "}
               <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                 Marketing + IA
+                clientes y ventas
               </span>
             </h1>
             <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
               <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground">
-                Duplica tus ventas y atrae clientes cada mes, sin depender de tu tiempo.
+                Con anuncios en Google y Facebook e inteligencia artificial, tus clientes llegan solos, 24/7.
               </p>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
-               Con Google Ads, Meta Ads y WhatsApp con IA, convierto leads en clientes 24/7 con resultados garantizados.
+                No necesitas estar pendiente todo el tiempo, los sistemas trabajan solos para atraer clientes a tu negocio, en cualquier momento del día.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
                 className="btn-primary-glow text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-semibold"
                 onClick={trackHeroCTA}
               >
-                🚀 Quiero mi máquina de ventas
+                🚀 Quiero que me ayuden a vender más
               </CTAButton>
             </div>
             
@@ -70,24 +70,41 @@ const Hero: React.FC = () => {
           </article>
 
           <div className="relative group order-first lg:order-last">
-            <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-            <img
-              src={heroImg}
-              alt="Dashboard resultados ROI consultor marketing digital Cartagena automatización WhatsApp"
-              className="relative w-full rounded-2xl border border-border/50 card-interactive shadow-2xl"
-              loading="eager"
-              decoding="async"
-            />
-            
-            {/* Stats Overlay */}
-            <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-background/90 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-border/50">
-              <div className="text-xs sm:text-sm font-semibold text-primary">ROAS Promedio</div>
-              <div className="text-lg sm:text-2xl font-bold text-foreground">6.2x</div>
-            </div>
-            
-            <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-background/90 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-border/50">
-              <div className="text-xs sm:text-sm font-semibold text-primary">Automatización</div>
-              <div className="text-lg sm:text-2xl font-bold text-foreground">24/7</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              {/* Foto personal */}
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <img
+                  src="/lovable-uploads/5d075f41-6db3-4ae1-945a-1873f7ff1789.png"
+                  alt="Carlos Cavadia - Consultor Marketing Digital especialista en Google Ads y Meta Ads"
+                  className="relative w-full rounded-2xl border border-border/50 card-interactive shadow-2xl aspect-square object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              
+              {/* Dashboard de resultados */}
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-r from-primary/10 to-primary-glow/10 rounded-2xl blur-lg transition-all duration-500"></div>
+                <img
+                  src={heroImg}
+                  alt="Dashboard resultados ROI consultor marketing digital automatización WhatsApp"
+                  className="relative w-full rounded-2xl border border-border/50 card-interactive shadow-xl"
+                  loading="eager"
+                  decoding="async"
+                />
+                
+                {/* Stats Overlay */}
+                <div className="absolute top-2 left-2 bg-background/90 backdrop-blur-sm rounded-lg p-2 border border-border/50">
+                  <div className="text-xs font-semibold text-primary">ROAS Promedio</div>
+                  <div className="text-lg font-bold text-foreground">6.2x</div>
+                </div>
+                
+                <div className="absolute bottom-2 right-2 bg-background/90 backdrop-blur-sm rounded-lg p-2 border border-border/50">
+                  <div className="text-xs font-semibold text-primary">Automatización</div>
+                  <div className="text-lg font-bold text-foreground">24/7</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
