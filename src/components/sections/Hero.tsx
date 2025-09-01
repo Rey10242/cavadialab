@@ -71,8 +71,6 @@ const Hero: React.FC = () => {
           </article>
 
           <div className="relative group order-first lg:order-last scroll-reveal">
-            <div className="absolute -inset-6 bg-gradient-animated rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-30"></div>
-            <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <img
               src={heroImg}
               alt="Dashboard resultados ROI consultor marketing digital automatización WhatsApp"
