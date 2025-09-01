@@ -13,7 +13,10 @@ import Contact from "@/components/sections/Contact";
 import FinalCTA from "@/components/sections/FinalCTA";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
+import FloatingElements from "@/components/FloatingElements";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index: React.FC = () => {
   React.useEffect(() => {
@@ -118,25 +121,30 @@ const Index: React.FC = () => {
     };
   }, []);
 
-  // Initialize scroll tracking
+  // Initialize scroll tracking and animations
   useScrollTracking();
+  useScrollAnimation();
 
   return (
-    <main>
-      <CavadiaNavbar />
-      <Hero />
-      <Problem />
-      <Authority />
-      <ValueProp />
-      <Results />
-      <Process />
-      <Pricing />
-      <Guarantee />
-      <FAQ />
-      <Contact />
-      <FinalCTA />
-      <SiteFooter />
-      <FloatingWhatsAppButton />
+    <main className="relative">
+      <AnimatedBackground />
+      <FloatingElements />
+      <div className="relative z-10">
+        <CavadiaNavbar />
+        <Hero />
+        <Problem />
+        <Authority />
+        <ValueProp />
+        <Results />
+        <Process />
+        <Pricing />
+        <Guarantee />
+        <FAQ />
+        <Contact />
+        <FinalCTA />
+        <SiteFooter />
+        <FloatingWhatsAppButton />
+      </div>
     </main>
   );
 };

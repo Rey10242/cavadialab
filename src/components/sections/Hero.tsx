@@ -18,24 +18,24 @@ const Hero: React.FC = () => {
               </span>
               ✅ Full Stack Marketer
             </div>
-            <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+            <h1 className="heading-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 scroll-reveal">
               Ayudo a que tu negocio<br />
               consiga más{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent whitespace-nowrap">
+              <span className="text-gradient whitespace-nowrap">
                 clientes y ventas
               </span>
             </h1>
-            <div className="space-y-4 mb-6">
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground leading-relaxed">
+            <div className="space-y-4 mb-6 scroll-reveal">
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground leading-relaxed animate-slide-up [animation-delay:0.2s]">
                 Con anuncios en Google y Facebook e inteligencia artificial, tus clientes llegan solos, 24/7.
               </p>
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto lg:mx-0 animate-slide-up [animation-delay:0.4s]">
                 No necesitas estar pendiente todo el tiempo, los sistemas trabajan solos para atraer clientes a tu negocio, en cualquier momento del día.
               </p>
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start mb-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start mb-6 scroll-reveal">
               <CTAButton 
-                className="btn-primary-glow text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 h-auto font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="btn-primary-glow hover-lift text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 h-auto font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 animate-bounce-in [animation-delay:0.6s]"
                 onClick={trackHeroCTA}
               >
                 🚀 Quiero que me ayuden a vender más
@@ -70,31 +70,32 @@ const Hero: React.FC = () => {
             </div>
           </article>
 
-          <div className="relative group order-first lg:order-last">
+          <div className="relative group order-first lg:order-last scroll-reveal">
+            <div className="absolute -inset-6 bg-gradient-animated rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-30"></div>
             <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 to-primary-glow/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <img
               src={heroImg}
               alt="Dashboard resultados ROI consultor marketing digital automatización WhatsApp"
-              className="relative w-full rounded-2xl border border-border/50 card-interactive shadow-2xl"
+              className="relative w-full rounded-2xl border border-border/50 card-interactive shadow-2xl hover-glow animate-scale-in [animation-delay:0.8s]"
               loading="eager"
               decoding="async"
             />
             
-            {/* Stats Overlay - Mejorados */}
-            <div className="absolute top-4 left-4 bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-lg">
-              <div className="text-xs font-semibold text-primary uppercase tracking-wide">ROAS PROMEDIO</div>
-              <div className="text-2xl sm:text-3xl font-bold text-foreground">6.2x</div>
+            {/* Enhanced Stats Overlays */}
+            <div className="absolute top-4 left-4 glass-strong rounded-xl p-4 shadow-lg animate-slide-up hover-lift [animation-delay:1s]">
+              <div className="text-xs font-semibold text-primary uppercase tracking-wide animate-pulse-glow">ROAS PROMEDIO</div>
+              <div className="text-2xl sm:text-3xl font-bold text-foreground text-glow">6.2x</div>
               <div className="text-xs text-muted-foreground">Retorno garantizado</div>
             </div>
             
-            <div className="absolute bottom-4 right-4 bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-lg">
-              <div className="text-xs font-semibold text-primary uppercase tracking-wide">AUTOMATIZACIÓN</div>
-              <div className="text-2xl sm:text-3xl font-bold text-foreground">24/7</div>
+            <div className="absolute bottom-4 right-4 glass-strong rounded-xl p-4 shadow-lg animate-slide-up hover-lift [animation-delay:1.2s]">
+              <div className="text-xs font-semibold text-primary uppercase tracking-wide animate-pulse-glow">AUTOMATIZACIÓN</div>
+              <div className="text-2xl sm:text-3xl font-bold text-foreground text-glow">24/7</div>
               <div className="text-xs text-muted-foreground">Sin descanso</div>
             </div>
 
-            {/* Badge de confianza adicional */}
-            <div className="absolute top-4 right-4 bg-success/90 backdrop-blur-md rounded-full px-3 py-2 border border-success/30 shadow-lg">
+            {/* Enhanced Trust Badge */}
+            <div className="absolute top-4 right-4 bg-gradient-to-r from-success to-success/80 backdrop-blur-md rounded-full px-3 py-2 border border-success/30 shadow-lg animate-bounce-in hover-bounce [animation-delay:1.4s]">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-success-foreground rounded-full animate-pulse"></div>
                 <span className="text-xs font-semibold text-success-foreground">ACTIVO</span>

@@ -59,20 +59,20 @@ const Problem: React.FC = () => {
       
       <div className="mx-auto max-w-7xl relative">
         <header className="mx-auto mb-16 max-w-4xl text-center">
-          <div className="inline-flex items-center rounded-full bg-destructive/10 px-4 py-2 text-sm font-medium text-destructive border border-destructive/20 mb-6 animate-fade-in">
+          <div className="inline-flex items-center rounded-full bg-destructive/10 px-4 py-2 text-sm font-medium text-destructive border border-destructive/20 mb-6 scroll-reveal hover-bounce">
             <Heart className="w-4 h-4 mr-2" />
             Te entiendo perfectamente
           </div>
-          <h2 className="heading-secondary mb-6 animate-fade-in" style={{animationDelay: '100ms'}}>
+          <h2 className="heading-secondary mb-6 scroll-reveal">
             <span className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
               ¿Sientes que tu negocio está 
             </span>
-            <span className="bg-gradient-to-r from-destructive to-destructive/80 bg-clip-text text-transparent">
+            <span className="text-gradient">
               {" "}estancado?
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-destructive to-destructive/60 mx-auto rounded-full mb-8 animate-fade-in" style={{animationDelay: '200ms'}}></div>
-          <p className="text-xl leading-relaxed text-muted-foreground animate-fade-in" style={{animationDelay: '300ms'}}>
+          <div className="w-24 h-1 bg-gradient-animated mx-auto rounded-full mb-8 scroll-reveal"></div>
+          <p className="text-xl leading-relaxed text-muted-foreground scroll-reveal">
             Si alguna de estas situaciones te resulta familiar, <span className="text-foreground font-semibold">no estás solo</span>. He ayudado a más de 200 empresarios a superar exactamente estos mismos obstáculos.
           </p>
         </header>

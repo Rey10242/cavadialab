@@ -23,35 +23,35 @@ const Authority: React.FC = () => {
       
       <div className="mx-auto max-w-6xl relative px-4 sm:px-6 lg:px-8">
         <header className="mx-auto mb-12 max-w-4xl text-center">
-          <div className="inline-flex items-center rounded-full bg-success/10 px-4 py-2 text-sm font-medium text-success border border-success/20 mb-6 animate-fade-in">
+          <div className="inline-flex items-center rounded-full bg-success/10 px-4 py-2 text-sm font-medium text-success border border-success/20 mb-6 scroll-reveal hover-bounce">
             <CheckCircle className="w-4 h-4 mr-2" />
             Experiencia Comprobada
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 animate-fade-in" style={{animationDelay: '100ms'}}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 scroll-reveal">
             <span className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
               Mi compromiso es tu 
             </span>
-            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+            <span className="text-gradient">
               {" "}crecimiento
             </span>
           </h2>
-          <div className="w-20 h-0.5 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mb-6 animate-fade-in" style={{animationDelay: '200ms'}}></div>
-          <p className="text-lg leading-relaxed text-muted-foreground animate-fade-in" style={{animationDelay: '300ms'}}>
+          <div className="w-20 h-0.5 bg-gradient-animated mx-auto rounded-full mb-6 scroll-reveal"></div>
+          <p className="text-lg leading-relaxed text-muted-foreground scroll-reveal">
             No soy una agencia más. Soy <span className="text-foreground font-semibold">Reynaldo Montalvo</span>, especialista en growth marketing.
           </p>
         </header>
 
         <div className="grid gap-8 lg:grid-cols-2 items-center">
           {/* Credentials */}
-          <div className="space-y-6">
-            <div className="animate-fade-in" style={{animationDelay: '400ms'}}>
+          <div className="space-y-6 scroll-reveal">
+            <div>
               <h3 className="text-xl font-bold mb-4 text-foreground">¿Por qué confiar en mí?</h3>
               <div className="grid gap-4">
                 {credentials.map(({ icon: Icon, text }, index) => (
                   <div
                     key={text}
-                    className="flex items-center gap-3 p-3 rounded-lg bg-gradient-card border border-border/60 card-interactive group"
-                    style={{animationDelay: `${500 + index * 100}ms`}}
+                    className="flex items-center gap-3 p-3 rounded-lg bg-gradient-card border border-border/60 card-neon hover-lift group animate-slide-up [animation-delay:calc(0.1s*var(--index))]"
+                    style={{'--index': index} as any}
                   >
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <Icon className="text-primary w-5 h-5" />
@@ -62,10 +62,10 @@ const Authority: React.FC = () => {
               </div>
             </div>
 
-            <div className="animate-fade-in" style={{animationDelay: '800ms'}}>
-              <div className="relative rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 to-primary-glow/10 p-4 card-elevated">
+            <div>
+              <div className="relative rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 to-primary-glow/10 p-4 card-glow hover-lift">
                 <div className="flex items-center gap-2 mb-3">
-                  <Zap className="w-4 h-4 text-primary" />
+                  <Zap className="w-4 h-4 text-primary animate-pulse-glow" />
                   <span className="font-semibold text-primary text-sm">Mi filosofía</span>
                 </div>
                 <p className="text-foreground/90 text-sm leading-relaxed">
@@ -76,7 +76,7 @@ const Authority: React.FC = () => {
           </div>
 
           {/* Achievements */}
-          <div className="animate-fade-in" style={{animationDelay: '600ms'}}>
+          <div className="scroll-reveal">
             <div className="relative">
               <div className="relative space-y-4">
                 <h3 className="text-xl font-bold mb-4 text-center text-foreground">Resultados comprobados</h3>
