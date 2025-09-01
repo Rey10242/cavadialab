@@ -3,7 +3,6 @@ import CavadiaNavbar from "@/components/CavadiaNavbar";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
 import Authority from "@/components/sections/Authority";
-import Transformation from "@/components/sections/Transformation";
 import ValueProp from "@/components/sections/ValueProp";
 import Results from "@/components/sections/Results";
 import Process from "@/components/sections/Process";
@@ -128,7 +127,6 @@ const Index: React.FC = () => {
       <Hero />
       <Problem />
       <Authority />
-      <Transformation />
       <ValueProp />
       <Results />
       <Process />
