@@ -2,14 +2,10 @@ import React from "react";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
-import Authority from "@/components/sections/Authority";
-import ValueProp from "@/components/sections/ValueProp";
-import Results from "@/components/sections/Results";
-import Process from "@/components/sections/Process";
+import UniqueSystem from "@/components/sections/UniqueSystem";
+import SocialProof from "@/components/sections/SocialProof";
 import Pricing from "@/components/sections/Pricing";
-import Guarantee from "@/components/sections/Guarantee";
 import FAQ from "@/components/sections/FAQ";
-import Contact from "@/components/sections/Contact";
 import FinalCTA from "@/components/sections/FinalCTA";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
@@ -133,14 +129,10 @@ const Index: React.FC = () => {
         <CavadiaNavbar />
         <Hero />
         <Problem />
-        <Authority />
-        <ValueProp />
-        <Results />
-        <Process />
+        <UniqueSystem />
+        <SocialProof />
         <Pricing />
-        <Guarantee />
         <FAQ />
-        <Contact />
         <FinalCTA />
         <SiteFooter />
         <FloatingWhatsAppButton />
