@@ -12,10 +12,10 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com/in/", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
-  { icon: Github, href: "https://github.com/", label: "GitHub" },
-  { icon: MessageCircle, href: "https://wa.me/57", label: "WhatsApp" },
+  { icon: Linkedin, href: "https://linkedin.com/in/reynaldomontalvo", label: "LinkedIn" },
+  { icon: Instagram, href: "https://instagram.com/reynaldomontalvo", label: "Instagram" },
+  { icon: Github, href: "https://github.com/reynaldomontalvo", label: "GitHub" },
+  { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp" },
   { icon: Mail, href: "mailto:reynaldo@cavadialab.com", label: "Email" },
 ];
 

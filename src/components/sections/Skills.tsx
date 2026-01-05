@@ -24,13 +24,13 @@ const skillCategories = [
       { name: "Google Ads", level: 90 },
       { name: "Meta Ads", level: 85 },
       { name: "SEO", level: 80 },
-      { name: "Email Marketing", level: 85 },
-      { name: "Analytics", level: 88 },
+      { name: "Google Analytics", level: 88 },
+      { name: "Google Tag Manager", level: 85 },
     ],
     tools: [
       { name: "Google Ads", icon: Target },
       { name: "Meta Business", icon: BarChart3 },
-      { name: "Mailchimp", icon: Mail },
+      { name: "Looker Studio", icon: BarChart3 },
     ],
   },
   {
@@ -39,15 +39,15 @@ const skillCategories = [
     color: "from-purple-500 to-pink-500",
     skills: [
       { name: "Make (Integromat)", level: 92 },
-      { name: "Zapier", level: 85 },
+      { name: "n8n", level: 88 },
       { name: "WhatsApp API", level: 88 },
       { name: "CRM Integration", level: 82 },
       { name: "Workflows", level: 90 },
     ],
     tools: [
       { name: "Make", icon: Workflow },
+      { name: "n8n", icon: Workflow },
       { name: "WhatsApp", icon: MessageSquare },
-      { name: "HubSpot", icon: Database },
     ],
   },
   {
@@ -63,8 +63,8 @@ const skillCategories = [
     ],
     tools: [
       { name: "React", icon: Code },
-      { name: "Lovable", icon: Sparkles },
       { name: "Webflow", icon: Globe },
+      { name: "Framer", icon: Globe },
     ],
   },
   {
@@ -80,7 +80,7 @@ const skillCategories = [
     ],
     tools: [
       { name: "ChatGPT", icon: Bot },
-      { name: "Claude", icon: Sparkles },
+      { name: "Claude", icon: Bot },
       { name: "Midjourney", icon: Sparkles },
     ],
   },
