@@ -30,10 +30,10 @@ const projectTypes = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com/in/", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
-  { icon: Github, href: "https://github.com/", label: "GitHub" },
-  { icon: MessageCircle, href: "https://wa.me/57", label: "WhatsApp" },
+  { icon: Linkedin, href: "https://linkedin.com/in/reynaldomontalvo", label: "LinkedIn" },
+  { icon: Instagram, href: "https://instagram.com/reynaldomontalvo", label: "Instagram" },
+  { icon: Github, href: "https://github.com/reynaldomontalvo", label: "GitHub" },
+  { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp" },
 ];
 
 const Contact: React.FC = () => {
@@ -244,7 +244,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/57"
+                  href="https://wa.me/573246875354"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors"
@@ -254,7 +254,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <p className="text-foreground">+57 --- --- ----</p>
+                    <p className="text-foreground">+57 324 687 5354</p>
                   </div>
                 </a>
 
@@ -301,7 +301,7 @@ const Contact: React.FC = () => {
               <Button
                 size="lg"
                 className="btn-primary-glow"
-                onClick={() => window.open("https://wa.me/57", "_blank")}
+                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Agendar Llamada

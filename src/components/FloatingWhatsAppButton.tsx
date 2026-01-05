@@ -3,11 +3,11 @@ import { MessageCircle } from 'lucide-react';
 import { trackWhatsAppClick } from '@/lib/gtag';
 
 const FloatingWhatsAppButton: React.FC = () => {
-  const waText = encodeURIComponent("Hola Reynaldo, quiero conversar sobre tu plan para desbloquear mis ventas (30 min). ¿Tienes disponibilidad esta semana?");
+  const waText = encodeURIComponent("Hola Reynaldo, vi tu portafolio y me gustaría conversar sobre un proyecto. ¿Tienes disponibilidad?");
   
   const handleClick = () => {
     trackWhatsAppClick();
-    window.open(`https://wa.me/573012345678?text=${waText}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/573246875354?text=${waText}`, '_blank', 'noopener,noreferrer');
   };
 
   return (

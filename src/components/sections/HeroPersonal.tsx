@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import perfilReynaldo from "@/assets/perfil-reynaldo.jpg";
 
 const HeroPersonal: React.FC = () => {
   return (
@@ -72,14 +73,13 @@ const HeroPersonal: React.FC = () => {
               {/* Decorative ring */}
               <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/30 via-secondary/30 to-primary/30 blur-xl opacity-60 animate-pulse" />
               
-              {/* Photo placeholder - replace with actual photo */}
+              {/* Profile Photo */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="text-6xl md:text-7xl font-bold text-primary mb-2">RM</div>
-                    <p className="text-sm text-muted-foreground">Tu foto aquí</p>
-                  </div>
-                </div>
+                <img 
+                  src={perfilReynaldo} 
+                  alt="Reynaldo Montalvo - Full Stack Marketer" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Floating badges */}
