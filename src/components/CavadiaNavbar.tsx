@@ -1,101 +1,167 @@
-import React from "react";
-import CTAButton from "./CTAButton";
-import { Menu, X } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import cavadiaLogo from "@/assets/cavadialab-logo.png";
 
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#paquetes", label: "Paquetes" },
-  { href: "#casos", label: "Casos de Éxito" },
+  { href: "#inicio", label: "Inicio" },
+  { href: "#sobre-mi", label: "Sobre Mí" },
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#skills", label: "Skills" },
+  { href: "#testimonios", label: "Testimonios" },
   { href: "#contacto", label: "Contacto" },
 ];
 
 const CavadiaNavbar: React.FC = () => {
-  const [open, setOpen] = React.useState(false);
-  const [active, setActive] = React.useState<string>(typeof window !== 'undefined' && window.location.hash ? window.location.hash : '#inicio');
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string>("#inicio");
 
-  React.useEffect(() => {
-    const onHash = () => {
-      setOpen(false);
-      setActive(window.location.hash || '#inicio');
-    };
+  useEffect(() => {
+    const onHashChange = () => setActive(window.location.hash || "#inicio");
+    window.addEventListener("hashchange", onHashChange);
 
-    const ids = ['servicios', 'paquetes', 'casos', 'contacto'];
-    const sections = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
-
-    const io = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) {
-          setActive(`#${visible.target.id}`);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (id) setActive(`#${id}`);
+          }
+        });
       },
-      { threshold: 0.6 }
+      { rootMargin: "-50% 0px -50% 0px" }
     );
 
-    sections.forEach((s) => io.observe(s));
-    window.addEventListener('hashchange', onHash);
+    links.forEach((link) => {
+      const el = document.querySelector(link.href);
+      if (el) observer.observe(el);
+    });
+
     return () => {
-      sections.forEach((s) => io.unobserve(s));
-      io.disconnect();
-      window.removeEventListener('hashchange', onHash);
+      window.removeEventListener("hashchange", onHashChange);
+      observer.disconnect();
     };
   }, []);
 
+  const handleNavClick = (href: string) => {
+    setOpen(false);
+    const el = document.querySelector(href);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#inicio" className="flex items-center gap-2 focus-ring" aria-label="CavadiaLab Inicio">
-          <div className="flex items-center gap-2">
-            <img 
-              src={cavadiaLogo} 
-              alt="CavadiaLab Logo" 
-              className="h-8 w-8 rounded-lg"
-            />
-            <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">CavadiaLab</span>
-          </div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <a
+          href="#inicio"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick("#inicio");
+          }}
+          className="flex items-center gap-2 group"
+        >
+          <img src={cavadiaLogo} alt="Logo" className="h-8 w-8" />
+          <span className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+            Reynaldo Montalvo
+          </span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              aria-current={active === l.href ? 'page' : undefined}
-              className={`story-link text-sm font-medium transition-colors focus-ring ${active === l.href ? 'text-foreground' : 'text-foreground/70 hover:text-foreground'}`}
-            >
-              {l.label}
-            </a>
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex items-center gap-1">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  active === link.href
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-          <CTAButton className="shadow-lg focus-ring">Agenda diagnóstico</CTAButton>
-        </div>
+        </ul>
 
-        <button
-          className="inline-flex items-center justify-center rounded-md border border-border p-2 md:hidden focus-ring"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={open}
-          onClick={() => setOpen((o) => !o)}
+        {/* CTA Button */}
+        <Button
+          className="hidden md:inline-flex btn-primary-glow"
+          size="sm"
+          onClick={() => handleNavClick("#contacto")}
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          Hablemos
+        </Button>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 text-foreground"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {open ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
         </button>
       </nav>
 
+      {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden border-t border-border/60 bg-background">
-          <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3">
-            <CTAButton className="w-full">Agenda diagnóstico</CTAButton>
-            <div className="grid grid-cols-1">
-              {links.map((l) => (
-                <a key={l.href} href={l.href} className="story-link py-2 text-sm font-medium text-foreground/80 hover:text-foreground">
-                  {l.label}
+        <div className="md:hidden bg-background border-b border-border">
+          <ul className="container mx-auto px-4 py-4 space-y-1">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    active === link.href
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.label}
                 </a>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+            <li className="pt-2">
+              <Button
+                className="w-full btn-primary-glow"
+                size="sm"
+                onClick={() => handleNavClick("#contacto")}
+              >
+                Hablemos
+              </Button>
+            </li>
+          </ul>
         </div>
       )}
     </header>

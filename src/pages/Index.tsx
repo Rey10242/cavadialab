@@ -1,12 +1,11 @@
 import React from "react";
+import HeroPersonal from "@/components/sections/HeroPersonal";
+import AboutMe from "@/components/sections/AboutMe";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
+import Testimonials from "@/components/sections/Testimonials";
+import Contact from "@/components/sections/Contact";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
-import Hero from "@/components/sections/Hero";
-import Problem from "@/components/sections/Problem";
-import UniqueSystem from "@/components/sections/UniqueSystem";
-import SocialProof from "@/components/sections/SocialProof";
-import Pricing from "@/components/sections/Pricing";
-import FAQ from "@/components/sections/FAQ";
-import FinalCTA from "@/components/sections/FinalCTA";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import FloatingElements from "@/components/FloatingElements";
@@ -26,8 +25,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Máquina de ventas digital | Full Stack Marketing — CavadiaLab";
-    setMeta("description", "Laboratorio de marketing Digital: estrategia, automatización e IA para construir tu máquina de ventas digital.");
+    document.title = "Reynaldo Montalvo | Full Stack Marketer & Growth Expert";
+    setMeta("description", "Portafolio de Reynaldo Montalvo Cavadia - Full Stack Marketer especializado en estrategia digital, automatización e IA para escalar negocios.");
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -38,37 +37,37 @@ const Index: React.FC = () => {
     }
     canonical.setAttribute("href", window.location.origin + "/");
 
-    // JSON-LD
+    // JSON-LD - Person schema for portfolio
     const ld = {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "CavadiaLab - Reynaldo Montalvo",
+      "@type": "Person",
+      name: "Reynaldo Montalvo Cavadia",
       url: window.location.origin,
-      logo: "/src/assets/cavadialab-logo.png",
+      image: "/src/assets/cavadialab-logo.png",
+      jobTitle: "Full Stack Marketer & Growth Expert",
+      worksFor: {
+        "@type": "Organization",
+        name: "CavadiaLab",
+      },
       sameAs: [],
-      description: "Full Stack Marketing Lab: experimentamos, optimizamos y escalamos tu negocio digital.",
+      description: "Full Stack Marketer especializado en estrategia digital, automatización e inteligencia artificial para escalar negocios.",
     };
-    let script = document.getElementById("ld-org") as HTMLScriptElement | null;
+    let script = document.getElementById("ld-person") as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement("script") as HTMLScriptElement;
-      script.id = "ld-org";
+      script.id = "ld-person";
       script.type = "application/ld+json";
       document.head.appendChild(script);
     }
     script.textContent = JSON.stringify(ld);
 
-    // WebSite + SearchAction
+    // WebSite schema
     const ldWebsite = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "CavadiaLab",
+      name: "Reynaldo Montalvo - Portafolio",
       url: window.location.origin,
       inLanguage: "es",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: window.location.origin + "/?q={search_term_string}",
-        "query-input": "required name=search_term_string",
-      },
     };
     let scriptWebsite = document.getElementById("ld-website") as HTMLScriptElement | null;
     if (!scriptWebsite) {
@@ -117,7 +116,6 @@ const Index: React.FC = () => {
     };
   }, []);
 
-  // Initialize scroll tracking and animations
   useScrollTracking();
   useScrollAnimation();
 
@@ -127,13 +125,12 @@ const Index: React.FC = () => {
       <FloatingElements />
       <div className="relative z-10">
         <CavadiaNavbar />
-        <Hero />
-        <Problem />
-        <UniqueSystem />
-        <SocialProof />
-        <Pricing />
-        <FAQ />
-        <FinalCTA />
+        <HeroPersonal />
+        <AboutMe />
+        <Projects />
+        <Skills />
+        <Testimonials />
+        <Contact />
         <SiteFooter />
         <FloatingWhatsAppButton />
       </div>

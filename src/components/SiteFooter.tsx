@@ -1,43 +1,115 @@
 import React from "react";
 import cavadiaLogo from "@/assets/cavadialab-logo.png";
+import { Linkedin, Instagram, Github, Mail, MessageCircle } from "lucide-react";
+
+const navLinks = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#sobre-mi", label: "Sobre Mí" },
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#skills", label: "Skills" },
+  { href: "#testimonios", label: "Testimonios" },
+  { href: "#contacto", label: "Contacto" },
+];
+
+const socialLinks = [
+  { icon: Linkedin, href: "https://linkedin.com/in/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
+  { icon: Github, href: "https://github.com/", label: "GitHub" },
+  { icon: MessageCircle, href: "https://wa.me/57", label: "WhatsApp" },
+  { icon: Mail, href: "mailto:reynaldo@cavadialab.com", label: "Email" },
+];
 
 const SiteFooter: React.FC = () => {
+  const handleNavClick = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <footer className="border-t border-border/60">
-      <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <img 
-                src={cavadiaLogo} 
-                alt="CavadiaLab Logo" 
-                className="h-8 w-8 rounded-lg"
-              />
-              <span className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">CavadiaLab</span>
+    <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          {/* Brand */}
+          <div>
+            <a
+              href="#inicio"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#inicio");
+              }}
+              className="flex items-center gap-2 mb-4"
+            >
+              <img src={cavadiaLogo} alt="Logo" className="h-10 w-10" />
+              <div>
+                <span className="font-bold text-lg text-foreground block">
+                  Reynaldo Montalvo
+                </span>
+                <span className="text-xs text-muted-foreground">
+                  Full Stack Marketer
+                </span>
+              </div>
+            </a>
+            <p className="text-sm text-muted-foreground max-w-xs">
+              Transformando ideas en máquinas de crecimiento digital a través de 
+              estrategia, automatización e inteligencia artificial.
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Navegación</h4>
+            <ul className="space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Social & Contact */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Conecta Conmigo</h4>
+            <div className="flex gap-3 mb-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
-            <p className="text-sm text-muted-foreground">Reynaldo Montalvo Cavadia</p>
-            <p className="text-xs text-muted-foreground">Full Stack Marketer</p>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold">Contacto</h3>
-            <ul className="mt-3 space-y-2 text-sm text-foreground/90">
-              <li><a href="https://wa.me/##########" target="_blank" rel="noreferrer" className="hover:opacity-90">WhatsApp</a></li>
-              <li><a href="mailto:reynaldo@cavadialab.com" className="hover:opacity-90">reynaldo@cavadialab.com</a></li>
-              <li><span className="text-muted-foreground">Colombia</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold">Enlaces</h3>
-            <ul className="mt-3 space-y-2 text-sm text-foreground/90">
-              <li><a href="#servicios" className="hover:opacity-90">Servicios</a></li>
-              <li><a href="#paquetes" className="hover:opacity-90">Paquetes</a></li>
-              <li><a href="#contacto" className="hover:opacity-90">Contacto</a></li>
-            </ul>
+            <p className="text-sm text-muted-foreground">
+              Colombia 🇨🇴
+            </p>
           </div>
         </div>
-        <p className="mt-8 text-xs text-muted-foreground">
-          Al enviar tus datos aceptas nuestra política de tratamiento de datos. © {new Date().getFullYear()} CavadiaLab - Reynaldo Montalvo.
-        </p>
+
+        {/* Bottom Bar */}
+        <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Reynaldo Montalvo Cavadia. Todos los derechos reservados.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Hecho con ❤️ en Colombia
+          </p>
+        </div>
       </div>
     </footer>
   );
