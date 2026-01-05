@@ -70,23 +70,24 @@ const HeroPersonal: React.FC = () => {
             className="order-1 lg:order-2 flex justify-center"
           >
             <div className="relative">
-              {/* Decorative ring */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/30 via-secondary/30 to-primary/30 blur-xl opacity-60 animate-pulse" />
-              
-              {/* Profile Photo */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
-                <img 
-                  src={perfilReynaldo} 
-                  alt="Reynaldo Montalvo - Full Stack Marketer" 
-                  className="w-full h-full object-cover"
-                />
+              {/* Glow effect behind photo */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-secondary/30 rounded-full blur-3xl animate-pulse" />
+                <div className="absolute inset-8 bg-gradient-to-tr from-secondary/30 via-primary/25 to-transparent rounded-full blur-2xl" />
               </div>
+              
+              {/* Profile Photo - sin marco circular */}
+              <img 
+                src={perfilReynaldo} 
+                alt="Reynaldo Montalvo - Full Stack Marketer" 
+                className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
+              />
               
               {/* Floating badges */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-2 -right-2 bg-card border border-border rounded-lg px-3 py-2 shadow-lg"
+                className="absolute top-4 -right-4 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
               >
                 <span className="text-sm font-medium">+5 años exp.</span>
               </motion.div>
@@ -94,7 +95,7 @@ const HeroPersonal: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-2 -left-2 bg-card border border-border rounded-lg px-3 py-2 shadow-lg"
+                className="absolute bottom-8 -left-4 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
               >
                 <span className="text-sm font-medium">🚀 Growth Marketing</span>
               </motion.div>
