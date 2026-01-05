@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import perfilReynaldo from "@/assets/perfil-reynaldo.jpg";
+import perfilReynaldo from "@/assets/perfil-reynaldo.png";
 
 const HeroPersonal: React.FC = () => {
   return (
