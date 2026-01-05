@@ -76,21 +76,16 @@ const HeroPersonal: React.FC = () => {
                 <div className="absolute inset-8 bg-gradient-to-tr from-secondary/30 via-primary/25 to-transparent rounded-full blur-2xl" />
               </div>
               
-              {/* Profile Photo con fade inferior */}
-              <div className="relative">
-                <img 
-                  src={perfilReynaldo} 
-                  alt="Reynaldo Montalvo - Full Stack Marketer" 
-                  className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
-                />
-                {/* Fade effect en la parte inferior */}
-                <div 
-                  className="absolute bottom-0 left-0 right-0 h-32 z-20 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)'
-                  }}
-                />
-              </div>
+              {/* Profile Photo con máscara de gradiente inferior */}
+              <img 
+                src={perfilReynaldo} 
+                alt="Reynaldo Montalvo - Full Stack Marketer" 
+                className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)'
+                }}
+              />
               
               {/* Floating badges */}
               <motion.div
