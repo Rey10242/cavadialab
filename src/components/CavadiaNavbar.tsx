@@ -5,9 +5,10 @@ import cavadiaLogo from "@/assets/cavadialab-logo.png";
 const links = [
   { href: "#inicio", label: "Inicio" },
   { href: "#sobre-mi", label: "Sobre Mí" },
-  { href: "#proyectos", label: "Proyectos" },
-  { href: "#skills", label: "Skills" },
-  { href: "#testimonios", label: "Testimonios" },
+  { href: "#stack", label: "Stack" },
+  { href: "#metodologia", label: "Metodología" },
+  { href: "#casos-exito", label: "Casos de Éxito" },
+  { href: "#servicios", label: "Servicios" },
   { href: "#contacto", label: "Contacto" },
 ];
 

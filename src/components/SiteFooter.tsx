@@ -5,9 +5,10 @@ import { Linkedin, Instagram, Github, Mail, MessageCircle } from "lucide-react";
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#sobre-mi", label: "Sobre Mí" },
-  { href: "#proyectos", label: "Proyectos" },
-  { href: "#skills", label: "Skills" },
-  { href: "#testimonios", label: "Testimonios" },
+  { href: "#stack", label: "Stack" },
+  { href: "#metodologia", label: "Metodología" },
+  { href: "#casos-exito", label: "Casos de Éxito" },
+  { href: "#servicios", label: "Servicios" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -96,7 +97,7 @@ const SiteFooter: React.FC = () => {
               ))}
             </div>
             <p className="text-sm text-muted-foreground">
-              Colombia 🇨🇴
+              Cartagena de Indias, Colombia 🇨🇴
             </p>
           </div>
         </div>

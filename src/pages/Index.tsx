@@ -1,8 +1,10 @@
 import React from "react";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 import AboutMe from "@/components/sections/AboutMe";
-import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
+import Methodology from "@/components/sections/Methodology";
+import CaseStudies from "@/components/sections/CaseStudies";
+import Services from "@/components/sections/Services";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
@@ -25,8 +27,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Reynaldo Montalvo | Full Stack Marketer & Growth Expert";
-    setMeta("description", "Portafolio de Reynaldo Montalvo Cavadia - Full Stack Marketer especializado en estrategia digital, automatización e IA para escalar negocios.");
+    document.title = "Reynaldo Montalvo | Full Stack Marketer & Growth Expert | Cartagena";
+    setMeta("description", "Consultor de marketing digital y growth marketing en Cartagena, Colombia. Especialista en Google Ads, Meta Ads, automatización con IA y estrategias de performance para escalar negocios.");
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -49,8 +51,29 @@ const Index: React.FC = () => {
         "@type": "Organization",
         name: "CavadiaLab",
       },
-      sameAs: [],
-      description: "Full Stack Marketer especializado en estrategia digital, automatización e inteligencia artificial para escalar negocios.",
+      sameAs: [
+        "https://linkedin.com/in/reynaldomontalvo",
+        "https://instagram.com/reynaldomontalvo"
+      ],
+      description: "Consultor de marketing digital especializado en Google Ads, Meta Ads, automatización e inteligencia artificial para escalar negocios.",
+      knowsAbout: [
+        "Google Ads",
+        "Meta Ads",
+        "Performance Marketing",
+        "Growth Marketing",
+        "Marketing Automation",
+        "Make",
+        "n8n",
+        "WhatsApp Business API",
+        "Google Analytics",
+        "Google Tag Manager"
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Cartagena de Indias",
+        addressRegion: "Bolívar",
+        addressCountry: "CO"
+      }
     };
     let script = document.getElementById("ld-person") as HTMLScriptElement | null;
     if (!script) {
@@ -65,7 +88,7 @@ const Index: React.FC = () => {
     const ldWebsite = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "Reynaldo Montalvo - Portafolio",
+      name: "Reynaldo Montalvo - Full Stack Marketer",
       url: window.location.origin,
       inLanguage: "es",
     };
@@ -127,8 +150,10 @@ const Index: React.FC = () => {
         <CavadiaNavbar />
         <HeroPersonal />
         <AboutMe />
-        <Projects />
         <Skills />
+        <Methodology />
+        <CaseStudies />
+        <Services />
         <Testimonials />
         <Contact />
         <SiteFooter />

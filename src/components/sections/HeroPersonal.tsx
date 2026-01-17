@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Mail, Sparkles, TrendingUp, Target } from "lucide-react";
 import { motion } from "framer-motion";
 import perfilReynaldo from "@/assets/perfil-reynaldo.png";
 
@@ -29,7 +29,7 @@ const HeroPersonal: React.FC = () => {
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
               <span className="text-foreground">Hola, soy </span>
-              <span className="text-gradient">Reynaldo Montalvo</span>
+              <span className="text-gradient">Reynaldo Montalvo Cavadia</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-primary font-medium mb-4">
@@ -37,15 +37,16 @@ const HeroPersonal: React.FC = () => {
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Transformo ideas en máquinas de crecimiento digital. 
-              Estrategia, automatización e IA para escalar tu negocio.
+              Diseño y ejecuto estrategias de adquisición y crecimiento que convierten 
+              tráfico en clientes y clientes en ventas, con estructuras claras orientadas 
+              a escalar tu negocio.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 size="lg"
                 className="btn-primary-glow group"
-                onClick={() => document.getElementById("proyectos")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("casos-exito")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
                 Ver Proyectos
@@ -79,7 +80,7 @@ const HeroPersonal: React.FC = () => {
               {/* Profile Photo con máscara de gradiente inferior */}
               <img 
                 src={perfilReynaldo} 
-                alt="Reynaldo Montalvo - Full Stack Marketer" 
+                alt="Reynaldo Montalvo Cavadia - Full Stack Marketer & Growth Expert" 
                 className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
                 style={{
                   maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
@@ -93,15 +94,29 @@ const HeroPersonal: React.FC = () => {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-4 -right-4 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
               >
-                <span className="text-sm font-medium">+5 años exp.</span>
+                <span className="text-sm font-medium flex items-center gap-1.5">
+                  <TrendingUp className="w-4 h-4 text-primary" />
+                  +8 años exp.
+                </span>
               </motion.div>
               
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-8 -left-4 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
+                className="absolute bottom-16 -left-4 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
               >
                 <span className="text-sm font-medium">🚀 Growth Marketing</span>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute bottom-8 -right-8 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
+              >
+                <span className="text-sm font-medium flex items-center gap-1.5">
+                  <Target className="w-4 h-4 text-primary" />
+                  Performance Ads
+                </span>
               </motion.div>
             </div>
           </motion.div>
