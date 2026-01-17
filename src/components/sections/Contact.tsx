@@ -264,7 +264,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Ubicación</p>
-                    <p className="text-foreground">Colombia 🇨🇴</p>
+                    <p className="text-foreground">Cartagena de Indias, Colombia 🇨🇴</p>
                   </div>
                 </div>
               </div>
