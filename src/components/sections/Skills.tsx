@@ -84,17 +84,17 @@ const ClarityLogo = () => (
 // Paid Media
 const MetaLogo = () => (
   <svg viewBox="0 0 32 32" className="w-7 h-7">
-    <circle cx="16" cy="16" r="16" fill="#0866FF"/>
-    <path d="M21.5 16c0 3-2.5 5.5-5.5 5.5S10.5 19 10.5 16s2.5-5.5 5.5-5.5 5.5 2.5 5.5 5.5zm-5.5 7.5c4.1 0 7.5-3.4 7.5-7.5s-3.4-7.5-7.5-7.5S8.5 11.9 8.5 16s3.4 7.5 7.5 7.5z" fill="#fff"/>
-    <path d="M16 12.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z" fill="#fff"/>
+    <rect width="32" height="32" rx="6" fill="#0866FF"/>
+    <path d="M8 16c0-4 1.5-8 4-8 1.5 0 2.5 1.5 4 4.5.5 1 1 2 1.5 3 .5-1 1-2 1.5-3C20.5 9.5 21.5 8 23 8c2.5 0 4 4 4 8s-1.5 8-4 8c-1.5 0-2.5-1.5-4-4.5-.5-1-1-2-1.5-3-.5 1-1 2-1.5 3-1.5 3-2.5 4.5-4 4.5-2.5 0-4-4-4-8z" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/>
   </svg>
 );
 
 const GoogleAdsLogo = () => (
   <svg viewBox="0 0 32 32" className="w-7 h-7">
-    <path d="M5.3 12l7.4 12.8c1 1.8 3.3 2.3 5 1.3l2.6-1.5L10.5 7.4 5.3 12z" fill="#FBBC04"/>
-    <path d="M26.7 20l-7.4-12.8c-1-1.8-3.3-2.3-5-1.3L11.7 7.4 21.5 24.6l5.2-4.6z" fill="#4285F4"/>
-    <circle cx="7.5" cy="24.5" r="4.5" fill="#34A853"/>
+    <path d="M10.5 24.5l6-18h3l6 18" fill="none" stroke="#4285F4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8.5 19h11" stroke="#FBBC04" strokeWidth="3" strokeLinecap="round"/>
+    <circle cx="8" cy="24" r="3" fill="#34A853"/>
+    <circle cx="24" cy="24" r="3" fill="#EA4335"/>
   </svg>
 );
 
@@ -259,7 +259,7 @@ const Skills: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {stackCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -274,7 +274,7 @@ const Skills: React.FC = () => {
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 
                 {/* Category Header */}
-                <div className="relative mb-6">
+                <div className="relative mb-6 text-center">
                   <div className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${category.gradient} text-white text-sm font-semibold shadow-lg`}>
                     {category.title}
                   </div>
@@ -283,8 +283,8 @@ const Skills: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Tools Grid */}
-                <div className="relative grid grid-cols-2 gap-3">
+                {/* Tools Grid - Adaptive for different tool counts */}
+                <div className={`relative grid gap-3 ${category.tools.length === 6 ? 'grid-cols-3' : 'grid-cols-4'}`}>
                   {category.tools.map((tool, toolIndex) => (
                     <motion.div
                       key={tool.name}
@@ -295,13 +295,13 @@ const Skills: React.FC = () => {
                       className="flex flex-col items-center gap-2 p-3 rounded-xl bg-background/50 border border-border/30 hover:border-primary/30 hover:bg-background/80 transition-all duration-300 hover:scale-105 cursor-default"
                     >
                       <div className="flex items-center gap-1">
-                        <div className="transition-transform duration-300 group-hover:scale-110">
+                        <div className="transition-transform duration-300 hover:scale-125">
                           {tool.logo}
                         </div>
                         {tool.secondaryLogo && (
                           <>
                             <span className="text-muted-foreground text-xs">/</span>
-                            <div className="transition-transform duration-300 group-hover:scale-110">
+                            <div className="transition-transform duration-300 hover:scale-125">
                               {tool.secondaryLogo}
                             </div>
                           </>
