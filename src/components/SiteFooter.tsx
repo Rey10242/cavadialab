@@ -1,5 +1,5 @@
 import React from "react";
-import cavadiaLogo from "@/assets/cavadialab-logo.png";
+import rmLogo from "@/assets/rm-logo.png";
 import { Linkedin, Instagram, Mail, MessageCircle } from "lucide-react";
 
 const navLinks = [
@@ -41,7 +41,7 @@ const SiteFooter: React.FC = () => {
               }}
               className="flex items-center gap-2 mb-4"
             >
-              <img src={cavadiaLogo} alt="Logo" className="h-10 w-10" />
+              <img src={rmLogo} alt="RM Logo" className="h-11 w-11 rounded-lg" />
               <div>
                 <span className="font-bold text-lg text-foreground block">
                   Reynaldo Montalvo
