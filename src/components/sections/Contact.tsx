@@ -386,32 +386,32 @@ const Contact: React.FC = () => {
                 ))}
               </div>
             </div>
-
-            {/* CTA con pulso */}
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-6 md:p-8 text-center relative overflow-hidden"
-            >
-              {/* Pulse effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent animate-pulse pointer-events-none" />
-              
-              <h3 className="text-xl font-semibold mb-3 relative z-10">¿Listo para empezar?</h3>
-              <p className="text-muted-foreground mb-4 relative z-10">
-                Agenda una llamada gratuita de 30 minutos para discutir tu proyecto.
-              </p>
-              <Button
-                size="lg"
-                className="btn-primary-glow relative z-10"
-                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
-              >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Agendar Llamada
-              </Button>
-            </motion.div>
           </motion.div>
         </div>
+
+        {/* CTA con pulso - Centrado */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto mt-12 bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-6 md:p-8 text-center relative overflow-hidden"
+        >
+          {/* Pulse effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent animate-pulse pointer-events-none" />
+          
+          <h3 className="text-xl font-semibold mb-3 relative z-10">¿Listo para empezar?</h3>
+          <p className="text-muted-foreground mb-4 relative z-10">
+            Agenda una llamada gratuita de 30 minutos para discutir tu proyecto.
+          </p>
+          <Button
+            size="lg"
+            className="btn-primary-glow relative z-10"
+            onClick={() => window.open("https://wa.me/573246875354", "_blank")}
+          >
+            <MessageCircle className="w-5 h-5 mr-2" />
+            Agendar Llamada
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
