@@ -15,6 +15,8 @@ import { toast } from "sonner";
 const contactSchema = z.object({
   name: z.string().trim().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "Nombre muy largo"),
   email: z.string().trim().email("Email inválido").max(255, "Email muy largo"),
+  phone: z.string().trim().max(20, "Teléfono muy largo").optional().or(z.literal("")),
+  location: z.string().trim().max(100, "Ubicación muy larga").optional().or(z.literal("")),
   message: z.string().trim().min(10, "El mensaje debe tener al menos 10 caracteres").max(1000, "Mensaje muy largo"),
   projectType: z.string().optional(),
 });
@@ -46,6 +48,8 @@ const Contact: React.FC = () => {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
+      location: "",
       message: "",
       projectType: "",
     },
@@ -60,6 +64,8 @@ const Contact: React.FC = () => {
         .insert({
           name: data.name,
           email: data.email,
+          phone: data.phone || null,
+          location: data.location || null,
           message: data.message,
           project_type: data.projectType || null,
         });
@@ -167,6 +173,54 @@ const Contact: React.FC = () => {
                               onFocus={() => setFocusedField("email")}
                               onBlur={() => setFocusedField(null)}
                               className={`transition-all duration-300 ${focusedField === "email" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex items-center gap-2">
+                            <Phone className="w-4 h-4 text-muted-foreground" />
+                            Teléfono <span className="text-muted-foreground text-xs">(opcional)</span>
+                          </FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="tel" 
+                              placeholder="+57 300 123 4567" 
+                              {...field} 
+                              onFocus={() => setFocusedField("phone")}
+                              onBlur={() => setFocusedField(null)}
+                              className={`transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="location"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex items-center gap-2">
+                            <MapPin className="w-4 h-4 text-muted-foreground" />
+                            País / Ciudad <span className="text-muted-foreground text-xs">(opcional)</span>
+                          </FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="text" 
+                              placeholder="Ej: Colombia, Bogotá" 
+                              {...field} 
+                              onFocus={() => setFocusedField("location")}
+                              onBlur={() => setFocusedField(null)}
+                              className={`transition-all duration-300 ${focusedField === "location" ? "ring-2 ring-primary/30 border-primary" : ""}`}
                             />
                           </FormControl>
                           <FormMessage />
