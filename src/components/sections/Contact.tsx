@@ -177,7 +177,7 @@ const Contact: React.FC = () => {
                 </div>
               )}
 
-              <h3 className="text-xl font-semibold mb-6">Envíame un mensaje</h3>
+              <h3 className="text-lg font-semibold mb-6">Envíame un mensaje</h3>
               
               {isSubmitted ? (
                 <motion.div
@@ -371,7 +371,7 @@ const Contact: React.FC = () => {
           >
             {/* Contact Info */}
             <div className="bg-card border border-border rounded-xl p-6 md:p-8 flex-1">
-              <h3 className="text-xl font-semibold mb-6">Información de Contacto</h3>
+              <h3 className="text-lg font-semibold mb-6">Información de Contacto</h3>
               
               <div className="space-y-3">
                 <a
