@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import rmLogo from "@/assets/rm-logo.png";
+import rmLogoBadge from "@/assets/rm-logo-badge.png";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 const links = [
@@ -98,21 +98,14 @@ const CavadiaNavbar: React.FC = () => {
             }}
             className="flex items-center gap-2 group"
           >
-            <div className={`bg-zinc-900 rounded-lg p-1 transition-all duration-300 ${isScrolled ? "w-8 h-8" : "w-9 h-9"} flex items-center justify-center`}>
-              <img 
-                src={rmLogo} 
-                alt="RM Logo" 
-                className="w-full h-full object-contain"
-                loading="eager"
-                decoding="sync"
-                fetchPriority="high"
-              />
-            </div>
-            <span className={`font-bold text-foreground group-hover:text-primary transition-all duration-300 ${
-              isScrolled ? "text-base" : "text-lg"
-            }`}>
-              Reynaldo Montalvo
-            </span>
+            <img 
+              src={rmLogoBadge} 
+              alt="Reynaldo Montalvo Logo" 
+              className={`transition-all duration-300 ${isScrolled ? "h-8" : "h-9"}`}
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
+            />
           </a>
 
           {/* Desktop Nav */}
