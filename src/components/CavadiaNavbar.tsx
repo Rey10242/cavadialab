@@ -98,14 +98,16 @@ const CavadiaNavbar: React.FC = () => {
             }}
             className="flex items-center gap-2 group"
           >
-            <img 
-              src={rmLogo} 
-              alt="RM Logo" 
-              className={`transition-all duration-300 rounded-lg ${isScrolled ? "h-8 w-8" : "h-9 w-9"}`}
-              loading="eager"
-              decoding="sync"
-              fetchPriority="high"
-            />
+            <div className={`bg-zinc-900 rounded-lg p-1 transition-all duration-300 ${isScrolled ? "w-8 h-8" : "w-9 h-9"} flex items-center justify-center`}>
+              <img 
+                src={rmLogo} 
+                alt="RM Logo" 
+                className="w-full h-full object-contain"
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
+              />
+            </div>
             <span className={`font-bold text-foreground group-hover:text-primary transition-all duration-300 ${
               isScrolled ? "text-base" : "text-lg"
             }`}>
