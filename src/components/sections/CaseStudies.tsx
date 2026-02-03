@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TrendingUp, Target, Users, DollarSign, Lightbulb, ChevronDown, ChevronUp } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +8,7 @@ interface CaseStudy {
   id: number;
   title: string;
   industry: string;
+  category: string;
   context: string;
   objective: string;
   strategy: string[];
@@ -26,6 +27,7 @@ const caseStudies: CaseStudy[] = [
     id: 1,
     title: "E-commerce Moda Colombia",
     industry: "Retail / E-commerce",
+    category: "E-commerce",
     context: "Tienda online de moda con ticket promedio de $120 USD. Campañas desorganizadas con ROAS de 1.5x.",
     objective: "Aumentar ROAS a 4x y escalar inversión mensual de $3K a $15K.",
     strategy: [
@@ -45,6 +47,7 @@ const caseStudies: CaseStudy[] = [
     id: 2,
     title: "SaaS B2B Latinoamérica",
     industry: "SaaS / Tecnología",
+    category: "B2B",
     context: "Plataforma de gestión empresarial. CAC alto y ciclo de ventas largo (+60 días).",
     objective: "Reducir CAC en 40% y generar 100 demos mensuales calificados.",
     strategy: [
@@ -64,6 +67,7 @@ const caseStudies: CaseStudy[] = [
     id: 3,
     title: "Clínica Estética Premium",
     industry: "Salud / Belleza",
+    category: "Servicios",
     context: "Clínica con ticket alto ($2K+ por procedimiento). Dependencia total de referidos.",
     objective: "Generar 30 leads calificados mensuales desde canales digitales.",
     strategy: [
@@ -83,6 +87,7 @@ const caseStudies: CaseStudy[] = [
     id: 4,
     title: "Academia Online de Desarrollo",
     industry: "Educación / EdTech",
+    category: "Educación",
     context: "Cursos de programación con ticket de $300. Tasa de conversión del 1.2%.",
     objective: "Duplicar tasa de conversión y escalar a $50K en ventas mensuales.",
     strategy: [
@@ -102,6 +107,7 @@ const caseStudies: CaseStudy[] = [
     id: 5,
     title: "Restaurante Fast Casual",
     industry: "Food & Beverage",
+    category: "Servicios",
     context: "Cadena de 5 locales. Sin presencia digital estructurada, dependencia de tráfico orgánico.",
     objective: "Incrementar pedidos delivery en 50% y awareness local.",
     strategy: [
@@ -121,6 +127,7 @@ const caseStudies: CaseStudy[] = [
     id: 6,
     title: "Inmobiliaria Proyectos Nuevos",
     industry: "Real Estate",
+    category: "Real Estate",
     context: "Desarrolladora con proyecto de $15M en inventario. Leads de baja calidad.",
     objective: "Generar leads de compradores calificados (preaprobados o con capacidad).",
     strategy: [
@@ -140,6 +147,7 @@ const caseStudies: CaseStudy[] = [
     id: 7,
     title: "Fintech Créditos Personales",
     industry: "Fintech / Servicios Financieros",
+    category: "Fintech",
     context: "App de préstamos con proceso 100% digital. Alto costo de adquisición.",
     objective: "Reducir CPA de solicitudes completadas de $25 a $12.",
     strategy: [
@@ -159,6 +167,7 @@ const caseStudies: CaseStudy[] = [
     id: 8,
     title: "Marca de Suplementos DTC",
     industry: "CPG / E-commerce",
+    category: "E-commerce",
     context: "Marca de suplementos con ventas por suscripción. MER de 1.8x.",
     objective: "Aumentar MER a 3.5x y lifetime value de clientes.",
     strategy: [
@@ -178,6 +187,7 @@ const caseStudies: CaseStudy[] = [
     id: 9,
     title: "Agencia de Viajes Corporativos",
     industry: "Travel / B2B",
+    category: "B2B",
     context: "Agencia enfocada en empresas. Proceso de ventas largo y dependiente de llamadas.",
     objective: "Automatizar captación y nutrir leads antes del contacto comercial.",
     strategy: [
@@ -197,6 +207,7 @@ const caseStudies: CaseStudy[] = [
     id: 10,
     title: "App de Fitness y Bienestar",
     industry: "Health Tech / Apps",
+    category: "Apps",
     context: "App de entrenamiento con modelo freemium. Baja conversión a premium.",
     objective: "Aumentar suscripciones premium y reducir churn.",
     strategy: [
@@ -214,6 +225,8 @@ const caseStudies: CaseStudy[] = [
   },
 ];
 
+const categories = ["Todos", "E-commerce", "B2B", "Servicios", "Real Estate", "Fintech", "Educación", "Apps"];
+
 const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -221,10 +234,10 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, i
     <motion.div
       layout
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all"
+      className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-300"
     >
       {/* Header */}
       <div className="p-6">
@@ -239,41 +252,41 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, i
 
         <p className="text-sm text-muted-foreground mb-4">{study.context}</p>
 
-        {/* Results Grid */}
+        {/* Results Grid - mejorada jerarquía visual */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           {study.results.roas && (
-            <div className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
-              <TrendingUp className="w-4 h-4 text-green-500" />
+            <div className="flex items-center gap-2 p-3 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-xl border border-green-500/20">
+              <TrendingUp className="w-5 h-5 text-green-500" />
               <div>
                 <p className="text-xs text-muted-foreground">ROAS</p>
-                <p className="font-semibold text-foreground">{study.results.roas}</p>
+                <p className="font-bold text-lg text-foreground">{study.results.roas}</p>
               </div>
             </div>
           )}
           {study.results.cpaReduction && (
-            <div className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
-              <Target className="w-4 h-4 text-blue-500" />
+            <div className="flex items-center gap-2 p-3 bg-gradient-to-br from-blue-500/10 to-blue-500/5 rounded-xl border border-blue-500/20">
+              <Target className="w-5 h-5 text-blue-500" />
               <div>
                 <p className="text-xs text-muted-foreground">CPA Reducido</p>
-                <p className="font-semibold text-foreground">{study.results.cpaReduction}</p>
+                <p className="font-bold text-lg text-foreground">{study.results.cpaReduction}</p>
               </div>
             </div>
           )}
           {study.results.revenueIncrease && (
-            <div className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
-              <DollarSign className="w-4 h-4 text-primary" />
+            <div className="flex items-center gap-2 p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20">
+              <DollarSign className="w-5 h-5 text-primary" />
               <div>
                 <p className="text-xs text-muted-foreground">Revenue</p>
-                <p className="font-semibold text-foreground">{study.results.revenueIncrease}</p>
+                <p className="font-bold text-lg text-foreground">{study.results.revenueIncrease}</p>
               </div>
             </div>
           )}
           {study.results.leadsGenerated && (
-            <div className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
-              <Users className="w-4 h-4 text-purple-500" />
+            <div className="flex items-center gap-2 p-3 bg-gradient-to-br from-purple-500/10 to-purple-500/5 rounded-xl border border-purple-500/20">
+              <Users className="w-5 h-5 text-purple-500" />
               <div>
                 <p className="text-xs text-muted-foreground">Leads</p>
-                <p className="font-semibold text-foreground">{study.results.leadsGenerated}</p>
+                <p className="font-bold text-lg text-foreground">{study.results.leadsGenerated}</p>
               </div>
             </div>
           )}
@@ -293,7 +306,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, i
           variant="ghost"
           size="sm"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full justify-between"
+          className="w-full justify-between hover:bg-primary/5"
         >
           {isExpanded ? "Ver menos" : "Ver detalles"}
           {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -331,7 +344,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, i
                 </ul>
               </div>
 
-              <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+              <div className="p-4 bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-xl">
                 <h4 className="font-medium text-foreground mb-2 flex items-center gap-2">
                   <Lightbulb className="w-4 h-4 text-yellow-500" />
                   Aprendizaje Clave
@@ -347,6 +360,16 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, i
 };
 
 const CaseStudies: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState("Todos");
+  const [showAll, setShowAll] = useState(false);
+
+  const filteredStudies = useMemo(() => {
+    if (activeCategory === "Todos") return caseStudies;
+    return caseStudies.filter(study => study.category === activeCategory);
+  }, [activeCategory]);
+
+  const displayedStudies = showAll ? filteredStudies : filteredStudies.slice(0, 6);
+
   return (
     <section id="casos-exito" className="section-padding bg-muted/30">
       <div className="container mx-auto px-4">
@@ -365,11 +388,64 @@ const CaseStudies: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {caseStudies.map((study, index) => (
-            <CaseStudyCard key={study.id} study={study} index={index} />
+        {/* Filter Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-2 mb-10"
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => {
+                setActiveCategory(category);
+                setShowAll(false);
+              }}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
+                  : "bg-card border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
+              }`}
+            >
+              {category}
+            </button>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Cases Grid */}
+        <motion.div layout className="grid md:grid-cols-2 gap-6">
+          <AnimatePresence mode="popLayout">
+            {displayedStudies.map((study, index) => (
+              <CaseStudyCard key={study.id} study={study} index={index} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Show More Button */}
+        {filteredStudies.length > 6 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-10"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAll(!showAll)}
+              className="group"
+            >
+              {showAll ? "Ver menos" : `Ver más casos (${filteredStudies.length - 6} más)`}
+              {showAll ? (
+                <ChevronUp className="w-4 h-4 ml-2 group-hover:-translate-y-1 transition-transform" />
+              ) : (
+                <ChevronDown className="w-4 h-4 ml-2 group-hover:translate-y-1 transition-transform" />
+              )}
+            </Button>
+          </motion.div>
+        )}
       </div>
     </section>
   );

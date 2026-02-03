@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Target, FlaskConical, TrendingUp, BarChart3 } from "lucide-react";
+import { Search, Target, FlaskConical, TrendingUp, BarChart3, ArrowDown } from "lucide-react";
 
 const steps = [
   {
@@ -67,10 +67,11 @@ const Methodology: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative flex flex-col items-center text-center"
+                whileHover={{ y: -8 }}
+                className="relative flex flex-col items-center text-center group"
               >
                 {/* Icon Circle */}
-                <div className="relative z-10 w-16 h-16 rounded-full bg-card border-2 border-primary flex items-center justify-center mb-4 shadow-lg shadow-primary/20">
+                <div className="relative z-10 w-16 h-16 rounded-full bg-card border-2 border-primary flex items-center justify-center mb-4 shadow-lg shadow-primary/20 group-hover:scale-110 group-hover:shadow-primary/40 transition-all duration-300">
                   <step.icon className="w-7 h-7 text-primary" />
                 </div>
 
@@ -78,7 +79,7 @@ const Methodology: React.FC = () => {
                 <span className="text-xs font-bold text-primary mb-2">{step.number}</span>
                 
                 {/* Title */}
-                <h3 className="font-semibold text-foreground mb-2">{step.title}</h3>
+                <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
                 
                 {/* Description */}
                 <p className="text-sm text-muted-foreground">{step.description}</p>
@@ -87,28 +88,48 @@ const Methodology: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile/Tablet List */}
-        <div className="lg:hidden space-y-4">
+        {/* Mobile/Tablet List con flechas animadas */}
+        <div className="lg:hidden space-y-3">
           {steps.map((step, index) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex items-start gap-4 p-4 bg-card border border-border rounded-xl"
-            >
-              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-                <step.icon className="w-6 h-6 text-primary" />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-xs font-bold text-primary">{step.number}</span>
-                  <h3 className="font-semibold text-foreground">{step.title}</h3>
+            <React.Fragment key={step.title}>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ x: 4 }}
+                className="flex items-start gap-4 p-4 bg-card border border-border rounded-xl hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center">
+                  <step.icon className="w-6 h-6 text-primary" />
                 </div>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
-              </div>
-            </motion.div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-bold text-primary">{step.number}</span>
+                    <h3 className="font-semibold text-foreground">{step.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                </div>
+              </motion.div>
+              
+              {/* Flecha animada entre pasos */}
+              {index < steps.length - 1 && (
+                <motion.div
+                  initial={{ opacity: 0, y: -5 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+                  className="flex justify-center py-1"
+                >
+                  <motion.div
+                    animate={{ y: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <ArrowDown className="w-5 h-5 text-primary/50" />
+                  </motion.div>
+                </motion.div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>
