@@ -1,5 +1,5 @@
 import React from "react";
-import rmLogo from "@/assets/rm-logo.png";
+import rmLogoBadge from "@/assets/rm-logo-badge.png";
 import { Linkedin, Instagram, Mail, MessageCircle } from "lucide-react";
 
 const navLinks = [
@@ -41,15 +41,13 @@ const SiteFooter: React.FC = () => {
               }}
               className="flex items-center gap-2 mb-4"
             >
-              <div className="bg-zinc-900 rounded-lg p-1.5 w-11 h-11 flex items-center justify-center">
-                <img 
-                  src={rmLogo} 
-                  alt="RM Logo" 
-                  className="w-full h-full object-contain" 
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <img 
+                src={rmLogoBadge} 
+                alt="Reynaldo Montalvo Logo" 
+                className="h-11" 
+                loading="lazy"
+                decoding="async"
+              />
               <div>
                 <span className="font-bold text-lg text-foreground block">
                   Reynaldo Montalvo
