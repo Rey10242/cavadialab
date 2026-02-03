@@ -41,7 +41,13 @@ const SiteFooter: React.FC = () => {
               }}
               className="flex items-center gap-2 mb-4"
             >
-              <img src={rmLogo} alt="RM Logo" className="h-11 w-11 rounded-lg" />
+              <img 
+                src={rmLogo} 
+                alt="RM Logo" 
+                className="h-11 w-11 rounded-lg" 
+                loading="lazy"
+                decoding="async"
+              />
               <div>
                 <span className="font-bold text-lg text-foreground block">
                   Reynaldo Montalvo

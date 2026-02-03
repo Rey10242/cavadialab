@@ -87,6 +87,9 @@ const HeroPersonal: React.FC = () => {
                 src={perfilReynaldo} 
                 alt="Reynaldo Montalvo Cavadia - Full Stack Marketer & Growth Expert" 
                 className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
                 style={{
                   maskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
                   WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)'

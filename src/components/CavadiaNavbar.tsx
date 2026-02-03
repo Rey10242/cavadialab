@@ -101,7 +101,10 @@ const CavadiaNavbar: React.FC = () => {
             <img 
               src={rmLogo} 
               alt="RM Logo" 
-              className={`transition-all duration-300 rounded-lg ${isScrolled ? "h-8 w-8" : "h-9 w-9"}`} 
+              className={`transition-all duration-300 rounded-lg ${isScrolled ? "h-8 w-8" : "h-9 w-9"}`}
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
             />
             <span className={`font-bold text-foreground group-hover:text-primary transition-all duration-300 ${
               isScrolled ? "text-base" : "text-lg"
