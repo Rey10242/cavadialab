@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import cavadiaLogo from "@/assets/cavadialab-logo.png";
+import rmLogo from "@/assets/rm-logo.png";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 const links = [
@@ -98,9 +98,9 @@ const CavadiaNavbar: React.FC = () => {
             className="flex items-center gap-2 group"
           >
             <img 
-              src={cavadiaLogo} 
-              alt="Logo" 
-              className={`transition-all duration-300 ${isScrolled ? "h-7 w-7" : "h-8 w-8"}`} 
+              src={rmLogo} 
+              alt="RM Logo" 
+              className={`transition-all duration-300 rounded-lg ${isScrolled ? "h-8 w-8" : "h-9 w-9"}`} 
             />
             <span className={`font-bold text-foreground group-hover:text-primary transition-all duration-300 ${
               isScrolled ? "text-base" : "text-lg"
