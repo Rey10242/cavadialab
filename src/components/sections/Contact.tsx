@@ -369,7 +369,7 @@ const Contact: React.FC = () => {
             <div className="bg-card border border-border rounded-xl p-6 md:p-8">
               <h3 className="text-xl font-semibold mb-6">Sígueme en Redes</h3>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 gap-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
