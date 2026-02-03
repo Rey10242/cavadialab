@@ -103,15 +103,16 @@ const Contact: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-stretch">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="h-full"
           >
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8 relative overflow-hidden">
+            <div className="bg-card border border-border rounded-xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col">
               {/* Spotlight effect */}
               {focusedField && (
                 <div className="absolute inset-0 pointer-events-none">
@@ -136,8 +137,8 @@ const Contact: React.FC = () => {
                   </p>
                 </motion.div>
               ) : (
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex-1 flex flex-col">
                     {/* Row 1: Name & Email */}
                     <div className="grid sm:grid-cols-2 gap-4">
                       <FormField
@@ -279,9 +280,10 @@ const Contact: React.FC = () => {
                       )}
                     />
 
+                    <div className="flex-1" />
                     <Button
                       type="submit"
-                      className="w-full btn-primary-glow"
+                      className="w-full btn-primary-glow mt-auto"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -308,10 +310,10 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-6"
+            className="flex flex-col gap-6 h-full"
           >
             {/* Contact Info */}
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8">
+            <div className="bg-card border border-border rounded-xl p-6 md:p-8 flex-1">
               <h3 className="text-xl font-semibold mb-6">Información de Contacto</h3>
               
               <div className="space-y-3">
