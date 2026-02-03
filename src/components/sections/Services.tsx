@@ -178,10 +178,10 @@ const Services: React.FC = () => {
             Servicios Especializados
           </motion.div>
           
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Cómo Puedo <span className="text-gradient">Ayudarte</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Soluciones integrales en paid media, automatización y growth marketing para impulsar tu negocio al siguiente nivel.
           </p>
         </motion.div>

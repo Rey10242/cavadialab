@@ -250,12 +250,12 @@ const Skills: React.FC = () => {
             Growth Marketing Stack
           </motion.span>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-foreground">Herramientas que </span>
             <span className="text-gradient">Dominó</span>
           </h2>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             +20 herramientas conectadas en un ecosistema Full-Funnel que genera resultados
           </p>
         </motion.div>
@@ -297,7 +297,7 @@ const Skills: React.FC = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                         {category.title}
                       </h3>
                       <p className="text-sm text-muted-foreground">{category.subtitle}</p>

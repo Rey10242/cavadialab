@@ -79,7 +79,7 @@ const Methodology: React.FC = () => {
                 <span className="text-xs font-bold text-primary mb-2">{step.number}</span>
                 
                 {/* Title */}
-                <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
                 
                 {/* Description */}
                 <p className="text-sm text-muted-foreground">{step.description}</p>
@@ -106,7 +106,7 @@ const Methodology: React.FC = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-xs font-bold text-primary">{step.number}</span>
-                    <h3 className="font-semibold text-foreground">{step.title}</h3>
+                    <h3 className="text-base font-semibold text-foreground">{step.title}</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </div>
