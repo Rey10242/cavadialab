@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Github, MessageCircle, CheckCircle, Loader2, Clock } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Linkedin, Instagram, MessageCircle, CheckCircle, Loader2, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -32,9 +32,8 @@ const projectTypes = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com/in/reynaldomontalvo", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/reynaldomontalvo", label: "Instagram" },
-  { icon: Github, href: "https://github.com/reynaldomontalvo", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/rmontalvocavadia/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/reynaldo.cavadia/", label: "Instagram" },
   { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp" },
 ];
 
@@ -138,95 +137,101 @@ const Contact: React.FC = () => {
                 </motion.div>
               ) : (
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nombre</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Tu nombre" 
-                              {...field} 
-                              onFocus={() => setFocusedField("name")}
-                              onBlur={() => setFocusedField(null)}
-                              className={`transition-all duration-300 ${focusedField === "name" ? "ring-2 ring-primary/30 border-primary" : ""}`}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    {/* Row 1: Name & Email */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Nombre *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Tu nombre" 
+                                {...field} 
+                                onFocus={() => setFocusedField("name")}
+                                onBlur={() => setFocusedField(null)}
+                                className={`transition-all duration-300 ${focusedField === "name" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email</FormLabel>
-                          <FormControl>
-                            <Input 
-                              type="email" 
-                              placeholder="tu@email.com" 
-                              {...field} 
-                              onFocus={() => setFocusedField("email")}
-                              onBlur={() => setFocusedField(null)}
-                              className={`transition-all duration-300 ${focusedField === "email" ? "ring-2 ring-primary/30 border-primary" : ""}`}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                type="email" 
+                                placeholder="tu@email.com" 
+                                {...field} 
+                                onFocus={() => setFocusedField("email")}
+                                onBlur={() => setFocusedField(null)}
+                                className={`transition-all duration-300 ${focusedField === "email" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
 
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-2">
-                            <Phone className="w-4 h-4 text-muted-foreground" />
-                            Teléfono <span className="text-muted-foreground text-xs">(opcional)</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input 
-                              type="tel" 
-                              placeholder="+57 300 123 4567" 
-                              {...field} 
-                              onFocus={() => setFocusedField("phone")}
-                              onBlur={() => setFocusedField(null)}
-                              className={`transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary" : ""}`}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    {/* Row 2: Phone & Location */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="flex items-center gap-1.5">
+                              <Phone className="w-3.5 h-3.5 text-muted-foreground" />
+                              Teléfono
+                            </FormLabel>
+                            <FormControl>
+                              <Input 
+                                type="tel" 
+                                placeholder="+57 300 123 4567" 
+                                {...field} 
+                                onFocus={() => setFocusedField("phone")}
+                                onBlur={() => setFocusedField(null)}
+                                className={`transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                    <FormField
-                      control={form.control}
-                      name="location"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4 text-muted-foreground" />
-                            País / Ciudad <span className="text-muted-foreground text-xs">(opcional)</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input 
-                              type="text" 
-                              placeholder="Ej: Colombia, Bogotá" 
-                              {...field} 
-                              onFocus={() => setFocusedField("location")}
-                              onBlur={() => setFocusedField(null)}
-                              className={`transition-all duration-300 ${focusedField === "location" ? "ring-2 ring-primary/30 border-primary" : ""}`}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                      <FormField
+                        control={form.control}
+                        name="location"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="flex items-center gap-1.5">
+                              <MapPin className="w-3.5 h-3.5 text-muted-foreground" />
+                              País / Ciudad
+                            </FormLabel>
+                            <FormControl>
+                              <Input 
+                                type="text" 
+                                placeholder="Ej: Colombia, Bogotá" 
+                                {...field} 
+                                onFocus={() => setFocusedField("location")}
+                                onBlur={() => setFocusedField(null)}
+                                className={`transition-all duration-300 ${focusedField === "location" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
 
                     <FormField
                       control={form.control}
@@ -311,7 +316,7 @@ const Contact: React.FC = () => {
               
               <div className="space-y-3">
                 <a
-                  href="mailto:reynaldo@cavadialab.com"
+                  href="mailto:rmontalvocavadia@gmail.com"
                   className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -319,7 +324,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground group-hover:text-primary transition-colors">reynaldo@cavadialab.com</p>
+                    <p className="text-foreground group-hover:text-primary transition-colors">rmontalvocavadia@gmail.com</p>
                   </div>
                 </a>
 

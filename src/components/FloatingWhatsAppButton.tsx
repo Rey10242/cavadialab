@@ -4,7 +4,7 @@ import { trackWhatsAppClick } from '@/lib/gtag';
 
 const FloatingWhatsAppButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const waText = encodeURIComponent("Hola Reynaldo, vi tu portafolio y me gustaría conversar sobre un proyecto. ¿Tienes disponibilidad?");
+  const waText = encodeURIComponent("¡Hola Reynaldo! Vi tu portafolio y me interesa hablar contigo sobre un proyecto. ¿Cuándo podemos conversar?");
   
   const handleClick = () => {
     trackWhatsAppClick();
