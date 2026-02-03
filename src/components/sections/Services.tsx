@@ -12,6 +12,7 @@ import {
   LucideIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { serviceSelection, serviceToProjectType } from "@/hooks/useServiceSelection";
 
 interface Service {
   icon: LucideIcon;
@@ -83,13 +84,25 @@ const services: Service[] = [
 const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, index }) => {
   const Icon = service.icon;
   
+  const handleServiceClick = () => {
+    // Set the selected service
+    serviceSelection.set(service.title);
+    
+    // Scroll to contact section
+    const contactSection = document.getElementById("contacto");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group h-full"
+      className="group h-full cursor-pointer"
+      onClick={handleServiceClick}
     >
       <div className={`relative h-full bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 lg:p-8 hover:border-${service.accentColor}/40 hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
         {/* Gradient background on hover */}

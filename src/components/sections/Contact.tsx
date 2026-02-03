@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { serviceSelection, serviceToProjectType } from "@/hooks/useServiceSelection";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "Nombre muy largo"),
@@ -41,6 +42,7 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [prefilledService, setPrefilledService] = useState<string | null>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -53,6 +55,35 @@ const Contact: React.FC = () => {
       projectType: "",
     },
   });
+
+  // Listen for service selection from Services section
+  useEffect(() => {
+    const unsubscribe = serviceSelection.subscribe((service) => {
+      if (service) {
+        setPrefilledService(service);
+        const projectType = serviceToProjectType[service] || "other";
+        form.setValue("projectType", projectType);
+        form.setValue("message", `Hola, estoy interesado en el servicio de "${service}". Me gustaría obtener más información sobre cómo pueden ayudarme con mi proyecto.`);
+        
+        // Clear the selection after applying
+        setTimeout(() => serviceSelection.clear(), 100);
+      }
+    });
+
+    // Check if there's already a selected service
+    const currentService = serviceSelection.get();
+    if (currentService) {
+      setPrefilledService(currentService);
+      const projectType = serviceToProjectType[currentService] || "other";
+      form.setValue("projectType", projectType);
+      form.setValue("message", `Hola, estoy interesado en el servicio de "${currentService}". Me gustaría obtener más información sobre cómo pueden ayudarme con mi proyecto.`);
+      setTimeout(() => serviceSelection.clear(), 100);
+    }
+
+    return () => {
+      unsubscribe();
+    };
+  }, [form]);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -71,7 +102,33 @@ const Contact: React.FC = () => {
 
       if (error) throw error;
 
+      // Send email notification
+      try {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+        
+        await fetch(`${supabaseUrl}/functions/v1/notify-contact`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${supabaseKey}`,
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone || undefined,
+            location: data.location || undefined,
+            message: data.message,
+            projectType: data.projectType || undefined,
+          }),
+        });
+      } catch (emailError) {
+        console.error("Error sending email notification:", emailError);
+        // Don't fail the form submission if email fails
+      }
+
       setIsSubmitted(true);
+      setPrefilledService(null);
       toast.success("¡Mensaje enviado! Te contactaré pronto.");
       form.reset();
       

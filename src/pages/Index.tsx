@@ -5,7 +5,7 @@ import Skills from "@/components/sections/Skills";
 import Methodology from "@/components/sections/Methodology";
 import CaseStudies from "@/components/sections/CaseStudies";
 import Services from "@/components/sections/Services";
-import Testimonials from "@/components/sections/Testimonials";
+// import Testimonials from "@/components/sections/Testimonials"; // Temporalmente oculto hasta tener testimonios reales
 import Contact from "@/components/sections/Contact";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import SiteFooter from "@/components/SiteFooter";
@@ -154,7 +154,7 @@ const Index: React.FC = () => {
         <Methodology />
         <CaseStudies />
         <Services />
-        <Testimonials />
+        {/* Testimonials temporalmente oculto hasta tener testimonios reales */}
         <Contact />
         <SiteFooter />
         <FloatingWhatsAppButton />

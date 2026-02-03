@@ -10,6 +10,7 @@ const links = [
   { href: "#metodologia", label: "Metodología" },
   { href: "#casos-exito", label: "Casos de Éxito" },
   { href: "#servicios", label: "Servicios" },
+  // { href: "#testimonios", label: "Testimonios" }, // Temporalmente oculto
   { href: "#contacto", label: "Contacto" },
 ];
 
