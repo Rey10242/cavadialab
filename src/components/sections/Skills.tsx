@@ -252,7 +252,7 @@ const Skills: React.FC = () => {
           
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-foreground">Herramientas que </span>
-            <span className="text-gradient">Dominó</span>
+            <span className="text-gradient">Domino</span>
           </h2>
           
           <p className="text-muted-foreground max-w-2xl mx-auto">
