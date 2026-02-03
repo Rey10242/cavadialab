@@ -7,7 +7,8 @@ import {
   ClipboardCheck, 
   Lightbulb,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Search
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -19,7 +20,7 @@ const services = [
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
     borderColor: "hover:border-blue-500/40",
-    featured: false,
+    hoverTextColor: "group-hover:text-blue-500",
   },
   {
     icon: TrendingUp,
@@ -28,6 +29,7 @@ const services = [
     color: "from-primary/20 to-violet-500/20",
     iconColor: "text-primary",
     borderColor: "hover:border-primary/40",
+    hoverTextColor: "group-hover:text-primary",
     featured: true,
   },
   {
@@ -37,7 +39,7 @@ const services = [
     color: "from-emerald-500/20 to-teal-500/20",
     iconColor: "text-emerald-500",
     borderColor: "hover:border-emerald-500/40",
-    featured: false,
+    hoverTextColor: "group-hover:text-emerald-500",
   },
   {
     icon: ClipboardCheck,
@@ -46,7 +48,16 @@ const services = [
     color: "from-orange-500/20 to-amber-500/20",
     iconColor: "text-orange-500",
     borderColor: "hover:border-orange-500/40",
-    featured: false,
+    hoverTextColor: "group-hover:text-orange-500",
+  },
+  {
+    icon: Search,
+    title: "SEO y Posicionamiento Orgánico",
+    description: "Estrategias de optimización para motores de búsqueda, análisis de keywords, SEO técnico y contenido optimizado para aumentar tráfico orgánico.",
+    color: "from-cyan-500/20 to-sky-500/20",
+    iconColor: "text-cyan-500",
+    borderColor: "hover:border-cyan-500/40",
+    hoverTextColor: "group-hover:text-cyan-500",
   },
   {
     icon: Lightbulb,
@@ -55,7 +66,7 @@ const services = [
     color: "from-purple-500/20 to-pink-500/20",
     iconColor: "text-purple-500",
     borderColor: "hover:border-purple-500/40",
-    featured: false,
+    hoverTextColor: "group-hover:text-purple-500",
   },
 ];
 
@@ -280,7 +291,7 @@ const Services: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 5 - Wide */}
+          {/* Card 5 - SEO */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -296,10 +307,10 @@ const Services: React.FC = () => {
                   className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${services[4].color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   whileHover={{ rotate: 5 }}
                 >
-                  <Lightbulb className={`w-8 h-8 ${services[4].iconColor}`} />
+                  <Search className={`w-8 h-8 ${services[4].iconColor}`} />
                 </motion.div>
 
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-purple-500 transition-colors">
+                <h3 className={`text-xl font-bold text-foreground mb-3 ${services[4].hoverTextColor} transition-colors`}>
                   {services[4].title}
                 </h3>
 
@@ -308,7 +319,44 @@ const Services: React.FC = () => {
                 </p>
 
                 <motion.div 
-                  className="mt-4 flex items-center gap-2 text-purple-500 font-medium opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  className={`mt-4 flex items-center gap-2 ${services[4].iconColor} font-medium opacity-0 group-hover:opacity-100 transition-all duration-300`}
+                >
+                  <span className="text-sm">Saber más</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 6 - Consultoría */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="lg:col-span-2 group"
+          >
+            <div className={`relative h-full min-h-[280px] bg-card/50 backdrop-blur-sm border border-border rounded-3xl p-6 lg:p-8 ${services[5].borderColor} hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
+              <div className={`absolute inset-0 bg-gradient-to-br ${services[5].color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <div className="relative z-10 h-full flex flex-col">
+                <motion.div 
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${services[5].color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  whileHover={{ rotate: 5 }}
+                >
+                  <Lightbulb className={`w-8 h-8 ${services[5].iconColor}`} />
+                </motion.div>
+
+                <h3 className={`text-xl font-bold text-foreground mb-3 ${services[5].hoverTextColor} transition-colors`}>
+                  {services[5].title}
+                </h3>
+
+                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                  {services[5].description}
+                </p>
+
+                <motion.div 
+                  className={`mt-4 flex items-center gap-2 ${services[5].iconColor} font-medium opacity-0 group-hover:opacity-100 transition-all duration-300`}
                 >
                   <span className="text-sm">Saber más</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
