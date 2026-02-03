@@ -1,0 +1,20 @@
+{
+  "name": "Reynaldo Montalvo Cavadia - Growth & Paid Media Specialist",
+  "short_name": "RM Portfolio",
+  "description": "Portafolio profesional de Reynaldo Montalvo Cavadia, especialista en Growth Marketing, Paid Media y Automatización.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "es-CO"
+}

@@ -22,16 +22,18 @@
   <!-- Optimización de conexiones de red (reducir latencia) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
   <!-- Carga optimizada de fuentes con display=swap para evitar FOIT -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
-  <!-- Precarga de recursos críticos para mejorar rendimiento -->
+  <!-- Precarga de recursos críticos para mejorar LCP -->
   <link rel="modulepreload" href="/src/main.tsx" />
-  <link rel="preload" as="image" href="/favicon.png" 
-        imagesrcset="/favicon.png 512w" 
-        fetchpriority="high" />
+  <link rel="preload" as="image" href="/src/assets/perfil-reynaldo.png" type="image/png" fetchpriority="high" />
+  <link rel="preload" as="image" href="/src/assets/rm-logo.png" type="image/png" fetchpriority="high" />
+  <link rel="preload" as="image" href="/favicon.png" type="image/png" />
 
   <!-- Conjunto completo de iconos para diferentes dispositivos -->
   <link rel="icon" href="/favicon.png" type="image/png" />
@@ -219,25 +221,92 @@
   }
   </script>
 
-  <!-- Código de seguimiento adicional si es necesario -->
+  <!-- Web Vitals y Performance Monitoring -->
   <script>
     // Configuración de eventos personalizados para GTM
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     
-    // Eventos de rendimiento web vitals
-    window.addEventListener('load', function() {
-      // Medir First Contentful Paint
-      if ('performance' in window && 'getEntriesByType' in performance) {
-        const fcpEntry = performance.getEntriesByType('paint').find(entry => entry.name === 'first-contentful-paint');
-        if (fcpEntry) {
+    // Performance Observer para Core Web Vitals
+    if ('PerformanceObserver' in window) {
+      // Largest Contentful Paint (LCP)
+      try {
+        new PerformanceObserver((entryList) => {
+          const entries = entryList.getEntries();
+          const lastEntry = entries[entries.length - 1];
           gtag('event', 'web_vitals', {
-            'metric_name': 'FCP',
-            'metric_value': Math.round(fcpEntry.startTime)
+            'metric_name': 'LCP',
+            'metric_value': Math.round(lastEntry.startTime),
+            'metric_rating': lastEntry.startTime < 2500 ? 'good' : lastEntry.startTime < 4000 ? 'needs-improvement' : 'poor'
           });
-        }
-      }
-    });
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      } catch (e) {}
+
+      // First Input Delay (FID) / Interaction to Next Paint (INP)
+      try {
+        new PerformanceObserver((entryList) => {
+          for (const entry of entryList.getEntries()) {
+            gtag('event', 'web_vitals', {
+              'metric_name': 'FID',
+              'metric_value': Math.round(entry.processingStart - entry.startTime),
+              'metric_rating': entry.processingStart - entry.startTime < 100 ? 'good' : entry.processingStart - entry.startTime < 300 ? 'needs-improvement' : 'poor'
+            });
+          }
+        }).observe({ type: 'first-input', buffered: true });
+      } catch (e) {}
+
+      // Cumulative Layout Shift (CLS)
+      try {
+        let clsValue = 0;
+        new PerformanceObserver((entryList) => {
+          for (const entry of entryList.getEntries()) {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+            }
+          }
+        }).observe({ type: 'layout-shift', buffered: true });
+        
+        // Report CLS on page hide
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') {
+            gtag('event', 'web_vitals', {
+              'metric_name': 'CLS',
+              'metric_value': clsValue.toFixed(4),
+              'metric_rating': clsValue < 0.1 ? 'good' : clsValue < 0.25 ? 'needs-improvement' : 'poor'
+            });
+          }
+        });
+      } catch (e) {}
+
+      // First Contentful Paint (FCP)
+      try {
+        new PerformanceObserver((entryList) => {
+          const fcpEntry = entryList.getEntriesByName('first-contentful-paint')[0];
+          if (fcpEntry) {
+            gtag('event', 'web_vitals', {
+              'metric_name': 'FCP',
+              'metric_value': Math.round(fcpEntry.startTime),
+              'metric_rating': fcpEntry.startTime < 1800 ? 'good' : fcpEntry.startTime < 3000 ? 'needs-improvement' : 'poor'
+            });
+          }
+        }).observe({ type: 'paint', buffered: true });
+      } catch (e) {}
+
+      // Time to First Byte (TTFB)
+      try {
+        new PerformanceObserver((entryList) => {
+          const navigationEntry = entryList.getEntries()[0];
+          if (navigationEntry) {
+            const ttfb = navigationEntry.responseStart - navigationEntry.requestStart;
+            gtag('event', 'web_vitals', {
+              'metric_name': 'TTFB',
+              'metric_value': Math.round(ttfb),
+              'metric_rating': ttfb < 800 ? 'good' : ttfb < 1800 ? 'needs-improvement' : 'poor'
+            });
+          }
+        }).observe({ type: 'navigation', buffered: true });
+      } catch (e) {}
+    }
   </script>
 </body>
 </html>
