@@ -20,12 +20,17 @@ const HeroPersonal: React.FC = () => {
             className="text-center lg:text-left order-2 lg:order-1"
           >
             {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+            >
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm font-medium text-foreground">
                 Disponible para proyectos
               </span>
-            </div>
+            </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
               <span className="text-foreground">Hola, soy </span>
@@ -71,28 +76,28 @@ const HeroPersonal: React.FC = () => {
             className="order-1 lg:order-2 flex justify-center"
           >
             <div className="relative">
-              {/* Glow effect behind photo */}
+              {/* Glow effect behind photo - más suave */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-secondary/30 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute inset-8 bg-gradient-to-tr from-secondary/30 via-primary/25 to-transparent rounded-full blur-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/15 to-secondary/20 rounded-full blur-3xl" />
+                <div className="absolute inset-8 bg-gradient-to-tr from-secondary/20 via-primary/15 to-transparent rounded-full blur-2xl" />
               </div>
               
-              {/* Profile Photo con máscara de gradiente inferior */}
+              {/* Profile Photo con máscara de gradiente más suave */}
               <img 
                 src={perfilReynaldo} 
                 alt="Reynaldo Montalvo Cavadia - Full Stack Marketer & Growth Expert" 
                 className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
                 style={{
-                  maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)'
+                  maskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)'
                 }}
               />
               
-              {/* Floating badges */}
+              {/* Floating badges - animaciones más suaves */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-4 -right-4 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-4 -right-4 z-20 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg"
               >
                 <span className="text-sm font-medium flex items-center gap-1.5">
                   <TrendingUp className="w-4 h-4 text-primary" />
@@ -101,17 +106,17 @@ const HeroPersonal: React.FC = () => {
               </motion.div>
               
               <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-16 -left-4 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-16 -left-4 z-20 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg"
               >
                 <span className="text-sm font-medium">🚀 Growth Marketing</span>
               </motion.div>
 
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-8 -right-8 z-20 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute bottom-8 -right-8 z-20 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg"
               >
                 <span className="text-sm font-medium flex items-center gap-1.5">
                   <Target className="w-4 h-4 text-primary" />

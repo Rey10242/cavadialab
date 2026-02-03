@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Github, MessageCircle, CheckCircle, Loader2 } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Github, MessageCircle, CheckCircle, Loader2, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,6 +39,7 @@ const socialLinks = [
 const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -105,7 +106,14 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8">
+            <div className="bg-card border border-border rounded-xl p-6 md:p-8 relative overflow-hidden">
+              {/* Spotlight effect */}
+              {focusedField && (
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
+                </div>
+              )}
+
               <h3 className="text-xl font-semibold mb-6">Envíame un mensaje</h3>
               
               {isSubmitted ? (
@@ -114,7 +122,9 @@ const Contact: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center py-12 text-center"
                 >
-                  <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
+                    <CheckCircle className="w-10 h-10 text-green-500" />
+                  </div>
                   <h4 className="text-xl font-semibold mb-2">¡Mensaje Enviado!</h4>
                   <p className="text-muted-foreground">
                     Gracias por contactarme. Te responderé lo antes posible.
@@ -130,7 +140,13 @@ const Contact: React.FC = () => {
                         <FormItem>
                           <FormLabel>Nombre</FormLabel>
                           <FormControl>
-                            <Input placeholder="Tu nombre" {...field} />
+                            <Input 
+                              placeholder="Tu nombre" 
+                              {...field} 
+                              onFocus={() => setFocusedField("name")}
+                              onBlur={() => setFocusedField(null)}
+                              className={`transition-all duration-300 ${focusedField === "name" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -144,7 +160,14 @@ const Contact: React.FC = () => {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="tu@email.com" {...field} />
+                            <Input 
+                              type="email" 
+                              placeholder="tu@email.com" 
+                              {...field} 
+                              onFocus={() => setFocusedField("email")}
+                              onBlur={() => setFocusedField(null)}
+                              className={`transition-all duration-300 ${focusedField === "email" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -187,6 +210,9 @@ const Contact: React.FC = () => {
                               placeholder="Cuéntame sobre tu proyecto..."
                               rows={5}
                               {...field}
+                              onFocus={() => setFocusedField("message")}
+                              onBlur={() => setFocusedField(null)}
+                              className={`transition-all duration-300 ${focusedField === "message" ? "ring-2 ring-primary/30 border-primary" : ""}`}
                             />
                           </FormControl>
                           <FormMessage />
@@ -223,23 +249,23 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-8"
+            className="space-y-6"
           >
             {/* Contact Info */}
             <div className="bg-card border border-border rounded-xl p-6 md:p-8">
               <h3 className="text-xl font-semibold mb-6">Información de Contacto</h3>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <a
                   href="mailto:reynaldo@cavadialab.com"
-                  className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground">reynaldo@cavadialab.com</p>
+                    <p className="text-foreground group-hover:text-primary transition-colors">reynaldo@cavadialab.com</p>
                   </div>
                 </a>
 
@@ -247,24 +273,34 @@ const Contact: React.FC = () => {
                   href="https://wa.me/573246875354"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <p className="text-foreground">+57 324 687 5354</p>
+                    <p className="text-foreground group-hover:text-primary transition-colors">+57 324 687 5354</p>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 p-3 rounded-lg">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="flex items-center gap-4 p-3 rounded-xl">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Ubicación</p>
                     <p className="text-foreground">Cartagena de Indias, Colombia 🇨🇴</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-3 rounded-xl bg-primary/5 border border-primary/10">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Disponibilidad</p>
+                    <p className="text-foreground">Lun - Vie: 9:00 AM - 6:00 PM (COT)</p>
                   </div>
                 </div>
               </div>
@@ -274,14 +310,14 @@ const Contact: React.FC = () => {
             <div className="bg-card border border-border rounded-xl p-6 md:p-8">
               <h3 className="text-xl font-semibold mb-6">Sígueme en Redes</h3>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 rounded-lg bg-muted/50 hover:bg-primary/10 hover:border-primary/30 border border-transparent transition-all group"
+                    className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-primary/10 hover:border-primary/30 border border-transparent transition-all group"
                   >
                     <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span className="text-foreground group-hover:text-primary transition-colors">
@@ -292,21 +328,29 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-6 md:p-8 text-center">
-              <h3 className="text-xl font-semibold mb-3">¿Listo para empezar?</h3>
-              <p className="text-muted-foreground mb-4">
+            {/* CTA con pulso */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-6 md:p-8 text-center relative overflow-hidden"
+            >
+              {/* Pulse effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent animate-pulse pointer-events-none" />
+              
+              <h3 className="text-xl font-semibold mb-3 relative z-10">¿Listo para empezar?</h3>
+              <p className="text-muted-foreground mb-4 relative z-10">
                 Agenda una llamada gratuita de 30 minutos para discutir tu proyecto.
               </p>
               <Button
                 size="lg"
-                className="btn-primary-glow"
+                className="btn-primary-glow relative z-10"
                 onClick={() => window.open("https://wa.me/573246875354", "_blank")}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Agendar Llamada
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

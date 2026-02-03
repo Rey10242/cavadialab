@@ -15,31 +15,31 @@ const services = [
     icon: Settings,
     title: "Set Up de Cuentas y Tracking",
     description: "Configuración profesional de cuentas publicitarias, píxeles, eventos de conversión y Google Tag Manager para medir cada acción relevante.",
-    keywords: ["Google Ads setup", "Meta Ads configuration", "conversion tracking"],
+    number: "01",
   },
   {
     icon: RefreshCw,
     title: "Optimización y Reestructuración",
     description: "Auditoría y mejora de campañas existentes para maximizar ROAS, reducir CPA y mejorar la calidad del tráfico.",
-    keywords: ["campaign optimization", "ROAS improvement", "ad performance"],
+    number: "02",
   },
   {
     icon: TrendingUp,
     title: "Escalamiento de Campañas",
     description: "Estrategias para aumentar presupuesto de forma controlada sin perder rentabilidad, identificando winners y automatizando procesos.",
-    keywords: ["scale campaigns", "paid media growth", "budget scaling"],
+    number: "03",
   },
   {
     icon: ClipboardCheck,
     title: "Auditoría Técnica y Estratégica",
     description: "Análisis profundo de tu ecosistema digital: tracking, atribución, estructura de campañas, creativos y funnel de conversión.",
-    keywords: ["digital audit", "marketing audit", "performance analysis"],
+    number: "04",
   },
   {
     icon: Lightbulb,
     title: "Consultoría en Growth y Performance",
     description: "Asesoría estratégica para equipos de marketing, definición de KPIs, dashboards ejecutivos y roadmap de crecimiento.",
-    keywords: ["growth consulting", "performance marketing", "marketing strategy"],
+    number: "05",
   },
 ];
 
@@ -70,13 +70,19 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group relative bg-card border border-border rounded-xl p-6 hover:border-primary/30 hover:shadow-xl transition-all overflow-hidden"
+              whileHover={{ y: -6 }}
+              className="group relative bg-card border border-border rounded-xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
               {/* Background glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                {/* Number badge */}
+                <div className="absolute top-0 right-0 text-5xl font-black text-primary/10 group-hover:text-primary/20 transition-colors">
+                  {service.number}
+                </div>
+
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <service.icon className="w-7 h-7 text-primary" />
                 </div>
 
@@ -84,20 +90,15 @@ const Services: React.FC = () => {
                   {service.title}
                 </h3>
 
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
 
-                {/* Keywords for SEO visibility */}
-                <div className="flex flex-wrap gap-1.5">
-                  {service.keywords.map((keyword) => (
-                    <span
-                      key={keyword}
-                      className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground"
-                    >
-                      {keyword}
-                    </span>
-                  ))}
+                {/* Hover CTA */}
+                <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-sm font-medium text-primary flex items-center gap-1">
+                    Consultar <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
             </motion.div>

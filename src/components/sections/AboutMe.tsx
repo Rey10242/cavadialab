@@ -12,6 +12,7 @@ import {
   Scale,
   Users
 } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const values = [
   {
@@ -69,6 +70,12 @@ const valuePropositions = [
   },
 ];
 
+const stats = [
+  { value: 50, suffix: "+", label: "Proyectos" },
+  { value: 8, suffix: "+", label: "Años Exp." },
+  { value: 100, suffix: "%", label: "Dedicación" },
+];
+
 const AboutMe: React.FC = () => {
   return (
     <section id="sobre-mi" className="section-padding bg-muted/30">
@@ -120,20 +127,24 @@ const AboutMe: React.FC = () => {
               </p>
             </div>
 
-            {/* Quick Stats */}
+            {/* Quick Stats con contador animado */}
             <div className="grid grid-cols-3 gap-4 pt-6">
-              <div className="text-center p-4 rounded-lg bg-card border border-border">
-                <div className="text-2xl md:text-3xl font-bold text-primary">+50</div>
-                <div className="text-sm text-muted-foreground">Proyectos</div>
-              </div>
-              <div className="text-center p-4 rounded-lg bg-card border border-border">
-                <div className="text-2xl md:text-3xl font-bold text-primary">+8</div>
-                <div className="text-sm text-muted-foreground">Años Exp.</div>
-              </div>
-              <div className="text-center p-4 rounded-lg bg-card border border-border">
-                <div className="text-2xl md:text-3xl font-bold text-primary">100%</div>
-                <div className="text-sm text-muted-foreground">Dedicación</div>
-              </div>
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="text-center p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="text-2xl md:text-3xl font-bold text-primary">
+                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -154,9 +165,10 @@ const AboutMe: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: 0.1 * index }}
-                className="flex items-start gap-4 p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors"
+                whileHover={{ x: 4 }}
+                className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                   <value.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -194,13 +206,13 @@ const AboutMe: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
-                whileHover={{ y: -4 }}
-                className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="group p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <prop.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">
+                <h4 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {prop.title}
                 </h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">

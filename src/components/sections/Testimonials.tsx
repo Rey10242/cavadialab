@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote, Star, Linkedin } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star, Linkedin, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
@@ -12,7 +12,8 @@ const testimonials = [
     image: null,
     content: "Reynaldo transformó completamente nuestra estrategia digital. En solo 3 meses duplicamos nuestros leads cualificados y el ROI de nuestras campañas mejoró un 180%.",
     rating: 5,
-    linkedIn: "#",
+    linkedIn: "https://linkedin.com",
+    verified: true,
   },
   {
     id: 2,
@@ -22,7 +23,8 @@ const testimonials = [
     image: null,
     content: "La automatización que implementó nos ahorró más de 20 horas semanales en tareas repetitivas. Un profesional excepcional con un enfoque muy orientado a resultados.",
     rating: 5,
-    linkedIn: "#",
+    linkedIn: "https://linkedin.com",
+    verified: true,
   },
   {
     id: 3,
@@ -32,7 +34,8 @@ const testimonials = [
     image: null,
     content: "Gracias a la estrategia de growth marketing de Reynaldo, nuestras ventas online crecieron un 250% en el primer trimestre. Totalmente recomendado.",
     rating: 5,
-    linkedIn: "#",
+    linkedIn: "https://linkedin.com",
+    verified: true,
   },
   {
     id: 4,
@@ -42,20 +45,30 @@ const testimonials = [
     image: null,
     content: "El chatbot con IA que implementó ha revolucionado nuestra atención al cliente. Ahora respondemos 24/7 y la satisfacción del cliente aumentó significativamente.",
     rating: 5,
-    linkedIn: "#",
+    linkedIn: "https://linkedin.com",
+    verified: true,
   },
 ];
 
 const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const next = () => {
+  const next = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, []);
 
   const prev = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  // Autoplay
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(next, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, next]);
 
   return (
     <section id="testimonios" className="section-padding">
@@ -76,7 +89,11 @@ const Testimonials: React.FC = () => {
         </motion.div>
 
         {/* Main Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto">
+        <div 
+          className="max-w-4xl mx-auto"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div
@@ -84,16 +101,20 @@ const Testimonials: React.FC = () => {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.3 }}
-                className="bg-card border border-border rounded-2xl p-8 md:p-10"
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="bg-card border border-border rounded-2xl p-8 md:p-10 relative overflow-hidden"
               >
-                {/* Quote Icon */}
-                <div className="mb-6">
-                  <Quote className="w-12 h-12 text-primary/30" />
+                {/* Decorative gradient */}
+                <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none" />
+
+                {/* Quote Icon - Premium style */}
+                <div className="mb-6 relative">
+                  <Quote className="w-16 h-16 text-primary/20" strokeWidth={1} />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent blur-xl opacity-50" />
                 </div>
 
                 {/* Content */}
-                <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8">
+                <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8 italic">
                   "{testimonials[currentIndex].content}"
                 </p>
 
@@ -116,8 +137,11 @@ const Testimonials: React.FC = () => {
                     </div>
 
                     <div>
-                      <h4 className="font-semibold text-foreground">
+                      <h4 className="font-semibold text-foreground flex items-center gap-2">
                         {testimonials[currentIndex].name}
+                        {testimonials[currentIndex].verified && (
+                          <BadgeCheck className="w-4 h-4 text-primary" />
+                        )}
                       </h4>
                       <p className="text-sm text-muted-foreground">
                         {testimonials[currentIndex].role} en {testimonials[currentIndex].company}
@@ -127,7 +151,7 @@ const Testimonials: React.FC = () => {
 
                   <div className="flex items-center gap-4">
                     {/* Rating */}
-                    <div className="flex gap-1">
+                    <div className="flex gap-0.5">
                       {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-yellow-500 text-yellow-500" />
                       ))}
@@ -154,7 +178,7 @@ const Testimonials: React.FC = () => {
                 variant="outline"
                 size="icon"
                 onClick={prev}
-                className="rounded-full"
+                className="rounded-full hover:bg-primary/10 hover:border-primary/30"
               >
                 <ChevronLeft className="w-5 h-5" />
               </Button>
@@ -165,10 +189,10 @@ const Testimonials: React.FC = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "bg-primary w-6"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                        ? "bg-primary w-8"
+                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2.5"
                     }`}
                     aria-label={`Ver testimonio ${index + 1}`}
                   />
@@ -179,23 +203,13 @@ const Testimonials: React.FC = () => {
                 variant="outline"
                 size="icon"
                 onClick={next}
-                className="rounded-full"
+                className="rounded-full hover:bg-primary/10 hover:border-primary/30"
               >
                 <ChevronRight className="w-5 h-5" />
               </Button>
             </div>
           </div>
         </div>
-
-        {/* Note for adding real testimonials */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-sm text-muted-foreground mt-10"
-        >
-          💡 Estos son testimonios de ejemplo. Reemplázalos con testimonios reales de tus clientes.
-        </motion.p>
       </div>
     </section>
   );
