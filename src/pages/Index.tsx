@@ -38,68 +38,6 @@ const Index: React.FC = () => {
       document.head.appendChild(canonical);
     }
     canonical.setAttribute("href", window.location.origin + "/");
-
-    // JSON-LD - Person schema for portfolio
-    const ld = {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Reynaldo Montalvo Cavadia",
-      url: window.location.origin,
-      image: "/src/assets/cavadialab-logo.png",
-      jobTitle: "Full Stack Marketer & Growth Expert",
-      worksFor: {
-        "@type": "Organization",
-        name: "CavadiaLab",
-      },
-      sameAs: [
-        "https://linkedin.com/in/reynaldomontalvo",
-        "https://instagram.com/reynaldomontalvo"
-      ],
-      description: "Consultor de marketing digital especializado en Google Ads, Meta Ads, automatización e inteligencia artificial para escalar negocios.",
-      knowsAbout: [
-        "Google Ads",
-        "Meta Ads",
-        "Performance Marketing",
-        "Growth Marketing",
-        "Marketing Automation",
-        "Make",
-        "n8n",
-        "WhatsApp Business API",
-        "Google Analytics",
-        "Google Tag Manager"
-      ],
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Cartagena de Indias",
-        addressRegion: "Bolívar",
-        addressCountry: "CO"
-      }
-    };
-    let script = document.getElementById("ld-person") as HTMLScriptElement | null;
-    if (!script) {
-      script = document.createElement("script") as HTMLScriptElement;
-      script.id = "ld-person";
-      script.type = "application/ld+json";
-      document.head.appendChild(script);
-    }
-    script.textContent = JSON.stringify(ld);
-
-    // WebSite schema
-    const ldWebsite = {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "Reynaldo Montalvo - Full Stack Marketer",
-      url: window.location.origin,
-      inLanguage: "es",
-    };
-    let scriptWebsite = document.getElementById("ld-website") as HTMLScriptElement | null;
-    if (!scriptWebsite) {
-      scriptWebsite = document.createElement("script") as HTMLScriptElement;
-      scriptWebsite.id = "ld-website";
-      scriptWebsite.type = "application/ld+json";
-      document.head.appendChild(scriptWebsite);
-    }
-    scriptWebsite.textContent = JSON.stringify(ldWebsite);
   }, []);
 
   React.useEffect(() => {
@@ -143,7 +81,7 @@ const Index: React.FC = () => {
   useScrollAnimation();
 
   return (
-    <main className="relative">
+    <div className="relative">
       <AnimatedBackground />
       <FloatingElements />
       <div className="relative z-10">
@@ -159,7 +97,7 @@ const Index: React.FC = () => {
         <SiteFooter />
         <FloatingWhatsAppButton />
       </div>
-    </main>
+    </div>
   );
 };
 

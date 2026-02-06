@@ -137,7 +137,7 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
 
           {/* CTA on hover */}
           <motion.div 
-            className={`mt-5 pt-4 border-t border-border/30 flex items-center gap-2 ${service.iconColor} font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0`}
+            className={`mt-5 pt-4 border-t border-border/30 flex items-center gap-2 ${service.iconColor} font-medium opacity-60 group-hover:opacity-100 transition-all duration-300`}
           >
             <span className="text-sm">Consultar servicio</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
