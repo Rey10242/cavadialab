@@ -227,11 +227,12 @@ const caseStudies: CaseStudy[] = [
 
 const categories = ["Todos", "E-commerce", "B2B", "Servicios", "Real Estate", "Fintech", "Educación", "Apps"];
 
-const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, index }) => {
+const CaseStudyCard = React.forwardRef<HTMLDivElement, { study: CaseStudy; index: number }>(({ study, index }, ref) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <motion.div
+      ref={ref}
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -357,7 +358,8 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number }> = ({ study, i
       </AnimatePresence>
     </motion.div>
   );
-};
+});
+CaseStudyCard.displayName = "CaseStudyCard";
 
 const CaseStudies: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
