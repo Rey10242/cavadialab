@@ -3,7 +3,7 @@ import HeroPersonal from "@/components/sections/HeroPersonal";
 import AboutMe from "@/components/sections/AboutMe";
 import Skills from "@/components/sections/Skills";
 import Methodology from "@/components/sections/Methodology";
-import CaseStudies from "@/components/sections/CaseStudies";
+// import CaseStudies from "@/components/sections/CaseStudies"; // Temporalmente oculto hasta tener más casos
 import Services from "@/components/sections/Services";
 // import Testimonials from "@/components/sections/Testimonials"; // Temporalmente oculto hasta tener testimonios reales
 import Contact from "@/components/sections/Contact";
@@ -90,7 +90,7 @@ const Index: React.FC = () => {
         <AboutMe />
         <Skills />
         <Methodology />
-        <CaseStudies />
+        {/* <CaseStudies /> */}{/* Temporalmente oculto hasta tener más casos de éxito */}
         <Services />
         {/* Testimonials temporalmente oculto hasta tener testimonios reales */}
         <Contact />
