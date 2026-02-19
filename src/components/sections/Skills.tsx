@@ -2,161 +2,83 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Globe, Megaphone, BarChart3, Cog } from "lucide-react";
 
-// Logos optimizados con tamaño más grande
-const WordPressLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <circle cx="16" cy="16" r="14" fill="#21759B"/>
-    <path d="M4.5 16c0 4.2 2.4 7.8 5.9 9.6L5.3 11.5c-.5 1.4-.8 2.9-.8 4.5zm19.2-.5c0-1.3-.5-2.2-.9-2.9-.5-.9-1-1.6-1-2.5 0-1 .7-1.9 1.8-1.9h.1c-1.9-1.8-4.5-2.9-7.4-2.9-3.8 0-7.2 2-9.1 5h.7c1.2 0 3-.1 3-.1.6 0 .7.9.1 1 0 0-.6.1-1.3.1l4 12 2.4-7.3-1.7-4.7c-.6 0-1.2-.1-1.2-.1-.6 0-.5-1 .1-1 0 0 1.8.1 2.9.1 1.2 0 3-.1 3-.1.6 0 .7.9.1 1 0 0-.6.1-1.3.1l4 11.9 1.1-3.7c.5-1.5.8-2.6.8-3.5zM16.2 17l-3.3 9.7c1 .3 2 .4 3.1.4 1.3 0 2.5-.2 3.6-.6v-.1l-3.4-9.4zm9.1-5.9c.1.5.1 1 .1 1.5 0 1.5-.3 3.3-1.2 5.5l-4.6 13.2c4.4-2.6 7.4-7.4 7.4-12.9 0-2.6-.7-5.1-1.7-7.3z" fill="#fff"/>
-  </svg>
+// Real logos from official sources (simple-icons + downloaded assets)
+import wordpressSvg from "@/assets/logos/wordpress.svg";
+import woocommerceSvg from "@/assets/logos/woocommerce.svg";
+import shopifySvg from "@/assets/logos/shopify.svg";
+import vtexSvg from "@/assets/logos/vtex.svg";
+import metaSvg from "@/assets/logos/meta.svg";
+import googleadsSvg from "@/assets/logos/googleads.svg";
+import tiktokSvg from "@/assets/logos/tiktok.svg";
+import linkedinPng from "@/assets/logos/linkedin.png";
+import ga4Svg from "@/assets/logos/ga4.svg";
+import gtmSvg from "@/assets/logos/gtm.svg";
+import lookerSvg from "@/assets/logos/looker.svg";
+import hotjarSvg from "@/assets/logos/hotjar.svg";
+import makeSvg from "@/assets/logos/make.svg";
+import n8nSvg from "@/assets/logos/n8n.svg";
+import whatsappSvg from "@/assets/logos/whatsapp.svg";
+import hubspotSvg from "@/assets/logos/hubspot.svg";
+
+// Tool logo component with official brand colors
+interface ToolLogoProps {
+  src: string;
+  alt: string;
+  bgColor: string;
+  filter?: string;
+  objectFit?: string;
+}
+
+const ToolLogo: React.FC<ToolLogoProps> = ({ src, alt, bgColor, filter = "brightness(0) invert(1)", objectFit = "contain" }) => (
+  <div
+    className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center p-2 flex-shrink-0"
+    style={{ backgroundColor: bgColor }}
+  >
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-full"
+      style={{ objectFit: objectFit as React.CSSProperties["objectFit"], filter }}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
 );
 
-const WooCommerceLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#96588A"/>
-    <path d="M5 10c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2h-6l-3 3-3-3H7c-1.1 0-2-.9-2-2v-9z" fill="#fff"/>
-    <ellipse cx="10" cy="14" rx="1.2" ry="1.8" fill="#96588A"/>
-    <ellipse cx="16" cy="14" rx="1.2" ry="1.8" fill="#96588A"/>
-    <ellipse cx="22" cy="14" rx="1.2" ry="1.8" fill="#96588A"/>
-  </svg>
-);
-
-const ShopifyLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <path d="M22.3 6c-.1-.1-1.5-.1-1.5-.1s-1.2-1.2-1.4-1.4c-.2-.2-.5-.1-.5-.1l-.7.2c-.4-1.2-1.1-2.3-2.4-2.3h-.2c-.4-.4-.8-.5-1.2-.5-2.9 0-4.3 3.6-4.7 5.4l-2 .6c-.6.2-.6.2-.7.8L5.5 25.5l13.2 2.5 7.1-1.7S22.4 6.1 22.3 6zM17 5.2l-1.9.6c0-.6-.1-1.3-.3-1.9.8.2 1.4.9 2.2 1.3zm-2.9.9l-4 1.2c.4-1.5 1.1-3 2.5-3.5.5.2 1 .5 1.3.9.1.4.2.9.2 1.4zm-1.6-3c.3 0 .6.1.8.3-.9.4-1.9 1.7-2.4 4.1l-3.2 1c.6-3 2.5-5.4 4.8-5.4z" fill="#95BF47"/>
-    <path d="M20.8 5.9s-1.5-.1-1.5-.1-1.2-1.2-1.4-1.4c-.1-.1-.1-.1-.2-.1l-1 20.2 7.1-1.7-3.9-16.7c-.1-.1-.1-.2-.1-.2z" fill="#5E8E3E"/>
-    <path d="M15.5 10.9l-.7 2.1s-.6-.3-1.4-.3c-1.1 0-1.2.7-1.2.9 0 1 2.5 1.4 2.5 3.7 0 1.8-1.2 3-2.7 3-1.9 0-2.8-1.2-2.8-1.2l.5-1.6s1 .9 1.8.9c.6 0 .8-.4.8-.8 0-1.3-2.1-1.3-2.1-3.5 0-1.8 1.3-3.5 3.9-3.5.7 0 1.4.3 1.4.3z" fill="#fff"/>
-  </svg>
-);
-
-const VTEXLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#F71963"/>
-    <path d="M7 12h3l4 8 4-8h3l-6 12h-2L7 12z" fill="#fff"/>
-    <rect x="18" y="12" width="4" height="2" fill="#fff"/>
-  </svg>
-);
-
-const GA4Logo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <path d="M26 16c0 5.5-4.5 10-10 10S6 21.5 6 16 10.5 6 16 6s10 4.5 10 10z" fill="#F9AB00"/>
-    <path d="M16 6v10l8.7 5c1.5-2.2 2.3-4.8 2.3-7.5C27 8.8 22.2 4 16.5 4c-.2 0-.3 0-.5 0v2z" fill="#E37400"/>
-    <circle cx="16" cy="16" r="3.5" fill="#fff"/>
-  </svg>
-);
-
-const GTMLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <path d="M16 2L4 8.5v15L16 30l12-6.5v-15L16 2z" fill="#8AB4F8"/>
-    <path d="M16 10l-6 3.5v7L16 24l6-3.5v-7L16 10z" fill="#4285F4"/>
-    <path d="M16 17l-6-3.5v7L16 24v-7z" fill="#246FDB"/>
-  </svg>
-);
-
-const LookerLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#4285F4"/>
-    <circle cx="16" cy="16" r="7" fill="#fff"/>
-    <circle cx="16" cy="16" r="3.5" fill="#4285F4"/>
-  </svg>
-);
-
-const HotjarLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#FF3C00"/>
-    <path d="M16 28c2.5 0 4.5-2.2 4.5-5V18h-2v5c0 1.7-1.1 3-2.5 3s-2.5-1.3-2.5-3v-5h-2v5c0 2.8 2 5 4.5 5z" fill="#fff"/>
-    <path d="M16 4c-2.5 0-4.5 2.2-4.5 5v5h2V9c0-1.7 1.1-3 2.5-3s2.5 1.3 2.5 3v5h2V9c0-2.8-2-5-4.5-5z" fill="#fff"/>
-  </svg>
-);
-
-const ClarityLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#5C2D91"/>
-    <path d="M8 8h6v6H8V8z" fill="#F25022"/>
-    <path d="M18 8h6v6h-6V8z" fill="#7FBA00"/>
-    <path d="M8 18h6v6H8v-6z" fill="#00A4EF"/>
-    <path d="M18 18h6v6h-6v-6z" fill="#FFB900"/>
-  </svg>
-);
-
-const MetaLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#0866FF"/>
-    <path d="M8 16c0-3.5 1.3-7 3.5-7 1.3 0 2.2 1.3 3.5 4 .4.9.8 1.8 1.2 2.7.4-.9.8-1.8 1.2-2.7 1.3-2.7 2.2-4 3.5-4 2.2 0 3.5 3.5 3.5 7s-1.3 7-3.5 7c-1.3 0-2.2-1.3-3.5-4-.4-.9-.8-1.8-1.2-2.7-.4.9-.8 1.8-1.2 2.7-1.3 2.7-2.2 4-3.5 4C9.3 23 8 19.5 8 16z" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
-  </svg>
-);
-
-const GoogleAdsLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#fff"/>
-    <path d="M7 21l7-12h4l7 12" fill="none" stroke="#4285F4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="9" cy="21" r="3.5" fill="#34A853"/>
-    <circle cx="23" cy="21" r="3.5" fill="#FBBC04"/>
-    <circle cx="16" cy="11" r="3.5" fill="#EA4335"/>
-  </svg>
-);
-
-const TikTokLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#000"/>
-    <path d="M22 10a4.5 4.5 0 01-3.5-1.7V17a5 5 0 11-4.3-4.9v2.5a2.5 2.5 0 101.8 2.4V5h2.5A4.5 4.5 0 0022 10z" fill="#fff"/>
-  </svg>
-);
-
+// LinkedIn uses its own PNG (already colored)
 const LinkedInLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#0A66C2"/>
-    <path d="M10 13h3v10h-3V13zm1.5-1c-1 0-1.7-.7-1.7-1.6s.7-1.6 1.7-1.6 1.7.7 1.7 1.6-.7 1.6-1.7 1.6zm12 11h-3v-5c0-1.2-.4-2-1.5-2-.8 0-1.3.6-1.5 1.1v5.9h-3V13h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.3 1.3 3.3 4.1V23z" fill="#fff"/>
-  </svg>
+  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden flex-shrink-0">
+    <img
+      src={linkedinPng}
+      alt="LinkedIn"
+      className="w-full h-full object-contain"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
 );
 
-const MakeLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#6D00CC"/>
-    <path d="M20 16l-7 4V12l7 4z" fill="#fff"/>
-    <circle cx="16" cy="16" r="9" stroke="#fff" strokeWidth="1.5" fill="none"/>
-  </svg>
-);
-
-const N8nLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#EA4B71"/>
-    <circle cx="10" cy="16" r="2.5" fill="#fff"/>
-    <circle cx="22" cy="16" r="2.5" fill="#fff"/>
-    <path d="M12.5 16h7" stroke="#fff" strokeWidth="1.5"/>
-    <circle cx="16" cy="10" r="2" fill="#fff"/>
-    <circle cx="16" cy="22" r="2" fill="#fff"/>
-  </svg>
-);
-
-const WhatsAppLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#25D366"/>
-    <path d="M16 6C10.5 6 6 10.5 6 16c0 1.7.4 3.3 1.2 4.7L6 26l5.5-1.4c1.3.7 2.8 1.1 4.5 1.1 5.5 0 10-4.5 10-10S21.5 6 16 6zm4.8 13.2c-.2.5-1.1 1-1.5 1-.4 0-.7-.1-2.3-.7-1.8-.7-3-2.5-3.1-2.6-.1-.1-.7-1-.7-1.9s.4-1.3.6-1.5c.2-.2.4-.2.5-.2h.4c.1 0 .3 0 .5.4.2.4.6 1.5.7 1.6 0 .1 0 .2 0 .4-.1.1-.1.2-.2.3-.1.1-.2.3-.3.4-.1.1-.2.2-.1.4.1.2.5.9 1.2 1.4.8.7 1.5.9 1.8 1 .2.1.4.1.5-.1.1-.2.5-.6.7-.8.2-.2.3-.1.5-.1l1.5.7c.2.1.4.2.5.3 0 .1 0 .5-.2 1z" fill="#fff"/>
-  </svg>
-);
-
+// GoHighLevel — no SVG available, use styled text badge
 const GoHighLevelLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#0EA5E9"/>
-    <path d="M16 7L7 11.5l9 4.5 9-4.5L16 7z" fill="#fff"/>
-    <path d="M7 20l9 4.5 9-4.5" stroke="#fff" strokeWidth="1.5" fill="none"/>
-    <path d="M7 15.5l9 4.5 9-4.5" stroke="#fff" strokeWidth="1.5" fill="none"/>
-  </svg>
+  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#F97316] flex items-center justify-center flex-shrink-0">
+    <span className="text-white font-black text-[10px] leading-none text-center">High<br/>Level</span>
+  </div>
 );
 
+// SendPulse — no SVG available, use styled badge
 const SendpulseLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#2C82C9"/>
-    <path d="M8 11l8 5 8-5v10l-8-5-8 5V11z" fill="#fff"/>
-  </svg>
+  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#2C82C9] flex items-center justify-center flex-shrink-0">
+    <span className="text-white font-black text-[9px] leading-none text-center">Send<br/>Pulse</span>
+  </div>
 );
 
-const HubSpotLogo = () => (
-  <svg viewBox="0 0 32 32" className="w-10 h-10 md:w-12 md:h-12">
-    <rect width="32" height="32" rx="6" fill="#FF7A59"/>
-    <path d="M21 11v-1.5a1.5 1.5 0 10-3 0V11a4 4 0 00-2 1l-4.5-3.5a2 2 0 10-1.2 1.5l4.4 3.4a4 4 0 00.5 5.4l-1.4 1.4a1.5 1.5 0 101.1 1.1l1.4-1.4A4 4 0 1021 11z" fill="#fff"/>
-    <circle cx="19.5" cy="15.5" r="2" fill="#FF7A59"/>
-  </svg>
+// Microsoft Clarity — no SVG available, use official brand color
+const ClarityLogo = () => (
+  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#111111] flex items-center justify-center flex-shrink-0 p-1.5">
+    <svg viewBox="0 0 48 48" className="w-full h-full">
+      <text x="24" y="34" textAnchor="middle" fill="#00BCF2" fontSize="32" fontWeight="bold" fontFamily="Segoe UI, Arial, sans-serif">C</text>
+    </svg>
+  </div>
 );
 
 // Datos de las categorías con enfoque 2x2
@@ -166,12 +88,23 @@ const categories = [
     subtitle: "Web & E-commerce",
     icon: Globe,
     gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-    bgGlow: "violet",
     tools: [
-      { name: "WordPress", logo: <WordPressLogo /> },
-      { name: "WooCommerce", logo: <WooCommerceLogo /> },
-      { name: "Shopify", logo: <ShopifyLogo /> },
-      { name: "VTEX", logo: <VTEXLogo /> },
+      {
+        name: "WordPress",
+        logo: <ToolLogo src={wordpressSvg} alt="WordPress" bgColor="#21759B" />,
+      },
+      {
+        name: "WooCommerce",
+        logo: <ToolLogo src={woocommerceSvg} alt="WooCommerce" bgColor="#96588A" />,
+      },
+      {
+        name: "Shopify",
+        logo: <ToolLogo src={shopifySvg} alt="Shopify" bgColor="#95BF47" />,
+      },
+      {
+        name: "VTEX",
+        logo: <ToolLogo src={vtexSvg} alt="VTEX" bgColor="#F71963" />,
+      },
     ],
   },
   {
@@ -179,12 +112,23 @@ const categories = [
     subtitle: "Paid Media & Ads",
     icon: Megaphone,
     gradient: "from-blue-500 via-cyan-500 to-teal-500",
-    bgGlow: "blue",
     tools: [
-      { name: "Meta Ads", logo: <MetaLogo /> },
-      { name: "Google Ads", logo: <GoogleAdsLogo /> },
-      { name: "TikTok Ads", logo: <TikTokLogo /> },
-      { name: "LinkedIn Ads", logo: <LinkedInLogo /> },
+      {
+        name: "Meta Ads",
+        logo: <ToolLogo src={metaSvg} alt="Meta Ads" bgColor="#0866FF" />,
+      },
+      {
+        name: "Google Ads",
+        logo: <ToolLogo src={googleadsSvg} alt="Google Ads" bgColor="#FFFFFF" filter="none" />,
+      },
+      {
+        name: "TikTok Ads",
+        logo: <ToolLogo src={tiktokSvg} alt="TikTok Ads" bgColor="#000000" />,
+      },
+      {
+        name: "LinkedIn Ads",
+        logo: <LinkedInLogo />,
+      },
     ],
   },
   {
@@ -192,13 +136,27 @@ const categories = [
     subtitle: "Analytics & Tracking",
     icon: BarChart3,
     gradient: "from-emerald-500 via-green-500 to-lime-500",
-    bgGlow: "emerald",
     tools: [
-      { name: "GA4", logo: <GA4Logo /> },
-      { name: "GTM", logo: <GTMLogo /> },
-      { name: "Looker Studio", logo: <LookerLogo /> },
-      { name: "Hotjar", logo: <HotjarLogo /> },
-      { name: "Clarity", logo: <ClarityLogo /> },
+      {
+        name: "GA4",
+        logo: <ToolLogo src={ga4Svg} alt="Google Analytics 4" bgColor="#FFFFFF" filter="none" />,
+      },
+      {
+        name: "GTM",
+        logo: <ToolLogo src={gtmSvg} alt="Google Tag Manager" bgColor="#FFFFFF" filter="none" />,
+      },
+      {
+        name: "Looker Studio",
+        logo: <ToolLogo src={lookerSvg} alt="Looker Studio" bgColor="#4285F4" />,
+      },
+      {
+        name: "Hotjar",
+        logo: <ToolLogo src={hotjarSvg} alt="Hotjar" bgColor="#FF3C00" />,
+      },
+      {
+        name: "Clarity",
+        logo: <ClarityLogo />,
+      },
     ],
   },
   {
@@ -206,14 +164,31 @@ const categories = [
     subtitle: "CRM & Automatización",
     icon: Cog,
     gradient: "from-orange-500 via-amber-500 to-yellow-500",
-    bgGlow: "orange",
     tools: [
-      { name: "Make", logo: <MakeLogo /> },
-      { name: "n8n", logo: <N8nLogo /> },
-      { name: "WhatsApp API", logo: <WhatsAppLogo /> },
-      { name: "GoHighLevel", logo: <GoHighLevelLogo /> },
-      { name: "Sendpulse", logo: <SendpulseLogo /> },
-      { name: "HubSpot", logo: <HubSpotLogo /> },
+      {
+        name: "Make",
+        logo: <ToolLogo src={makeSvg} alt="Make" bgColor="#6D00CC" />,
+      },
+      {
+        name: "n8n",
+        logo: <ToolLogo src={n8nSvg} alt="n8n" bgColor="#EA4B71" />,
+      },
+      {
+        name: "WhatsApp API",
+        logo: <ToolLogo src={whatsappSvg} alt="WhatsApp" bgColor="#25D366" />,
+      },
+      {
+        name: "GoHighLevel",
+        logo: <GoHighLevelLogo />,
+      },
+      {
+        name: "Sendpulse",
+        logo: <SendpulseLogo />,
+      },
+      {
+        name: "HubSpot",
+        logo: <ToolLogo src={hubspotSvg} alt="HubSpot" bgColor="#FF7A59" />,
+      },
     ],
   },
 ];
@@ -321,7 +296,7 @@ const Skills: React.FC = () => {
                         whileHover={{ scale: 1.15, y: -5, rotate: 3 }}
                         className="group/tool relative"
                       >
-                        <div className="relative p-3 md:p-4 rounded-xl bg-background/80 border border-border/50 transition-all duration-300 group-hover/tool:border-primary/50 group-hover/tool:shadow-lg group-hover/tool:shadow-primary/20 group-hover/tool:bg-background">
+                        <div className="relative p-2 md:p-2.5 rounded-xl bg-background/80 border border-border/50 transition-all duration-300 group-hover/tool:border-primary/50 group-hover/tool:shadow-lg group-hover/tool:shadow-primary/20 group-hover/tool:bg-background">
                           {tool.logo}
                         </div>
                         
