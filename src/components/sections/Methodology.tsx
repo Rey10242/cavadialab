@@ -12,8 +12,8 @@ const steps = [
   },
   {
     icon: Wrench,
-    title: "Organizo y estructuro tu sistema de ventas",
-    description: "Ordenamos publicidad, seguimiento y medición para que todo tenga sentido.",
+    title: "Estructuración",
+    description: "Ordenamos publicidad, seguimiento y medición. Todo en su lugar.",
     number: "02",
   },
   {

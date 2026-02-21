@@ -236,7 +236,7 @@ const ConsultingSection: React.FC = () => (
       transition={{ duration: 0.5, delay: 0.25 }}
     >
       <p className="text-lg font-semibold text-foreground mb-6">Elige la opción que mejor se adapte a ti</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         {packs.map((pack, i) => (
           <motion.div
             key={pack.name}

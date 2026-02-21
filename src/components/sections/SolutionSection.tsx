@@ -12,7 +12,7 @@ const benefits = [
 
 const SolutionSection: React.FC = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section id="solucion" className="section-padding relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-radial from-primary/8 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
