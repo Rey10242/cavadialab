@@ -1,22 +1,13 @@
-import { create } from 'zustand';
-
-interface ServiceSelectionState {
-  selectedService: string | null;
-  setSelectedService: (service: string | null) => void;
-  clearSelectedService: () => void;
-}
-
-// Map service titles to project types
+// Map service titles to project types (simplified for new services)
 export const serviceToProjectType: Record<string, string> = {
-  "Set Up de Cuentas y Tracking": "marketing",
-  "Escalamiento de Campañas": "marketing",
-  "Optimización y Reestructuración": "marketing",
-  "Auditoría Técnica y Estratégica": "consulting",
-  "SEO y Posicionamiento Orgánico": "marketing",
-  "Consultoría Growth & Performance": "consulting",
+  "Organizar tu publicidad": "marketing",
+  "Atraer mejores clientes": "marketing",
+  "Mejorar tus resultados actuales": "marketing",
+  "Saber si tu inversión funciona": "consulting",
+  "Tener claridad sobre tus números": "consulting",
 };
 
-// Since zustand might not be installed, we'll use a simple event-based approach
+// Simple event-based service selection
 let selectedService: string | null = null;
 const listeners: Set<(service: string | null) => void> = new Set();
 

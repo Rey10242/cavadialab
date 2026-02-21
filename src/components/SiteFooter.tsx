@@ -4,10 +4,9 @@ import { Linkedin, Instagram, Mail, MessageCircle } from "lucide-react";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
+  { href: "#el-problema", label: "El Problema" },
   { href: "#sobre-mi", label: "Sobre Mí" },
-  { href: "#stack", label: "Stack" },
-  { href: "#metodologia", label: "Metodología" },
-  { href: "#casos-exito", label: "Casos de Éxito" },
+  { href: "#proceso", label: "Proceso" },
   { href: "#servicios", label: "Servicios" },
   { href: "#contacto", label: "Contacto" },
 ];
@@ -47,13 +46,13 @@ const SiteFooter: React.FC = () => {
                   Reynaldo Montalvo
                 </span>
                 <span className="text-xs text-muted-foreground">
-                  Full Stack Marketer
+                  Consultor de crecimiento empresarial
                 </span>
               </div>
             </a>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Transformando ideas en máquinas de crecimiento digital a través de 
-              estrategia, automatización e inteligencia artificial.
+              Ayudo a empresarios a vender más, con orden y sin improvisar. 
+              Estrategia, medición y resultados reales.
             </p>
           </div>
 
