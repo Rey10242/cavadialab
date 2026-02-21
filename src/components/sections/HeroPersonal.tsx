@@ -54,8 +54,7 @@ const HeroPersonal: React.FC = () => {
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Te ayudo a atraer clientes potenciales, convertirlos en ventas y crecer 
-              de forma sostenible, sin desperdiciar dinero en campañas que no funcionan.
+              Estructuro tu marketing para que cada peso invertido te acerque a una venta.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

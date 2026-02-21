@@ -7,10 +7,8 @@ import {
   BarChart3, 
   PieChart,
   ArrowRight,
-  MessageCircle,
   LucideIcon
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { serviceSelection } from "@/hooks/useServiceSelection";
 
 interface Service {
@@ -27,7 +25,7 @@ const services: Service[] = [
   {
     icon: Megaphone,
     title: "Organizar tu publicidad",
-    description: "Que cada peso invertido tenga un propósito claro y medible. Nada de gastar por gastar.",
+    description: "Estructuramos campañas, presupuestos y canales para que nada se desperdicie.",
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
     hoverTextColor: "group-hover:text-blue-500",
@@ -36,7 +34,7 @@ const services: Service[] = [
   {
     icon: UserCheck,
     title: "Atraer mejores clientes",
-    description: "Estrategias para que lleguen personas realmente interesadas en comprar, no solo curiosos.",
+    description: "Segmentación precisa para llegar a quien realmente puede comprarte.",
     color: "from-primary/20 to-violet-500/20",
     iconColor: "text-primary",
     hoverTextColor: "group-hover:text-primary",
@@ -45,7 +43,7 @@ const services: Service[] = [
   {
     icon: RefreshCw,
     title: "Mejorar tus resultados actuales",
-    description: "Optimizar lo que ya tienes para que rinda más sin necesidad de gastar más.",
+    description: "Analizamos lo que ya tienes y optimizamos sin gastar más.",
     color: "from-emerald-500/20 to-teal-500/20",
     iconColor: "text-emerald-500",
     hoverTextColor: "group-hover:text-emerald-500",
@@ -54,7 +52,7 @@ const services: Service[] = [
   {
     icon: BarChart3,
     title: "Saber si tu inversión funciona",
-    description: "Medición clara para que tomes decisiones con números, no con intuición.",
+    description: "Dashboards y reportes claros con los números que importan.",
     color: "from-orange-500/20 to-amber-500/20",
     iconColor: "text-orange-500",
     hoverTextColor: "group-hover:text-orange-500",
@@ -63,7 +61,7 @@ const services: Service[] = [
   {
     icon: PieChart,
     title: "Tener claridad sobre tus números",
-    description: "Reportes simples que te muestran qué está pasando con tu dinero.",
+    description: "Sabes cuánto cuesta cada cliente, cada venta, cada clic.",
     color: "from-purple-500/20 to-pink-500/20",
     iconColor: "text-purple-500",
     hoverTextColor: "group-hover:text-purple-500",
@@ -160,55 +158,20 @@ const Services: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            ¿En qué puedo <span className="text-gradient">ayudarte</span>?
+            Esto es lo que <span className="text-gradient">incluye</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Puedo ayudarte si necesitas resolver alguno de estos retos en tu negocio.
+            Cada servicio está diseñado para resolver un problema específico de tu negocio.
           </p>
         </motion.div>
 
-        {/* Bento Grid - first card featured (larger) */}
+        {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {/* Featured first card spans 2 cols */}
           <ServiceCard service={services[0]} index={0} featured />
-          {/* Rest of cards */}
           {services.slice(1).map((service, i) => (
             <ServiceCard key={service.title} service={service} index={i + 1} />
           ))}
         </div>
-
-        {/* Full-width CTA band */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16"
-        >
-          <div className="relative rounded-2xl overflow-hidden">
-            {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-animated opacity-10" />
-            <div className="absolute inset-0 bg-card/80 backdrop-blur-sm" />
-            
-            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 md:p-10">
-              <div>
-                <p className="text-foreground font-semibold text-lg mb-1">
-                  ¿No estás seguro de qué necesitas?
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  Conversemos y te digo con claridad qué se puede mejorar.
-                </p>
-              </div>
-              <Button
-                className="btn-primary-glow group px-8 py-6 text-base flex-shrink-0"
-                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
-              >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Hablemos
-              </Button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

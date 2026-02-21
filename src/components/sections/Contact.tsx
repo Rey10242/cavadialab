@@ -42,7 +42,6 @@ const Contact: React.FC = () => {
     },
   });
 
-  // Listen for service selection from Services section
   useEffect(() => {
     const unsubscribe = serviceSelection.subscribe((service) => {
       if (service) {
@@ -124,50 +123,16 @@ const Contact: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Si tu negocio quiere crecer, pero con orden…{" "}
-            <span className="text-gradient">Conversemos.</span>
+            ¿Listo para crecer{" "}
+            <span className="text-gradient">con orden?</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            En una llamada revisamos tu situación y te digo con claridad qué se puede mejorar y qué no vale la pena hacer.
+            Agenda una llamada y revisamos tu situación. Sin compromiso.
           </p>
         </motion.div>
 
-        {/* WhatsApp CTA with pulse icon */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-2xl mx-auto mb-12"
-        >
-          <div className="relative bg-card/80 backdrop-blur-sm border border-green-500/20 rounded-2xl p-8 text-center overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5" />
-            <div className="relative">
-              {/* Pulse icon */}
-              <div className="relative w-16 h-16 mx-auto mb-4">
-                <div className="absolute inset-0 bg-green-500/20 rounded-full animate-ping [animation-duration:2s]" />
-                <div className="relative w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-8 h-8 text-green-500" />
-                </div>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">La forma más rápida de hablar</h3>
-              <p className="text-muted-foreground mb-5">
-                Agenda una conversación directa y revisamos tu situación sin compromiso.
-              </p>
-              <Button
-                size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white group px-8"
-                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
-              >
-                <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Agendar conversación por WhatsApp
-              </Button>
-            </div>
-          </div>
-        </motion.div>
-
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-stretch">
-          {/* Contact Form with glass effect */}
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -182,7 +147,7 @@ const Contact: React.FC = () => {
                 </div>
               )}
 
-              <h3 className="text-lg font-semibold mb-6">O si prefieres, escríbeme aquí</h3>
+              <h3 className="text-lg font-semibold mb-6">Escríbeme directamente</h3>
               
               {isSubmitted ? (
                 <motion.div
@@ -290,23 +255,36 @@ const Contact: React.FC = () => {
                     />
 
                     <div className="flex-1" />
-                    <Button
-                      type="submit"
-                      className="w-full btn-primary-glow mt-auto"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Enviando...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4 mr-2" />
-                          Enviar Mensaje
-                        </>
-                      )}
-                    </Button>
+                    
+                    {/* Two CTAs: form submit + WhatsApp */}
+                    <div className="space-y-3 mt-auto">
+                      <Button
+                        type="submit"
+                        className="w-full btn-primary-glow"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Enviando...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4 mr-2" />
+                            Enviar Mensaje
+                          </>
+                        )}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-full border-green-500/30 text-green-500 hover:bg-green-500/10 hover:text-green-400"
+                        onClick={() => window.open("https://wa.me/573246875354", "_blank")}
+                      >
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        O escríbeme por WhatsApp
+                      </Button>
+                    </div>
                   </form>
                 </Form>
               )}
@@ -375,7 +353,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Social Links with brand colors */}
+            {/* Social Links */}
             <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8">
               <h3 className="text-xl font-semibold mb-6">Sígueme en Redes</h3>
               
