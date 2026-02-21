@@ -47,15 +47,12 @@ const HeroPersonal: React.FC = () => {
               Experto en Crecimiento Digital
             </p>
 
-            <p className="text-lg md:text-xl font-semibold text-foreground mb-4" style={{
+            <p className="text-lg md:text-xl font-semibold text-foreground mb-8" style={{
               textShadow: '0 0 40px hsl(var(--primary) / 0.15)'
             }}>
               Hago que tu negocio venda más, con orden y sin improvisar.
             </p>
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Estructuro tu marketing para que cada peso invertido te acerque a una venta.
-            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
