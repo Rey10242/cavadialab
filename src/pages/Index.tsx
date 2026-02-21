@@ -85,15 +85,15 @@ const Index: React.FC = () => {
       <div className="relative z-10">
         <CavadiaNavbar />
         <HeroPersonal />
-        <SectionDivider variant="wave" fillTo="hsl(var(--muted) / 0.3)" />
+        <SectionDivider variant="wave" fillTo="hsl(var(--primary) / 0.06)" />
         <ProblemSection />
-        <SectionDivider variant="curve" flip fillTo="hsl(var(--muted) / 0.3)" />
+        <SectionDivider variant="curve" flip fillTo="hsl(var(--primary) / 0.04)" />
         <AboutMe />
-        <SectionDivider variant="blob" fillTo="hsl(var(--muted) / 0.3)" />
+        <SectionDivider variant="blob" fillTo="hsl(var(--primary) / 0.05)" />
         <Methodology />
-        <SectionDivider variant="wave" flip fillTo="hsl(var(--muted) / 0.3)" />
+        <SectionDivider variant="wave" flip fillTo="hsl(var(--primary) / 0.04)" />
         <Services />
-        <SectionDivider variant="curve" fillTo="hsl(var(--muted) / 0.3)" />
+        <SectionDivider variant="curve" fillTo="hsl(var(--primary) / 0.06)" />
         <Contact />
         <SiteFooter />
         <FloatingWhatsAppButton />
