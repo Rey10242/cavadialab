@@ -28,12 +28,12 @@ const ProblemSection: React.FC = () => {
               El problema real
             </div>
 
+            <span className="text-7xl md:text-8xl lg:text-9xl font-black text-destructive/80 leading-none block mb-4">
+              72%
+            </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              <span className="text-7xl md:text-8xl lg:text-9xl font-black text-destructive/80 leading-none block mb-3">
-                72%
-              </span>
-              de los negocios no sabe si su publicidad funciona.{" "}
-              <span className="text-gradient">¿Tú sí?</span>
+              de los negocios invierte en marketing{" "}
+              <span className="text-gradient">sin saber qué está funcionando</span>
             </h2>
           </motion.div>
 
