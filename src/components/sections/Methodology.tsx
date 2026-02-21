@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Search, Wrench, FlaskConical, TrendingUp } from "lucide-react";
+import { Search, Wrench, FlaskConical, TrendingUp, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const steps = [
   {
@@ -121,12 +122,20 @@ const Methodology: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-16"
+          className="text-center mt-16 space-y-6"
         >
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Sin fórmulas mágicas.{" "}
             <span className="text-foreground font-semibold">Solo decisiones basadas en datos.</span>
           </p>
+          <Button
+            variant="outline"
+            className="gap-2"
+            onClick={() => document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Ver servicios
+            <ArrowRight className="w-4 h-4" />
+          </Button>
         </motion.div>
       </div>
     </section>

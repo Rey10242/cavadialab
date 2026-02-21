@@ -6,10 +6,6 @@ import {
   Target,
   Check,
   ArrowRight,
-  Users,
-  CalendarCheck,
-  Video,
-  Mail,
   GraduationCap,
   Briefcase,
   Sparkles,
@@ -79,7 +75,7 @@ const GrowthSystemCard: React.FC = () => (
               No es solo hacer anuncios. Es construir una máquina de ventas ordenada.
             </p>
             <p className="text-sm text-muted-foreground">
-              Ideal si quiere delegar y crecer con estructura.
+              Ideal si quieres delegar y crecer con estructura.
             </p>
           </div>
 
@@ -134,10 +130,10 @@ const StructuredPlansGrid: React.FC = () => (
       transition={{ duration: 0.5 }}
     >
       <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-        Publicidad por Canal
+        Soluciones por canal
       </h3>
       <p className="text-muted-foreground text-sm max-w-xl">
-        Si necesitas trabajar algo puntual:
+        ¿Necesitas potenciar un área específica? Elige el canal que mejor se adapte a tu negocio.
       </p>
     </motion.div>
 
@@ -165,7 +161,7 @@ const StructuredPlansGrid: React.FC = () => (
                 <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
                   {plan.description}
                 </p>
-                <div className="mt-5 pt-4 border-t border-border/30 flex items-center gap-2 text-primary font-medium opacity-60 group-hover:opacity-100 transition-all duration-300">
+                <div className="mt-5 pt-4 border-t border-border/30 flex items-center gap-2 text-primary font-medium group-hover:translate-x-1 transition-all duration-300">
                   <span className="text-sm">Consultar</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -198,26 +194,10 @@ const audiences = [
   },
 ];
 
-const sessionBenefits = [
-  "Analizamos tus campañas actuales en Meta y Google Ads",
-  "Identificamos oportunidades y optimizamos segmentación",
-  "Ajustamos presupuestos para maximizar el retorno",
-  "Solucionamos problemas de tus campañas en tiempo real",
-  "Configuramos mediciones y análisis de datos",
-  "Te damos recomendaciones prácticas y accionables",
-];
-
 const packs = [
   { name: "Individual", hours: "1 hora", price: "$130.000", usd: "~$50 USD" },
   { name: "Platinum", hours: "4 horas", price: "$440.000", usd: "~$150 USD", popular: true },
   { name: "Gold", hours: "8 horas", price: "$720.000", usd: "~$300 USD" },
-];
-
-const consultingSteps: { icon: LucideIcon; label: string; desc: string }[] = [
-  { icon: Mail, label: "Elige tu pack", desc: "Selecciona el paquete que mejor se ajuste a tus necesidades." },
-  { icon: CalendarCheck, label: "Programa día y hora", desc: "Agenda tu sesión en el horario que prefieras." },
-  { icon: Video, label: "Te conectas en vivo", desc: "Por Google Meet con tu especialista asignado." },
-  { icon: Users, label: "Recibes la grabación", desc: "Al día siguiente, para que la repases las veces que quieras." },
 ];
 
 const ConsultingSection: React.FC = () => (
@@ -269,28 +249,6 @@ const ConsultingSection: React.FC = () => (
             </motion.div>
           );
         })}
-      </div>
-    </motion.div>
-
-    {/* ¿Qué vas a lograr? */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="relative bg-card/60 backdrop-blur-sm border border-violet-500/10 rounded-2xl p-8 overflow-hidden"
-    >
-      <div className="absolute -top-16 -right-16 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="relative z-10">
-        <p className="text-lg font-semibold text-foreground mb-5">¿Qué vas a lograr?</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {sessionBenefits.map((b) => (
-            <div key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <Check className="w-4 h-4 mt-0.5 text-violet-400 shrink-0" />
-              <span>{b}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </motion.div>
 
@@ -376,39 +334,24 @@ const ConsultingSection: React.FC = () => (
       </div>
     </motion.div>
 
-    {/* ¿Cómo funciona? */}
+    {/* Inline steps + CTA */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.3 }}
+      className="flex flex-col items-center gap-6"
     >
-      <p className="text-lg font-semibold text-foreground mb-6">¿Cómo funciona?</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {consultingSteps.map((step, i) => {
-          const StepIcon = step.icon;
-          return (
-            <motion.div
-              key={step.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: 0.35 + i * 0.08 }}
-              className="flex flex-col items-center text-center p-5 rounded-2xl bg-card/40 border border-violet-500/10 hover:border-violet-500/20 transition-colors"
-            >
-              <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-3">
-                <StepIcon className="w-5 h-5 text-violet-400" />
-              </div>
-              <span className="text-xs font-bold text-violet-400 mb-1">{i + 1}.</span>
-              <span className="text-sm font-semibold text-foreground mb-1">{step.label}</span>
-              <span className="text-xs text-muted-foreground leading-relaxed">{step.desc}</span>
-            </motion.div>
-          );
-        })}
+      <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
+        <span className="px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-400 font-medium">1. Elige tu pack</span>
+        <ArrowRight className="w-4 h-4 text-violet-400/50 hidden sm:block" />
+        <span className="px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-400 font-medium">2. Agendas</span>
+        <ArrowRight className="w-4 h-4 text-violet-400/50 hidden sm:block" />
+        <span className="px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-400 font-medium">3. Nos conectamos</span>
+        <ArrowRight className="w-4 h-4 text-violet-400/50 hidden sm:block" />
+        <span className="px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-400 font-medium">4. Recibes grabación</span>
       </div>
-      <p className="mt-6 text-center text-sm font-semibold text-foreground">
-        Simple. Directo. Sin vueltas.
-      </p>
+      <p className="text-sm font-semibold text-foreground">Simple. Directo.</p>
     </motion.div>
 
     {/* CTA */}

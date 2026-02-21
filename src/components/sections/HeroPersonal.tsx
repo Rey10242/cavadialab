@@ -44,7 +44,7 @@ const HeroPersonal: React.FC = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-primary font-medium mb-2">
-              Full Stack Marketer & Growth Expert
+              Consultor de Crecimiento Empresarial
             </p>
 
             <p className="text-lg md:text-xl font-semibold text-foreground mb-4" style={{
