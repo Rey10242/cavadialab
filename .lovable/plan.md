@@ -1,124 +1,94 @@
 
 
-# Plan: Narrativa Persuasiva - De Explicativa a Conversacional con Flujo Claro
+# Plan: Rediseño Completo de la Seccion de Servicios
 
-## Diagnostico: Por que se siente repetitiva
+## Concepto
 
-Actualmente, **las mismas ideas se repiten en 3-4 secciones distintas**:
-
-- "Atraer clientes" aparece en Hero, AboutMe y Services
-- "Sin desperdiciar dinero" aparece en Hero, AboutMe y Services
-- "Claridad en numeros" aparece en AboutMe (2 veces) y Services (2 veces)
-- "Escalar sin perder dinero" aparece en AboutMe y Methodology
-- "Crecer con orden" aparece en Hero y Contact
-
-Cada seccion intenta ser auto-contenida y decir todo, en vez de ser UN paso en una historia que fluye.
-
----
-
-## Nueva Narrativa: Cada seccion dice UNA cosa y pasa la posta
+Reemplazar la seccion actual de 5 servicios genericos con 3 segmentos estrategicos claros, cada uno con su propio tono, publico y jerarquia visual. El orden es intencional: primero vision, despues opciones, por ultimo mentoria.
 
 ```text
-HERO      --> "Esto es lo que hago" (promesa directa, sin explicar)
-PROBLEMA  --> "Esto es lo que te pasa" (tension, dolor)
-SOBRE MI  --> "Yo entiendo tu situacion" (confianza, conexion)
-PROCESO   --> "Asi lo resolvemos" (alivio, claridad)
-SERVICIOS --> "Esto es lo que incluye" (especificos, sin repetir)
-CONTACTO  --> "Hablemos" (accion, sin volver a explicar)
+HEADER    --> "Como puedo ayudarte" (directo, sin explicar de mas)
+SEGMENTO 1 --> Gestion de Crecimiento Integral (PRINCIPAL - el mas grande visualmente)
+SEGMENTO 2 --> Planes Estructurados (SEO / Meta Ads / Google Ads)
+SEGMENTO 3 --> Consultoria Estrategica (tono diferente, otro publico)
+CTA FINAL --> Cierre que lleva a contacto
 ```
 
 ---
 
-## Cambios Concretos por Seccion
+## Estructura Visual y Contenido
 
-### 1. HERO - Solo la promesa, nada mas
+### Header de Seccion
+- Titulo: "Como puedo ayudarte"
+- Sin subtitulo largo. Solo el titulo.
 
-**Quitar**: "Te ayudo a atraer clientes potenciales, convertirlos en ventas y crecer de forma sostenible, sin desperdiciar dinero en campanas que no funcionan." (esto ya se dice en otras secciones)
+### Segmento 1: Gestion de Crecimiento Integral (PROTAGONISTA)
+- **Card grande, destacada** con borde gradient y fondo sutil. Ocupa el ancho completo.
+- Badge: "Servicio Principal"
+- Titulo: "Gestion de Crecimiento Integral"
+- Descripcion corta: "Implementamos un sistema completo para atraer clientes, convertirlos y hacer seguimiento automatico. Publicidad + Automatizacion + CRM en un solo lugar."
+- Lista de 6 items con checks:
+  - Captamos prospectos desde multiples canales
+  - Integramos canales de adquisicion en una sola plataforma
+  - Automatizamos seguimiento
+  - Organizamos tu base de datos
+  - Medimos ventas reales
+  - Escalamos con control
+- Frase de cierre en negrita: "No es solo hacer anuncios. Es construir una maquina de ventas ordenada."
+- Subtexto: "Ideal si quieres delegar y crecer con estructura."
+- CTA grande: "Consultar este servicio" que scrollea a contacto y pre-llena el mensaje
 
-**Dejar**:
-- "Hago que tu negocio venda mas, con orden y sin improvisar."
-- Subtitulo nuevo mas corto: "Estructuro tu marketing para que cada peso invertido te acerque a una venta."
-- CTAs se mantienen
+### Segmento 2: Planes Estructurados
+- **3 cards en row** (grid de 3 en desktop, stack en mobile)
+- Subtitulo de segmento: "Planes para necesidades especificas" + descripcion: "Soluciones concretas si necesitas trabajar un area puntual."
+- Card SEO:
+  - Icono: Search
+  - Titulo: "SEO"
+  - Descripcion: "Posicionamos tu negocio en Google para que te encuentren cuando ya estan buscando."
+- Card Meta Ads:
+  - Icono: Megaphone
+  - Titulo: "Meta Ads"
+  - Descripcion: "Campanas en Facebook e Instagram enfocadas en generar clientes reales."
+- Card Google Ads:
+  - Icono: Target
+  - Titulo: "Google Ads"
+  - Descripcion: "Publicidad directa para captar personas con intencion de compra."
+- Cada card clickeable, scrollea a contacto con mensaje pre-llenado
 
-Resultado: Hero limpio, impactante, sin adelantar lo que viene despues.
-
-### 2. PROBLEMA - Mas tenso, menos listado
-
-**Quitar**: La estadistica "72%" (inventada, resta credibilidad) y reducir las 4 tarjetas a texto directo mas contundente.
-
-**Nuevo enfoque**: En vez de 4 tarjetas con iconos (se siente como lista), usar texto narrativo corto y directo tipo "conversacion":
-
-- "Pagas publicidad pero no sabes si te da resultados."
-- "Recibes mensajes, pero no sabes cuantos se convierten en ventas."
-- "No tienes claro cuanto te cuesta conseguir un cliente."
-
-Cierre mas directo: "El problema no es la publicidad. Es la falta de estructura. Si no mides, no creces... estas apostando."
-
-Quitar el layout de 2 columnas y volver a un diseno centrado mas contundente, tipo manifiesto.
-
-### 3. SOBRE MI - Solo confianza, sin repetir promesas
-
-**Quitar**: La lista "Que hago" (atraer, convertir, seguimiento, medir, escalar) - esto se repite en Services.
-**Quitar**: "Mi trabajo es que sepas exactamente que esta pasando con tu inversion" - esto ya se dice en Services.
-**Quitar**: Toda la seccion "Resultados que Buscamos" (5 tarjetas) - repite lo que dicen Services y Hero.
-
-**Dejar/Nuevo**:
-- Presentacion personal corta (2 parrafos max)
-- Stats (+50, +8, Foco en resultados)
-- Nuevo bloque: "Con quien trabajo" - listar el perfil del cliente ideal:
-  - "Empresarios que ya estan vendiendo"
-  - "Quieren crecer pero con orden"
-  - "Estan dispuestos a invertir de forma inteligente"
-  - "Buscan resultados, no experimentos eternos"
-- Frase de cierre: "Si tu negocio depende solo del voz a voz o de la suerte, podemos cambiar eso."
-
-Esto genera identificacion sin repetir lo que hacemos.
-
-### 4. PROCESO - Se mantiene casi igual
-
-El contenido actual del Methodology esta bien. Solo ajustar:
-- Subtitulo mas directo: "Un proceso claro para dejar de improvisar."
-- El cierre ya esta bien: "Sin formulas magicas..."
-- No tocar estructura visual (timeline funciona perfecto)
-
-### 5. SERVICIOS - Especificos, sin repetir el "por que"
-
-**Quitar**: Los subtitulos explicativos largos de cada servicio que repiten la promesa general.
-
-**Nuevo enfoque**: Descripciones mas cortas y especificas de lo que INCLUYE cada servicio, no de por que es importante:
-
-1. "Organizar tu publicidad" --> "Estructuramos campanas, presupuestos y canales para que nada se desperdicie."
-2. "Atraer mejores clientes" --> "Segmentacion precisa para llegar a quien realmente puede comprarte."
-3. "Mejorar tus resultados actuales" --> "Analizamos lo que ya tienes y optimizamos sin gastar mas."
-4. "Saber si tu inversion funciona" --> "Dashboards y reportes claros con los numeros que importan."
-5. "Tener claridad sobre tus numeros" --> "Sabes cuanto cuesta cada cliente, cada venta, cada clic."
-
-**Quitar**: El CTA inferior "No estas seguro de que necesitas?" - ya hay CTAs suficientes.
-
-### 6. CONTACTO - Solo accion, sin volver a explicar
-
-**Quitar**: "En una llamada revisamos tu situacion y te digo con claridad que se puede mejorar y que no vale la pena hacer." (ya lo dijimos en proceso)
-
-**Nuevo titulo mas corto**: "Listo para crecer con orden?"
-**Subtitulo**: "Agenda una llamada y revisamos tu situacion. Sin compromiso."
-
-Simplificar: quitar el bloque grande de WhatsApp con icono animado (es demasiado protagonico y repite el boton flotante). Integrar el WhatsApp como CTA principal dentro del formulario.
+### Segmento 3: Consultoria Estrategica
+- **Card con tono diferente** - fondo mas calido/distinto para marcar que es otro publico
+- Titulo: "Consultoria en Meta y Google Ads"
+- Descripcion: "Sesiones personalizadas para revisar tu cuenta, detectar errores y darte un plan claro de accion."
+- Bloque "Para quien es":
+  - Freelancers que gestionan campanas
+  - Emprendedores que quieren aprender a pautar
+  - Personas que estan iniciando en publicidad digital
+- Bloque "Como funciona" (4 pasos inline):
+  1. Eliges tu pack
+  2. Agendas dia y hora
+  3. Nos conectamos por Google Meet
+  4. Recibes la grabacion
+- Frase de cierre: "Simple. Directo. Sin vueltas."
+- CTA: "Agendar consultoria"
 
 ---
 
 ## Detalles Tecnicos
 
 ### Archivos a modificar:
-- `src/components/sections/HeroPersonal.tsx` - Subtitulo mas corto
-- `src/components/sections/ProblemSection.tsx` - Layout centrado tipo manifiesto, sin 72%, texto directo
-- `src/components/sections/AboutMe.tsx` - Quitar lista "Que hago", quitar "Resultados que buscamos", agregar "Con quien trabajo"
-- `src/components/sections/Methodology.tsx` - Solo ajuste de subtitulo
-- `src/components/sections/Services.tsx` - Descripciones mas cortas y especificas, quitar CTA inferior
-- `src/components/sections/Contact.tsx` - Titulo mas corto, quitar bloque WhatsApp grande, integrar WhatsApp como CTA en el formulario
+- `src/components/sections/Services.tsx` - Reescritura completa del componente
+- `src/hooks/useServiceSelection.ts` - Actualizar el mapeo de servicios a los 3 nuevos segmentos
 
-### Principios:
-- Cada seccion dice UNA idea nueva
-- Cero repeticion entre secciones
-- Menos texto, mas intencion
-- Narrativa: gancho, tension, confianza, alivio, especificos, accion
+### Enfoque tecnico:
+- Se mantiene framer-motion para animaciones de entrada
+- Se mantiene la funcionalidad de `serviceSelection.set()` para pre-llenar el formulario de contacto al hacer click en cada CTA
+- Tres componentes internos: `GrowthSystemCard`, `StructuredPlansGrid`, `ConsultingCard`
+- Responsive: el segmento 1 siempre full-width, segmento 2 grid 3 cols en desktop / stack en mobile, segmento 3 full-width
+- Se mantiene la estetica glass/card actual del sitio (bg-card/60, backdrop-blur, border-border/50, rounded-2xl)
+- Iconos de lucide-react para cada plan (Search, Megaphone, Target, GraduationCap)
+
+### Jerarquia visual:
+- Segmento 1: Card mas grande, borde con gradient primary, badge destacado
+- Segmento 2: Cards medianas, estilo estandar del sitio
+- Segmento 3: Card con acento diferente (violet/purple gradient) para diferenciarse
 
