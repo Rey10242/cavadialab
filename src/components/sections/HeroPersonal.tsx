@@ -10,6 +10,12 @@ const HeroPersonal: React.FC = () => {
       id="inicio"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
+      {/* Dots grid pattern */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+        backgroundSize: '32px 32px',
+      }} />
+
       <div className="container mx-auto px-4 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
@@ -41,7 +47,9 @@ const HeroPersonal: React.FC = () => {
               Full Stack Marketer & Growth Expert
             </p>
 
-            <p className="text-lg md:text-xl font-semibold text-foreground mb-4">
+            <p className="text-lg md:text-xl font-semibold text-foreground mb-4" style={{
+              textShadow: '0 0 40px hsl(var(--primary) / 0.15)'
+            }}>
               Hago que tu negocio venda más, con orden y sin improvisar.
             </p>
 
@@ -79,10 +87,20 @@ const HeroPersonal: React.FC = () => {
             className="order-1 lg:order-2 flex justify-center"
           >
             <div className="relative">
-              {/* Glow effect behind photo */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/15 to-secondary/20 rounded-full blur-3xl" />
-                <div className="absolute inset-8 bg-gradient-to-tr from-secondary/20 via-primary/15 to-transparent rounded-full blur-2xl" />
+              {/* Rotating gradient aura ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full"
+                style={{
+                  background: 'conic-gradient(from 0deg, hsl(var(--primary) / 0.3), hsl(var(--violet) / 0.2), hsl(var(--pink) / 0.15), hsl(var(--cyan) / 0.2), hsl(var(--primary) / 0.3))',
+                  filter: 'blur(40px)',
+                }}
+              />
+              
+              {/* Inner glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/15 rounded-full blur-2xl animate-pulse-glow [animation-duration:4s]" />
               </div>
               
               {/* Profile Photo */}
@@ -99,11 +117,11 @@ const HeroPersonal: React.FC = () => {
                 }}
               />
               
-              {/* Floating badges */}
+              {/* Floating badges with glow borders */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-4 -right-4 z-20 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg"
+                className="absolute top-4 -right-4 z-20 bg-card/95 backdrop-blur-sm border border-primary/30 rounded-xl px-3 py-2 shadow-lg shadow-primary/10"
               >
                 <span className="text-sm font-medium flex items-center gap-1.5">
                   <TrendingUp className="w-4 h-4 text-primary" />
@@ -114,7 +132,7 @@ const HeroPersonal: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-16 -left-4 z-20 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg"
+                className="absolute bottom-16 -left-4 z-20 bg-card/95 backdrop-blur-sm border border-primary/30 rounded-xl px-3 py-2 shadow-lg shadow-primary/10"
               >
                 <span className="text-sm font-medium">🚀 +50 proyectos</span>
               </motion.div>
@@ -122,7 +140,7 @@ const HeroPersonal: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-8 -right-8 z-20 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg"
+                className="absolute bottom-8 -right-8 z-20 bg-card/95 backdrop-blur-sm border border-primary/30 rounded-xl px-3 py-2 shadow-lg shadow-primary/10"
               >
                 <span className="text-sm font-medium flex items-center gap-1.5">
                   <Target className="w-4 h-4 text-primary" />

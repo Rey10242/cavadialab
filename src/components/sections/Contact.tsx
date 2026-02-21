@@ -22,9 +22,9 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/rmontalvocavadia/", label: "LinkedIn" },
-  { icon: Instagram, href: "https://www.instagram.com/reynaldo.cavadia/", label: "Instagram" },
-  { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/rmontalvocavadia/", label: "LinkedIn", hoverColor: "hover:bg-blue-600/10 hover:border-blue-600/30 hover:text-blue-500" },
+  { icon: Instagram, href: "https://www.instagram.com/reynaldo.cavadia/", label: "Instagram", hoverColor: "hover:bg-pink-500/10 hover:border-pink-500/30 hover:text-pink-500" },
+  { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp", hoverColor: "hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-500" },
 ];
 
 const Contact: React.FC = () => {
@@ -75,7 +75,6 @@ const Contact: React.FC = () => {
 
       if (error) throw error;
 
-      // Send email notification
       try {
         const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
         const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -111,8 +110,12 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contacto" className="section-padding bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="contacto" className="section-padding relative overflow-hidden">
+      {/* Mesh gradient bg */}
+      <div className="absolute inset-0 bg-mesh opacity-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-muted/40 to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -129,7 +132,7 @@ const Contact: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* WhatsApp CTA prominente */}
+        {/* WhatsApp CTA with pulse icon */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,24 +140,34 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="max-w-2xl mx-auto mb-12"
         >
-          <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl p-6 md:p-8 text-center">
-            <h3 className="text-xl font-semibold mb-3">La forma más rápida de hablar</h3>
-            <p className="text-muted-foreground mb-5">
-              Agenda una conversación directa y revisamos tu situación sin compromiso.
-            </p>
-            <Button
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white group px-8"
-              onClick={() => window.open("https://wa.me/573246875354", "_blank")}
-            >
-              <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Agendar conversación por WhatsApp
-            </Button>
+          <div className="relative bg-card/80 backdrop-blur-sm border border-green-500/20 rounded-2xl p-8 text-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5" />
+            <div className="relative">
+              {/* Pulse icon */}
+              <div className="relative w-16 h-16 mx-auto mb-4">
+                <div className="absolute inset-0 bg-green-500/20 rounded-full animate-ping [animation-duration:2s]" />
+                <div className="relative w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center">
+                  <MessageCircle className="w-8 h-8 text-green-500" />
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">La forma más rápida de hablar</h3>
+              <p className="text-muted-foreground mb-5">
+                Agenda una conversación directa y revisamos tu situación sin compromiso.
+              </p>
+              <Button
+                size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white group px-8"
+                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
+              >
+                <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Agendar conversación por WhatsApp
+              </Button>
+            </div>
           </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-stretch">
-          {/* Contact Form */}
+          {/* Contact Form with glass effect */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -162,7 +175,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="h-full"
           >
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col">
+            <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col">
               {focusedField && (
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
@@ -188,7 +201,6 @@ const Contact: React.FC = () => {
               ) : (
               <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex-1 flex flex-col">
-                    {/* Name & Email */}
                     <div className="grid sm:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
@@ -202,7 +214,7 @@ const Contact: React.FC = () => {
                                 {...field} 
                                 onFocus={() => setFocusedField("name")}
                                 onBlur={() => setFocusedField(null)}
-                                className={`transition-all duration-300 ${focusedField === "name" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                                className={`rounded-xl transition-all duration-300 ${focusedField === "name" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
                               />
                             </FormControl>
                             <FormMessage />
@@ -223,7 +235,7 @@ const Contact: React.FC = () => {
                                 {...field} 
                                 onFocus={() => setFocusedField("email")}
                                 onBlur={() => setFocusedField(null)}
-                                className={`transition-all duration-300 ${focusedField === "email" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                                className={`rounded-xl transition-all duration-300 ${focusedField === "email" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
                               />
                             </FormControl>
                             <FormMessage />
@@ -232,7 +244,6 @@ const Contact: React.FC = () => {
                       />
                     </div>
 
-                    {/* Phone */}
                     <FormField
                       control={form.control}
                       name="phone"
@@ -249,7 +260,7 @@ const Contact: React.FC = () => {
                               {...field} 
                               onFocus={() => setFocusedField("phone")}
                               onBlur={() => setFocusedField(null)}
-                              className={`transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                              className={`rounded-xl transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
                             />
                           </FormControl>
                           <FormMessage />
@@ -270,7 +281,7 @@ const Contact: React.FC = () => {
                               {...field}
                               onFocus={() => setFocusedField("message")}
                               onBlur={() => setFocusedField(null)}
-                              className={`transition-all duration-300 ${focusedField === "message" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                              className={`rounded-xl transition-all duration-300 ${focusedField === "message" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
                             />
                           </FormControl>
                           <FormMessage />
@@ -310,8 +321,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-col gap-6 h-full"
           >
-            {/* Contact Info */}
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8 flex-1">
+            <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8 flex-1">
               <h3 className="text-lg font-semibold mb-6">Información de Contacto</h3>
               
               <div className="space-y-3">
@@ -365,8 +375,8 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8">
+            {/* Social Links with brand colors */}
+            <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8">
               <h3 className="text-xl font-semibold mb-6">Sígueme en Redes</h3>
               
               <div className="grid grid-cols-3 gap-3">
@@ -376,10 +386,10 @@ const Contact: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-primary/10 hover:border-primary/30 border border-transparent transition-all group"
+                    className={`flex items-center gap-3 p-4 rounded-xl bg-muted/30 border border-transparent transition-all duration-300 group ${social.hoverColor}`}
                   >
-                    <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">
+                    <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-current transition-colors" />
+                    <span className="text-foreground group-hover:text-current transition-colors">
                       {social.label}
                     </span>
                   </a>

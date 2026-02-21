@@ -71,7 +71,7 @@ const services: Service[] = [
   },
 ];
 
-const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, index }) => {
+const ServiceCard: React.FC<{ service: Service; index: number; featured?: boolean }> = ({ service, index, featured = false }) => {
   const Icon = service.icon;
   
   const handleServiceClick = () => {
@@ -88,37 +88,43 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group h-full cursor-pointer"
+      className={`group h-full cursor-pointer ${featured ? "md:col-span-2 lg:col-span-2" : ""}`}
       onClick={handleServiceClick}
     >
-      <div className={`relative h-full bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 lg:p-8 hover:border-${service.accentColor}/40 hover:shadow-2xl transition-all duration-500 overflow-hidden`}>
+      <div className={`relative h-full bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl ${featured ? "p-8 lg:p-10" : "p-6 lg:p-8"} hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden`}>
         {/* Gradient background on hover */}
         <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
         
         {/* Decorative corner accent */}
         <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.color} rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
 
+        {/* Subtle dot pattern */}
+        <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity" style={{
+          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 0.5px, transparent 0.5px)',
+          backgroundSize: '16px 16px',
+        }} />
+
         <div className="relative z-10 h-full flex flex-col">
           {/* Icon with number */}
           <div className="flex items-start justify-between mb-6">
             <motion.div 
-              className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
+              className={`${featured ? "w-16 h-16" : "w-14 h-14"} rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
               whileHover={{ rotate: 6, scale: 1.1 }}
             >
-              <Icon className={`w-7 h-7 ${service.iconColor}`} />
+              <Icon className={`${featured ? "w-8 h-8" : "w-7 h-7"} ${service.iconColor}`} />
             </motion.div>
-            <span className={`text-4xl font-black ${service.iconColor} opacity-20 group-hover:opacity-40 transition-opacity`}>
+            <span className={`${featured ? "text-5xl" : "text-4xl"} font-black ${service.iconColor} opacity-20 group-hover:opacity-40 transition-opacity`}>
               0{index + 1}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className={`text-xl font-bold text-foreground mb-3 ${service.hoverTextColor} transition-colors duration-300`}>
+          <h3 className={`${featured ? "text-2xl" : "text-xl"} font-bold text-foreground mb-3 ${service.hoverTextColor} transition-colors duration-300`}>
             {service.title}
           </h3>
 
           {/* Description */}
-          <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+          <p className={`text-muted-foreground ${featured ? "text-base" : "text-sm"} leading-relaxed flex-grow`}>
             {service.description}
           </p>
 
@@ -161,40 +167,46 @@ const Services: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
+        {/* Bento Grid - first card featured (larger) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {/* Featured first card spans 2 cols */}
+          <ServiceCard service={services[0]} index={0} featured />
+          {/* Rest of cards */}
+          {services.slice(1).map((service, i) => (
+            <ServiceCard key={service.title} service={service} index={i + 1} />
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* Full-width CTA band */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-16"
         >
-          <div className="relative inline-flex flex-col sm:flex-row items-center gap-6 p-8 bg-gradient-to-r from-primary/5 via-card to-violet-500/5 border border-border/50 rounded-2xl overflow-hidden backdrop-blur-sm">
-            <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-            <div className="absolute -bottom-12 -left-12 w-24 h-24 bg-violet-500/10 rounded-full blur-2xl" />
+          <div className="relative rounded-2xl overflow-hidden">
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-animated opacity-10" />
+            <div className="absolute inset-0 bg-card/80 backdrop-blur-sm" />
             
-            <div className="relative z-10 text-left">
-              <p className="text-foreground font-semibold text-lg mb-1">
-                ¿No estás seguro de qué necesitas?
-              </p>
-              <p className="text-muted-foreground text-sm">
-                Conversemos y te digo con claridad qué se puede mejorar.
-              </p>
+            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 md:p-10">
+              <div>
+                <p className="text-foreground font-semibold text-lg mb-1">
+                  ¿No estás seguro de qué necesitas?
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  Conversemos y te digo con claridad qué se puede mejorar.
+                </p>
+              </div>
+              <Button
+                className="btn-primary-glow group px-8 py-6 text-base flex-shrink-0"
+                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Hablemos
+              </Button>
             </div>
-            <Button
-              className="relative z-10 btn-primary-glow group px-8 py-6 text-base"
-              onClick={() => window.open("https://wa.me/573246875354", "_blank")}
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Hablemos
-            </Button>
           </div>
         </motion.div>
       </div>
