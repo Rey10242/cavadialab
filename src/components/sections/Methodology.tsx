@@ -51,7 +51,7 @@ const Methodology: React.FC = () => {
             Cómo <span className="text-gradient">Trabajamos</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Un proceso simple y claro para que tu negocio crezca con orden.
+            Un proceso claro para dejar de improvisar.
           </p>
         </motion.div>
 
