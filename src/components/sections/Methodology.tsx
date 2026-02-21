@@ -5,26 +5,26 @@ import { Search, Wrench, FlaskConical, TrendingUp } from "lucide-react";
 const steps = [
   {
     icon: Search,
-    title: "Revisamos tu situación actual",
+    title: "Diagnóstico",
     description: "Analizamos cómo estás vendiendo hoy y dónde estás perdiendo oportunidades.",
     number: "01",
   },
   {
     icon: Wrench,
-    title: "Organizamos tu sistema de ventas",
+    title: "Organizo y estructuro tu sistema de ventas",
     description: "Ordenamos publicidad, seguimiento y medición para que todo tenga sentido.",
     number: "02",
   },
   {
     icon: FlaskConical,
-    title: "Probamos y mejoramos",
+    title: "Optimización",
     description: "Identificamos qué funciona y eliminamos lo que no. Sin adivinar.",
     number: "03",
   },
   {
     icon: TrendingUp,
-    title: "Escalamos con control",
-    description: "Aumentamos inversión solo cuando los números son saludables.",
+    title: "Escalamiento",
+    description: "Aumentamos inversión solo cuando los números son sanos.",
     number: "04",
   },
 ];
@@ -48,11 +48,9 @@ const Methodology: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Cómo <span className="text-gradient">Trabajamos</span>
+            Un proceso claro.{" "}
+            <span className="text-gradient">Sin improvisación.</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Un proceso claro para dejar de improvisar.
-          </p>
         </motion.div>
 
         {/* Vertical Timeline */}
@@ -126,8 +124,8 @@ const Methodology: React.FC = () => {
           className="text-center mt-16"
         >
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Sin fórmulas mágicas. Sin promesas irreales.{" "}
-            <span className="text-foreground font-semibold">Solo decisiones basadas en resultados.</span>
+            Sin fórmulas mágicas.{" "}
+            <span className="text-foreground font-semibold">Solo decisiones basadas en datos.</span>
           </p>
         </motion.div>
       </div>

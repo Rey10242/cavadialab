@@ -1,9 +1,10 @@
 import React from "react";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 import ProblemSection from "@/components/sections/ProblemSection";
-import AboutMe from "@/components/sections/AboutMe";
+import SolutionSection from "@/components/sections/SolutionSection";
 import Methodology from "@/components/sections/Methodology";
 import Services from "@/components/sections/Services";
+import AboutMe from "@/components/sections/AboutMe";
 import Contact from "@/components/sections/Contact";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import SiteFooter from "@/components/SiteFooter";
@@ -88,12 +89,14 @@ const Index: React.FC = () => {
         <SectionDivider variant="wave" fillTo="hsl(var(--primary) / 0.06)" />
         <ProblemSection />
         <SectionDivider variant="curve" flip fillTo="hsl(var(--primary) / 0.04)" />
-        <AboutMe />
+        <SolutionSection />
         <SectionDivider variant="blob" fillTo="hsl(var(--primary) / 0.05)" />
         <Methodology />
         <SectionDivider variant="wave" flip fillTo="hsl(var(--primary) / 0.04)" />
         <Services />
         <SectionDivider variant="curve" fillTo="hsl(var(--primary) / 0.06)" />
+        <AboutMe />
+        <SectionDivider variant="blob" flip fillTo="hsl(var(--primary) / 0.05)" />
         <Contact />
         <SiteFooter />
         <FloatingWhatsAppButton />
