@@ -1,143 +1,312 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Megaphone, 
-  UserCheck, 
-  RefreshCw, 
-  BarChart3, 
-  PieChart,
+import {
+  Search,
+  Megaphone,
+  Target,
+  Check,
   ArrowRight,
-  LucideIcon
+  Users,
+  CalendarCheck,
+  Video,
+  Mail,
+  LucideIcon,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { serviceSelection } from "@/hooks/useServiceSelection";
 
-interface Service {
+/* ───────────────────────── helpers ───────────────────────── */
+
+const scrollToContact = (serviceName: string) => {
+  serviceSelection.set(serviceName);
+  document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+};
+
+/* ─────────────── Segmento 1 — Crecimiento Integral ─────────────── */
+
+const growthFeatures = [
+  "Captamos prospectos desde múltiples canales",
+  "Integramos canales de adquisición en una sola plataforma",
+  "Automatizamos seguimiento",
+  "Organizamos tu base de datos",
+  "Medimos ventas reales",
+  "Escalamos con control",
+];
+
+const GrowthSystemCard: React.FC = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="w-full"
+  >
+    {/* outer glow border */}
+    <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-primary via-primary/40 to-violet-500/60">
+      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 overflow-hidden">
+        {/* decorative blobs */}
+        <div className="absolute -top-24 -right-24 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-56 h-56 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col gap-8">
+          {/* badge + title */}
+          <div>
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+              Servicio Principal
+            </Badge>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Gestión de Crecimiento Integral
+            </h3>
+            <p className="text-muted-foreground max-w-2xl leading-relaxed">
+              Implementamos un sistema completo para atraer clientes, convertirlos y hacer seguimiento automático.
+              <br className="hidden md:block" />
+              <span className="font-medium text-foreground"> Publicidad + Automatización + CRM en un solo lugar.</span>
+            </p>
+          </div>
+
+          {/* feature grid */}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+            {growthFeatures.map((f) => (
+              <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* closing statement */}
+          <div className="space-y-1">
+            <p className="font-semibold text-foreground">
+              No es solo hacer anuncios. Es construir una máquina de ventas ordenada.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Ideal si quiere delegar y crecer con estructura.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div>
+            <Button
+              size="lg"
+              className="gap-2"
+              onClick={() => scrollToContact("Gestión de Crecimiento Integral")}
+            >
+              Consultar este servicio
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+);
+
+/* ─────────────── Segmento 2 — Planes Estructurados ─────────────── */
+
+interface Plan {
   icon: LucideIcon;
   title: string;
   description: string;
-  color: string;
-  iconColor: string;
-  hoverTextColor: string;
-  accentColor: string;
 }
 
-const services: Service[] = [
+const plans: Plan[] = [
+  {
+    icon: Search,
+    title: "SEO",
+    description: "Posicionamos tu negocio en Google para que te encuentren cuando ya están buscando.",
+  },
   {
     icon: Megaphone,
-    title: "Organizar tu publicidad",
-    description: "Estructuramos campañas, presupuestos y canales para que nada se desperdicie.",
-    color: "from-blue-500/20 to-cyan-500/20",
-    iconColor: "text-blue-500",
-    hoverTextColor: "group-hover:text-blue-500",
-    accentColor: "blue-500",
+    title: "Meta Ads",
+    description: "Campañas en Facebook e Instagram enfocadas en generar clientes reales.",
   },
   {
-    icon: UserCheck,
-    title: "Atraer mejores clientes",
-    description: "Segmentación precisa para llegar a quien realmente puede comprarte.",
-    color: "from-primary/20 to-violet-500/20",
-    iconColor: "text-primary",
-    hoverTextColor: "group-hover:text-primary",
-    accentColor: "primary",
-  },
-  {
-    icon: RefreshCw,
-    title: "Mejorar tus resultados actuales",
-    description: "Analizamos lo que ya tienes y optimizamos sin gastar más.",
-    color: "from-emerald-500/20 to-teal-500/20",
-    iconColor: "text-emerald-500",
-    hoverTextColor: "group-hover:text-emerald-500",
-    accentColor: "emerald-500",
-  },
-  {
-    icon: BarChart3,
-    title: "Saber si tu inversión funciona",
-    description: "Dashboards y reportes claros con los números que importan.",
-    color: "from-orange-500/20 to-amber-500/20",
-    iconColor: "text-orange-500",
-    hoverTextColor: "group-hover:text-orange-500",
-    accentColor: "orange-500",
-  },
-  {
-    icon: PieChart,
-    title: "Tener claridad sobre tus números",
-    description: "Sabes cuánto cuesta cada cliente, cada venta, cada clic.",
-    color: "from-purple-500/20 to-pink-500/20",
-    iconColor: "text-purple-500",
-    hoverTextColor: "group-hover:text-purple-500",
-    accentColor: "purple-500",
+    icon: Target,
+    title: "Google Ads",
+    description: "Publicidad directa para captar personas con intención de compra.",
   },
 ];
 
-const ServiceCard: React.FC<{ service: Service; index: number; featured?: boolean }> = ({ service, index, featured = false }) => {
-  const Icon = service.icon;
-  
-  const handleServiceClick = () => {
-    serviceSelection.set(service.title);
-    const contactSection = document.getElementById("contacto");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-  
-  return (
+const StructuredPlansGrid: React.FC = () => (
+  <div className="space-y-8">
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`group h-full cursor-pointer ${featured ? "md:col-span-2 lg:col-span-2" : ""}`}
-      onClick={handleServiceClick}
+      transition={{ duration: 0.5 }}
     >
-      <div className={`relative h-full bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl ${featured ? "p-8 lg:p-10" : "p-6 lg:p-8"} hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden`}>
-        {/* Gradient background on hover */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-        
-        {/* Decorative corner accent */}
-        <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.color} rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
+      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+        Planes para necesidades específicas
+      </h3>
+      <p className="text-muted-foreground text-sm max-w-xl">
+        Soluciones concretas si necesita trabajar un área puntual.
+      </p>
+    </motion.div>
 
-        {/* Subtle dot pattern */}
-        <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity" style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 0.5px, transparent 0.5px)',
-          backgroundSize: '16px 16px',
-        }} />
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {plans.map((plan, i) => {
+        const Icon = plan.icon;
+        return (
+          <motion.div
+            key={plan.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="group cursor-pointer"
+            onClick={() => scrollToContact(plan.title)}
+          >
+            <div className="relative h-full bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 lg:p-8 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-        <div className="relative z-10 h-full flex flex-col">
-          {/* Icon with number */}
-          <div className="flex items-start justify-between mb-6">
-            <motion.div 
-              className={`${featured ? "w-16 h-16" : "w-14 h-14"} rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
-              whileHover={{ rotate: 6, scale: 1.1 }}
-            >
-              <Icon className={`${featured ? "w-8 h-8" : "w-7 h-7"} ${service.iconColor}`} />
-            </motion.div>
-            <span className={`${featured ? "text-5xl" : "text-4xl"} font-black ${service.iconColor} opacity-20 group-hover:opacity-40 transition-opacity`}>
-              0{index + 1}
-            </span>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="text-lg font-bold text-foreground mb-2">{plan.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-grow">
+                  {plan.description}
+                </p>
+                <div className="mt-5 pt-4 border-t border-border/30 flex items-center gap-2 text-primary font-medium opacity-60 group-hover:opacity-100 transition-all duration-300">
+                  <span className="text-sm">Consultar</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+);
+
+/* ─────────────── Segmento 3 — Consultoría Estratégica ─────────────── */
+
+const consultingAudience = [
+  "Freelancers que gestionan campañas",
+  "Emprendedores que quieren aprender a pautar",
+  "Personas que están iniciando en publicidad digital",
+];
+
+const consultingTopics = [
+  "Revisamos tus campañas actuales",
+  "Detectamos errores y oportunidades",
+  "Ajustamos segmentación y presupuesto",
+  "Configuramos medición correctamente",
+  "Resolvemos problemas en vivo",
+  "Te llevas recomendaciones claras",
+];
+
+const consultingSteps: { icon: LucideIcon; label: string }[] = [
+  { icon: Mail, label: "Eliges tu pack" },
+  { icon: CalendarCheck, label: "Agendas día y hora" },
+  { icon: Video, label: "Nos conectamos por Google Meet" },
+  { icon: Users, label: "Recibes la grabación" },
+];
+
+const ConsultingCard: React.FC = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="w-full"
+  >
+    <div className="relative bg-card/60 backdrop-blur-sm border border-violet-500/20 rounded-2xl p-8 md:p-12 overflow-hidden">
+      {/* accent blobs */}
+      <div className="absolute -top-20 -right-20 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative z-10 space-y-8">
+        {/* header */}
+        <div>
+          <Badge variant="secondary" className="mb-4 bg-violet-500/10 text-violet-400 border-violet-500/20 hover:bg-violet-500/20">
+            Mentoría
+          </Badge>
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            Consultoría en Meta y Google Ads
+          </h3>
+          <p className="text-muted-foreground max-w-2xl leading-relaxed">
+            Sesiones personalizadas para revisar tu cuenta, detectar errores y darte un plan claro de acción.
+          </p>
+          <p className="text-muted-foreground mt-2">
+            En una sesión trabajamos directamente sobre tu negocio o tus campañas.
+          </p>
+        </div>
+
+        {/* two-column layout on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* left: audience + topics */}
+          <div className="space-y-6">
+            <div>
+              <p className="text-sm font-semibold text-foreground mb-3">¿Para quién es?</p>
+              <ul className="space-y-2">
+                {consultingAudience.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <Check className="w-4 h-4 mt-0.5 text-violet-400 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold text-foreground mb-3">¿Qué trabajamos en la sesión?</p>
+              <ul className="space-y-2">
+                {consultingTopics.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="text-violet-400 shrink-0">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Title */}
-          <h3 className={`${featured ? "text-2xl" : "text-xl"} font-bold text-foreground mb-3 ${service.hoverTextColor} transition-colors duration-300`}>
-            {service.title}
-          </h3>
+          {/* right: how it works */}
+          <div>
+            <p className="text-sm font-semibold text-foreground mb-4">¿Cómo funciona?</p>
+            <div className="space-y-4">
+              {consultingSteps.map((step, i) => {
+                const StepIcon = step.icon;
+                return (
+                  <div key={step.label} className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center shrink-0">
+                      <StepIcon className="w-5 h-5 text-violet-400" />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-violet-400">{i + 1}.</span>
+                      <span className="text-sm text-muted-foreground">{step.label}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-6 text-sm font-semibold text-foreground">
+              Simple. Directo. Sin vueltas.
+            </p>
+          </div>
+        </div>
 
-          {/* Description */}
-          <p className={`text-muted-foreground ${featured ? "text-base" : "text-sm"} leading-relaxed flex-grow`}>
-            {service.description}
-          </p>
-
-          {/* CTA on hover */}
-          <motion.div 
-            className={`mt-5 pt-4 border-t border-border/30 flex items-center gap-2 ${service.iconColor} font-medium opacity-60 group-hover:opacity-100 transition-all duration-300`}
+        {/* CTA */}
+        <div>
+          <Button
+            variant="outline"
+            size="lg"
+            className="gap-2 border-violet-500/30 text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 hover:border-violet-500/50"
+            onClick={() => scrollToContact("Consultoría Estratégica")}
           >
-            <span className="text-sm">Consultar</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </motion.div>
+            Agendar consultoría
+            <ArrowRight className="w-4 h-4" />
+          </Button>
         </div>
       </div>
-    </motion.div>
-  );
-};
+    </div>
+  </motion.div>
+);
+
+/* ─────────────── Main Section ─────────────── */
 
 const Services: React.FC = () => {
   return (
@@ -148,30 +317,28 @@ const Services: React.FC = () => {
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 space-y-16">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Esto es lo que <span className="text-gradient">incluye</span>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Cómo puedo <span className="text-gradient">ayudarte</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Cada servicio está diseñado para resolver un problema específico de tu negocio.
-          </p>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <ServiceCard service={services[0]} index={0} featured />
-          {services.slice(1).map((service, i) => (
-            <ServiceCard key={service.title} service={service} index={i + 1} />
-          ))}
-        </div>
+        {/* Segmento 1 */}
+        <GrowthSystemCard />
+
+        {/* Segmento 2 */}
+        <StructuredPlansGrid />
+
+        {/* Segmento 3 */}
+        <ConsultingCard />
       </div>
     </section>
   );

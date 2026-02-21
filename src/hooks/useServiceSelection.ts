@@ -1,10 +1,10 @@
-// Map service titles to project types (simplified for new services)
+// Map service titles to project types for the contact form
 export const serviceToProjectType: Record<string, string> = {
-  "Organizar tu publicidad": "marketing",
-  "Atraer mejores clientes": "marketing",
-  "Mejorar tus resultados actuales": "marketing",
-  "Saber si tu inversión funciona": "consulting",
-  "Tener claridad sobre tus números": "consulting",
+  "Gestión de Crecimiento Integral": "marketing",
+  "SEO": "marketing",
+  "Meta Ads": "marketing",
+  "Google Ads": "marketing",
+  "Consultoría Estratégica": "consulting",
 };
 
 // Simple event-based service selection
