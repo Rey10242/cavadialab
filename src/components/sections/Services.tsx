@@ -6,9 +6,6 @@ import {
   Target,
   Check,
   ArrowRight,
-  GraduationCap,
-  Briefcase,
-  Sparkles,
   LucideIcon,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -176,23 +173,7 @@ const StructuredPlansGrid: React.FC = () => (
 
 /* ─────────────── Segmento 3 — Consultoría Estratégica ─────────────── */
 
-const audiences = [
-  {
-    icon: Briefcase,
-    title: "Freelancers",
-    desc: "Personas que ya gestionan campañas publicitarias y necesitan mejores estrategias.",
-  },
-  {
-    icon: Sparkles,
-    title: "Emprendedores",
-    desc: "Personas con un negocio que quieren aprender a vender con pauta digital.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Estudiantes",
-    desc: "Personas aprendiendo marketing digital que quieren enfocarse en pauta.",
-  },
-];
+
 
 const packs = [
   { name: "Individual", hours: "1 hora", price: "$130.000", usd: "~$50 USD" },
@@ -221,36 +202,6 @@ const ConsultingSection: React.FC = () => (
       </p>
     </motion.div>
 
-    {/* ¿Para quién es? */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.1 }}
-    >
-      <p className="text-lg font-semibold text-foreground mb-6">¿Para quién es?</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {audiences.map((a, i) => {
-          const Icon = a.icon;
-          return (
-            <motion.div
-              key={a.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
-              className="bg-card/60 backdrop-blur-sm border border-violet-500/10 rounded-2xl p-6 hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5 transition-all duration-300"
-            >
-              <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4">
-                <Icon className="w-5 h-5 text-violet-400" />
-              </div>
-              <h4 className="font-bold text-foreground mb-2">{a.title}</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
-            </motion.div>
-          );
-        })}
-      </div>
-    </motion.div>
 
     {/* Packs de asesoría */}
     <motion.div
