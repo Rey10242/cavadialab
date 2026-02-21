@@ -35,7 +35,7 @@ const SiteFooter: React.FC = () => {
               <div>
                 <span className="font-bold text-foreground block">Reynaldo Montalvo</span>
                 <span className="text-xs text-muted-foreground">
-                  Consultor de crecimiento empresarial
+                  Experto en Crecimiento Digital
                 </span>
               </div>
             </a>
