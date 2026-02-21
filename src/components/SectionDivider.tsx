@@ -15,7 +15,7 @@ const SectionDivider: React.FC<SectionDividerProps> = ({
   flip = false, 
   className = "",
   fillFrom = "hsl(var(--background))",
-  fillTo = "hsl(var(--muted) / 0.3)"
+  fillTo = "hsl(var(--primary) / 0.05)"
 }) => {
   const transform = flip ? "rotate(180deg)" : undefined;
 
@@ -46,7 +46,7 @@ const SectionDivider: React.FC<SectionDividerProps> = ({
 
   return (
     <div 
-      className={`relative w-full h-16 md:h-24 -my-1 pointer-events-none select-none ${className}`}
+      className={`relative w-full h-12 md:h-16 -my-1 pointer-events-none select-none ${className}`}
       style={{ transform }}
       aria-hidden="true"
     >
