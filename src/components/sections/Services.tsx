@@ -10,6 +10,9 @@ import {
   CalendarCheck,
   Video,
   Mail,
+  GraduationCap,
+  Briefcase,
+  Sparkles,
   LucideIcon,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -42,15 +45,12 @@ const GrowthSystemCard: React.FC = () => (
     transition={{ duration: 0.6 }}
     className="w-full"
   >
-    {/* outer glow border */}
     <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-primary via-primary/40 to-violet-500/60">
       <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 overflow-hidden">
-        {/* decorative blobs */}
         <div className="absolute -top-24 -right-24 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -left-20 w-56 h-56 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col gap-8">
-          {/* badge + title */}
           <div>
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
               Servicio Principal
@@ -65,7 +65,6 @@ const GrowthSystemCard: React.FC = () => (
             </p>
           </div>
 
-          {/* feature grid */}
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
             {growthFeatures.map((f) => (
               <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -75,7 +74,6 @@ const GrowthSystemCard: React.FC = () => (
             ))}
           </ul>
 
-          {/* closing statement */}
           <div className="space-y-1">
             <p className="font-semibold text-foreground">
               No es solo hacer anuncios. Es construir una máquina de ventas ordenada.
@@ -85,7 +83,6 @@ const GrowthSystemCard: React.FC = () => (
             </p>
           </div>
 
-          {/* CTA */}
           <div>
             <Button
               size="lg"
@@ -102,7 +99,7 @@ const GrowthSystemCard: React.FC = () => (
   </motion.div>
 );
 
-/* ─────────────── Segmento 2 — Planes Estructurados ─────────────── */
+/* ─────────────── Segmento 2 — Publicidad por Canal ─────────────── */
 
 interface Plan {
   icon: LucideIcon;
@@ -114,17 +111,17 @@ const plans: Plan[] = [
   {
     icon: Search,
     title: "SEO",
-    description: "Posicionamos tu negocio en Google para que te encuentren cuando ya están buscando.",
+    description: "Para que te encuentren en Google cuando ya están buscando.",
   },
   {
     icon: Megaphone,
     title: "Meta Ads",
-    description: "Campañas en Facebook e Instagram enfocadas en generar clientes reales.",
+    description: "Clientes desde Facebook e Instagram con campañas enfocadas en resultados.",
   },
   {
     icon: Target,
     title: "Google Ads",
-    description: "Publicidad directa para captar personas con intención de compra.",
+    description: "Personas con intención de compra. Publicidad directa que convierte.",
   },
 ];
 
@@ -137,10 +134,10 @@ const StructuredPlansGrid: React.FC = () => (
       transition={{ duration: 0.5 }}
     >
       <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-        Planes para necesidades específicas
+        Publicidad por Canal
       </h3>
       <p className="text-muted-foreground text-sm max-w-xl">
-        Soluciones concretas si necesita trabajar un área puntual.
+        Si necesitas trabajar algo puntual:
       </p>
     </motion.div>
 
@@ -157,11 +154,11 @@ const StructuredPlansGrid: React.FC = () => (
             className="group cursor-pointer"
             onClick={() => scrollToContact(plan.title)}
           >
-            <div className="relative h-full bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 lg:p-8 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="card-interactive relative h-full bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 lg:p-8 hover:border-primary/30 transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
               <div className="relative z-10 flex flex-col h-full">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
                   <Icon className="w-6 h-6 text-primary" />
                 </div>
                 <h4 className="text-lg font-bold text-foreground mb-2">{plan.title}</h4>
@@ -183,127 +180,250 @@ const StructuredPlansGrid: React.FC = () => (
 
 /* ─────────────── Segmento 3 — Consultoría Estratégica ─────────────── */
 
-const consultingAudience = [
-  "Freelancers que gestionan campañas",
-  "Emprendedores que quieren aprender a pautar",
-  "Personas que están iniciando en publicidad digital",
+const audiences = [
+  {
+    icon: Briefcase,
+    title: "Freelancers",
+    desc: "Personas que ya gestionan campañas publicitarias y necesitan mejores estrategias.",
+  },
+  {
+    icon: Sparkles,
+    title: "Emprendedores",
+    desc: "Personas con un negocio que quieren aprender a vender con pauta digital.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Estudiantes",
+    desc: "Personas aprendiendo marketing digital que quieren enfocarse en pauta.",
+  },
 ];
 
-const consultingTopics = [
-  "Revisamos tus campañas actuales",
-  "Detectamos errores y oportunidades",
-  "Ajustamos segmentación y presupuesto",
-  "Configuramos medición correctamente",
-  "Resolvemos problemas en vivo",
-  "Te llevas recomendaciones claras",
+const sessionBenefits = [
+  "Analizamos tus campañas actuales en Meta y Google Ads",
+  "Identificamos oportunidades y optimizamos segmentación",
+  "Ajustamos presupuestos para maximizar el retorno",
+  "Solucionamos problemas de tus campañas en tiempo real",
+  "Configuramos mediciones y análisis de datos",
+  "Te damos recomendaciones prácticas y accionables",
 ];
 
-const consultingSteps: { icon: LucideIcon; label: string }[] = [
-  { icon: Mail, label: "Eliges tu pack" },
-  { icon: CalendarCheck, label: "Agendas día y hora" },
-  { icon: Video, label: "Nos conectamos por Google Meet" },
-  { icon: Users, label: "Recibes la grabación" },
+const packs = [
+  { name: "Individual", hours: "1 hora", price: "$130.000", usd: "~$50 USD" },
+  { name: "Platinum", hours: "4 horas", price: "$440.000", usd: "~$150 USD", popular: true },
+  { name: "Gold", hours: "8 horas", price: "$720.000", usd: "~$300 USD" },
 ];
 
-const ConsultingCard: React.FC = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="w-full"
-  >
-    <div className="relative bg-card/60 backdrop-blur-sm border border-violet-500/20 rounded-2xl p-8 md:p-12 overflow-hidden">
-      {/* accent blobs */}
-      <div className="absolute -top-20 -right-20 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+const consultingSteps: { icon: LucideIcon; label: string; desc: string }[] = [
+  { icon: Mail, label: "Elige tu pack", desc: "Selecciona el paquete que mejor se ajuste a tus necesidades." },
+  { icon: CalendarCheck, label: "Programa día y hora", desc: "Agenda tu sesión en el horario que prefieras." },
+  { icon: Video, label: "Te conectas en vivo", desc: "Por Google Meet con tu especialista asignado." },
+  { icon: Users, label: "Recibes la grabación", desc: "Al día siguiente, para que la repases las veces que quieras." },
+];
 
-      <div className="relative z-10 space-y-8">
-        {/* header */}
-        <div>
-          <Badge variant="secondary" className="mb-4 bg-violet-500/10 text-violet-400 border-violet-500/20 hover:bg-violet-500/20">
-            Mentoría
-          </Badge>
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Consultoría en Meta y Google Ads
-          </h3>
-          <p className="text-muted-foreground max-w-2xl leading-relaxed">
-            Sesiones personalizadas para revisar tu cuenta, detectar errores y darte un plan claro de acción.
-          </p>
-          <p className="text-muted-foreground mt-2">
-            En una sesión trabajamos directamente sobre tu negocio o tus campañas.
-          </p>
-        </div>
+const ConsultingSection: React.FC = () => (
+  <div id="consultoria" className="space-y-12">
+    {/* Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <Badge variant="secondary" className="mb-4 bg-violet-500/10 text-violet-400 border-violet-500/20 hover:bg-violet-500/20">
+        Mentoría
+      </Badge>
+      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+        Consultoría Estratégica
+      </h3>
+      <p className="text-muted-foreground max-w-2xl leading-relaxed">
+        Asesorías personalizadas en Meta Ads y Google Ads. En 1 hora te ayudamos con todos los
+        problemas que puedas tener con tus cuentas publicitarias.
+      </p>
+    </motion.div>
 
-        {/* two-column layout on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* left: audience + topics */}
-          <div className="space-y-6">
-            <div>
-              <p className="text-sm font-semibold text-foreground mb-3">¿Para quién es?</p>
-              <ul className="space-y-2">
-                {consultingAudience.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <Check className="w-4 h-4 mt-0.5 text-violet-400 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+    {/* ¿Para quién es? */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.1 }}
+    >
+      <p className="text-lg font-semibold text-foreground mb-6">¿Para quién es?</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {audiences.map((a, i) => {
+          const Icon = a.icon;
+          return (
+            <motion.div
+              key={a.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+              className="bg-card/60 backdrop-blur-sm border border-violet-500/10 rounded-2xl p-6 hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5 transition-all duration-300"
+            >
+              <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4">
+                <Icon className="w-5 h-5 text-violet-400" />
+              </div>
+              <h4 className="font-bold text-foreground mb-2">{a.title}</h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
+
+    {/* ¿Qué vas a lograr? */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="relative bg-card/60 backdrop-blur-sm border border-violet-500/10 rounded-2xl p-8 overflow-hidden"
+    >
+      <div className="absolute -top-16 -right-16 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative z-10">
+        <p className="text-lg font-semibold text-foreground mb-5">¿Qué vas a lograr?</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {sessionBenefits.map((b) => (
+            <div key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <Check className="w-4 h-4 mt-0.5 text-violet-400 shrink-0" />
+              <span>{b}</span>
             </div>
-
-            <div>
-              <p className="text-sm font-semibold text-foreground mb-3">¿Qué trabajamos en la sesión?</p>
-              <ul className="space-y-2">
-                {consultingTopics.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-violet-400 shrink-0">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* right: how it works */}
-          <div>
-            <p className="text-sm font-semibold text-foreground mb-4">¿Cómo funciona?</p>
-            <div className="space-y-4">
-              {consultingSteps.map((step, i) => {
-                const StepIcon = step.icon;
-                return (
-                  <div key={step.label} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center shrink-0">
-                      <StepIcon className="w-5 h-5 text-violet-400" />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-violet-400">{i + 1}.</span>
-                      <span className="text-sm text-muted-foreground">{step.label}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="mt-6 text-sm font-semibold text-foreground">
-              Simple. Directo. Sin vueltas.
-            </p>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div>
-          <Button
-            variant="outline"
-            size="lg"
-            className="gap-2 border-violet-500/30 text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 hover:border-violet-500/50"
-            onClick={() => scrollToContact("Consultoría Estratégica")}
-          >
-            Agendar consultoría
-            <ArrowRight className="w-4 h-4" />
-          </Button>
+          ))}
         </div>
       </div>
+    </motion.div>
+
+    {/* Packs de asesoría */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.25 }}
+    >
+      <p className="text-lg font-semibold text-foreground mb-6">Selecciona tu pack</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {packs.map((pack, i) => (
+          <motion.div
+            key={pack.name}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+            className="group relative"
+          >
+            <div className={`relative h-full rounded-2xl p-[1px] transition-all duration-300 ${
+              pack.popular
+                ? "bg-gradient-to-br from-violet-500 via-violet-400/60 to-primary/60 shadow-lg shadow-violet-500/10"
+                : "bg-border/50 hover:bg-gradient-to-br hover:from-violet-500/30 hover:to-primary/30"
+            }`}>
+              <div className="relative bg-card rounded-2xl p-6 h-full flex flex-col overflow-hidden">
+                {pack.popular && (
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-violet-500/20 text-violet-400 border-violet-500/30 text-[10px]">
+                      Más popular
+                    </Badge>
+                  </div>
+                )}
+                <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-violet-500/5 rounded-full blur-2xl pointer-events-none" />
+
+                <h4 className="text-xl font-bold text-foreground mb-1">{pack.name}</h4>
+                <p className="text-sm text-violet-400 font-medium mb-4">{pack.hours} de asesoría</p>
+
+                <ul className="space-y-2 mb-6 flex-grow">
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Check className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                    Plantillas y recursos de ayuda
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Check className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                    Especialista en Meta y Google Ads
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Check className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                    Grabación de la sesión
+                  </li>
+                </ul>
+
+                <div className="mb-5">
+                  <p className="text-2xl font-bold text-foreground">{pack.price}</p>
+                  <p className="text-xs text-muted-foreground">{pack.usd} 🇺🇸</p>
+                </div>
+
+                <Button
+                  variant={pack.popular ? "default" : "outline"}
+                  className={`w-full gap-2 ${
+                    pack.popular
+                      ? ""
+                      : "border-violet-500/30 text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 hover:border-violet-500/50"
+                  }`}
+                  onClick={() => {
+                    window.open(
+                      `https://wa.me/573246875354?text=${encodeURIComponent(
+                        `Hola, me interesa el pack ${pack.name} de consultoría.`
+                      )}`,
+                      "_blank"
+                    );
+                  }}
+                >
+                  Quiero agendar
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+
+    {/* ¿Cómo funciona? */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+    >
+      <p className="text-lg font-semibold text-foreground mb-6">¿Cómo funciona?</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {consultingSteps.map((step, i) => {
+          const StepIcon = step.icon;
+          return (
+            <motion.div
+              key={step.label}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.35 + i * 0.08 }}
+              className="flex flex-col items-center text-center p-5 rounded-2xl bg-card/40 border border-violet-500/10 hover:border-violet-500/20 transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-3">
+                <StepIcon className="w-5 h-5 text-violet-400" />
+              </div>
+              <span className="text-xs font-bold text-violet-400 mb-1">{i + 1}.</span>
+              <span className="text-sm font-semibold text-foreground mb-1">{step.label}</span>
+              <span className="text-xs text-muted-foreground leading-relaxed">{step.desc}</span>
+            </motion.div>
+          );
+        })}
+      </div>
+      <p className="mt-6 text-center text-sm font-semibold text-foreground">
+        Simple. Directo. Sin vueltas.
+      </p>
+    </motion.div>
+
+    {/* CTA */}
+    <div className="text-center">
+      <Button
+        variant="outline"
+        size="lg"
+        className="gap-2 border-violet-500/30 text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 hover:border-violet-500/50"
+        onClick={() => scrollToContact("Consultoría Estratégica")}
+      >
+        Agendar consultoría
+        <ArrowRight className="w-4 h-4" />
+      </Button>
     </div>
-  </motion.div>
+  </div>
 );
 
 /* ─────────────── Main Section ─────────────── */
@@ -311,7 +431,6 @@ const ConsultingCard: React.FC = () => (
 const Services: React.FC = () => {
   return (
     <section id="servicios" className="section-padding relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl" />
@@ -327,18 +446,13 @@ const Services: React.FC = () => {
           className="text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold">
-            Cómo puedo <span className="text-gradient">ayudarte</span>
+            Cómo podemos <span className="text-gradient">trabajar juntos</span>
           </h2>
         </motion.div>
 
-        {/* Segmento 1 */}
         <GrowthSystemCard />
-
-        {/* Segmento 2 */}
         <StructuredPlansGrid />
-
-        {/* Segmento 3 */}
-        <ConsultingCard />
+        <ConsultingSection />
       </div>
     </section>
   );

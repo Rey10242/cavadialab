@@ -124,10 +124,10 @@ const Contact: React.FC = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             ¿Listo para crecer{" "}
-            <span className="text-gradient">con orden?</span>
+            <span className="text-gradient">con estructura?</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Agenda una llamada y revisamos tu situación. Sin compromiso.
+            Agenda una llamada y revisamos tu situación sin compromiso.
           </p>
         </motion.div>
 

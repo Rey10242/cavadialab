@@ -30,7 +30,7 @@ const AboutMe: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Quién soy y por qué{" "}
+            Por qué{" "}
             <span className="text-gradient">puedo ayudarte</span>
           </h2>
         </motion.div>
