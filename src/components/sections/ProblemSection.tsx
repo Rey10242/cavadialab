@@ -16,11 +16,27 @@ const ProblemSection: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
+          {/* Big stat hero block */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <span className="text-7xl md:text-8xl lg:text-9xl font-black text-destructive/80 leading-none block mb-4">
+              72%
+            </span>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-md mx-auto">
+              de los negocios no sabe si su publicidad realmente funciona
+            </p>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="mb-12"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 text-destructive text-sm font-medium mb-6">
