@@ -1,94 +1,65 @@
 
 
-# Plan: Rediseño Completo de la Seccion de Servicios
+# Plan: Mejoras de narrativa, tono y estructura de la web
 
-## Concepto
+## Resumen de hallazgos
 
-Reemplazar la seccion actual de 5 servicios genericos con 3 segmentos estrategicos claros, cada uno con su propio tono, publico y jerarquia visual. El orden es intencional: primero vision, despues opciones, por ultimo mentoria.
+La web se entiende pero tiene fricciones que reducen la conversion: tuteo inconsistente, la seccion de consultoria es excesivamente larga, falta prueba social, y el "Sobre mi" aparece demasiado tarde.
 
-```text
-HEADER    --> "Como puedo ayudarte" (directo, sin explicar de mas)
-SEGMENTO 1 --> Gestion de Crecimiento Integral (PRINCIPAL - el mas grande visualmente)
-SEGMENTO 2 --> Planes Estructurados (SEO / Meta Ads / Google Ads)
-SEGMENTO 3 --> Consultoria Estrategica (tono diferente, otro publico)
-CTA FINAL --> Cierre que lleva a contacto
-```
+## Cambios propuestos
 
----
+### 1. Unificar tono a tuteo profesional (o usted) en TODA la web
+- **Archivos**: HeroPersonal.tsx, ProblemSection.tsx, SolutionSection.tsx, Methodology.tsx, Services.tsx, AboutMe.tsx, Contact.tsx
+- Elegir un solo tratamiento y aplicarlo consistentemente. Recomiendo tuteo profesional ya que es mas amigable y la mayoria del copy ya lo usa.
+- Corregir "si quiere delegar" a "si quieres delegar" en Services
+- Revisar cada texto para eliminar mezclas
 
-## Estructura Visual y Contenido
+### 2. Hero: Cambiar subtitulo de ingles a espanol
+- **Archivo**: HeroPersonal.tsx
+- Reemplazar "Full Stack Marketer & Growth Expert" por algo como "Consultor de crecimiento empresarial" o "Especialista en crecimiento digital"
+- Mantener coherencia con el resto del sitio
 
-### Header de Seccion
-- Titulo: "Como puedo ayudarte"
-- Sin subtitulo largo. Solo el titulo.
+### 3. Consultoria: Simplificar drasticamente
+- **Archivo**: Services.tsx (ConsultingSection)
+- Reducir de 6 bloques a 3 bloques maximo:
+  1. Header + descripcion breve + para quien es (inline, no 3 cards separadas)
+  2. Packs de precios (diferenciar mejor los packs, no repetir mismos 3 beneficios)
+  3. CTA directo
+- Eliminar "Que vas a lograr" (redundante con la descripcion)
+- Eliminar "Como funciona" de 4 pasos (es obvio: pagas, agendas, te conectas)
+- Resultado: de 5 pantallas a 2 pantallas de scroll
 
-### Segmento 1: Gestion de Crecimiento Integral (PROTAGONISTA)
-- **Card grande, destacada** con borde gradient y fondo sutil. Ocupa el ancho completo.
-- Badge: "Servicio Principal"
-- Titulo: "Gestion de Crecimiento Integral"
-- Descripcion corta: "Implementamos un sistema completo para atraer clientes, convertirlos y hacer seguimiento automatico. Publicidad + Automatizacion + CRM en un solo lugar."
-- Lista de 6 items con checks:
-  - Captamos prospectos desde multiples canales
-  - Integramos canales de adquisicion en una sola plataforma
-  - Automatizamos seguimiento
-  - Organizamos tu base de datos
-  - Medimos ventas reales
-  - Escalamos con control
-- Frase de cierre en negrita: "No es solo hacer anuncios. Es construir una maquina de ventas ordenada."
-- Subtexto: "Ideal si quieres delegar y crecer con estructura."
-- CTA grande: "Consultar este servicio" que scrollea a contacto y pre-llena el mensaje
+### 4. Agregar CTA intermedio en Metodologia
+- **Archivo**: Methodology.tsx
+- Despues de "Solo decisiones basadas en datos" agregar un boton "Ver servicios" o "Conoce como trabajamos"
 
-### Segmento 2: Planes Estructurados
-- **3 cards en row** (grid de 3 en desktop, stack en mobile)
-- Subtitulo de segmento: "Planes para necesidades especificas" + descripcion: "Soluciones concretas si necesitas trabajar un area puntual."
-- Card SEO:
-  - Icono: Search
-  - Titulo: "SEO"
-  - Descripcion: "Posicionamos tu negocio en Google para que te encuentren cuando ya estan buscando."
-- Card Meta Ads:
-  - Icono: Megaphone
-  - Titulo: "Meta Ads"
-  - Descripcion: "Campanas en Facebook e Instagram enfocadas en generar clientes reales."
-- Card Google Ads:
-  - Icono: Target
-  - Titulo: "Google Ads"
-  - Descripcion: "Publicidad directa para captar personas con intencion de compra."
-- Cada card clickeable, scrollea a contacto con mensaje pre-llenado
+### 5. Publicidad por Canal: Mejorar copy y visibilidad del CTA
+- **Archivo**: Services.tsx (StructuredPlansGrid)
+- Cambiar titulo de "Publicidad por Canal" a algo mas atractivo
+- Cambiar "Si necesitas trabajar algo puntual:" a copy mas directo
+- Hacer el "Consultar" de las cards mas visible (quitar opacity-60)
 
-### Segmento 3: Consultoria Estrategica
-- **Card con tono diferente** - fondo mas calido/distinto para marcar que es otro publico
-- Titulo: "Consultoria en Meta y Google Ads"
-- Descripcion: "Sesiones personalizadas para revisar tu cuenta, detectar errores y darte un plan claro de accion."
-- Bloque "Para quien es":
-  - Freelancers que gestionan campanas
-  - Emprendedores que quieren aprender a pautar
-  - Personas que estan iniciando en publicidad digital
-- Bloque "Como funciona" (4 pasos inline):
-  1. Eliges tu pack
-  2. Agendas dia y hora
-  3. Nos conectamos por Google Meet
-  4. Recibes la grabacion
-- Frase de cierre: "Simple. Directo. Sin vueltas."
-- CTA: "Agendar consultoria"
+### 6. Navbar: Quitar "Consultoria" como link separado
+- **Archivo**: CavadiaNavbar.tsx
+- Mantener solo: Inicio, Como funciona, Servicios, Contacto
+- O bien: renombrar para que Consultoria lleve a una subseccion claramente identificable
 
 ---
 
-## Detalles Tecnicos
+## Detalles tecnicos
 
 ### Archivos a modificar:
-- `src/components/sections/Services.tsx` - Reescritura completa del componente
-- `src/hooks/useServiceSelection.ts` - Actualizar el mapeo de servicios a los 3 nuevos segmentos
+1. `src/components/sections/HeroPersonal.tsx` - Subtitulo a espanol, revisar tono
+2. `src/components/sections/SolutionSection.tsx` - Revisar tono tuteo/usted
+3. `src/components/sections/Methodology.tsx` - Agregar CTA al final
+4. `src/components/sections/Services.tsx` - Simplificar consultoria, mejorar Publicidad por Canal, unificar tono
+5. `src/components/sections/AboutMe.tsx` - Unificar tono
+6. `src/components/sections/Contact.tsx` - Revisar tono
+7. `src/components/CavadiaNavbar.tsx` - Evaluar quitar Consultoria del nav
 
-### Enfoque tecnico:
-- Se mantiene framer-motion para animaciones de entrada
-- Se mantiene la funcionalidad de `serviceSelection.set()` para pre-llenar el formulario de contacto al hacer click en cada CTA
-- Tres componentes internos: `GrowthSystemCard`, `StructuredPlansGrid`, `ConsultingCard`
-- Responsive: el segmento 1 siempre full-width, segmento 2 grid 3 cols en desktop / stack en mobile, segmento 3 full-width
-- Se mantiene la estetica glass/card actual del sitio (bg-card/60, backdrop-blur, border-border/50, rounded-2xl)
-- Iconos de lucide-react para cada plan (Search, Megaphone, Target, GraduationCap)
-
-### Jerarquia visual:
-- Segmento 1: Card mas grande, borde con gradient primary, badge destacado
-- Segmento 2: Cards medianas, estilo estandar del sitio
-- Segmento 3: Card con acento diferente (violet/purple gradient) para diferenciarse
+### Enfoque:
+- No se cambia la estructura visual ni el design system
+- Se mantienen las animaciones framer-motion existentes
+- Los cambios son principalmente de copy, reduccion de contenido, y un boton nuevo en Metodologia
+- La consultoria pasa de ~180 lineas a ~80 lineas aproximadamente
 
