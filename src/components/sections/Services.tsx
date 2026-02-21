@@ -176,9 +176,34 @@ const StructuredPlansGrid: React.FC = () => (
 
 
 const packs = [
-  { name: "Individual", hours: "1 hora", price: "$130.000", usd: "~$50 USD" },
-  { name: "Platinum", hours: "4 horas", price: "$440.000", usd: "~$150 USD", popular: true },
-  { name: "Gold", hours: "8 horas", price: "$720.000", usd: "~$300 USD" },
+  {
+    name: "Sesión Puntual",
+    hours: "1 hora",
+    price: "$130.000",
+    usd: "~$50 USD",
+    popular: false,
+    benefits: [
+      "Revisión de cuentas publicitarias",
+      "Recomendaciones accionables",
+      "Grabación de la sesión",
+    ],
+    forWhom: "Tienes una duda concreta o quieres una segunda opinión.",
+  },
+  {
+    name: "Pack Estratégico",
+    hours: "4 horas (2 sesiones de 2h)",
+    price: "$440.000",
+    usd: "~$150 USD",
+    popular: true,
+    benefits: [
+      "Todo lo de la Sesión Puntual",
+      "Plan estratégico personalizado",
+      "Seguimiento entre sesiones",
+      "Plantillas y recursos exclusivos",
+      "2 grabaciones",
+    ],
+    forWhom: "Quieres armar o reestructurar tu estrategia completa.",
+  },
 ];
 
 const ConsultingSection: React.FC = () => (
@@ -210,8 +235,8 @@ const ConsultingSection: React.FC = () => (
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.25 }}
     >
-      <p className="text-lg font-semibold text-foreground mb-6">Selecciona tu pack</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <p className="text-lg font-semibold text-foreground mb-6">Elige la opción que mejor se adapte a ti</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
         {packs.map((pack, i) => (
           <motion.div
             key={pack.name}
@@ -230,7 +255,7 @@ const ConsultingSection: React.FC = () => (
                 {pack.popular && (
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-violet-500/20 text-violet-400 border-violet-500/30 text-[10px]">
-                      Más popular
+                      Recomendado
                     </Badge>
                   </div>
                 )}
@@ -239,20 +264,15 @@ const ConsultingSection: React.FC = () => (
                 <h4 className="text-xl font-bold text-foreground mb-1">{pack.name}</h4>
                 <p className="text-sm text-violet-400 font-medium mb-4">{pack.hours} de asesoría</p>
 
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-3.5 h-3.5 text-violet-400 shrink-0" />
-                    Plantillas y recursos de ayuda
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-3.5 h-3.5 text-violet-400 shrink-0" />
-                    Especialista en Meta y Google Ads
-                  </li>
-                  <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-3.5 h-3.5 text-violet-400 shrink-0" />
-                    Grabación de la sesión
-                  </li>
+                <ul className="space-y-2 mb-4 flex-grow">
+                  {pack.benefits.map((b) => (
+                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Check className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
                 </ul>
+                <p className="text-xs text-muted-foreground/80 italic mb-4">{pack.forWhom}</p>
 
                 <div className="mb-5">
                   <p className="text-2xl font-bold text-foreground">{pack.price}</p>
