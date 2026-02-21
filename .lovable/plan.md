@@ -1,22 +1,29 @@
 
+# Quitar línea redundante del Hero y reorganizar espaciado
 
-# Cambio de subtítulo en el Hero
+## Cambio
 
-## Cambio propuesto
+En `src/components/sections/HeroPersonal.tsx`, eliminar el párrafo de la línea 56-58:
 
-En `src/components/sections/HeroPersonal.tsx`, reemplazar el subtítulo actual:
+```
+"Estructuro tu marketing para que cada peso invertido te acerque a una venta."
+```
 
-**Actual:** "Consultor de Crecimiento Empresarial"
+Esta frase es redundante con el tagline principal ("Hago que tu negocio venda más, con orden y sin improvisar") y con la sección La Solución que viene después.
 
-**Nuevo:** "Experto en Crecimiento Digital"
+## Resultado
 
-### Por qué esta versión y no las otras
+El Hero queda así (de arriba a abajo):
+1. Badge "Disponible para proyectos"
+2. "Hola, soy Reynaldo Montalvo Cavadia"
+3. "Experto en Crecimiento Digital"
+4. "Hago que tu negocio venda más, con orden y sin improvisar."
+5. Botones CTA
 
-- "Experto en Crecimiento Empresarial Digital" es demasiado largo para un subtítulo (5 palabras donde 3 bastan).
-- "Experto en Crecimiento Digital" es corto, escaneable, suena con autoridad y cubre todo lo que haces sin limitarte a "consultor" (que suena a alguien que solo da consejos, no que ejecuta).
+Más limpio, más escaneable, sin repetir ideas.
 
-### Detalle técnico
+## Detalle técnico
 
-- **Archivo**: `src/components/sections/HeroPersonal.tsx` linea ~50
-- Se cambia solo el texto del `<p>` con clase `text-xl md:text-2xl text-primary font-medium`
-
+- **Archivo**: `src/components/sections/HeroPersonal.tsx`
+- Eliminar líneas 56-58 (el `<p>` con "Estructuro tu marketing...")
+- Cambiar el `mb-4` del tagline principal (línea 50) a `mb-8` para que el espacio hacia los botones quede bien balanceado
