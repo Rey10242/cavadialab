@@ -16,36 +16,24 @@ const ProblemSection: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Big stat hero block */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <span className="text-7xl md:text-8xl lg:text-9xl font-black text-destructive/80 leading-none block mb-4">
-              72%
-            </span>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-md mx-auto">
-              de los negocios no sabe si su publicidad realmente funciona
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 text-destructive text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 text-destructive text-sm font-medium mb-8">
               <AlertTriangle className="w-4 h-4" />
               El problema real
             </div>
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Muchos negocios invierten en marketing y{" "}
-              <span className="text-gradient">no saben qué está funcionando</span>
+              <span className="text-7xl md:text-8xl lg:text-9xl font-black text-destructive/80 leading-none block mb-3">
+                72%
+              </span>
+              de los negocios no sabe si su publicidad funciona.{" "}
+              <span className="text-gradient">¿Tú sí?</span>
             </h2>
           </motion.div>
 
