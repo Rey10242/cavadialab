@@ -1,11 +1,12 @@
 import React from "react";
 import HeroPersonal from "@/components/sections/HeroPersonal";
+import ProblemSection from "@/components/sections/ProblemSection";
 import AboutMe from "@/components/sections/AboutMe";
-import Skills from "@/components/sections/Skills";
+// import Skills from "@/components/sections/Skills"; // Eliminado del flujo principal
 import Methodology from "@/components/sections/Methodology";
-// import CaseStudies from "@/components/sections/CaseStudies"; // Temporalmente oculto hasta tener más casos
+// import CaseStudies from "@/components/sections/CaseStudies"; // Temporalmente oculto
 import Services from "@/components/sections/Services";
-// import Testimonials from "@/components/sections/Testimonials"; // Temporalmente oculto hasta tener testimonios reales
+// import Testimonials from "@/components/sections/Testimonials"; // Temporalmente oculto
 import Contact from "@/components/sections/Contact";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import SiteFooter from "@/components/SiteFooter";
@@ -27,8 +28,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Reynaldo Montalvo | Full Stack Marketer & Growth Expert | Cartagena";
-    setMeta("description", "Consultor de marketing digital y growth marketing en Cartagena, Colombia. Especialista en Google Ads, Meta Ads, automatización con IA y estrategias de performance para escalar negocios.");
+    document.title = "Reynaldo Montalvo | Consultor de Crecimiento Empresarial | Cartagena";
+    setMeta("description", "Hago que tu negocio venda más, con orden y sin improvisar. Te ayudo a atraer clientes, convertirlos en ventas y crecer de forma sostenible.");
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -87,12 +88,10 @@ const Index: React.FC = () => {
       <div className="relative z-10">
         <CavadiaNavbar />
         <HeroPersonal />
+        <ProblemSection />
         <AboutMe />
-        <Skills />
         <Methodology />
-        {/* <CaseStudies /> */}{/* Temporalmente oculto hasta tener más casos de éxito */}
         <Services />
-        {/* Testimonials temporalmente oculto hasta tener testimonios reales */}
         <Contact />
         <SiteFooter />
         <FloatingWhatsAppButton />

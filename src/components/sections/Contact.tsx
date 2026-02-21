@@ -7,30 +7,19 @@ import { Send, Mail, Phone, MapPin, Linkedin, Instagram, MessageCircle, CheckCir
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { serviceSelection, serviceToProjectType } from "@/hooks/useServiceSelection";
+import { serviceSelection } from "@/hooks/useServiceSelection";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "Nombre muy largo"),
   email: z.string().trim().email("Email inválido").max(255, "Email muy largo"),
   phone: z.string().trim().max(20, "Teléfono muy largo").optional().or(z.literal("")),
-  location: z.string().trim().max(100, "Ubicación muy larga").optional().or(z.literal("")),
   message: z.string().trim().min(10, "El mensaje debe tener al menos 10 caracteres").max(1000, "Mensaje muy largo"),
-  projectType: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
-
-const projectTypes = [
-  { value: "marketing", label: "Marketing Digital" },
-  { value: "automation", label: "Automatización" },
-  { value: "web", label: "Desarrollo Web" },
-  { value: "consulting", label: "Consultoría" },
-  { value: "other", label: "Otro" },
-];
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/rmontalvocavadia/", label: "LinkedIn" },
@@ -42,7 +31,6 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
-  const [prefilledService, setPrefilledService] = useState<string | null>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -50,9 +38,7 @@ const Contact: React.FC = () => {
       name: "",
       email: "",
       phone: "",
-      location: "",
       message: "",
-      projectType: "",
     },
   });
 
@@ -60,29 +46,18 @@ const Contact: React.FC = () => {
   useEffect(() => {
     const unsubscribe = serviceSelection.subscribe((service) => {
       if (service) {
-        setPrefilledService(service);
-        const projectType = serviceToProjectType[service] || "other";
-        form.setValue("projectType", projectType);
-        form.setValue("message", `Hola, estoy interesado en el servicio de "${service}". Me gustaría obtener más información sobre cómo pueden ayudarme con mi proyecto.`);
-        
-        // Clear the selection after applying
+        form.setValue("message", `Hola, me interesa saber más sobre: "${service}". Me gustaría conversar sobre cómo pueden ayudarme.`);
         setTimeout(() => serviceSelection.clear(), 100);
       }
     });
 
-    // Check if there's already a selected service
     const currentService = serviceSelection.get();
     if (currentService) {
-      setPrefilledService(currentService);
-      const projectType = serviceToProjectType[currentService] || "other";
-      form.setValue("projectType", projectType);
-      form.setValue("message", `Hola, estoy interesado en el servicio de "${currentService}". Me gustaría obtener más información sobre cómo pueden ayudarme con mi proyecto.`);
+      form.setValue("message", `Hola, me interesa saber más sobre: "${currentService}". Me gustaría conversar sobre cómo pueden ayudarme.`);
       setTimeout(() => serviceSelection.clear(), 100);
     }
 
-    return () => {
-      unsubscribe();
-    };
+    return () => { unsubscribe(); };
   }, [form]);
 
   const onSubmit = async (data: ContactFormData) => {
@@ -95,9 +70,7 @@ const Contact: React.FC = () => {
           name: data.name,
           email: data.email,
           phone: data.phone || null,
-          location: data.location || null,
           message: data.message,
-          project_type: data.projectType || null,
         });
 
       if (error) throw error;
@@ -117,22 +90,17 @@ const Contact: React.FC = () => {
             name: data.name,
             email: data.email,
             phone: data.phone || undefined,
-            location: data.location || undefined,
             message: data.message,
-            projectType: data.projectType || undefined,
           }),
         });
       } catch (emailError) {
         console.error("Error sending email notification:", emailError);
-        // Don't fail the form submission if email fails
       }
 
       setIsSubmitted(true);
-      setPrefilledService(null);
       toast.success("¡Mensaje enviado! Te contactaré pronto.");
       form.reset();
       
-      // Reset success state after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
       console.error("Error submitting contact form:", error);
@@ -153,11 +121,36 @@ const Contact: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gradient">Contáctame</span>
+            Si tu negocio quiere crecer, pero con orden…{" "}
+            <span className="text-gradient">Conversemos.</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? ¡Hablemos! Estoy disponible para nuevos proyectos.
+            En una llamada revisamos tu situación y te digo con claridad qué se puede mejorar y qué no vale la pena hacer.
           </p>
+        </motion.div>
+
+        {/* WhatsApp CTA prominente */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="max-w-2xl mx-auto mb-12"
+        >
+          <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl p-6 md:p-8 text-center">
+            <h3 className="text-xl font-semibold mb-3">La forma más rápida de hablar</h3>
+            <p className="text-muted-foreground mb-5">
+              Agenda una conversación directa y revisamos tu situación sin compromiso.
+            </p>
+            <Button
+              size="lg"
+              className="bg-green-600 hover:bg-green-700 text-white group px-8"
+              onClick={() => window.open("https://wa.me/573246875354", "_blank")}
+            >
+              <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              Agendar conversación por WhatsApp
+            </Button>
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-stretch">
@@ -170,14 +163,13 @@ const Contact: React.FC = () => {
             className="h-full"
           >
             <div className="bg-card border border-border rounded-xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col">
-              {/* Spotlight effect */}
               {focusedField && (
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
                 </div>
               )}
 
-              <h3 className="text-lg font-semibold mb-6">Envíame un mensaje</h3>
+              <h3 className="text-lg font-semibold mb-6">O si prefieres, escríbeme aquí</h3>
               
               {isSubmitted ? (
                 <motion.div
@@ -196,7 +188,7 @@ const Contact: React.FC = () => {
               ) : (
               <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex-1 flex flex-col">
-                    {/* Row 1: Name & Email */}
+                    {/* Name & Email */}
                     <div className="grid sm:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
@@ -240,77 +232,26 @@ const Contact: React.FC = () => {
                       />
                     </div>
 
-                    {/* Row 2: Phone & Location */}
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex items-center gap-1.5">
-                              <Phone className="w-3.5 h-3.5 text-muted-foreground" />
-                              Teléfono
-                            </FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="tel" 
-                                placeholder="+57 300 123 4567" 
-                                {...field} 
-                                onFocus={() => setFocusedField("phone")}
-                                onBlur={() => setFocusedField(null)}
-                                className={`transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary" : ""}`}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="location"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex items-center gap-1.5">
-                              <MapPin className="w-3.5 h-3.5 text-muted-foreground" />
-                              País / Ciudad
-                            </FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="text" 
-                                placeholder="Ej: Colombia, Bogotá" 
-                                {...field} 
-                                onFocus={() => setFocusedField("location")}
-                                onBlur={() => setFocusedField(null)}
-                                className={`transition-all duration-300 ${focusedField === "location" ? "ring-2 ring-primary/30 border-primary" : ""}`}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
+                    {/* Phone */}
                     <FormField
                       control={form.control}
-                      name="projectType"
+                      name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Tipo de Proyecto (opcional)</FormLabel>
-                          <Select onValueChange={field.onChange} value={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Selecciona una opción" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              {projectTypes.map((type) => (
-                                <SelectItem key={type.value} value={type.value}>
-                                  {type.label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                          <FormLabel className="flex items-center gap-1.5">
+                            <Phone className="w-3.5 h-3.5 text-muted-foreground" />
+                            Teléfono (opcional)
+                          </FormLabel>
+                          <FormControl>
+                            <Input 
+                              type="tel" 
+                              placeholder="+57 300 123 4567" 
+                              {...field} 
+                              onFocus={() => setFocusedField("phone")}
+                              onBlur={() => setFocusedField(null)}
+                              className={`transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary" : ""}`}
+                            />
+                          </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -321,10 +262,10 @@ const Contact: React.FC = () => {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Mensaje</FormLabel>
+                          <FormLabel>Mensaje *</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="Cuéntame sobre tu proyecto..."
+                              placeholder="Cuéntame brevemente tu situación..."
                               rows={5}
                               {...field}
                               onFocus={() => setFocusedField("message")}
@@ -447,30 +388,6 @@ const Contact: React.FC = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* CTA con pulso - Centrado */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto mt-12 bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-6 md:p-8 text-center relative overflow-hidden"
-        >
-          {/* Pulse effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent animate-pulse pointer-events-none" />
-          
-          <h3 className="text-xl font-semibold mb-3 relative z-10">¿Listo para empezar?</h3>
-          <p className="text-muted-foreground mb-4 relative z-10">
-            Agenda una llamada gratuita de 30 minutos para discutir tu proyecto.
-          </p>
-          <Button
-            size="lg"
-            className="btn-primary-glow relative z-10"
-            onClick={() => window.open("https://wa.me/573246875354", "_blank")}
-          >
-            <MessageCircle className="w-5 h-5 mr-2" />
-            Agendar Llamada
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

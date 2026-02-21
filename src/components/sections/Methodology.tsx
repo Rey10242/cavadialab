@@ -1,43 +1,37 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Target, FlaskConical, TrendingUp, BarChart3, ArrowDown } from "lucide-react";
+import { Search, Wrench, FlaskConical, TrendingUp, ArrowDown } from "lucide-react";
 
 const steps = [
   {
     icon: Search,
-    title: "Diagnóstico",
-    description: "Auditoría de cuentas, tracking y funnel",
+    title: "Revisamos tu situación actual",
+    description: "Analizamos cómo estás vendiendo hoy y dónde estás perdiendo oportunidades.",
     number: "01",
   },
   {
-    icon: Target,
-    title: "Estrategia",
-    description: "Definición de palancas de crecimiento y KPIs",
+    icon: Wrench,
+    title: "Organizamos tu sistema de ventas",
+    description: "Ordenamos publicidad, seguimiento y medición para que todo tenga sentido.",
     number: "02",
   },
   {
     icon: FlaskConical,
-    title: "Testing",
-    description: "Creativos, audiencias, ofertas, landings",
+    title: "Probamos y mejoramos",
+    description: "Identificamos qué funciona y eliminamos lo que no. Sin adivinar.",
     number: "03",
   },
   {
     icon: TrendingUp,
-    title: "Escalamiento",
-    description: "Winners + automatización + aumento presupuestal controlado",
+    title: "Escalamos con control",
+    description: "Aumentamos inversión solo cuando los números son saludables.",
     number: "04",
-  },
-  {
-    icon: BarChart3,
-    title: "Reporting",
-    description: "Dashboards ejecutivos con foco en negocio",
-    number: "05",
   },
 ];
 
 const Methodology: React.FC = () => {
   return (
-    <section id="metodologia" className="section-padding">
+    <section id="proceso" className="section-padding">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,19 +41,19 @@ const Methodology: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Cómo <span className="text-gradient">Ejecuto</span> los Proyectos
+            Cómo <span className="text-gradient">Trabajamos</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Un proceso estructurado y probado para maximizar resultados en cada etapa.
+            Un proceso simple y claro para que tu negocio crezca con orden.
           </p>
         </motion.div>
 
         {/* Desktop Timeline */}
         <div className="hidden lg:block relative">
           {/* Connection Line */}
-          <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20" />
+          <div className="absolute top-16 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20" />
           
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-4 gap-6">
             {steps.map((step, index) => (
               <motion.div
                 key={step.title}
@@ -88,7 +82,7 @@ const Methodology: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile/Tablet List con flechas animadas */}
+        {/* Mobile/Tablet List */}
         <div className="lg:hidden space-y-3">
           {steps.map((step, index) => (
             <React.Fragment key={step.title}>
@@ -112,7 +106,7 @@ const Methodology: React.FC = () => {
                 </div>
               </motion.div>
               
-              {/* Flecha animada entre pasos */}
+              {/* Arrow between steps */}
               {index < steps.length - 1 && (
                 <motion.div
                   initial={{ opacity: 0, y: -5 }}
@@ -132,6 +126,20 @@ const Methodology: React.FC = () => {
             </React.Fragment>
           ))}
         </div>
+
+        {/* Closing statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center mt-12"
+        >
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Sin fórmulas mágicas. Sin promesas irreales.{" "}
+            <span className="text-foreground font-semibold">Solo decisiones basadas en resultados.</span>
+          </p>
+        </motion.div>
       </div>
     </section>
   );

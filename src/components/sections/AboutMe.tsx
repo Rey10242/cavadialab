@@ -1,79 +1,55 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { 
-  Target, 
-  Lightbulb, 
-  Rocket, 
-  Award,
+  Users,
   TrendingUp,
+  DollarSign,
   BarChart3,
-  Brain,
-  Layers,
-  Scale,
-  Users
+  Zap,
+  CheckCircle
 } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
-const values = [
-  {
-    icon: Target,
-    title: "Enfoque en Resultados",
-    description: "Cada estrategia está diseñada para generar impacto medible.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovación Constante",
-    description: "Siempre explorando nuevas tecnologías y metodologías.",
-  },
-  {
-    icon: Rocket,
-    title: "Crecimiento Exponencial",
-    description: "Sistemas que escalan contigo sin perder calidad.",
-  },
-  {
-    icon: Award,
-    title: "Compromiso Total",
-    description: "Tu éxito es mi prioridad en cada proyecto.",
-  },
+const whatIDo = [
+  "Atraer personas interesadas",
+  "Convertirlas en clientes",
+  "Hacer seguimiento",
+  "Medir resultados reales",
+  "Escalar sin perder dinero",
 ];
 
-const valuePropositions = [
-  {
-    icon: TrendingUp,
-    title: "Ventas reales",
-    description: "Marketing que genera ventas, no solo métricas.",
-  },
+const results = [
   {
     icon: Users,
-    title: "Demanda calificada",
-    description: "Leads alineados con tu capacidad comercial.",
+    title: "Más clientes reales",
+    description: "Estrategias enfocadas en atraer personas que realmente quieren comprar.",
   },
   {
-    icon: Brain,
-    title: "Decisiones con datos",
-    description: "Menos intuición, más análisis y rentabilidad.",
+    icon: TrendingUp,
+    title: "Ventas constantes",
+    description: "Sistemas que generan ventas de forma predecible, no por suerte.",
   },
   {
-    icon: Layers,
-    title: "Estructura clara",
-    description: "Captación ordenada para crecimiento sostenido.",
-  },
-  {
-    icon: Scale,
-    title: "Escalamiento controlado",
-    description: "Cuido márgenes y flujo de caja del negocio.",
+    icon: DollarSign,
+    title: "Mejor uso del presupuesto",
+    description: "Cada peso invertido tiene un propósito claro y medible.",
   },
   {
     icon: BarChart3,
-    title: "Resultados medibles",
-    description: "Reportes claros con foco en lo que importa.",
+    title: "Claridad en los números",
+    description: "Sabrás exactamente qué está funcionando y qué no.",
+  },
+  {
+    icon: Zap,
+    title: "Crecimiento sin caos",
+    description: "Escalar con orden, estructura y control total.",
   },
 ];
 
 const stats = [
   { value: 50, suffix: "+", label: "Proyectos" },
   { value: 8, suffix: "+", label: "Años Exp." },
-  { value: 100, suffix: "%", label: "Dedicación" },
+  { value: 100, suffix: "%", label: "Foco en resultados" },
 ];
 
 const AboutMe: React.FC = () => {
@@ -88,11 +64,9 @@ const AboutMe: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Sobre <span className="text-gradient">Mí</span>
+            Quién soy y cómo{" "}
+            <span className="text-gradient">te ayudo</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Conoce mi historia y lo que me impulsa a crear soluciones digitales excepcionales.
-          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -105,8 +79,6 @@ const AboutMe: React.FC = () => {
             className="space-y-6"
           >
             <div className="prose prose-lg dark:prose-invert">
-              <h3 className="text-xl font-semibold text-foreground mb-4">Mi Historia</h3>
-              
               <p className="text-muted-foreground leading-relaxed">
                 Soy <strong className="text-foreground">Reynaldo Montalvo Cavadia</strong>, 
                 un apasionado del marketing digital y la tecnología con más de 8 años de 
@@ -114,21 +86,41 @@ const AboutMe: React.FC = () => {
               </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                Mi viaje comenzó cuando descubrí el poder de la automatización y la 
-                inteligencia artificial para escalar negocios. Desde entonces, he ayudado 
-                a empresas de diversos sectores a construir sus máquinas de crecimiento digital.
+                Trabajo con empresarios que quieren dejar de improvisar y empezar a 
+                crecer con claridad.
               </p>
-              
+
               <p className="text-muted-foreground leading-relaxed">
-                Hoy, combino <strong className="text-foreground">estrategia de marketing</strong>, 
-                <strong className="text-foreground"> automatización</strong> e 
-                <strong className="text-foreground"> inteligencia artificial</strong> para 
-                crear sistemas que generan resultados sostenibles.
+                No me enfoco solo en hacer anuncios. Me enfoco en que tu negocio 
+                tenga un <strong className="text-foreground">sistema claro</strong> para:
               </p>
             </div>
 
-            {/* Quick Stats con contador animado */}
-            <div className="grid grid-cols-3 gap-4 pt-6">
+            {/* What I do list */}
+            <div className="space-y-3">
+              {whatIDo.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.2 + index * 0.08 }}
+                  className="flex items-center gap-3"
+                >
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span className="text-foreground font-medium">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="pt-2">
+              <p className="text-lg text-primary font-semibold">
+                Mi trabajo es que sepas exactamente qué está pasando con tu inversión.
+              </p>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-4 pt-4">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -148,7 +140,7 @@ const AboutMe: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Values Section */}
+          {/* Results Section */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -156,11 +148,13 @@ const AboutMe: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-4"
           >
-            <h3 className="text-xl font-semibold text-foreground mb-6">Mis Valores</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-6">
+              Qué <span className="text-gradient">Resultados</span> Buscamos
+            </h3>
             
-            {values.map((value, index) => (
+            {results.map((result, index) => (
               <motion.div
-                key={value.title}
+                key={result.title}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -169,59 +163,16 @@ const AboutMe: React.FC = () => {
                 className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                  <value.icon className="w-6 h-6 text-primary" />
+                  <result.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">{value.title}</h4>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <h4 className="font-semibold text-foreground mb-1">{result.title}</h4>
+                  <p className="text-sm text-muted-foreground">{result.description}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
-
-        {/* Value Proposition Section - Clean Grid 3x2 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-20"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-xl md:text-2xl font-bold mb-3">
-              Qué <span className="text-gradient">Resultados</span> Genero
-            </h3>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Ayudo a negocios a crecer de forma estructurada y rentable.
-            </p>
-          </div>
-
-          {/* 6 Cards in 3x2 Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {valuePropositions.map((prop, index) => (
-              <motion.div
-                key={prop.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <prop.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {prop.title}
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {prop.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Mail, Sparkles, TrendingUp, Target } from "lucide-react";
+import { ArrowDown, MessageCircle, ArrowRight, TrendingUp, Target } from "lucide-react";
 import { motion } from "framer-motion";
 import perfilReynaldo from "@/assets/perfil-reynaldo.png";
 
@@ -37,33 +37,36 @@ const HeroPersonal: React.FC = () => {
               <span className="text-gradient">Reynaldo Montalvo Cavadia</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-primary font-medium mb-4">
+            <p className="text-xl md:text-2xl text-primary font-medium mb-2">
               Full Stack Marketer & Growth Expert
             </p>
 
+            <p className="text-lg md:text-xl font-semibold text-foreground mb-4">
+              Hago que tu negocio venda más, con orden y sin improvisar.
+            </p>
+
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Diseño y ejecuto estrategias de adquisición y crecimiento que convierten 
-              tráfico en clientes y clientes en ventas, con estructuras claras orientadas 
-              a escalar tu negocio.
+              Te ayudo a atraer clientes potenciales, convertirlos en ventas y crecer 
+              de forma sostenible, sin desperdiciar dinero en campañas que no funcionan.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 size="lg"
                 className="btn-primary-glow group"
-                onClick={() => document.getElementById("casos-exito")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
               >
-                <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                Ver Proyectos
+                <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Agendar conversación
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="group"
-                onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("proceso")?.scrollIntoView({ behavior: "smooth" })}
               >
-                <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Contáctame
+                Ver cómo lo hago
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
           </motion.div>
@@ -76,16 +79,16 @@ const HeroPersonal: React.FC = () => {
             className="order-1 lg:order-2 flex justify-center"
           >
             <div className="relative">
-              {/* Glow effect behind photo - más suave */}
+              {/* Glow effect behind photo */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/15 to-secondary/20 rounded-full blur-3xl" />
                 <div className="absolute inset-8 bg-gradient-to-tr from-secondary/20 via-primary/15 to-transparent rounded-full blur-2xl" />
               </div>
               
-              {/* Profile Photo con máscara de gradiente más suave */}
+              {/* Profile Photo */}
               <img 
                 src={perfilReynaldo} 
-                alt="Reynaldo Montalvo Cavadia - Full Stack Marketer & Growth Expert" 
+                alt="Reynaldo Montalvo Cavadia - Consultor de crecimiento empresarial" 
                 className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
                 loading="eager"
                 decoding="sync"
@@ -96,7 +99,7 @@ const HeroPersonal: React.FC = () => {
                 }}
               />
               
-              {/* Floating badges - animaciones más suaves */}
+              {/* Floating badges */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -113,7 +116,7 @@ const HeroPersonal: React.FC = () => {
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute bottom-16 -left-4 z-20 bg-card/95 backdrop-blur-sm border border-border rounded-xl px-3 py-2 shadow-lg"
               >
-                <span className="text-sm font-medium">🚀 Growth Marketing</span>
+                <span className="text-sm font-medium">🚀 +50 proyectos</span>
               </motion.div>
 
               <motion.div
@@ -123,7 +126,7 @@ const HeroPersonal: React.FC = () => {
               >
                 <span className="text-sm font-medium flex items-center gap-1.5">
                   <Target className="w-4 h-4 text-primary" />
-                  Performance Ads
+                  Resultados reales
                 </span>
               </motion.div>
             </div>
@@ -141,7 +144,7 @@ const HeroPersonal: React.FC = () => {
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
             className="cursor-pointer"
-            onClick={() => document.getElementById("sobre-mi")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => document.getElementById("el-problema")?.scrollIntoView({ behavior: "smooth" })}
           >
             <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors" />
           </motion.div>

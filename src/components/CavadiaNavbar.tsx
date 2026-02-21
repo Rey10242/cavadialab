@@ -5,12 +5,10 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 const links = [
   { href: "#inicio", label: "Inicio" },
+  { href: "#el-problema", label: "El Problema" },
   { href: "#sobre-mi", label: "Sobre Mí" },
-  { href: "#stack", label: "Stack" },
-  { href: "#metodologia", label: "Metodología" },
-  { href: "#casos-exito", label: "Casos de Éxito" },
+  { href: "#proceso", label: "Proceso" },
   { href: "#servicios", label: "Servicios" },
-  // { href: "#testimonios", label: "Testimonios" }, // Temporalmente oculto
   { href: "#contacto", label: "Contacto" },
 ];
 

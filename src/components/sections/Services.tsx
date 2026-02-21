@@ -1,18 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { 
-  Settings, 
+  Megaphone, 
+  UserCheck, 
   RefreshCw, 
-  TrendingUp, 
-  ClipboardCheck, 
-  Lightbulb,
+  BarChart3, 
+  PieChart,
   ArrowRight,
-  Sparkles,
-  Search,
+  MessageCircle,
   LucideIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { serviceSelection, serviceToProjectType } from "@/hooks/useServiceSelection";
+import { serviceSelection } from "@/hooks/useServiceSelection";
 
 interface Service {
   icon: LucideIcon;
@@ -26,18 +25,18 @@ interface Service {
 
 const services: Service[] = [
   {
-    icon: Settings,
-    title: "Set Up de Cuentas y Tracking",
-    description: "Configuración profesional de cuentas publicitarias, píxeles, eventos de conversión y Google Tag Manager para medir cada acción relevante.",
+    icon: Megaphone,
+    title: "Organizar tu publicidad",
+    description: "Que cada peso invertido tenga un propósito claro y medible. Nada de gastar por gastar.",
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
     hoverTextColor: "group-hover:text-blue-500",
     accentColor: "blue-500",
   },
   {
-    icon: TrendingUp,
-    title: "Escalamiento de Campañas",
-    description: "Estrategias para aumentar presupuesto de forma controlada sin perder rentabilidad, identificando winners y automatizando procesos.",
+    icon: UserCheck,
+    title: "Atraer mejores clientes",
+    description: "Estrategias para que lleguen personas realmente interesadas en comprar, no solo curiosos.",
     color: "from-primary/20 to-violet-500/20",
     iconColor: "text-primary",
     hoverTextColor: "group-hover:text-primary",
@@ -45,35 +44,26 @@ const services: Service[] = [
   },
   {
     icon: RefreshCw,
-    title: "Optimización y Reestructuración",
-    description: "Auditoría y mejora de campañas existentes para maximizar ROAS, reducir CPA y mejorar la calidad del tráfico.",
+    title: "Mejorar tus resultados actuales",
+    description: "Optimizar lo que ya tienes para que rinda más sin necesidad de gastar más.",
     color: "from-emerald-500/20 to-teal-500/20",
     iconColor: "text-emerald-500",
     hoverTextColor: "group-hover:text-emerald-500",
     accentColor: "emerald-500",
   },
   {
-    icon: ClipboardCheck,
-    title: "Auditoría Técnica y Estratégica",
-    description: "Análisis profundo de tu ecosistema digital: tracking, atribución, estructura de campañas, creativos y funnel de conversión.",
+    icon: BarChart3,
+    title: "Saber si tu inversión funciona",
+    description: "Medición clara para que tomes decisiones con números, no con intuición.",
     color: "from-orange-500/20 to-amber-500/20",
     iconColor: "text-orange-500",
     hoverTextColor: "group-hover:text-orange-500",
     accentColor: "orange-500",
   },
   {
-    icon: Search,
-    title: "SEO y Posicionamiento Orgánico",
-    description: "Estrategias de optimización para motores de búsqueda, análisis de keywords, SEO técnico y contenido optimizado para aumentar tráfico orgánico.",
-    color: "from-cyan-500/20 to-sky-500/20",
-    iconColor: "text-cyan-500",
-    hoverTextColor: "group-hover:text-cyan-500",
-    accentColor: "cyan-500",
-  },
-  {
-    icon: Lightbulb,
-    title: "Consultoría Growth & Performance",
-    description: "Asesoría estratégica para equipos de marketing, definición de KPIs, dashboards ejecutivos y roadmap de crecimiento.",
+    icon: PieChart,
+    title: "Tener claridad sobre tus números",
+    description: "Reportes simples que te muestran qué está pasando con tu dinero.",
     color: "from-purple-500/20 to-pink-500/20",
     iconColor: "text-purple-500",
     hoverTextColor: "group-hover:text-purple-500",
@@ -85,10 +75,7 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
   const Icon = service.icon;
   
   const handleServiceClick = () => {
-    // Set the selected service
     serviceSelection.set(service.title);
-    
-    // Scroll to contact section
     const contactSection = document.getElementById("contacto");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
@@ -139,7 +126,7 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
           <motion.div 
             className={`mt-5 pt-4 border-t border-border/30 flex items-center gap-2 ${service.iconColor} font-medium opacity-60 group-hover:opacity-100 transition-all duration-300`}
           >
-            <span className="text-sm">Consultar servicio</span>
+            <span className="text-sm">Consultar</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </motion.div>
         </div>
@@ -155,7 +142,6 @@ const Services: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -167,26 +153,15 @@ const Services: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, type: "spring" }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6"
-          >
-            <Sparkles className="w-4 h-4" />
-            Servicios Especializados
-          </motion.div>
-          
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Cómo Puedo <span className="text-gradient">Ayudarte</span>
+            ¿En qué puedo <span className="text-gradient">ayudarte</span>?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Soluciones integrales en paid media, automatización y growth marketing para impulsar tu negocio al siguiente nivel.
+            Puedo ayudarte si necesitas resolver alguno de estos retos en tu negocio.
           </p>
         </motion.div>
 
-        {/* Services Grid - Clean 3x2 layout */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
@@ -202,24 +177,23 @@ const Services: React.FC = () => {
           className="mt-16 text-center"
         >
           <div className="relative inline-flex flex-col sm:flex-row items-center gap-6 p-8 bg-gradient-to-r from-primary/5 via-card to-violet-500/5 border border-border/50 rounded-2xl overflow-hidden backdrop-blur-sm">
-            {/* Decorative elements */}
             <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
             <div className="absolute -bottom-12 -left-12 w-24 h-24 bg-violet-500/10 rounded-full blur-2xl" />
             
             <div className="relative z-10 text-left">
               <p className="text-foreground font-semibold text-lg mb-1">
-                ¿Necesitas un servicio personalizado?
+                ¿No estás seguro de qué necesitas?
               </p>
               <p className="text-muted-foreground text-sm">
-                Cuéntame tu proyecto y diseñamos una estrategia a medida
+                Conversemos y te digo con claridad qué se puede mejorar.
               </p>
             </div>
             <Button
               className="relative z-10 btn-primary-glow group px-8 py-6 text-base"
-              onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => window.open("https://wa.me/573246875354", "_blank")}
             >
+              <MessageCircle className="w-5 h-5 mr-2" />
               Hablemos
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </motion.div>
