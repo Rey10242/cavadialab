@@ -2,17 +2,15 @@ import React from "react";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 import ProblemSection from "@/components/sections/ProblemSection";
 import AboutMe from "@/components/sections/AboutMe";
-// import Skills from "@/components/sections/Skills"; // Eliminado del flujo principal
 import Methodology from "@/components/sections/Methodology";
-// import CaseStudies from "@/components/sections/CaseStudies"; // Temporalmente oculto
 import Services from "@/components/sections/Services";
-// import Testimonials from "@/components/sections/Testimonials"; // Temporalmente oculto
 import Contact from "@/components/sections/Contact";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import FloatingElements from "@/components/FloatingElements";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import SectionDivider from "@/components/SectionDivider";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -31,7 +29,6 @@ const Index: React.FC = () => {
     document.title = "Reynaldo Montalvo | Consultor de Crecimiento Empresarial | Cartagena";
     setMeta("description", "Hago que tu negocio venda más, con orden y sin improvisar. Te ayudo a atraer clientes, convertirlos en ventas y crecer de forma sostenible.");
 
-    // Canonical
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
       canonical = document.createElement("link");
@@ -88,10 +85,15 @@ const Index: React.FC = () => {
       <div className="relative z-10">
         <CavadiaNavbar />
         <HeroPersonal />
+        <SectionDivider variant="wave" fillTo="hsl(var(--muted) / 0.3)" />
         <ProblemSection />
+        <SectionDivider variant="curve" flip fillTo="hsl(var(--muted) / 0.3)" />
         <AboutMe />
+        <SectionDivider variant="blob" fillTo="hsl(var(--muted) / 0.3)" />
         <Methodology />
+        <SectionDivider variant="wave" flip fillTo="hsl(var(--muted) / 0.3)" />
         <Services />
+        <SectionDivider variant="curve" fillTo="hsl(var(--muted) / 0.3)" />
         <Contact />
         <SiteFooter />
         <FloatingWhatsAppButton />
