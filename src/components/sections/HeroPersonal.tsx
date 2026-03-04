@@ -1,167 +1,154 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowDown, MessageCircle, ArrowRight, TrendingUp, Target } from "lucide-react";
 import { motion } from "framer-motion";
+import { TrendingUp, Target } from "lucide-react";
 import perfilReynaldo from "@/assets/perfil-reynaldo.png";
+import AnimatedCounter from "@/components/AnimatedCounter";
+
+const stats = [
+  { value: 50, suffix: "+", label: "Proyectos" },
+  { value: 8, suffix: "+", label: "Años exp." },
+  { value: 3, suffix: "", label: "Canales" },
+  { value: 100, suffix: "%", label: "Foco en resultados" },
+];
 
 const HeroPersonal: React.FC = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-screen relative overflow-hidden pt-16"
     >
-      {/* Dots grid pattern */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
-        backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-        backgroundSize: '32px 32px',
-      }} />
+      {/* Grid background */}
+      <div className="absolute inset-0 bg-grid pointer-events-none" />
+      
+      {/* Glow */}
+      <div className="absolute -top-24 -right-20 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, hsl(var(--primary) / 0.07) 0%, transparent 65%)' }}
+      />
 
-      <div className="container mx-auto px-4 py-16 lg:py-24">
+      <div className="container mx-auto px-4 md:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Text Content */}
+          {/* Left — Text */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center lg:text-left order-2 lg:order-1"
           >
-            {/* Status Badge */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+            {/* Status pill */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 mb-8"
             >
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-medium text-foreground">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-dot" />
+              <span className="text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-primary">
                 Disponible para proyectos
               </span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-              <span className="text-foreground">Hola, soy </span>
-              <span className="text-gradient">Reynaldo Montalvo Cavadia</span>
+            <h1 className="font-heading text-[clamp(4.5rem,11vw,10rem)] leading-[0.9] tracking-tight mb-6">
+              Tu negocio<br />
+              necesita un<br />
+              <span className="text-primary">sistema.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-primary font-medium mb-2">
-              Experto en Crecimiento Digital
+            <p className="font-serif italic text-base lg:text-lg text-muted-foreground max-w-md mb-8 leading-relaxed mx-auto lg:mx-0">
+              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo Cavadia</strong>. Hago que tu negocio venda más, con orden y sin improvisar.
             </p>
 
-            <p className="text-lg md:text-xl font-semibold text-foreground mb-8" style={{
-              textShadow: '0 0 40px hsl(var(--primary) / 0.15)'
-            }}>
-              Hago que tu negocio venda más, con orden y sin improvisar.
-            </p>
-
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="btn-primary-glow group"
-                onClick={() => window.open("https://wa.me/573246875354", "_blank")}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <a
+                href="https://wa.me/573246875354"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
               >
-                <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Agendar conversación
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="group"
-                onClick={() => document.getElementById("proceso")?.scrollIntoView({ behavior: "smooth" })}
+              </a>
+              <a
+                href="#proceso"
+                onClick={(e) => { e.preventDefault(); document.getElementById("proceso")?.scrollIntoView({ behavior: "smooth" }); }}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-transparent text-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full border border-border hover:border-foreground hover:-translate-y-0.5 transition-all"
               >
-                Ver cómo lo hago
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                Ver cómo lo hago →
+              </a>
             </div>
           </motion.div>
 
-          {/* Photo Container */}
+          {/* Right — Photo */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            <div className="relative">
-              {/* Rotating gradient aura ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full"
-                style={{
-                  background: 'conic-gradient(from 0deg, hsl(var(--primary) / 0.3), hsl(var(--violet) / 0.2), hsl(var(--pink) / 0.15), hsl(var(--cyan) / 0.2), hsl(var(--primary) / 0.3))',
-                  filter: 'blur(40px)',
-                }}
-              />
-              
-              {/* Inner glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/15 rounded-full blur-2xl animate-pulse-glow [animation-duration:4s]" />
+            <div className="relative w-[320px] md:w-[400px] max-w-full">
+              {/* Photo card */}
+              <div className="w-full aspect-[4/5] bg-card rounded-2xl border border-border overflow-hidden relative">
+                <div className="absolute inset-0 bg-grid opacity-50" />
+                <img
+                  src={perfilReynaldo}
+                  alt="Reynaldo Montalvo Cavadia - Growth & Paid Media Specialist"
+                  className="relative z-10 w-full h-full object-cover object-top"
+                  loading="eager"
+                  decoding="sync"
+                  fetchPriority="high"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)'
+                  }}
+                />
               </div>
-              
-              {/* Profile Photo */}
-              <img 
-                src={perfilReynaldo} 
-                alt="Reynaldo Montalvo Cavadia - Consultor de crecimiento empresarial" 
-                className="relative z-10 w-72 h-auto md:w-80 lg:w-96 object-contain drop-shadow-2xl"
-                loading="eager"
-                decoding="sync"
-                fetchPriority="high"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)'
-                }}
-              />
-              
-              {/* Floating badges with glow borders */}
+
+              {/* Floating badges */}
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-4 -right-4 z-20 bg-card/95 backdrop-blur-sm border border-primary/30 rounded-xl px-3 py-2 shadow-lg shadow-primary/10"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-8 -left-6 z-20 bg-card border border-border rounded-xl px-3 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-2"
               >
-                <span className="text-sm font-medium flex items-center gap-1.5">
-                  <TrendingUp className="w-4 h-4 text-primary" />
-                  +8 años exp.
-                </span>
+                <TrendingUp className="w-4 h-4 text-primary" />
+                <span className="text-[0.7rem] font-semibold text-foreground">+8 años exp.</span>
               </motion.div>
-              
+
               <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-16 -left-4 z-20 bg-card/95 backdrop-blur-sm border border-primary/30 rounded-xl px-3 py-2 shadow-lg shadow-primary/10"
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                className="absolute bottom-20 -left-8 z-20 bg-card border border-border rounded-xl px-3 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-2"
               >
-                <span className="text-sm font-medium">🚀 +50 proyectos</span>
+                <span className="text-base">🚀</span>
+                <span className="text-[0.7rem] font-semibold text-foreground">+50 proyectos</span>
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-8 -right-8 z-20 bg-card/95 backdrop-blur-sm border border-primary/30 rounded-xl px-3 py-2 shadow-lg shadow-primary/10"
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+                className="absolute bottom-10 -right-4 z-20 bg-card border border-border rounded-xl px-3 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-2"
               >
-                <span className="text-sm font-medium flex items-center gap-1.5">
-                  <Target className="w-4 h-4 text-primary" />
-                  Resultados reales
-                </span>
+                <Target className="w-4 h-4 text-primary" />
+                <span className="text-[0.7rem] font-semibold text-foreground">Resultados reales</span>
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Stats bar */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16 grid-cards grid grid-cols-2 md:grid-cols-4"
         >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="cursor-pointer"
-            onClick={() => document.getElementById("el-problema")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors" />
-          </motion.div>
+          {stats.map((stat) => (
+            <div key={stat.label} className="py-6 px-4 text-center hover:bg-secondary transition-colors">
+              <div className="font-heading text-4xl text-primary leading-none mb-1">
+                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="text-[0.62rem] font-semibold tracking-[0.08em] uppercase text-muted-foreground">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

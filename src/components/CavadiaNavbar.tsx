@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import Logo from "@/components/Logo";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 
 const links = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#proceso", label: "Cómo funciona" },
   { href: "#servicios", label: "Servicios" },
+  { href: "#proceso", label: "Cómo funciona" },
+  { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -15,27 +13,13 @@ const CavadiaNavbar: React.FC = () => {
   const [active, setActive] = useState<string>("#inicio");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Scroll progress bar
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    const onHashChange = () => setActive(window.location.hash || "#inicio");
-    window.addEventListener("hashchange", onHashChange);
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -48,165 +32,117 @@ const CavadiaNavbar: React.FC = () => {
       { rootMargin: "-50% 0px -50% 0px" }
     );
 
-    links.forEach((link) => {
+    const allLinks = [{ href: "#inicio" }, ...links];
+    allLinks.forEach((link) => {
       const el = document.querySelector(link.href);
       if (el) observer.observe(el);
     });
 
-    return () => {
-      window.removeEventListener("hashchange", onHashChange);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (href: string) => {
     setOpen(false);
     const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <>
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-violet-500 to-orange-500 origin-left z-[60]"
-        style={{ scaleX }}
-      />
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/92 backdrop-blur-xl border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="container mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+        {/* Logo */}
+        <a
+          href="#inicio"
+          onClick={(e) => { e.preventDefault(); handleNavClick("#inicio"); }}
+          className="font-heading text-xl tracking-wider text-primary hover:opacity-80 transition-opacity"
+        >
+          REYNALDO MONTALVO
+        </a>
 
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? "bg-background/95 backdrop-blur-lg border-b border-border shadow-lg" 
-            : "bg-background/80 backdrop-blur-md border-b border-border"
-        }`}
-      >
-        <nav className={`container mx-auto px-4 flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? "h-14" : "h-16"
-        }`}>
-          {/* Logo */}
-          <a
-            href="#inicio"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#inicio");
-            }}
-            className="flex items-center gap-2 group"
-          >
-            <Logo size={isScrolled ? 32 : 36} />
-            <span className={`font-bold text-foreground group-hover:text-primary transition-all duration-300 ${
-              isScrolled ? "text-base" : "text-lg"
-            }`}>
-              Reynaldo Montalvo
-            </span>
-          </a>
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                className={`text-[0.72rem] font-semibold tracking-[0.1em] uppercase transition-colors ${
+                  active === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-          {/* Desktop Nav */}
-          <ul className="hidden md:flex items-center gap-1">
+        {/* CTA */}
+        <a
+          href="https://wa.me/573246875354"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center px-5 py-2 bg-primary text-primary-foreground font-body text-xs font-bold tracking-wider rounded-full hover:shadow-[0_6px_24px_hsl(var(--primary)/0.25)] hover:-translate-y-0.5 transition-all"
+        >
+          Hablemos →
+        </a>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2 text-foreground"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {open ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
+        >
+          <ul className="container mx-auto px-4 py-4 space-y-1">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    active === link.href
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  className={`block px-3 py-2 text-sm font-semibold tracking-wider uppercase transition-colors ${
+                    active === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
+            <li className="pt-2">
+              <a
+                href="https://wa.me/573246875354"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center px-5 py-2.5 bg-primary text-primary-foreground font-bold text-sm rounded-full"
+              >
+                Hablemos →
+              </a>
+            </li>
           </ul>
-
-          {/* CTA Button */}
-          <Button
-            className={`hidden md:inline-flex btn-primary-glow transition-all duration-300 ${
-              isScrolled ? "h-8 text-sm" : ""
-            }`}
-            size={isScrolled ? "sm" : "sm"}
-            onClick={() => handleNavClick("#contacto")}
-          >
-            Hablemos
-          </Button>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {open ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </nav>
-
-        {/* Mobile Menu */}
-        {open && (
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-background border-b border-border"
-          >
-            <ul className="container mx-auto px-4 py-4 space-y-1">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href);
-                    }}
-                    className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      active === link.href
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li className="pt-2">
-                <Button
-                  className="w-full btn-primary-glow"
-                  size="sm"
-                  onClick={() => handleNavClick("#contacto")}
-                >
-                  Hablemos
-                </Button>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </header>
-    </>
+        </motion.div>
+      )}
+    </header>
   );
 };
 

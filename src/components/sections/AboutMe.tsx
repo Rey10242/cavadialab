@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
 const idealClient = [
@@ -11,115 +10,82 @@ const idealClient = [
 ];
 
 const stats = [
-  { value: 50, suffix: "+", label: "Proyectos", gradient: "from-primary/20 to-primary/5" },
-  { value: 8, suffix: "+", label: "Años Exp.", gradient: "from-violet-500/20 to-violet-500/5" },
-  { value: 100, suffix: "%", label: "Foco en resultados", gradient: "from-emerald-500/20 to-emerald-500/5" },
+  { value: 50, suffix: "+", label: "Proyectos" },
+  { value: 8, suffix: "+", label: "Años exp." },
+  { value: 100, suffix: "%", label: "Resultados" },
 ];
 
 const AboutMe: React.FC = () => {
   return (
-    <section id="sobre-mi" className="section-padding relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="sobre-mi" className="section-padding bg-secondary relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Por qué{" "}
-            <span className="text-gradient">puedo ayudarte</span>
-          </h2>
+          <div className="section-label">Sobre mí</div>
+          <h2 className="section-title">Por qué puedo<br />ayudarte</h2>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto">
-          {/* Personal intro - 2 paragraphs max */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+          {/* Left — Text + Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="prose prose-lg dark:prose-invert mb-10"
           >
-            <p className="text-muted-foreground leading-relaxed">
-              Soy <strong className="text-foreground">Reynaldo Montalvo Cavadia</strong>, 
-              consultor de marketing digital con más de 8 años de experiencia. 
-              He trabajado con más de 50 negocios ayudándolos a vender más con estructura, 
-              no con improvisación.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Entiendo la frustración de invertir sin saber si funciona. 
-              Por eso trabajo solo con empresarios que quieren claridad y resultados reales.
-            </p>
-          </motion.div>
+            <div className="space-y-5 mb-10">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Soy <strong className="text-foreground font-semibold">Reynaldo Montalvo Cavadia</strong>,
+                consultor de marketing digital con más de 8 años de experiencia.
+                He trabajado con más de 50 negocios ayudándolos a vender más con estructura,
+                no con improvisación.
+              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Entiendo la frustración de invertir sin saber si funciona.
+                Por eso trabajo solo con empresarios que quieren{" "}
+                <strong className="text-foreground font-semibold">claridad y resultados reales</strong>.
+              </p>
+            </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-12">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                whileHover={{ y: -4, scale: 1.03 }}
-                className="text-center p-4 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 relative overflow-hidden"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-50`} />
-                <div className="relative">
-                  <div className="text-2xl md:text-3xl font-bold text-primary">
+            {/* Stats grid */}
+            <div className="grid-cards grid grid-cols-3">
+              {stats.map((stat) => (
+                <div key={stat.label} className="py-5 px-4 text-center">
+                  <div className="font-heading text-4xl text-primary leading-none">
                     <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Con quién trabajo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mb-10"
-          >
-            <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
-              Con quién <span className="text-gradient">trabajo</span>
-            </h3>
-            <div className="space-y-3">
-              {idealClient.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-                  className="flex items-center gap-3 group"
-                >
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <CheckCircle className="w-4 h-4 text-primary" />
+                  <div className="text-[0.62rem] font-semibold tracking-[0.07em] uppercase text-muted-foreground mt-1">
+                    {stat.label}
                   </div>
-                  <span className="text-foreground font-medium group-hover:text-primary transition-colors">{item}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Closing line */}
+          {/* Right — Con quién trabajo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center"
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <p className="text-lg text-primary font-semibold">
-              Si tu negocio depende solo del voz a voz o de la suerte, podemos cambiar eso.
-            </p>
+            <h3 className="font-heading text-3xl tracking-wide text-foreground mb-6">
+              Con quién trabajo
+            </h3>
+            <ul className="flex flex-col gap-3">
+              {idealClient.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-muted-foreground leading-relaxed">
+                  <span className="w-5 h-5 shrink-0 rounded-md bg-primary/10 border border-primary/30 flex items-center justify-center text-[0.65rem] font-bold text-primary">
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
       </div>
