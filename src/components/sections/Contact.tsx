@@ -21,31 +21,21 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-const socialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/rmontalvocavadia/", label: "LinkedIn", hoverColor: "hover:bg-blue-600/10 hover:border-blue-600/30 hover:text-blue-500" },
-  { icon: Instagram, href: "https://www.instagram.com/reynaldo.cavadia/", label: "Instagram", hoverColor: "hover:bg-pink-500/10 hover:border-pink-500/30 hover:text-pink-500" },
-  { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp", hoverColor: "hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-500" },
-];
-
 const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [showForm, setShowForm] = useState(false);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", phone: "", message: "" },
   });
 
   useEffect(() => {
     const unsubscribe = serviceSelection.subscribe((service) => {
       if (service) {
         form.setValue("message", `Hola, me interesa saber más sobre: "${service}". Me gustaría conversar sobre cómo pueden ayudarme.`);
+        setShowForm(true);
         setTimeout(() => serviceSelection.clear(), 100);
       }
     });
@@ -53,6 +43,7 @@ const Contact: React.FC = () => {
     const currentService = serviceSelection.get();
     if (currentService) {
       form.setValue("message", `Hola, me interesa saber más sobre: "${currentService}". Me gustaría conversar sobre cómo pueden ayudarme.`);
+      setShowForm(true);
       setTimeout(() => serviceSelection.clear(), 100);
     }
 
@@ -61,35 +52,20 @@ const Contact: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
     try {
       const { error } = await supabase
         .from("contact_submissions")
-        .insert({
-          name: data.name,
-          email: data.email,
-          phone: data.phone || null,
-          message: data.message,
-        });
+        .insert({ name: data.name, email: data.email, phone: data.phone || null, message: data.message });
 
       if (error) throw error;
 
       try {
         const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
         const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-        
         await fetch(`${supabaseUrl}/functions/v1/notify-contact`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${supabaseKey}`,
-          },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            phone: data.phone || undefined,
-            message: data.message,
-          }),
+          headers: { "Content-Type": "application/json", "Authorization": `Bearer ${supabaseKey}` },
+          body: JSON.stringify({ name: data.name, email: data.email, phone: data.phone || undefined, message: data.message }),
         });
       } catch (emailError) {
         console.error("Error sending email notification:", emailError);
@@ -98,7 +74,6 @@ const Contact: React.FC = () => {
       setIsSubmitted(true);
       toast.success("¡Mensaje enviado! Te contactaré pronto.");
       form.reset();
-      
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
       console.error("Error submitting contact form:", error);
@@ -110,272 +85,150 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contacto" className="section-padding relative overflow-hidden">
-      {/* Mesh gradient bg */}
-      <div className="absolute inset-0 bg-mesh opacity-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-muted/40 to-transparent pointer-events-none" />
-
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 md:px-8">
+        {/* Centered header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center max-w-xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            ¿Listo para crecer{" "}
-            <span className="text-gradient">con estructura?</span>
+          <div className="section-label justify-center [&::after]:hidden">Contacto</div>
+          <h2 className="font-heading text-[clamp(3rem,7vw,6.5rem)] leading-[0.92] tracking-tight mb-4">
+            ¿Hablamos<br />de tu <span className="text-primary">cuenta</span>?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Agenda una llamada y revisamos tu situación sin compromiso.
+          <p className="font-serif italic text-base text-muted-foreground leading-relaxed">
+            Si tienes un negocio que quiere crecer con estructura y sin improvisar, agendemos una conversación sin compromiso.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-stretch">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="h-full"
+        {/* CTA buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-wrap gap-4 justify-center mb-12"
+        >
+          <a
+            href="https://wa.me/573246875354"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
           >
-            <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8 relative overflow-hidden h-full flex flex-col">
-              {focusedField && (
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
-                </div>
-              )}
-
-              <h3 className="text-lg font-semibold mb-6">Escríbeme directamente</h3>
-              
-              {isSubmitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center py-12 text-center"
-                >
-                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
-                  </div>
-                  <h4 className="text-xl font-semibold mb-2">¡Mensaje Enviado!</h4>
-                  <p className="text-muted-foreground">
-                    Gracias por contactarme. Te responderé lo antes posible.
-                  </p>
-                </motion.div>
-              ) : (
-              <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex-1 flex flex-col">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Nombre *</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Tu nombre" 
-                                {...field} 
-                                onFocus={() => setFocusedField("name")}
-                                onBlur={() => setFocusedField(null)}
-                                className={`rounded-xl transition-all duration-300 ${focusedField === "name" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email *</FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="email" 
-                                placeholder="tu@email.com" 
-                                {...field} 
-                                onFocus={() => setFocusedField("email")}
-                                onBlur={() => setFocusedField(null)}
-                                className={`rounded-xl transition-all duration-300 ${focusedField === "email" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-1.5">
-                            <Phone className="w-3.5 h-3.5 text-muted-foreground" />
-                            Teléfono (opcional)
-                          </FormLabel>
-                          <FormControl>
-                            <Input 
-                              type="tel" 
-                              placeholder="+57 300 123 4567" 
-                              {...field} 
-                              onFocus={() => setFocusedField("phone")}
-                              onBlur={() => setFocusedField(null)}
-                              className={`rounded-xl transition-all duration-300 ${focusedField === "phone" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Mensaje *</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Cuéntame brevemente tu situación..."
-                              rows={5}
-                              {...field}
-                              onFocus={() => setFocusedField("message")}
-                              onBlur={() => setFocusedField(null)}
-                              className={`rounded-xl transition-all duration-300 ${focusedField === "message" ? "ring-2 ring-primary/30 border-primary shadow-[0_0_15px_-3px_hsl(var(--primary)/0.3)]" : ""}`}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <div className="flex-1" />
-                    
-                    {/* Two CTAs: form submit + WhatsApp */}
-                    <div className="space-y-3 mt-auto">
-                      <Button
-                        type="submit"
-                        className="w-full btn-primary-glow"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                            Enviando...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="w-4 h-4 mr-2" />
-                            Enviar Mensaje
-                          </>
-                        )}
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        className="w-full border-green-500/30 text-green-500 hover:bg-green-500/10 hover:text-green-400"
-                        onClick={() => window.open("https://wa.me/573246875354", "_blank")}
-                      >
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        O escríbeme por WhatsApp
-                      </Button>
-                    </div>
-                  </form>
-                </Form>
-              )}
-            </div>
-          </motion.div>
-
-          {/* Contact Info & Social Links */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col gap-6 h-full"
+            📲 WhatsApp
+          </a>
+          <button
+            onClick={() => setShowForm(!showForm)}
+            className="inline-flex items-center gap-2 px-7 py-3 bg-transparent text-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full border border-border hover:border-foreground hover:-translate-y-0.5 transition-all"
           >
-            <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8 flex-1">
-              <h3 className="text-lg font-semibold mb-6">Información de Contacto</h3>
-              
-              <div className="space-y-3">
-                <a
-                  href="mailto:rmontalvocavadia@gmail.com"
-                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Mail className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground group-hover:text-primary transition-colors">rmontalvocavadia@gmail.com</p>
-                  </div>
-                </a>
+            ✉️ Email
+          </button>
+        </motion.div>
 
-                <a
-                  href="https://wa.me/573246875354"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <p className="text-foreground group-hover:text-primary transition-colors">+57 324 687 5354</p>
-                  </div>
-                </a>
-
-                <div className="flex items-center gap-4 p-3 rounded-xl">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Ubicación</p>
-                    <p className="text-foreground">Cartagena de Indias, Colombia 🇨🇴</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 p-3 rounded-xl bg-primary/5 border border-primary/10">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Disponibilidad</p>
-                    <p className="text-foreground">Lun - Vie: 9:00 AM - 6:00 PM (COT)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8">
-              <h3 className="text-xl font-semibold mb-6">Sígueme en Redes</h3>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-3 p-4 rounded-xl bg-muted/30 border border-transparent transition-all duration-300 group ${social.hoverColor}`}
+        {/* Expandable form */}
+        {showForm && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Form */}
+              <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
+                {isSubmitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center justify-center py-12 text-center"
                   >
-                    <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-current transition-colors" />
-                    <span className="text-foreground group-hover:text-current transition-colors">
-                      {social.label}
-                    </span>
-                  </a>
-                ))}
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                      <CheckCircle className="w-10 h-10 text-primary" />
+                    </div>
+                    <h4 className="text-xl font-semibold mb-2">¡Mensaje Enviado!</h4>
+                    <p className="text-muted-foreground text-sm">Te responderé lo antes posible.</p>
+                  </motion.div>
+                ) : (
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <FormField control={form.control} name="name" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-xs">Nombre *</FormLabel>
+                            <FormControl><Input placeholder="Tu nombre" {...field} className="rounded-xl bg-background border-border" /></FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )} />
+                        <FormField control={form.control} name="email" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-xs">Email *</FormLabel>
+                            <FormControl><Input type="email" placeholder="tu@email.com" {...field} className="rounded-xl bg-background border-border" /></FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )} />
+                      </div>
+                      <FormField control={form.control} name="phone" render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-xs flex items-center gap-1.5"><Phone className="w-3 h-3" /> Teléfono (opcional)</FormLabel>
+                          <FormControl><Input type="tel" placeholder="+57 300 123 4567" {...field} className="rounded-xl bg-background border-border" /></FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                      <FormField control={form.control} name="message" render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-xs">Mensaje *</FormLabel>
+                          <FormControl><Textarea placeholder="Cuéntame brevemente tu situación..." rows={4} {...field} className="rounded-xl bg-background border-border" /></FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                      <Button type="submit" className="w-full rounded-full btn-primary-glow" disabled={isSubmitting}>
+                        {isSubmitting ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Enviando...</> : <><Send className="w-4 h-4 mr-2" />Enviar Mensaje</>}
+                      </Button>
+                    </form>
+                  </Form>
+                )}
+              </div>
+
+              {/* Contact info */}
+              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 space-y-4">
+                <h3 className="font-heading text-xl text-foreground mb-4">Información</h3>
+                <a href="mailto:rmontalvocavadia@gmail.com" className="flex items-center gap-3 p-3 rounded-xl hover:bg-background/50 transition-colors group">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center"><Mail className="w-4 h-4 text-primary" /></div>
+                  <div><p className="text-[0.65rem] uppercase tracking-wider text-muted-foreground">Email</p><p className="text-sm text-foreground">rmontalvocavadia@gmail.com</p></div>
+                </a>
+                <a href="https://wa.me/573246875354" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl hover:bg-background/50 transition-colors group">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center"><Phone className="w-4 h-4 text-primary" /></div>
+                  <div><p className="text-[0.65rem] uppercase tracking-wider text-muted-foreground">WhatsApp</p><p className="text-sm text-foreground">+57 324 687 5354</p></div>
+                </a>
+                <div className="flex items-center gap-3 p-3 rounded-xl">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center"><MapPin className="w-4 h-4 text-primary" /></div>
+                  <div><p className="text-[0.65rem] uppercase tracking-wider text-muted-foreground">Ubicación</p><p className="text-sm text-foreground">Cartagena de Indias, Colombia 🇨🇴</p></div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-primary/5 border border-primary/10">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center"><Clock className="w-4 h-4 text-primary" /></div>
+                  <div><p className="text-[0.65rem] uppercase tracking-wider text-muted-foreground">Disponibilidad</p><p className="text-sm text-foreground">Lun - Vie: 9:00 AM - 6:00 PM (COT)</p></div>
+                </div>
+
+                {/* Social */}
+                <div className="flex gap-2 pt-4 border-t border-border">
+                  {[
+                    { icon: Linkedin, href: "https://www.linkedin.com/in/rmontalvocavadia/", label: "LinkedIn" },
+                    { icon: Instagram, href: "https://www.instagram.com/reynaldo.cavadia/", label: "Instagram" },
+                    { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp" },
+                  ].map((s) => (
+                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-lg bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
+                      aria-label={s.label}>
+                      <s.icon className="w-4 h-4" />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
-        </div>
+        )}
       </div>
     </section>
   );

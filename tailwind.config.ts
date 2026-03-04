@@ -18,12 +18,18 @@ export default {
 				}
 			},
 			extend: {
+				fontFamily: {
+					heading: ["'Bebas Neue'", "ui-sans-serif", "system-ui", "sans-serif"],
+					serif: ["'Instrument Serif'", "Georgia", "serif"],
+					body: ["'Instrument Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
+				},
 				colors: {
 					border: 'hsl(var(--border))',
 					input: 'hsl(var(--input))',
 					ring: 'hsl(var(--ring))',
 					background: 'hsl(var(--background))',
 					foreground: 'hsl(var(--foreground))',
+					surface: 'hsl(var(--surface))',
 					primary: {
 						DEFAULT: 'hsl(var(--primary))',
 						foreground: 'hsl(var(--primary-foreground))',
@@ -90,13 +96,13 @@ export default {
 					from: { transform: 'scale(1)', opacity: '1' },
 					to: { transform: 'scale(0.95)', opacity: '0' }
 				},
-				'slide-in-right': {
-					'0%': { transform: 'translateX(100%)' },
-					'100%': { transform: 'translateX(0)' }
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-6px)' }
 				},
-				'slide-out-right': {
-					'0%': { transform: 'translateX(0)' },
-					'100%': { transform: 'translateX(100%)' }
+				'pulse-dot': {
+					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
+					'50%': { opacity: '0.4', transform: 'scale(0.7)' }
 				}
 			},
 			animation: {
@@ -106,8 +112,8 @@ export default {
 				'fade-out': 'fade-out 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
 				'scale-out': 'scale-out 0.2s ease-out',
-				'slide-in-right': 'slide-in-right 0.3s ease-out',
-				'slide-out-right': 'slide-out-right 0.3s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-dot': 'pulse-dot 2s ease-in-out infinite',
 				'enter': 'fade-in 0.3s ease-out, scale-in 0.2s ease-out',
 				'exit': 'fade-out 0.3s ease-out, scale-out 0.2s ease-out'
 			}

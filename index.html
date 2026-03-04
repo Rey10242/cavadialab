@@ -1,58 +1,44 @@
 <!DOCTYPE html>
 <html lang="es-CO">
 <head>
-  <!-- Configuración básica del documento -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <!-- Configuración de indexación y snippets para motores de búsqueda -->
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   
-  <!-- Color del tema para navegadores móviles -->
-  <meta name="theme-color" content="#0f172a" />
-  <meta name="msapplication-TileColor" content="#0f172a" />
+  <meta name="theme-color" content="#0c0c0e" />
+  <meta name="msapplication-TileColor" content="#0c0c0e" />
 
-  <!-- URLs canónicas e internacionalización -->
   <link rel="canonical" href="https://cavadialab.com/" />
   <link rel="alternate" href="https://cavadialab.com/" hreflang="es-CO" />
   <link rel="alternate" href="https://cavadialab.com/" hreflang="es" />
   <link rel="alternate" href="https://cavadialab.com/" hreflang="x-default" />
 
-  <!-- Optimización de conexiones de red (reducir latencia) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-  <!-- Carga optimizada de fuentes con display=swap para evitar FOIT -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <!-- Fonts: Bebas Neue (headings), Instrument Sans (body), Instrument Serif (quotes) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
-  <!-- Precarga de recursos críticos para mejorar LCP -->
   <link rel="modulepreload" href="/src/main.tsx" />
   <link rel="preload" as="image" href="/src/assets/perfil-reynaldo.png" type="image/png" fetchpriority="high" />
 
-  <!-- Conjunto completo de iconos para diferentes dispositivos -->
   <link rel="icon" href="/favicon.png" type="image/png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Título optimizado para SEO (menos de 60 caracteres) -->
   <title>Reynaldo Montalvo Cavadia | Growth & Paid Media Specialist</title>
   
-  <!-- Meta descripción optimizada (150-160 caracteres) -->
   <meta name="description" content="Soy Reynaldo Montalvo Cavadia, especialista en Growth Marketing y Paid Media. Escalo negocios con Meta Ads, Google Ads y automatización." />
-  
-  <!-- Keywords para SEO -->
   <meta name="keywords" content="reynaldo montalvo cavadia, growth marketing, paid media, meta ads, google ads, automatización marketing, consultor digital, cartagena colombia" />
-  
-  <!-- Meta autor -->
   <meta name="author" content="Reynaldo Montalvo Cavadia" />
 
-  <!-- Open Graph mejorado para redes sociales -->
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="Reynaldo Montalvo Cavadia - Growth & Paid Media" />
   <meta property="og:title" content="Reynaldo Montalvo Cavadia | Growth & Paid Media Specialist" />
@@ -66,7 +52,6 @@
   <meta property="profile:first_name" content="Reynaldo" />
   <meta property="profile:last_name" content="Montalvo Cavadia" />
 
-  <!-- Twitter Cards optimizado -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@reynaldomontalvo" />
   <meta name="twitter:creator" content="@reynaldomontalvo" />
@@ -74,13 +59,11 @@
   <meta name="twitter:description" content="Escalo negocios con Growth Marketing, Paid Media y Automatización. +5 años ayudando empresas a crecer." />
   <meta name="twitter:image" content="https://cavadialab.com/og-image.png" />
 
-  <!-- SEO Local para Cartagena, Colombia -->
   <meta name="geo.region" content="CO-BOL" />
   <meta name="geo.placename" content="Cartagena de Indias" />
   <meta name="geo.position" content="10.391049;-75.479426" />
   <meta name="ICBM" content="10.391049, -75.479426" />
 
-  <!-- Google Tag Manager - Análiticas y seguimiento -->
   <script>
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -96,14 +79,12 @@
 </head>
 
 <body>
-  <!-- GTM noscript fallback para usuarios sin JavaScript -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLFGPWD5"
             height="0" width="0" style="display:none;visibility:hidden"
             title="Google Tag Manager"></iframe>
   </noscript>
 
-  <!-- Skip link para accesibilidad (lectores de pantalla) -->
   <a href="#main" class="skip-link" 
      style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999999;"
      onFocus="this.style.left='6px';this.style.top='7px';this.style.width='auto';this.style.height='auto';this.style.padding='8px 6px'"
@@ -111,13 +92,10 @@
     Saltar al contenido principal
   </a>
 
-  <!-- Contenedor principal de React -->
   <div id="root" role="application"></div>
   
-  <!-- Script principal de la aplicación con defer para optimizar carga -->
   <script type="module" src="/src/main.tsx" defer></script>
 
-  <!-- Datos estructurados JSON-LD para SEO avanzado -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -146,22 +124,11 @@
         ],
         "description": "Soy Reynaldo Montalvo Cavadia, especialista en Growth Marketing y Paid Media. Ayudo a escalar negocios con Meta Ads, Google Ads, automatización y analítica avanzada.",
         "knowsAbout": [
-          "Growth Marketing",
-          "Paid Media",
-          "Meta Ads",
-          "Google Ads",
-          "TikTok Ads",
-          "LinkedIn Ads",
-          "Marketing Automation",
-          "Make",
-          "n8n",
-          "Zapier",
-          "Google Tag Manager",
-          "Google Analytics 4",
-          "Looker Studio",
-          "HubSpot",
-          "GoHighLevel",
-          "WhatsApp Business API"
+          "Growth Marketing", "Paid Media", "Meta Ads", "Google Ads",
+          "TikTok Ads", "LinkedIn Ads", "Marketing Automation",
+          "Make", "n8n", "Zapier", "Google Tag Manager",
+          "Google Analytics 4", "Looker Studio", "HubSpot",
+          "GoHighLevel", "WhatsApp Business API"
         ],
         "address": {
           "@type": "PostalAddress",
@@ -177,38 +144,14 @@
         "@id": "https://cavadialab.com/#services",
         "serviceType": "Growth Marketing & Paid Media Consulting",
         "provider": { "@id": "https://cavadialab.com/#person" },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Colombia"
-        },
+        "areaServed": { "@type": "Country", "name": "Colombia" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Servicios de Marketing Digital",
           "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Paid Media Management",
-                "description": "Gestión de campañas en Meta Ads, Google Ads, TikTok Ads y LinkedIn Ads"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Marketing Automation",
-                "description": "Automatización de procesos con Make, n8n, Zapier y WhatsApp API"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Analytics & Tracking",
-                "description": "Implementación de GA4, GTM, Looker Studio y análisis de datos"
-              }
-            }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Media Management", "description": "Gestión de campañas en Meta Ads, Google Ads, TikTok Ads y LinkedIn Ads" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Automation", "description": "Automatización de procesos con Make, n8n, Zapier y WhatsApp API" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Analytics & Tracking", "description": "Implementación de GA4, GTM, Looker Studio y análisis de datos" } }
           ]
         }
       }
@@ -216,88 +159,52 @@
   }
   </script>
 
-  <!-- Web Vitals y Performance Monitoring -->
   <script>
-    // Configuración de eventos personalizados para GTM
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     
-    // Performance Observer para Core Web Vitals
     if ('PerformanceObserver' in window) {
-      // Largest Contentful Paint (LCP)
       try {
         new PerformanceObserver((entryList) => {
           const entries = entryList.getEntries();
           const lastEntry = entries[entries.length - 1];
-          gtag('event', 'web_vitals', {
-            'metric_name': 'LCP',
-            'metric_value': Math.round(lastEntry.startTime),
-            'metric_rating': lastEntry.startTime < 2500 ? 'good' : lastEntry.startTime < 4000 ? 'needs-improvement' : 'poor'
-          });
+          gtag('event', 'web_vitals', { 'metric_name': 'LCP', 'metric_value': Math.round(lastEntry.startTime), 'metric_rating': lastEntry.startTime < 2500 ? 'good' : lastEntry.startTime < 4000 ? 'needs-improvement' : 'poor' });
         }).observe({ type: 'largest-contentful-paint', buffered: true });
       } catch (e) {}
 
-      // First Input Delay (FID) / Interaction to Next Paint (INP)
       try {
         new PerformanceObserver((entryList) => {
           for (const entry of entryList.getEntries()) {
-            gtag('event', 'web_vitals', {
-              'metric_name': 'FID',
-              'metric_value': Math.round(entry.processingStart - entry.startTime),
-              'metric_rating': entry.processingStart - entry.startTime < 100 ? 'good' : entry.processingStart - entry.startTime < 300 ? 'needs-improvement' : 'poor'
-            });
+            gtag('event', 'web_vitals', { 'metric_name': 'FID', 'metric_value': Math.round(entry.processingStart - entry.startTime), 'metric_rating': entry.processingStart - entry.startTime < 100 ? 'good' : entry.processingStart - entry.startTime < 300 ? 'needs-improvement' : 'poor' });
           }
         }).observe({ type: 'first-input', buffered: true });
       } catch (e) {}
 
-      // Cumulative Layout Shift (CLS)
       try {
         let clsValue = 0;
         new PerformanceObserver((entryList) => {
-          for (const entry of entryList.getEntries()) {
-            if (!entry.hadRecentInput) {
-              clsValue += entry.value;
-            }
-          }
+          for (const entry of entryList.getEntries()) { if (!entry.hadRecentInput) { clsValue += entry.value; } }
         }).observe({ type: 'layout-shift', buffered: true });
-        
-        // Report CLS on page hide
         document.addEventListener('visibilitychange', () => {
           if (document.visibilityState === 'hidden') {
-            gtag('event', 'web_vitals', {
-              'metric_name': 'CLS',
-              'metric_value': clsValue.toFixed(4),
-              'metric_rating': clsValue < 0.1 ? 'good' : clsValue < 0.25 ? 'needs-improvement' : 'poor'
-            });
+            gtag('event', 'web_vitals', { 'metric_name': 'CLS', 'metric_value': clsValue.toFixed(4), 'metric_rating': clsValue < 0.1 ? 'good' : clsValue < 0.25 ? 'needs-improvement' : 'poor' });
           }
         });
       } catch (e) {}
 
-      // First Contentful Paint (FCP)
       try {
         new PerformanceObserver((entryList) => {
           const fcpEntry = entryList.getEntriesByName('first-contentful-paint')[0];
-          if (fcpEntry) {
-            gtag('event', 'web_vitals', {
-              'metric_name': 'FCP',
-              'metric_value': Math.round(fcpEntry.startTime),
-              'metric_rating': fcpEntry.startTime < 1800 ? 'good' : fcpEntry.startTime < 3000 ? 'needs-improvement' : 'poor'
-            });
-          }
+          if (fcpEntry) { gtag('event', 'web_vitals', { 'metric_name': 'FCP', 'metric_value': Math.round(fcpEntry.startTime), 'metric_rating': fcpEntry.startTime < 1800 ? 'good' : fcpEntry.startTime < 3000 ? 'needs-improvement' : 'poor' }); }
         }).observe({ type: 'paint', buffered: true });
       } catch (e) {}
 
-      // Time to First Byte (TTFB)
       try {
         new PerformanceObserver((entryList) => {
           const navigationEntry = entryList.getEntries()[0];
           if (navigationEntry) {
             const ttfb = navigationEntry.responseStart - navigationEntry.requestStart;
-            gtag('event', 'web_vitals', {
-              'metric_name': 'TTFB',
-              'metric_value': Math.round(ttfb),
-              'metric_rating': ttfb < 800 ? 'good' : ttfb < 1800 ? 'needs-improvement' : 'poor'
-            });
+            gtag('event', 'web_vitals', { 'metric_name': 'TTFB', 'metric_value': Math.round(ttfb), 'metric_rating': ttfb < 800 ? 'good' : ttfb < 1800 ? 'needs-improvement' : 'poor' });
           }
         }).observe({ type: 'navigation', buffered: true });
       } catch (e) {}
