@@ -1,39 +1,112 @@
+# Reforma completa de la web basada en el nuevo diseño
 
-# Rediseño de packs de consultoría: de 3 a 2
+## Resumen
 
-## Estrategia como consultor
+Transformar la web actual (light theme con gradientes coloridos) al nuevo estilo del archivo adjunto: tema oscuro editorial, tipografia Bebas Neue para titulos, Instrument Sans/Serif para cuerpo, paleta con acento amarillo-verde (#e8ff47), grid lines como fondo, tarjetas con bordes sutiles, y una estetica minimalista-brutalist.
 
-Tener 3 packs donde los 3 tienen los mismos beneficios genera confusion y no ayuda a decidir. Con 2 packs bien diferenciados creamos un contraste claro que empuja al usuario a elegir rapido.
+Se mantiene: la foto del hero con su efecto actual, la esencia de Reynaldo como consultor experto en marketing digital, la estructura de secciones modificarlo conforme al HTML, el formulario de contacto funcional, el WhatsApp flotante, y toda la logica backend (Supabase).
 
-### Los 2 packs propuestos:
+## Cambios principales
 
-| | Sesion Puntual | Pack Estrategico (Recomendado) |
-|---|---|---|
-| **Tiempo** | 1 hora | 4 horas (2 sesiones de 2h) |
-| **Inversion** | $130.000 (~$50 USD) | $440.000 (~$150 USD) |
-| **Beneficios** | Revision de cuentas publicitarias | Todo lo de la sesion puntual |
-| | Recomendaciones accionables | Plan estrategico personalizado |
-| | Grabacion de la sesion | Seguimiento entre sesiones |
-| | | Plantillas y recursos exclusivos |
-| | | 2 grabaciones |
-| **Para quien** | Tienes una duda concreta o quieres una segunda opinion | Quieres armar o reestructurar tu estrategia completa |
+### 1. Sistema de diseño (index.css + tailwind.config.ts + index.html)
 
-**Por que esta estructura funciona:**
-- **Sesion Puntual** es la entrada facil, baja friccion, para quien solo necesita resolver algo rapido
-- **Pack Estrategico** es donde esta el valor real y se marca como "Recomendado" para guiar la decision
-- Beneficios diferenciados (no repetidos) justifican la diferencia de precio
-- El pack de 8 horas se elimina porque a ese nivel el cliente deberia contratar el servicio de Gestion de Crecimiento Integral
+- **Colores**: Fondo oscuro `#0c0c0e`, surface `#131316`, card `#1a1a1f`, border `#26262e`, texto `#f0eff5`, muted `#6b6a78`, acento `#e8ff47`
+- **Fuentes**: Agregar Bebas Neue e Instrument Sans/Serif en index.html. Bebas Neue para titulos grandes, Instrument Sans como body, Instrument Serif italica para quotes
+- **text-gradient**: Cambiarlo por el color acento solido `#e8ff47`
 
-## Cambios visuales
-- Grid pasa de 3 columnas a 2 columnas (`md:grid-cols-2` con `max-w-2xl mx-auto`)
-- Cada pack tiene beneficios unicos que justifican el precio
-- El pack recomendado mantiene el borde gradient violeta y badge "Recomendado"
+### 2. Navbar (CavadiaNavbar.tsx)
+
+- Fondo transparente que se vuelve oscuro con blur al scroll
+- Logo con texto "REYNALDO MONTALVO" en Bebas Neue color acento
+- Links en uppercase, letra pequena, tracking amplio, color muted
+- Boton CTA: pill redondeado, fondo acento, texto oscuro
+- Quitar la barra de progreso de scroll (o hacerla del color acento)
+
+### 3. Hero (HeroPersonal.tsx)
+
+- Layout: grid 2 columnas como el adjunto
+- Izquierda: pill "Disponible para proyectos" con estilo acento, titulo grande en Bebas Neue "TU NEGOCIO NECESITA UN SISTEMA." con "sistema" en color acento, subtitulo en Instrument Serif italica, botones pill
+- Derecha: **mantener la foto actual** con su efecto de mascara y badges flotantes, pero adaptar los badges al nuevo estilo (fondo card, border sutil, tipografia nueva)
+- Agregar stats bar debajo del hero (50+ proyectos, 8+ anos, 3 canales, 100% foco en resultados) como en el adjunto
+
+### 4. Eliminar secciones redundantes
+
+- **ProblemSection**: Eliminar como seccion separada. Su contenido se integra dentro de la seccion Proceso/Metodologia
+- **SolutionSection**: Eliminar. Su contenido ya esta cubierto por la lista de beneficios dentro de Proceso
+- **SectionDivider**: Eliminar todos los dividers SVG. El nuevo diseno usa transiciones de color de fondo limpias
+
+### 5. Servicios (Services.tsx)
+
+- Estilo de grid con borde y gap de 1px (como en el adjunto)
+- 3 cards: Meta Ads, Google Ads, Tracking & Analytics
+- Cada card con numero grande (01, 02, 03), nombre en Bebas Neue, descripcion, tags como pills, link "Consultar →"
+- Efecto hover: linea amarilla superior que se despliega
+- **Mantener** la seccion de Consultoria Estrategica pero adaptar visualmente al nuevo estilo
+- **Eliminar** la seccion de Crecimiento Integral como card separada. Los 3 servicios ya cubren eso
+
+### 6. Proceso/Metodologia (Methodology.tsx)
+
+- Layout de 2 columnas: izquierda con titulo + descripcion, derecha con lista de beneficios (bullets acento) + quote en Instrument Serif
+- Debajo: grid de 4 pasos en tarjetas con borde, numeros de badge en acento, numero watermark gigante al fondo
+- Cierre: "Sin formulas magicas. Solo decisiones basadas en datos."
+
+### 7. Sobre Mi (AboutMe.tsx)
+
+- 2 columnas: izquierda con texto + stats en grid con borde, derecha con lista "Con quien trabajo"
+- Stats con numeros en Bebas Neue color acento
+- Lista con checkmarks estilizados
+
+### 8. Contacto (Contact.tsx)
+
+- Centrado, mas simple visualmente
+- Titulo grande en Bebas Neue: "HABLAMOS DE TU CUENTA?" con "cuenta" en acento
+- Subtitulo en Instrument Serif italica
+- 2 botones pill: WhatsApp (acento) + Email (ghost/outline)
+- **Mantener** el formulario funcional pero adaptar estilos
+
+### 9. Footer (SiteFooter.tsx)
+
+- Fondo surface, borde superior
+- Logo + copyright, minimalista
+
+### 10. Componentes a eliminar/simplificar
+
+- **AnimatedBackground.tsx**: Eliminar o reemplazar por el grid pattern sutil
+- **FloatingElements.tsx**: Eliminar (el nuevo diseno no tiene blobs flotantes)
+- **ScrollProgress.tsx**: Ya integrado en navbar, mantener pero color acento
+- **FloatingWhatsAppButton.tsx**: Mantener pero adaptar colores al nuevo tema
 
 ## Detalle tecnico
 
-**Archivo**: `src/components/sections/Services.tsx`
+```text
+Archivos a modificar:
+├── index.html               (fuentes Bebas Neue, Instrument Sans/Serif)
+├── src/index.css             (nuevo sistema de colores oscuro, eliminar gradientes)
+├── tailwind.config.ts        (nuevas font families)
+├── src/pages/Index.tsx       (quitar SectionDivider, ProblemSection, SolutionSection)
+├── src/components/
+│   ├── CavadiaNavbar.tsx     (rediseno completo)
+│   ├── Logo.tsx              (texto en Bebas Neue en vez del SVG badge)
+│   ├── AnimatedBackground.tsx (grid pattern sutil)
+│   ├── FloatingElements.tsx  (eliminar contenido)
+│   ├── SiteFooter.tsx        (minimalista)
+│   ├── FloatingWhatsAppButton.tsx (adaptar tema)
+│   └── sections/
+│       ├── HeroPersonal.tsx  (rediseno con stats bar)
+│       ├── Services.tsx      (grid estilo adjunto)
+│       ├── Methodology.tsx   (2 col + 4 steps grid)
+│       ├── AboutMe.tsx       (2 col con stats)
+│       └── Contact.tsx       (centrado, simplificado)
 
-1. Reemplazar el array `packs` (linea 176-179) con 2 packs que incluyen beneficios individuales
-2. Cambiar el grid de `md:grid-cols-3` a `md:grid-cols-2` con `max-w-2xl mx-auto` (linea 214)
-3. Actualizar el render de cada pack para mostrar beneficios especificos en vez de los 3 genericos repetidos (lineas 242-254)
-4. Quitar el subtitulo "Selecciona tu pack" y reemplazar por algo mas directo
+Archivos a eliminar/vaciar:
+├── src/components/sections/ProblemSection.tsx
+├── src/components/sections/SolutionSection.tsx
+├── src/components/SectionDivider.tsx
+```
+
+Esto es un cambio grande (~12 archivos). Recomiendo implementarlo en fases:
+
+1. Sistema de diseno (colores, fuentes, CSS base)
+2. Navbar + Hero + Footer
+3. Servicios + Metodologia
+4. About + Contacto + limpieza
