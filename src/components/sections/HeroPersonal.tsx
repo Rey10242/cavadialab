@@ -86,18 +86,17 @@ const HeroPersonal: React.FC = () => {
           >
             <div className="relative w-[260px] sm:w-[320px] md:w-[400px] max-w-full">
               {/* Photo card */}
-              <div className="w-full aspect-[4/5] bg-card rounded-2xl border border-border overflow-hidden relative">
-                <div className="absolute inset-0 bg-grid opacity-50" />
+              <div className="w-full aspect-[4/5] relative">
                 <img
                   src={perfilReynaldo}
-                  alt="Reynaldo Montalvo Cavadia - Growth & Paid Media Specialist"
+                  alt="Reynaldo Montalvo Cavadia - Consultor de Marketing Digital en Cartagena"
                   className="relative z-10 w-full h-full object-cover object-top"
                   loading="eager"
                   decoding="sync"
                   fetchPriority="high"
                   style={{
-                    maskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)'
+                    maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)'
                   }}
                 />
               </div>
