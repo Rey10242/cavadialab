@@ -105,29 +105,23 @@ const Contact: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* CTA buttons */}
+        {/* CTA button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap gap-4 justify-center mb-12"
+          className="flex justify-center mb-12"
         >
           <a
             href="https://wa.me/573246875354"
             target="_blank"
             rel="noopener noreferrer"
             onClick={trackContactWhatsApp}
-            className="inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#25D366] text-white font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 transition-all"
           >
-            📲 WhatsApp
+            Escríbeme por WhatsApp
           </a>
-          <button
-            onClick={() => { setShowForm(!showForm); trackContactFormOpen(); }}
-            className="inline-flex items-center gap-2 px-7 py-3 bg-transparent text-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full border border-border hover:border-foreground hover:-translate-y-0.5 transition-all"
-          >
-            ✉️ Email
-          </button>
         </motion.div>
 
         {/* Expandable form */}
