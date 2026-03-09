@@ -106,10 +106,10 @@ const HeroPersonal: React.FC = () => {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-8 -left-6 z-20 bg-card border border-border rounded-xl px-3 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-2"
+                className="absolute top-6 sm:top-8 -left-2 sm:-left-6 z-20 bg-card border border-border rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-1.5 sm:gap-2"
               >
-                <TrendingUp className="w-4 h-4 text-primary" />
-                <span className="text-[0.7rem] font-semibold text-foreground">+8 años exp.</span>
+                <TrendingUp className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-primary" />
+                <span className="text-[0.6rem] sm:text-[0.7rem] font-semibold text-foreground">+8 años exp.</span>
               </motion.div>
 
               <motion.div
