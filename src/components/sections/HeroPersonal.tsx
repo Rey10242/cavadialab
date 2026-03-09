@@ -84,7 +84,7 @@ const HeroPersonal: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            <div className="relative w-[320px] md:w-[400px] max-w-full">
+            <div className="relative w-[260px] sm:w-[320px] md:w-[400px] max-w-full">
               {/* Photo card */}
               <div className="w-full aspect-[4/5] bg-card rounded-2xl border border-border overflow-hidden relative">
                 <div className="absolute inset-0 bg-grid opacity-50" />
