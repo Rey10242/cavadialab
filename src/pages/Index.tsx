@@ -40,18 +40,19 @@ const Index: React.FC = () => {
   useScrollTracking();
   useScrollAnimation();
 
-  return (
+    return (
     <div className="relative">
       <AnimatedBackground />
       <div className="relative z-10">
         <CavadiaNavbar />
-        <HeroPersonal />
-        <Services />
-        <Methodology />
-        <AboutMe />
-        
-        <FAQ />
-        <Contact />
+        <main id="main" role="main">
+          <HeroPersonal />
+          <Services />
+          <Methodology />
+          <AboutMe />
+          <FAQ />
+          <Contact />
+        </main>
         <SiteFooter />
         <FloatingWhatsAppButton />
       </div>

@@ -65,8 +65,8 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="section-label">Servicios</div>
-          <h2 className="section-title">Lo que construyo</h2>
+          <div className="section-label">Servicios de marketing digital</div>
+          <h2 className="section-title">Soluciones por canal</h2>
         </motion.div>
 
         {/* Services grid */}

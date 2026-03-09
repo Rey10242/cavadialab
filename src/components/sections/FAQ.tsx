@@ -46,12 +46,12 @@ const FAQ: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="section-label justify-center [&::after]:hidden">FAQ</div>
+          <div className="section-label justify-center [&::after]:hidden">Preguntas frecuentes</div>
           <h2 className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.92] tracking-tight mb-4">
-            Preguntas <span className="text-primary">frecuentes</span>
+            Preguntas sobre <span className="text-primary">marketing digital</span>
           </h2>
           <p className="font-serif italic text-base text-muted-foreground">
-            Lo que la mayoría pregunta antes de dar el paso.
+            Lo que la mayoría pregunta antes de contratar un consultor de publicidad digital.
           </p>
         </motion.div>
 
