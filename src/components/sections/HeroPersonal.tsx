@@ -16,7 +16,7 @@ const HeroPersonal: React.FC = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen relative overflow-hidden pt-16"
+      className="min-h-screen relative overflow-hidden pt-16 overflow-x-clip"
     >
       {/* Grid background */}
       <div className="absolute inset-0 bg-grid pointer-events-none" />
