@@ -17,8 +17,8 @@
     --popover: 240 8% 11%;
     --popover-foreground: 252 18% 95%;
 
-    --primary: 68 100% 64%;           /* #e8ff47 — accent */
-    --primary-foreground: 240 8% 5%;  /* dark bg on accent */
+    --primary: 25 100% 50%;           /* #FF6B00 — accent */
+    --primary-foreground: 0 0% 100%;  /* white text on accent */
 
     --secondary: 240 6% 8%;           /* #131316 surface */
     --secondary-foreground: 252 18% 95%;
@@ -26,15 +26,15 @@
     --muted: 252 6% 44%;             /* #6b6a78 */
     --muted-foreground: 252 6% 44%;
 
-    --accent: 68 100% 64%;
-    --accent-foreground: 240 8% 5%;
+    --accent: 25 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 240 6% 17%;            /* #26262e */
     --input: 240 6% 17%;
-    --ring: 68 100% 64%;
+    --ring: 25 100% 50%;
 
     --radius: 0.75rem;
 
@@ -42,8 +42,8 @@
     --success-foreground: 355 7% 97%;
 
     --surface: 240 6% 8%;            /* #131316 */
-    --primary-glow: 68 100% 72%;
-    --primary-soft: 68 100% 90%;
+    --primary-glow: 25 100% 60%;
+    --primary-soft: 25 100% 85%;
 
     /* Shadows */
     --shadow-elevated: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
@@ -55,12 +55,12 @@
 
     --sidebar-background: 240 8% 5%;
     --sidebar-foreground: 252 18% 95%;
-    --sidebar-primary: 68 100% 64%;
-    --sidebar-primary-foreground: 240 8% 5%;
+    --sidebar-primary: 25 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 6% 12%;
     --sidebar-accent-foreground: 252 18% 95%;
     --sidebar-border: 240 6% 17%;
-    --sidebar-ring: 68 100% 64%;
+    --sidebar-ring: 25 100% 50%;
   }
 }
 
@@ -171,22 +171,33 @@
   .btn-primary-glow {
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
-    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    transition: all var(--transition-smooth);
+    box-shadow: 0 4px 14px hsl(var(--primary) / 0.15);
   }
   .btn-primary-glow:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px hsl(var(--primary) / 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px hsl(var(--primary) / 0.4);
+    filter: brightness(1.1);
+  }
+  .btn-primary-glow:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px hsl(var(--primary) / 0.2);
   }
 
   .btn-ghost-dark {
     background: transparent;
     color: hsl(var(--foreground));
     border: 1.5px solid hsl(var(--border));
-    transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+    transition: all var(--transition-smooth);
   }
   .btn-ghost-dark:hover {
-    border-color: hsl(var(--foreground));
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
     transform: translateY(-2px);
+    background: hsl(var(--primary) / 0.05);
+  }
+  .btn-ghost-dark:active {
+    transform: translateY(0);
   }
 
   /* Scroll reveal */
