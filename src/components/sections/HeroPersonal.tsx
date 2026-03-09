@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { TrendingUp, Target } from "lucide-react";
 import perfilReynaldo from "@/assets/perfil-reynaldo.png";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { trackHeroCTA, trackWhatsAppClick } from "@/lib/gtag";
 
 const stats = [
   { value: 50, suffix: "+", label: "Proyectos" },
