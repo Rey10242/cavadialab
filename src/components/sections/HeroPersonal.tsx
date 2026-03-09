@@ -47,9 +47,9 @@ const HeroPersonal: React.FC = () => {
               </span>
             </motion.div>
 
-            <h1 className="font-heading text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.95] tracking-tight mb-6">
-              Quieres más clientes.<br />
-              <span className="text-primary">Yo construyo el camino<br className="hidden sm:inline" /> para conseguirlos.</span>
+            <h1 className="font-heading text-[clamp(2.4rem,5.5vw,5.5rem)] leading-[0.95] tracking-tight mb-6">
+              Quieres más clientes.{" "}
+              <span className="text-primary">Yo construyo el camino para conseguirlos.</span>
             </h1>
 
             <p className="font-serif italic text-base lg:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed mx-auto lg:mx-0">
