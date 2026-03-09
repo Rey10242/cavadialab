@@ -26,7 +26,7 @@ const HeroPersonal: React.FC = () => {
         style={{ background: 'radial-gradient(circle, hsl(var(--primary) / 0.07) 0%, transparent 65%)' }}
       />
 
-      <div className="container mx-auto px-4 md:px-8 py-16 lg:py-24">
+      <div className="container mx-auto px-5 sm:px-6 md:px-8 py-10 sm:py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Text */}
           <motion.div
