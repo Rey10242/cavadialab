@@ -2,13 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
-const idealClient = [
-  "Empresarios que ya están vendiendo",
-  "Quieren crecer pero con orden",
-  "Están dispuestos a invertir de forma inteligente",
-  "Buscan resultados, no experimentos eternos",
-];
-
 const stats = [
   { value: 50, suffix: "+", label: "Proyectos" },
   { value: 8, suffix: "+", label: "Años exp." },
@@ -26,11 +19,11 @@ const AboutMe: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="section-label">Sobre mí</div>
-          <h2 className="section-title">Por qué puedo<br />ayudarte</h2>
+          <h2 className="section-title">¿Por qué trabajar<br />conmigo?</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          {/* Left — Text + Stats */}
+          {/* Left — Main narrative */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -39,15 +32,16 @@ const AboutMe: React.FC = () => {
           >
             <div className="space-y-5 mb-10">
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Soy <strong className="text-foreground font-semibold">Reynaldo Montalvo Cavadia</strong>,
-                consultor de marketing digital con más de 8 años de experiencia.
-                He trabajado con más de 50 negocios ayudándolos a vender más con estructura,
-                no con improvisación.
+                Llevo más de <strong className="text-foreground font-semibold">8 años</strong> ayudando
+                a negocios a conseguir más clientes con publicidad digital. He trabajado con más de{" "}
+                <strong className="text-foreground font-semibold">50 empresas</strong> — desde
+                emprendedores que arrancaban hasta negocios que ya vendían y querían crecer con más orden.
               </p>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Entiendo la frustración de invertir sin saber si funciona.
-                Por eso trabajo solo con empresarios que quieren{" "}
-                <strong className="text-foreground font-semibold">claridad y resultados reales</strong>.
+                He visto demasiados negocios buenos gastar dinero en publicidad y no ver nada a cambio —
+                no porque el producto fuera malo, sino porque{" "}
+                <strong className="text-foreground font-semibold">no había una estrategia detrás</strong>.
+                Eso es exactamente lo que resuelvo.
               </p>
             </div>
 
@@ -66,7 +60,7 @@ const AboutMe: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right — Con quién trabajo */}
+          {/* Right — Personal commitment */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,18 +68,17 @@ const AboutMe: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="font-heading text-3xl tracking-wide text-foreground mb-6">
-              Con quién trabajo
+              Pocos clientes,<br />
+              <span className="text-primary">resultados reales</span>
             </h3>
-            <ul className="flex flex-col gap-3">
-              {idealClient.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-muted-foreground leading-relaxed">
-                  <span className="w-5 h-5 shrink-0 rounded-md bg-primary/10 border border-primary/30 flex items-center justify-center text-[0.65rem] font-bold text-primary">
-                    ✓
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <p className="text-sm leading-relaxed text-muted-foreground mb-6">
+              Trabajo con pocos clientes a la vez para poder hacerlo bien. No soy una agencia con
+              decenas de cuentas que nadie revisa —{" "}
+              <strong className="text-foreground font-semibold">soy yo, contigo, enfocado en tus resultados</strong>.
+            </p>
+            <blockquote className="border-l-[3px] border-primary pl-5 font-serif italic text-base text-muted-foreground leading-relaxed">
+              "No busco tener más clientes. Busco que los que tengo, ganen más."
+            </blockquote>
           </motion.div>
         </div>
       </div>
