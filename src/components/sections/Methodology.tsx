@@ -30,8 +30,8 @@ const Methodology: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="section-label">Metodología</div>
-            <h2 className="section-title">Así trabajo</h2>
+            <div className="section-label">Proceso de trabajo</div>
+            <h2 className="section-title">Metodología de publicidad digital</h2>
             <p className="text-sm leading-relaxed text-muted-foreground max-w-md">
               No hay magia. Solo un proceso que funciona.
             </p>

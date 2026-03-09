@@ -25,8 +25,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo";
-    setMeta("description", "Soy Reynaldo Montalvo, consultor de marketing digital en Cartagena. Diseño estrategias de publicidad en Facebook, Instagram y Google para que tu negocio consiga clientes todos los días.");
+    document.title = "Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo Cavadia";
+    setMeta("description", "Reynaldo Montalvo Cavadia — consultor de marketing digital en Cartagena de Indias. Especialista en Meta Ads, Google Ads, automatización y analítica. Estrategias de publicidad digital para conseguir clientes con datos reales.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
@@ -40,18 +40,19 @@ const Index: React.FC = () => {
   useScrollTracking();
   useScrollAnimation();
 
-  return (
+    return (
     <div className="relative">
       <AnimatedBackground />
       <div className="relative z-10">
         <CavadiaNavbar />
-        <HeroPersonal />
-        <Services />
-        <Methodology />
-        <AboutMe />
-        
-        <FAQ />
-        <Contact />
+        <main id="main" role="main">
+          <HeroPersonal />
+          <Services />
+          <Methodology />
+          <AboutMe />
+          <FAQ />
+          <Contact />
+        </main>
         <SiteFooter />
         <FloatingWhatsAppButton />
       </div>

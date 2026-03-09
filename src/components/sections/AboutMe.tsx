@@ -18,8 +18,8 @@ const AboutMe: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="section-label">Sobre mí</div>
-          <h2 className="section-title">¿Por qué trabajar<br />conmigo?</h2>
+          <div className="section-label">Sobre el consultor</div>
+          <h2 className="section-title">¿Por qué elegir a Reynaldo Montalvo<br />como tu consultor digital?</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
