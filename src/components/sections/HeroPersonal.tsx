@@ -53,7 +53,7 @@ const HeroPersonal: React.FC = () => {
               <span className="text-primary">Yo construyo el camino para conseguirlos.</span>
             </h1>
 
-            <p className="font-serif italic text-base lg:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed mx-auto lg:mx-0">
+            <p className="font-serif italic text-sm sm:text-base lg:text-lg text-muted-foreground max-w-lg mb-6 sm:mb-8 leading-relaxed mx-auto lg:mx-0">
               Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo</strong>, consultor de marketing digital en Cartagena. Diseño estrategias de publicidad en Facebook, Instagram y Google para que tu negocio consiga clientes todos los días — con datos, sin adivinar.
             </p>
 
