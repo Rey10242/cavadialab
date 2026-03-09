@@ -47,13 +47,13 @@ const HeroPersonal: React.FC = () => {
               </span>
             </motion.div>
 
-            <h1 className="font-heading text-[clamp(3.2rem,8vw,7.5rem)] leading-[0.95] tracking-tight mb-6">
-              Quieres vender más.<br />
-              <span className="text-primary">Yo hago que pase.</span>
+            <h1 className="font-heading text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.95] tracking-tight mb-6">
+              Quieres más clientes.<br />
+              <span className="text-primary">Yo construyo el camino<br className="hidden sm:inline" /> para conseguirlos.</span>
             </h1>
 
             <p className="font-serif italic text-base lg:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed mx-auto lg:mx-0">
-              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo</strong>. Trabajo con negocios que quieren más clientes pero no saben por dónde empezar. Yo me encargo de todo lo que hay detrás — tú solo ves los resultados.
+              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo</strong>, consultor de marketing digital en Cartagena. Diseño estrategias de publicidad en Facebook, Instagram y Google para que tu negocio consiga clientes todos los días — con datos, sin adivinar.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
