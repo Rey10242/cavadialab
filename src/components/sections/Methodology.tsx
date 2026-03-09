@@ -31,9 +31,9 @@ const Methodology: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="section-label">Metodología</div>
-            <h2 className="section-title">Lo que hago<br />es simple</h2>
+            <h2 className="section-title">Así trabajo</h2>
             <p className="text-sm leading-relaxed text-muted-foreground max-w-md">
-              Organizo tu marketing para que se convierta en un sistema. Un proceso claro. Sin improvisación.
+              No hay magia. Solo un proceso que funciona.
             </p>
           </motion.div>
 
