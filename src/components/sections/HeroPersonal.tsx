@@ -138,7 +138,7 @@ const HeroPersonal: React.FC = () => {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 grid-cards grid grid-cols-2 md:grid-cols-4"
+          className="mt-10 sm:mt-16 grid-cards grid grid-cols-2 md:grid-cols-4"
         >
           {stats.map((stat) => (
             <div key={stat.label} className="py-6 px-4 text-center hover:bg-secondary transition-colors">
