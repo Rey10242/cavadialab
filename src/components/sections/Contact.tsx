@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { serviceSelection } from "@/hooks/useServiceSelection";
+import { trackContactWhatsApp, trackContactFormOpen, trackFormSubmit } from "@/lib/gtag";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "Nombre muy largo"),
