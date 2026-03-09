@@ -49,7 +49,7 @@ const Index: React.FC = () => {
         <Services />
         <Methodology />
         <AboutMe />
-        <LeadMagnet />
+        
         <FAQ />
         <Contact />
         <SiteFooter />
