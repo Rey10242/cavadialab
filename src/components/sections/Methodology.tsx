@@ -93,9 +93,9 @@ const Methodology: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12 font-serif italic text-muted-foreground"
         >
-          Sin fórmulas mágicas. Solo{" "}
+          Sin promesas vacías. Solo{" "}
           <strong className="not-italic font-body font-bold text-primary text-xs tracking-wider uppercase">
-            decisiones basadas en datos.
+            decisiones basadas en lo que los números dicen.
           </strong>
         </motion.p>
       </div>
