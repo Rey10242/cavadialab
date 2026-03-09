@@ -115,10 +115,10 @@ const HeroPersonal: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                className="absolute bottom-20 -left-8 z-20 bg-card border border-border rounded-xl px-3 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-2"
+                className="absolute bottom-16 sm:bottom-20 -left-2 sm:-left-8 z-20 bg-card border border-border rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-1.5 sm:gap-2"
               >
-                <span className="text-base">🚀</span>
-                <span className="text-[0.7rem] font-semibold text-foreground">+50 proyectos</span>
+                <span className="text-sm sm:text-base">🚀</span>
+                <span className="text-[0.6rem] sm:text-[0.7rem] font-semibold text-foreground">+50 proyectos</span>
               </motion.div>
 
               <motion.div
