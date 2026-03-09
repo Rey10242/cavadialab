@@ -46,10 +46,11 @@ const ThemeSwitcher: React.FC = () => {
                 >
                   {/* Color swatch */}
                   <div
-                    className="w-5 h-5 rounded-full flex-shrink-0 ring-2 ring-offset-2 ring-offset-card transition-all"
+                    className="w-5 h-5 rounded-full flex-shrink-0 transition-all relative"
                     style={{
                       backgroundColor: t.hex,
-                      ringColor: theme === t.name ? t.hex : 'transparent',
+                      outline: theme === t.name ? `2px solid ${t.hex}` : '2px solid transparent',
+                      outlineOffset: '2px',
                     }}
                   >
                     {theme === t.name && (
