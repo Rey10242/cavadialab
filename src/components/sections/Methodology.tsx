@@ -69,7 +69,7 @@ const Methodology: React.FC = () => {
           {steps.map((step) => (
             <div
               key={step.number}
-              className="relative p-8 flex flex-col gap-4 transition-colors hover:bg-[#1f1f26]"
+              className="relative p-5 sm:p-8 flex flex-col gap-3 sm:gap-4 transition-colors hover:bg-[#1f1f26]"
             >
               {/* Badge */}
               <div className="w-8 h-8 bg-primary text-primary-foreground rounded-lg flex items-center justify-center text-[0.68rem] font-bold font-body">

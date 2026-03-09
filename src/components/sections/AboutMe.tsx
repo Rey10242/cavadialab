@@ -22,7 +22,7 @@ const AboutMe: React.FC = () => {
           <h2 className="section-title">¿Por qué elegir a Reynaldo Montalvo<br />como tu consultor digital?</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
           {/* Left — Main narrative */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

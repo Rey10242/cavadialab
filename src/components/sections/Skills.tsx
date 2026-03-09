@@ -304,7 +304,7 @@ const categories = [
 
 // ── Section ──
 const Skills: React.FC = () => (
-  <section id="stack" className="py-24 md:py-32 relative overflow-hidden">
+  <section id="stack" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
@@ -342,7 +342,7 @@ const Skills: React.FC = () => (
       </motion.div>
 
       {/* 2×2 grid */}
-      <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
         {categories.map((category, index) => (
           <motion.div
             key={category.title}
@@ -359,13 +359,13 @@ const Skills: React.FC = () => (
             <div className="relative h-full">
               <div className={`absolute -inset-[1px] bg-gradient-to-r ${category.gradient} rounded-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-300`} />
 
-              <div className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border/50 p-6 md:p-8 h-full transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10">
+              <div className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border/50 p-5 sm:p-6 md:p-8 h-full transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl overflow-hidden" />
 
                 {/* Category header */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
-                    <category.icon className="w-7 h-7" />
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+                    <category.icon className="w-5 h-5 sm:w-7 sm:h-7" />
                   </div>
                   <div>
                     <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
