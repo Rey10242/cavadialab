@@ -40,7 +40,7 @@ const HeroPersonal: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 mb-8"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 mb-6 sm:mb-8"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-dot" />
               <span className="text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-primary">
