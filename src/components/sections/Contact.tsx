@@ -116,12 +116,13 @@ const Contact: React.FC = () => {
             href="https://wa.me/573246875354"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackContactWhatsApp}
             className="inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
           >
             📲 WhatsApp
           </a>
           <button
-            onClick={() => setShowForm(!showForm)}
+            onClick={() => { setShowForm(!showForm); trackContactFormOpen(); }}
             className="inline-flex items-center gap-2 px-7 py-3 bg-transparent text-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full border border-border hover:border-foreground hover:-translate-y-0.5 transition-all"
           >
             ✉️ Email
