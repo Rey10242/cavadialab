@@ -2,19 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const benefits = [
-  "Atrae clientes potenciales calificados",
-  "Convierte prospectos en clientes",
-  "Hace seguimiento automático con IA",
-  "Mide ventas reales, no clics vacíos",
-  "Permite escalar con control total",
-  "Construye estructura, no dependencias",
+  "Le muestra tu negocio a las personas correctas",
+  "Convierte interesados en clientes que pagan",
+  "Da seguimiento solo, sin que tú tengas que perseguir a nadie",
+  "Te dice cuánto te costó cada cliente, no cuántos te vieron",
+  "Crece contigo cuando los números están sanos",
+  "Funciona aunque tú no estés mirando",
 ];
 
 const steps = [
-  { number: "01", title: "Diagnóstico", description: "Analizamos cómo estás vendiendo hoy y dónde estás perdiendo oportunidades reales." },
-  { number: "02", title: "Estructuración", description: "Ordenamos publicidad, seguimiento y medición. Todo en su lugar antes de invertir un peso." },
-  { number: "03", title: "Optimización", description: "Identificamos qué funciona y eliminamos lo que no. Sin adivinar, con datos reales." },
-  { number: "04", title: "Escalamiento", description: "Aumentamos inversión solo cuando los números son sanos y el sistema es estable." },
+  { number: "01", title: "Diagnóstico", description: "Revisamos cómo estás consiguiendo clientes hoy y dónde se te están escapando ventas sin darte cuenta." },
+  { number: "02", title: "Estructuración", description: "Definimos qué anunciar, dónde, a quién y cómo medir — antes de invertir un solo peso." },
+  { number: "03", title: "Optimización", description: "Vemos qué funciona, quitamos lo que no y mejoramos con datos reales. Sin corazonadas." },
+  { number: "04", title: "Escalamiento", description: "Cuando el sistema está sano y los números cuadran, aumentamos la inversión con confianza." },
 ];
 
 const Methodology: React.FC = () => {
@@ -31,9 +31,9 @@ const Methodology: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="section-label">Metodología</div>
-            <h2 className="section-title">Lo que hago<br />es simple</h2>
+            <h2 className="section-title">Así trabajo</h2>
             <p className="text-sm leading-relaxed text-muted-foreground max-w-md">
-              Organizo tu marketing para que se convierta en un sistema. Un proceso claro. Sin improvisación.
+              No hay magia. Solo un proceso que funciona.
             </p>
           </motion.div>
 
@@ -53,7 +53,7 @@ const Methodology: React.FC = () => {
               ))}
             </ul>
             <blockquote className="border-l-[3px] border-primary pl-5 font-serif italic text-base text-muted-foreground leading-relaxed">
-              "Si tu negocio depende solo del voz a voz o de la suerte, podemos cambiar eso."
+              "La mayoría de negocios no tiene un problema de producto. Tiene un problema de visibilidad. Eso es lo que resuelvo."
             </blockquote>
           </motion.div>
         </div>
@@ -93,9 +93,9 @@ const Methodology: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12 font-serif italic text-muted-foreground"
         >
-          Sin fórmulas mágicas. Solo{" "}
+          Sin promesas vacías. Solo{" "}
           <strong className="not-italic font-body font-bold text-primary text-xs tracking-wider uppercase">
-            decisiones basadas en datos.
+            decisiones basadas en lo que los números dicen.
           </strong>
         </motion.p>
       </div>
