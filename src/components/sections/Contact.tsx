@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
           className="text-center max-w-xl mx-auto mb-12"
         >
           <div className="section-label justify-center [&::after]:hidden">Da el paso</div>
-          <h2 className="font-heading text-[clamp(3rem,7vw,6.5rem)] leading-[0.92] tracking-tight mb-4">
+          <h2 className="font-heading text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.92] tracking-tight mb-4">
             ¿Listo para<br />vender <span className="text-primary">más</span>?
           </h2>
           <p className="font-serif italic text-base text-muted-foreground leading-relaxed">
