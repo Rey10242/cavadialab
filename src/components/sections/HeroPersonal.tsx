@@ -70,7 +70,7 @@ const HeroPersonal: React.FC = () => {
               <a
                 href="#proceso"
                 onClick={(e) => { e.preventDefault(); document.getElementById("proceso")?.scrollIntoView({ behavior: "smooth" }); }}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-transparent text-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full border border-border hover:border-foreground hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-transparent text-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider rounded-full border border-border hover:border-foreground hover:-translate-y-0.5 transition-all"
               >
                 Ver cómo lo hago →
               </a>
