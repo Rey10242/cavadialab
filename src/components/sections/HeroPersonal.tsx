@@ -63,7 +63,7 @@ const HeroPersonal: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => { trackHeroCTA(); trackWhatsAppClick('hero_cta'); }}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-primary text-primary-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
               >
                 Agendar conversación
               </a>
