@@ -48,13 +48,13 @@ const HeroPersonal: React.FC = () => {
             </motion.div>
 
             <h1 className="font-heading text-[clamp(4.5rem,11vw,10rem)] leading-[0.9] tracking-tight mb-6">
-              Tu negocio<br />
-              necesita un<br />
-              <span className="text-primary">sistema.</span>
+              Quieres vender<br />
+              más. Yo hago<br />
+              <span className="text-primary">que pase.</span>
             </h1>
 
-            <p className="font-serif italic text-base lg:text-lg text-muted-foreground max-w-md mb-8 leading-relaxed mx-auto lg:mx-0">
-              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo Cavadia</strong>. Hago que tu negocio venda más, con orden y sin improvisar.
+            <p className="font-serif italic text-base lg:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed mx-auto lg:mx-0">
+              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo</strong>. Trabajo con negocios que quieren más clientes pero no saben por dónde empezar. Yo me encargo de todo lo que hay detrás — tú solo ves los resultados.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
