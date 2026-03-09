@@ -7,6 +7,7 @@ import Contact from "@/components/sections/Contact";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -50,6 +51,7 @@ const Index: React.FC = () => {
         <Contact />
         <SiteFooter />
         <FloatingWhatsAppButton />
+        <ThemeSwitcher />
       </div>
     </div>
   );

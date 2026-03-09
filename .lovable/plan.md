@@ -1,60 +1,112 @@
+# Reforma completa de la web basada en el nuevo diseño
 
-## Contexto y decisión de diseño
+## Resumen
 
-El usuario quiere probar 5 paletas de acento sobre el fondo oscuro editorial actual (`#0c0c0e`) para decidir cuál es la definitiva para su marca de consultor de marketing digital. Me pide asesoría profesional además del selector.
+Transformar la web actual (light theme con gradientes coloridos) al nuevo estilo del archivo adjunto: tema oscuro editorial, tipografia Bebas Neue para titulos, Instrument Sans/Serif para cuerpo, paleta con acento amarillo-verde (#e8ff47), grid lines como fondo, tarjetas con bordes sutiles, y una estetica minimalista-brutalist.
 
-**Mi asesoría como consultor de marca:**
-- **Lima #E8FF47** (actual): Disruptivo, editorial, muy usado en agencias creativas top. Diferenciador.
-- **Naranja #FF6B00**: Enérgico, alta conversión, asociado a urgencia y acción. Muy usado en marketing performance (HubSpot, Amazon). Funciona bien en dark.
-- **Azul #3B82F6**: Confianza y tecnología. Pero en dark backgrounds puede percibirse como "genérico" para un consultor — muchos SaaS lo usan.
-- **Coral/Rojo #FF4D4D**: Impacto visual máximo. Asociado a riesgo/urgencia. Polarizante.
-- **Violeta #A855F7** (5ta opción "marketing professional"): Creatividad premium, lujo y pensamiento estratégico. Muy usado por consultores de alto ticket. Sobre negro es sofisticado. Esta es mi recomendación como la más alineada a un consultor de marketing digital de alto valor.
+Se mantiene: la foto del hero con su efecto actual, la esencia de Reynaldo como consultor experto en marketing digital, la estructura de secciones modificarlo conforme al HTML, el formulario de contacto funcional, el WhatsApp flotante, y toda la logica backend (Supabase).
 
-## Plan técnico
+## Cambios principales
 
-### Componente nuevo: `ThemeSwitcher.tsx`
-Un selector flotante discreto en la esquina inferior izquierda (para no interferir con el WhatsApp button a la derecha) con:
-- 5 círculos de color clicables (los 5 temas)
-- Label del tema activo
-- Animación suave de transición
-- Icono de paleta para expandir/colapsar
+### 1. Sistema de diseño (index.css + tailwind.config.ts + index.html)
 
-### Contexto: `ThemeContext.tsx`  
-Un React Context global que:
-- Almacena el tema activo en `localStorage` (persiste entre recargas)
-- Expone `theme` y `setTheme` a toda la app
-- Al cambiar tema, aplica las variables CSS en `document.documentElement.style.setProperty`
+- **Colores**: Fondo oscuro `#0c0c0e`, surface `#131316`, card `#1a1a1f`, border `#26262e`, texto `#f0eff5`, muted `#6b6a78`, acento `#e8ff47`
+- **Fuentes**: Agregar Bebas Neue e Instrument Sans/Serif en index.html. Bebas Neue para titulos grandes, Instrument Sans como body, Instrument Serif italica para quotes
+- **text-gradient**: Cambiarlo por el color acento solido `#e8ff47`
 
-### 5 temas definidos:
+### 2. Navbar (CavadiaNavbar.tsx)
+
+- Fondo transparente que se vuelve oscuro con blur al scroll
+- Logo con texto "REYNALDO MONTALVO" en Bebas Neue color acento
+- Links en uppercase, letra pequena, tracking amplio, color muted
+- Boton CTA: pill redondeado, fondo acento, texto oscuro
+- Quitar la barra de progreso de scroll (o hacerla del color acento)
+
+### 3. Hero (HeroPersonal.tsx)
+
+- Layout: grid 2 columnas como el adjunto
+- Izquierda: pill "Disponible para proyectos" con estilo acento, titulo grande en Bebas Neue "TU NEGOCIO NECESITA UN SISTEMA." con "sistema" en color acento, subtitulo en Instrument Serif italica, botones pill
+- Derecha: **mantener la foto actual** con su efecto de mascara y badges flotantes, pero adaptar los badges al nuevo estilo (fondo card, border sutil, tipografia nueva)
+- Agregar stats bar debajo del hero (50+ proyectos, 8+ anos, 3 canales, 100% foco en resultados) como en el adjunto
+
+### 4. Eliminar secciones redundantes
+
+- **ProblemSection**: Eliminar como seccion separada. Su contenido se integra dentro de la seccion Proceso/Metodologia
+- **SolutionSection**: Eliminar. Su contenido ya esta cubierto por la lista de beneficios dentro de Proceso
+- **SectionDivider**: Eliminar todos los dividers SVG. El nuevo diseno usa transiciones de color de fondo limpias
+
+### 5. Servicios (Services.tsx)
+
+- Estilo de grid con borde y gap de 1px (como en el adjunto)
+- 3 cards: Meta Ads, Google Ads, Tracking & Analytics
+- Cada card con numero grande (01, 02, 03), nombre en Bebas Neue, descripcion, tags como pills, link "Consultar →"
+- Efecto hover: linea amarilla superior que se despliega
+- **Mantener** la seccion de Consultoria Estrategica pero adaptar visualmente al nuevo estilo
+- **Eliminar** la seccion de Crecimiento Integral como card separada. Los 3 servicios ya cubren eso
+
+### 6. Proceso/Metodologia (Methodology.tsx)
+
+- Layout de 2 columnas: izquierda con titulo + descripcion, derecha con lista de beneficios (bullets acento) + quote en Instrument Serif
+- Debajo: grid de 4 pasos en tarjetas con borde, numeros de badge en acento, numero watermark gigante al fondo
+- Cierre: "Sin formulas magicas. Solo decisiones basadas en datos."
+
+### 7. Sobre Mi (AboutMe.tsx)
+
+- 2 columnas: izquierda con texto + stats en grid con borde, derecha con lista "Con quien trabajo"
+- Stats con numeros en Bebas Neue color acento
+- Lista con checkmarks estilizados
+
+### 8. Contacto (Contact.tsx)
+
+- Centrado, mas simple visualmente
+- Titulo grande en Bebas Neue: "HABLAMOS DE TU CUENTA?" con "cuenta" en acento
+- Subtitulo en Instrument Serif italica
+- 2 botones pill: WhatsApp (acento) + Email (ghost/outline)
+- **Mantener** el formulario funcional pero adaptar estilos
+
+### 9. Footer (SiteFooter.tsx)
+
+- Fondo surface, borde superior
+- Logo + copyright, minimalista
+
+### 10. Componentes a eliminar/simplificar
+
+- **AnimatedBackground.tsx**: Eliminar o reemplazar por el grid pattern sutil
+- **FloatingElements.tsx**: Eliminar (el nuevo diseno no tiene blobs flotantes)
+- **ScrollProgress.tsx**: Ya integrado en navbar, mantener pero color acento
+- **FloatingWhatsAppButton.tsx**: Mantener pero adaptar colores al nuevo tema
+
+## Detalle tecnico
+
 ```text
-1. Lima      → --primary: 68 100% 64%   | #E8FF47  (actual)
-2. Naranja   → --primary: 25 100% 50%   | #FF6B00
-3. Azul      → --primary: 217 91% 60%   | #3B82F6
-4. Coral     → --primary: 0 100% 66%    | #FF4D4D
-5. Violeta   → --primary: 270 91% 65%   | #A855F7  ← recomendado marketing
+Archivos a modificar:
+├── index.html               (fuentes Bebas Neue, Instrument Sans/Serif)
+├── src/index.css             (nuevo sistema de colores oscuro, eliminar gradientes)
+├── tailwind.config.ts        (nuevas font families)
+├── src/pages/Index.tsx       (quitar SectionDivider, ProblemSection, SolutionSection)
+├── src/components/
+│   ├── CavadiaNavbar.tsx     (rediseno completo)
+│   ├── Logo.tsx              (texto en Bebas Neue en vez del SVG badge)
+│   ├── AnimatedBackground.tsx (grid pattern sutil)
+│   ├── FloatingElements.tsx  (eliminar contenido)
+│   ├── SiteFooter.tsx        (minimalista)
+│   ├── FloatingWhatsAppButton.tsx (adaptar tema)
+│   └── sections/
+│       ├── HeroPersonal.tsx  (rediseno con stats bar)
+│       ├── Services.tsx      (grid estilo adjunto)
+│       ├── Methodology.tsx   (2 col + 4 steps grid)
+│       ├── AboutMe.tsx       (2 col con stats)
+│       └── Contact.tsx       (centrado, simplificado)
+
+Archivos a eliminar/vaciar:
+├── src/components/sections/ProblemSection.tsx
+├── src/components/sections/SolutionSection.tsx
+├── src/components/SectionDivider.tsx
 ```
 
-Cada tema también ajusta:
-- `--primary-foreground`: el color del texto sobre el acento (oscuro o claro según contraste)
-- `--ring`: mismo que primary
-- `--accent`: mismo que primary
-- `--primary-glow` y `--primary-soft`: versiones más claras para efectos
+Esto es un cambio grande (~12 archivos). Recomiendo implementarlo en fases:
 
-### Integración
-- `ThemeProvider` wrappea `<App>` en `main.tsx`
-- `ThemeSwitcher` se agrega en `Index.tsx` como componente flotante
-- El selector se ubica `bottom-6 left-6` (opuesto al WhatsApp)
-- En mobile: se colapsa a un solo botón de paleta
-
-### Archivos a crear/modificar:
-```text
-Crear:
-├── src/contexts/ThemeContext.tsx
-├── src/components/ThemeSwitcher.tsx
-
-Modificar:
-├── src/main.tsx          (wrappear con ThemeProvider)
-├── src/pages/Index.tsx   (agregar <ThemeSwitcher />)
-```
-
-El diseño del selector es minimalista: un botón flotante con ícono de paleta, al hacer hover/click expande los 5 círculos de color con el nombre del tema y una ✓ en el activo. Estilo coherente con el sistema de diseño actual (fondo card, border, fuente body).
+1. Sistema de diseno (colores, fuentes, CSS base)
+2. Navbar + Hero + Footer
+3. Servicios + Metodologia
+4. About + Contacto + limpieza
