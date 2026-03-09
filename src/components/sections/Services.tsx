@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { serviceSelection } from "@/hooks/useServiceSelection";
+import { trackServiceCTAClick, trackWhatsAppClick } from "@/lib/gtag";
 
 const scrollToContact = (serviceName: string) => {
+  trackServiceCTAClick(serviceName);
   serviceSelection.set(serviceName);
   document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
 };
