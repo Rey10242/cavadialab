@@ -5,7 +5,7 @@ import Services from "@/components/sections/Services";
 import AboutMe from "@/components/sections/AboutMe";
 import Contact from "@/components/sections/Contact";
 import FAQ from "@/components/sections/FAQ";
-import LeadMagnet from "@/components/sections/LeadMagnet";
+
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
@@ -49,7 +49,7 @@ const Index: React.FC = () => {
         <Services />
         <Methodology />
         <AboutMe />
-        <LeadMagnet />
+        
         <FAQ />
         <Contact />
         <SiteFooter />
