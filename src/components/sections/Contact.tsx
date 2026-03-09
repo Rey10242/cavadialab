@@ -94,12 +94,12 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-xl mx-auto mb-12"
         >
-          <div className="section-label justify-center [&::after]:hidden">Contacto</div>
+          <div className="section-label justify-center [&::after]:hidden">Da el paso</div>
           <h2 className="font-heading text-[clamp(3rem,7vw,6.5rem)] leading-[0.92] tracking-tight mb-4">
-            ¿Hablamos<br />de tu <span className="text-primary">cuenta</span>?
+            ¿Listo para<br />vender <span className="text-primary">más</span>?
           </h2>
           <p className="font-serif italic text-base text-muted-foreground leading-relaxed">
-            Si tienes un negocio que quiere crecer con estructura y sin improvisar, agendemos una conversación sin compromiso.
+            Agenda una conversación sin compromiso y veamos juntos cómo hacer crecer tu negocio con estrategia.
           </p>
         </motion.div>
 
