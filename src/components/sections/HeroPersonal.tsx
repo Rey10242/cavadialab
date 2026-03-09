@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { TrendingUp, Target } from "lucide-react";
 import perfilReynaldo from "@/assets/perfil-reynaldo.png";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { trackHeroCTA, trackWhatsAppClick } from "@/lib/gtag";
 
 const stats = [
   { value: 50, suffix: "+", label: "Proyectos" },
@@ -61,6 +62,7 @@ const HeroPersonal: React.FC = () => {
                 href="https://wa.me/573246875354"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => { trackHeroCTA(); trackWhatsAppClick('hero_cta'); }}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-primary text-primary-foreground font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
               >
                 Agendar conversación

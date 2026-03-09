@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { serviceSelection } from "@/hooks/useServiceSelection";
+import { trackServiceCTAClick, trackWhatsAppClick } from "@/lib/gtag";
 
 const scrollToContact = (serviceName: string) => {
+  trackServiceCTAClick(serviceName);
   serviceSelection.set(serviceName);
   document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
 };
@@ -170,6 +172,7 @@ const Services: React.FC = () => {
                       pack.popular ? "" : "border-primary/30 text-primary hover:bg-primary/10"
                     }`}
                     onClick={() => {
+                      trackWhatsAppClick(`pack_${pack.name.toLowerCase().replace(/\s+/g, '_')}`);
                       window.open(
                         `https://wa.me/573246875354?text=${encodeURIComponent(`Hola, me interesa el pack ${pack.name} de consultoría.`)}`,
                         "_blank"

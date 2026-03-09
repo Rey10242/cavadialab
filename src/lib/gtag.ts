@@ -60,9 +60,26 @@ export const trackFormSubmit = () => trackEvent('form_submit', {
   value: 1
 });
 
-export const trackWhatsAppClick = () => trackEvent('whatsapp_click', {
+export const trackWhatsAppClick = (source?: string) => trackEvent('whatsapp_click', {
   event_category: 'engagement',
-  event_label: 'whatsapp_contact'
+  event_label: source || 'whatsapp_contact'
+});
+
+export const trackServiceCTAClick = (serviceName: string) => trackEvent('service_cta_click', {
+  event_category: 'conversion',
+  event_label: serviceName,
+  value: 1
+});
+
+export const trackContactWhatsApp = () => trackEvent('contact_whatsapp_click', {
+  event_category: 'conversion',
+  event_label: 'contact_section_whatsapp',
+  value: 1
+});
+
+export const trackContactFormOpen = () => trackEvent('contact_form_open', {
+  event_category: 'engagement',
+  event_label: 'email_form_toggle'
 });
 
 export const trackScrollDepth = (percentage: number) => trackEvent(`scroll_${percentage}`, {
