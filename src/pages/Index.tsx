@@ -23,8 +23,8 @@ const Index: React.FC = () => {
       tag.setAttribute("content", content);
     };
 
-    document.title = "Reynaldo Montalvo | Consultor de Crecimiento Empresarial | Cartagena";
-    setMeta("description", "Hago que tu negocio venda más, con orden y sin improvisar. Te ayudo a atraer clientes, convertirlos en ventas y crecer de forma sostenible.");
+    document.title = "Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo";
+    setMeta("description", "Soy Reynaldo Montalvo, consultor de marketing digital en Cartagena. Diseño estrategias de publicidad en Facebook, Instagram y Google para que tu negocio consiga clientes todos los días.");
 
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
