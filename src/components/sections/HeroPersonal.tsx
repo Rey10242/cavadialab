@@ -141,11 +141,11 @@ const HeroPersonal: React.FC = () => {
           className="mt-10 sm:mt-16 grid-cards grid grid-cols-2 md:grid-cols-4"
         >
           {stats.map((stat) => (
-            <div key={stat.label} className="py-6 px-4 text-center hover:bg-secondary transition-colors">
-              <div className="font-heading text-4xl text-primary leading-none mb-1">
+            <div key={stat.label} className="py-4 sm:py-6 px-3 sm:px-4 text-center hover:bg-secondary transition-colors">
+              <div className="font-heading text-3xl sm:text-4xl text-primary leading-none mb-1">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-[0.62rem] font-semibold tracking-[0.08em] uppercase text-muted-foreground">
+              <div className="text-[0.55rem] sm:text-[0.62rem] font-semibold tracking-[0.08em] uppercase text-muted-foreground">
                 {stat.label}
               </div>
             </div>

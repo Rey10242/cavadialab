@@ -38,7 +38,7 @@ const faqs = [
 const FAQ: React.FC = () => {
   return (
     <section id="faq" className="section-padding relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

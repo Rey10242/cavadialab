@@ -80,7 +80,7 @@ const Services: React.FC = () => {
           {services.map((svc) => (
             <div
               key={svc.number}
-              className="relative p-8 flex flex-col gap-3 transition-colors hover:bg-[#1f1f26] group overflow-hidden"
+              className="relative p-5 sm:p-8 flex flex-col gap-3 transition-colors hover:bg-[#1f1f26] group overflow-hidden"
             >
               {/* Accent top line on hover */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />

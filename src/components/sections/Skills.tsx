@@ -365,7 +365,7 @@ const Skills: React.FC = () => (
                 {/* Category header */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
-                    <category.icon className="w-7 h-7" />
+                    <category.icon className="w-5 h-5 sm:w-7 sm:h-7" />
                   </div>
                   <div>
                     <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">

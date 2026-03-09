@@ -118,7 +118,7 @@ const Contact: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={trackContactWhatsApp}
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#25D366] text-white font-body text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 bg-[#25D366] text-white font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 transition-all"
           >
             Escríbeme por WhatsApp
           </a>
