@@ -47,10 +47,9 @@ const HeroPersonal: React.FC = () => {
               </span>
             </motion.div>
 
-            <h1 className="font-heading text-[clamp(4.5rem,11vw,10rem)] leading-[0.9] tracking-tight mb-6">
-              Quieres vender<br />
-              más. Yo hago<br />
-              <span className="text-primary">que pase.</span>
+            <h1 className="font-heading text-[clamp(3.2rem,8vw,7.5rem)] leading-[0.95] tracking-tight mb-6">
+              Quieres vender más.<br />
+              <span className="text-primary">Yo hago que pase.</span>
             </h1>
 
             <p className="font-serif italic text-base lg:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed mx-auto lg:mx-0">
