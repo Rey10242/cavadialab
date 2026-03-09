@@ -172,6 +172,7 @@ const Services: React.FC = () => {
                       pack.popular ? "" : "border-primary/30 text-primary hover:bg-primary/10"
                     }`}
                     onClick={() => {
+                      trackWhatsAppClick(`pack_${pack.name.toLowerCase().replace(/\s+/g, '_')}`);
                       window.open(
                         `https://wa.me/573246875354?text=${encodeURIComponent(`Hola, me interesa el pack ${pack.name} de consultoría.`)}`,
                         "_blank"

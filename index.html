@@ -144,7 +144,10 @@
         "@id": "https://cavadialab.com/#services",
         "serviceType": "Growth Marketing & Paid Media Consulting",
         "provider": { "@id": "https://cavadialab.com/#person" },
-        "areaServed": { "@type": "Country", "name": "Colombia" },
+        "areaServed": [
+          { "@type": "Country", "name": "Colombia" },
+          { "@type": "Country", "name": "España" }
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Servicios de Marketing Digital",
@@ -154,6 +157,64 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Analytics & Tracking", "description": "Implementación de GA4, GTM, Looker Studio y análisis de datos" } }
           ]
         }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://cavadialab.com/#business",
+        "name": "CavadiaLab - Reynaldo Montalvo Cavadia",
+        "description": "Consultoría de marketing digital, paid media y automatización en Cartagena de Indias.",
+        "url": "https://cavadialab.com/",
+        "telephone": "+573246875354",
+        "email": "rmontalvocavadia@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cartagena de Indias",
+          "addressRegion": "Bolívar",
+          "addressCountry": "CO"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "10.391049",
+          "longitude": "-75.479426"
+        },
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+          "https://www.linkedin.com/in/rmontalvocavadia/",
+          "https://www.instagram.com/reynaldo.cavadia/"
+        ],
+        "founder": { "@id": "https://cavadialab.com/#person" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://cavadialab.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta trabajar con Reynaldo Montalvo?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Las consultorías arrancan desde $130.000 COP (~$50 USD) por sesión. Para gestión de campañas, se arma un plan a la medida según objetivos y presupuesto publicitario." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En cuánto tiempo veo resultados con publicidad digital?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Las primeras métricas se obtienen desde la semana 1. Resultados consistentes de leads o ventas, entre 2 y 4 semanas dependiendo del canal y la industria." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué diferencia a Reynaldo de una agencia de marketing?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Trabajo con pocos clientes a la vez para resultados personalizados. Tienes línea directa conmigo, no con un ejecutivo de cuenta que no toca las campañas." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito un presupuesto mínimo en publicidad?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Se recomienda un mínimo de $500.000 COP mensuales (~$150 USD) en inversión publicitaria para que los datos sean significativos y se pueda optimizar con confianza." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Trabajas con negocios fuera de Colombia?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trabajo de forma remota con clientes en toda Latinoamérica y España. Las reuniones se hacen por videollamada y la ubicación no es barrera." }
+          }
+        ]
       }
     ]
   }

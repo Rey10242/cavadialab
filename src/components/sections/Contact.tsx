@@ -73,6 +73,7 @@ const Contact: React.FC = () => {
       }
 
       setIsSubmitted(true);
+      trackFormSubmit();
       toast.success("¡Mensaje enviado! Te contactaré pronto.");
       form.reset();
       setTimeout(() => setIsSubmitted(false), 5000);
