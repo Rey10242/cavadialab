@@ -53,7 +53,7 @@ const Methodology: React.FC = () => {
               ))}
             </ul>
             <blockquote className="border-l-[3px] border-primary pl-5 font-serif italic text-base text-muted-foreground leading-relaxed">
-              "Si tu negocio depende solo del voz a voz o de la suerte, podemos cambiar eso."
+              "La mayoría de negocios no tiene un problema de producto. Tiene un problema de visibilidad. Eso es lo que resuelvo."
             </blockquote>
           </motion.div>
         </div>
