@@ -27,7 +27,7 @@ const HeroPersonal: React.FC = () => {
       />
 
       <div className="container mx-auto px-5 sm:px-6 md:px-8 py-10 sm:py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left — Text */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
