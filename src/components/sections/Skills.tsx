@@ -304,7 +304,7 @@ const categories = [
 
 // ── Section ──
 const Skills: React.FC = () => (
-  <section id="stack" className="py-24 md:py-32 relative overflow-hidden">
+  <section id="stack" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
