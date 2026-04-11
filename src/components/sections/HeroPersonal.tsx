@@ -47,7 +47,7 @@ const HeroPersonal: React.FC = () => {
               <span className="text-primary">De eso me encargo.</span>
             </h1>
 
-            <p className="font-serif italic text-sm sm:text-base lg:text-lg text-muted-foreground max-w-lg mb-2 sm:mb-3 leading-relaxed mx-auto lg:mx-0">
+            <p className="hero-description font-serif italic text-sm sm:text-base lg:text-lg text-muted-foreground max-w-lg mb-2 sm:mb-3 leading-relaxed mx-auto lg:mx-0">
               Me apasiona ver crecer negocios — no hago marketing por hacer, lo hago porque me encantan los resultados.
             </p>
 
