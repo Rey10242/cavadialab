@@ -1,11 +1,11 @@
 {
-  "name": "Reynaldo Montalvo Cavadia - Growth & Paid Media Specialist",
-  "short_name": "RM Portfolio",
-  "description": "Portafolio profesional de Reynaldo Montalvo Cavadia, especialista en Growth Marketing, Paid Media y Automatización.",
+  "name": "CavadiaLab — Reynaldo Montalvo Cavadia, Consultor de Marketing Digital",
+  "short_name": "CavadiaLab",
+  "description": "Consultor de marketing digital en Cartagena de Indias. Especialista en Meta Ads, Google Ads, tracking avanzado y analítica web.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#09090b",
-  "theme_color": "#0f172a",
+  "background_color": "#0c0c0e",
+  "theme_color": "#0c0c0e",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -16,5 +16,6 @@
     }
   ],
   "categories": ["business", "productivity"],
-  "lang": "es-CO"
+  "lang": "es-CO",
+  "dir": "ltr"
 }
