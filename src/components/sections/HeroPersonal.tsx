@@ -8,7 +8,6 @@ const stats = [
   { value: 50, suffix: "+", label: "Proyectos" },
   { value: 8, suffix: "+", label: "Años exp." },
   { value: 3, suffix: "", label: "Canales" },
-  { value: 100, suffix: "%", label: "Foco en resultados" },
 ];
 
 const HeroPersonal: React.FC = () => {
@@ -43,12 +42,17 @@ const HeroPersonal: React.FC = () => {
             </motion.div>
 
             <h1 className="font-heading text-[clamp(2.2rem,6vw,6.5rem)] leading-[0.9] tracking-tight mb-4 sm:mb-6">
-              Quieres más clientes.{" "}
-              <span className="text-primary">Yo construyo el camino.</span>
+              ¿Necesitas más clientes?{" "}
+              <br />
+              <span className="text-primary">De eso me encargo.</span>
             </h1>
 
-            <p className="font-serif italic text-sm sm:text-base lg:text-lg text-muted-foreground max-w-lg mb-6 sm:mb-8 leading-relaxed mx-auto lg:mx-0">
-              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo</strong>, consultor de marketing digital en Cartagena. Estrategias de publicidad en Facebook, Instagram y Google — con datos, sin adivinar.
+            <p className="font-serif italic text-sm sm:text-base lg:text-lg text-muted-foreground max-w-lg mb-2 sm:mb-3 leading-relaxed mx-auto lg:mx-0">
+              Me apasiona ver crecer negocios — no hago marketing por hacer, lo hago porque me encantan los resultados.
+            </p>
+
+            <p className="text-xs sm:text-sm uppercase tracking-widest text-muted-foreground mb-6 sm:mb-8 mx-auto lg:mx-0">
+              Meta Ads · Google Ads · Web Data Analytics
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -59,14 +63,14 @@ const HeroPersonal: React.FC = () => {
                 onClick={() => { trackHeroCTA(); trackWhatsAppClick('hero_cta'); }}
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-primary text-primary-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
               >
-                Agendar conversación
+                Hablemos →
               </a>
               <a
                 href="#proceso"
                 onClick={(e) => { e.preventDefault(); document.getElementById("proceso")?.scrollIntoView({ behavior: "smooth" }); }}
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-transparent text-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider border border-border hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-all"
               >
-                Ver cómo lo hago →
+                Ver proceso →
               </a>
             </div>
           </motion.div>
@@ -102,7 +106,7 @@ const HeroPersonal: React.FC = () => {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 sm:mt-16 grid-cards grid grid-cols-2 md:grid-cols-4"
+          className="mt-10 sm:mt-16 grid-cards grid grid-cols-3"
         >
           {stats.map((stat) => (
             <div key={stat.label} className="py-4 sm:py-6 px-3 sm:px-4 text-center hover:bg-secondary transition-colors">
