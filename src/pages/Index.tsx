@@ -15,26 +15,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index: React.FC = () => {
   React.useEffect(() => {
-    const setMeta = (name: string, content: string) => {
-      let tag = document.querySelector(`meta[name="${name}"]`);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute("name", name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
-
-    document.title = "Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo Cavadia";
-    setMeta("description", "Reynaldo Montalvo Cavadia — consultor de marketing digital en Cartagena de Indias. Especialista en Meta Ads, Google Ads, automatización y analítica. Estrategias de publicidad digital para conseguir clientes con datos reales.");
-
+    // Dynamic canonical for SPA — ensures correct URL regardless of deploy domain
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
+    if (canonical) {
+      canonical.setAttribute("href", "https://cavadialab.com/");
     }
-    canonical.setAttribute("href", window.location.origin + "/");
   }, []);
 
   useScrollTracking();
