@@ -10,28 +10,23 @@ import {
 const faqs = [
   {
     question: "¿Cuánto cuesta trabajar contigo?",
-    answer:
-      "Depende del alcance del proyecto. Las consultorías arrancan desde $130.000 COP (~$50 USD) por sesión. Para gestión de campañas, armo un plan a la medida según tus objetivos y presupuesto publicitario. Agenda una conversación sin compromiso y te doy un estimado claro.",
+    answer: "Depende del alcance. Consultorías desde $130.000 COP (~$50 USD). Para gestión de campañas, armo un plan a la medida según tus objetivos y presupuesto.",
   },
   {
     question: "¿En cuánto tiempo veo resultados?",
-    answer:
-      "Las primeras métricas las tienes desde la semana 1. Resultados consistentes de leads o ventas, entre 2 y 4 semanas dependiendo del canal y la industria. No prometo magia — prometo un proceso que funciona y se optimiza con datos reales.",
+    answer: "Primeras métricas desde la semana 1. Resultados consistentes entre 2 y 4 semanas dependiendo del canal y la industria.",
   },
   {
     question: "¿Qué te diferencia de una agencia?",
-    answer:
-      "Trabajo con pocos clientes a la vez. No soy una agencia con decenas de cuentas que nadie revisa. Soy yo, contigo, enfocado en tus resultados. Tienes línea directa conmigo, no con un ejecutivo de cuenta que no toca las campañas.",
+    answer: "Trabajo con pocos clientes a la vez. Tienes línea directa conmigo, no con un ejecutivo de cuenta que no toca las campañas.",
   },
   {
-    question: "¿Necesito tener un presupuesto mínimo en ads?",
-    answer:
-      "Recomiendo un mínimo de $500.000 COP mensuales (~$150 USD) en inversión publicitaria para que los datos sean significativos y podamos optimizar con confianza. Si tu presupuesto es menor, una consultoría puntual puede ser mejor punto de partida.",
+    question: "¿Necesito un presupuesto mínimo en ads?",
+    answer: "Recomiendo mínimo $500.000 COP mensuales (~$150 USD) para que los datos sean significativos. Si tu presupuesto es menor, una consultoría puntual puede ser mejor punto de partida.",
   },
   {
-    question: "¿Trabajas con negocios fuera de Colombia?",
-    answer:
-      "Sí. Trabajo de forma remota con clientes en toda Latinoamérica y España. Las herramientas son las mismas — Meta Ads, Google Ads, tracking — y las reuniones se hacen por videollamada. La ubicación no es una barrera.",
+    question: "¿Trabajas fuera de Colombia?",
+    answer: "Sí. Trabajo remoto con clientes en toda Latinoamérica y España. Las herramientas son las mismas y las reuniones se hacen por videollamada.",
   },
 ];
 
@@ -44,15 +39,10 @@ const FAQ: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-12"
         >
-          <div className="section-label justify-center [&::after]:hidden">Preguntas frecuentes</div>
-          <h2 className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.92] tracking-tight mb-4">
-            Preguntas sobre <span className="text-primary">marketing digital</span>
-          </h2>
-          <p className="font-serif italic text-base text-muted-foreground">
-            Lo que la mayoría pregunta antes de contratar un consultor de publicidad digital.
-          </p>
+          <div className="section-label">FAQ</div>
+          <h2 className="section-title">Preguntas frecuentes</h2>
         </motion.div>
 
         <motion.div
@@ -61,14 +51,14 @@ const FAQ: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Accordion type="single" collapsible className="space-y-2">
+          <Accordion type="single" collapsible className="space-y-px">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="border border-border rounded-xl px-5 bg-card data-[state=open]:border-primary/30 transition-colors"
+                className="border border-border px-5 bg-card data-[state=open]:border-primary/30 transition-colors rounded-none"
               >
-                <AccordionTrigger className="text-sm font-semibold text-foreground hover:no-underline py-4">
+                <AccordionTrigger className="text-sm font-semibold text-foreground hover:no-underline py-4 hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">

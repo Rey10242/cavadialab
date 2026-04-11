@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { serviceSelection } from "@/hooks/useServiceSelection";
 import { trackServiceCTAClick, trackWhatsAppClick } from "@/lib/gtag";
 
@@ -15,24 +14,23 @@ const services = [
   {
     number: "01",
     name: "Meta Ads",
-    description: "Clientes desde Facebook e Instagram con campañas full funnel. Pixel server-side, CAPI y audiencias avanzadas. Cada peso en el lugar correcto.",
+    description: "Campañas full funnel en Facebook e Instagram. Pixel server-side, CAPI y audiencias avanzadas.",
     tags: ["TOFU · MOFU · BOFU", "CAPI", "Lookalikes"],
   },
   {
     number: "02",
     name: "Google Ads",
-    description: "Personas con intención de compra directa. Search + PMAX + Remarketing con Smart Bidding basado en datos reales de conversión, no suposiciones.",
+    description: "Personas con intención de compra directa. Search + PMAX + Remarketing con Smart Bidding.",
     tags: ["Search", "PMAX", "Enhanced Conv.", "ROAS"],
   },
   {
     number: "03",
     name: "Tracking & Analytics",
-    description: "Sin medición no hay optimización. GTM + GA4 + píxeles + eventos personalizados. Dashboards en Looker Studio que el cliente entiende de verdad.",
+    description: "GTM + GA4 + píxeles + eventos personalizados. Dashboards en Looker Studio que el cliente entiende.",
     tags: ["GTM", "GA4", "Looker Studio", "Server-side"],
   },
 ];
 
-/* Consulting packs */
 const packs = [
   {
     name: "Sesión Puntual",
@@ -65,7 +63,7 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="section-label">Servicios de marketing digital</div>
+          <div className="section-label">Servicios</div>
           <h2 className="section-title">Soluciones por canal</h2>
         </motion.div>
 
@@ -80,12 +78,12 @@ const Services: React.FC = () => {
           {services.map((svc) => (
             <div
               key={svc.number}
-              className="relative p-5 sm:p-8 flex flex-col gap-3 transition-colors hover:bg-[#1f1f26] group overflow-hidden"
+              className="relative p-5 sm:p-8 flex flex-col gap-3 transition-colors hover:bg-[hsl(var(--surface))] group overflow-hidden"
             >
               {/* Accent top line on hover */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
 
-              <div className="font-heading text-5xl text-border group-hover:text-primary/10 transition-colors leading-none">
+              <div className="font-heading text-5xl text-border group-hover:text-primary/20 transition-colors leading-none">
                 {svc.number}
               </div>
               <div className="font-heading text-2xl tracking-wide text-foreground">
@@ -117,14 +115,13 @@ const Services: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="section-label">Mentoría</div>
-          <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-3">Consultoría Estratégica</h2>
-          <p className="text-muted-foreground text-sm max-w-2xl mb-10 leading-relaxed">
-            Asesorías personalizadas en Meta Ads y Google Ads. En 1 hora te ayudamos con todos los
-            problemas que puedas tener con tus cuentas publicitarias.
+          <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-3">Consultoría</h2>
+          <p className="text-muted-foreground text-sm max-w-2xl mb-10">
+            Asesorías en Meta Ads y Google Ads. Soluciones concretas en 1 hora.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border max-w-3xl mb-12">
           {packs.map((pack, i) => (
             <motion.div
               key={pack.name}
@@ -132,79 +129,68 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
-              className="group relative"
+              className="bg-card p-6 flex flex-col relative"
             >
-              <div className={`relative h-full rounded-2xl border transition-all duration-300 ${
-                pack.popular
-                  ? "border-primary/40 shadow-[0_0_30px_hsl(var(--primary)/0.08)]"
-                  : "border-border hover:border-primary/20"
-              }`}>
-                <div className="relative bg-card rounded-2xl p-6 h-full flex flex-col overflow-hidden">
-                  {pack.popular && (
-                    <div className="absolute top-4 right-4">
-                      <span className="text-[0.6rem] font-bold tracking-wider uppercase px-2 py-1 rounded bg-primary/15 text-primary border border-primary/30">
-                        Recomendado
-                      </span>
-                    </div>
-                  )}
-
-                  <h4 className="text-xl font-bold text-foreground mb-1">{pack.name}</h4>
-                  <p className="text-sm text-primary font-medium mb-4">{pack.hours} de asesoría</p>
-
-                  <ul className="space-y-2 mb-4 flex-grow">
-                    {pack.benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Check className="w-3.5 h-3.5 text-primary shrink-0" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-xs text-muted-foreground/80 italic mb-4">{pack.forWhom}</p>
-
-                  <div className="mb-5">
-                    <p className="text-2xl font-bold text-foreground">{pack.price}</p>
-                    <p className="text-xs text-muted-foreground">{pack.usd} 🇺🇸</p>
-                  </div>
-
-                  <Button
-                    variant={pack.popular ? "default" : "outline"}
-                    className={`w-full gap-2 rounded-full ${
-                      pack.popular ? "" : "border-primary/30 text-primary hover:bg-primary/10"
-                    }`}
-                    onClick={() => {
-                      trackWhatsAppClick(`pack_${pack.name.toLowerCase().replace(/\s+/g, '_')}`);
-                      window.open(
-                        `https://wa.me/573246875354?text=${encodeURIComponent(`Hola, me interesa el pack ${pack.name} de consultoría.`)}`,
-                        "_blank"
-                      );
-                    }}
-                  >
-                    Quiero agendar
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
+              {pack.popular && (
+                <div className="absolute top-4 right-4">
+                  <span className="text-[0.55rem] font-bold tracking-wider uppercase px-2 py-1 bg-primary text-primary-foreground">
+                    Recomendado
+                  </span>
                 </div>
+              )}
+
+              <h4 className="font-heading text-xl tracking-wide text-foreground mb-1">{pack.name}</h4>
+              <p className="text-[0.72rem] text-primary font-bold tracking-wider uppercase mb-4">{pack.hours}</p>
+
+              <ul className="space-y-2 mb-4 flex-grow">
+                {pack.benefits.map((b) => (
+                  <li key={b} className="flex items-center gap-2 text-[0.78rem] text-muted-foreground">
+                    <Check className="w-3 h-3 text-primary shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[0.7rem] text-muted-foreground/80 font-serif italic mb-4">{pack.forWhom}</p>
+
+              <div className="mb-5">
+                <p className="font-heading text-3xl text-foreground">{pack.price}</p>
+                <p className="text-[0.65rem] text-muted-foreground">{pack.usd}</p>
               </div>
+
+              <button
+                onClick={() => {
+                  trackWhatsAppClick(`pack_${pack.name.toLowerCase().replace(/\s+/g, '_')}`);
+                  window.open(
+                    `https://wa.me/573246875354?text=${encodeURIComponent(`Hola, me interesa el pack ${pack.name} de consultoría.`)}`,
+                    "_blank"
+                  );
+                }}
+                className={`w-full py-3 text-[0.72rem] font-bold tracking-wider uppercase text-center transition-all ${
+                  pack.popular
+                    ? "bg-primary text-primary-foreground hover:brightness-110"
+                    : "border border-primary text-primary hover:bg-primary/10"
+                }`}
+              >
+                Quiero agendar →
+              </button>
             </motion.div>
           ))}
         </div>
 
-        {/* Steps flow */}
+        {/* Steps flow — minimal */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center gap-6"
+          className="flex flex-wrap items-center justify-start gap-4 text-[0.62rem] font-bold tracking-wider uppercase text-muted-foreground"
         >
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
-            {["1. Elige tu pack", "2. Agendas", "3. Nos conectamos", "4. Recibes grabación"].map((step, i) => (
-              <React.Fragment key={step}>
-                {i > 0 && <ArrowRight className="w-4 h-4 text-primary/40 hidden sm:block" />}
-                <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-xs">{step}</span>
-              </React.Fragment>
-            ))}
-          </div>
-          <p className="text-sm font-semibold text-foreground font-serif italic">Simple. Directo.</p>
+          {["1. Elige tu pack", "2. Agendas", "3. Nos conectamos", "4. Recibes grabación"].map((step, i) => (
+            <React.Fragment key={step}>
+              {i > 0 && <span className="text-border hidden sm:inline">—</span>}
+              <span>{step}</span>
+            </React.Fragment>
+          ))}
         </motion.div>
       </div>
     </section>
