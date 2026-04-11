@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Globe, Megaphone, BarChart3, Cog } from "lucide-react";
 
-// ── Inline SVG logos – sourced from official brand guidelines ──
+// ── Inline SVG logos ──
 
 const WordPressLogo = () => (
   <svg viewBox="0 0 122.52 122.523" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
@@ -16,18 +16,9 @@ const WordPressLogo = () => (
   </svg>
 );
 
-const WooCommerceLogo = () => (
-  <svg viewBox="0 0 350 212" xmlns="http://www.w3.org/2000/svg" className="w-10 h-7">
-    <path d="M31.1 0h287.8C333.7 0 350 16.3 350 36.5v107.3c0 20.2-16.3 36.5-36.5 36.5H198.3l15.4 31.7-67.8-31.7H31.1C13.9 180.3 0 166.4 0 149.2V36.5C0 16.3 13.9 0 31.1 0z" fill="#9b5c8f"/>
-    <path d="M16.5 36.5c1.8-7.2 8.5-11.5 16.3-11.5h282.4c9.2 0 16.1 5.5 17.4 13.8.7 4.4.2 8.9-1.4 13L302 155.3c-2 5.5-7.2 9-12.9 9H62.5c-5.8 0-11.1-3.6-13-9.1L15.3 51.7c-1.7-4.9-1.1-9.9 1.2-15.2z" fill="#9b5c8f"/>
-    <path d="M20.1 46.4C20.1 34 30.2 24 42.7 24h264.7c12.4 0 22.5 10 22.5 22.4v84.4c0 12.4-10.1 22.4-22.5 22.4H42.7c-12.5 0-22.6-10-22.6-22.4V46.4z" fill="#fff"/>
-    <text x="50" y="120" fontFamily="Arial" fontSize="72" fontWeight="bold" fill="#9b5c8f">Woo</text>
-  </svg>
-);
-
 const ShopifyLogo = () => (
   <svg viewBox="0 0 109.5 124.5" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
-    <path d="M74.7 14.8s-.3-1.7-1.5-2.8c-1.1-1-2.7-.8-3.4-.7-.4 0-6.4 1.2-6.4 1.2-.9-2.7-2.4-5.1-4.4-7.1C56.2 2.6 52.5.8 48.8.8c-.2 0-.4 0-.6.1C47.7.3 47 0 46.2 0c-6.9 0-10.3 8.7-11.3 13.1l-9.7 3c-3 .9-3.1 1-3.5 3.9L15 98.6l52.9 10 28.4-6.1L74.7 14.8zM55.6 9.5c-1.3 1.4-2.8 3.7-3.3 7.5l-11.1 3.4c1.1-4.2 3.7-12.7 9.7-12.7.4 0 .8.1 1.1.2 1.1.5 2.3 1 3.6 1.6z" fill="#95BF47"/>
+    <path d="M74.7 14.8s-.3-1.7-1.5-2.8c-1.1-1-2.7-.8-3.4-.7-.4 0-6.4 1.2-6.4 1.2-.9-2.7-2.4-5.1-4.4-7.1C56.2 2.6 52.5.8 48.8.8h-.6C47.7.3 47 0 46.2 0c-6.9 0-10.3 8.7-11.3 13.1l-9.7 3c-3 .9-3.1 1-3.5 3.9L15 98.6l52.9 10 28.4-6.1L74.7 14.8zM55.6 9.5c-1.3 1.4-2.8 3.7-3.3 7.5l-11.1 3.4c1.1-4.2 3.7-12.7 9.7-12.7.4 0 .8.1 1.1.2 1.1.5 2.3 1 3.6 1.6z" fill="#95BF47"/>
     <path d="M69.8 12c-.4 0-8.8 1.7-8.8 1.7-.9-2.7-2.4-5.1-4.4-7.1C54.4 4.4 51.1 2.7 47.7 2.5v100.4L80 96.3l-10.2-84.3z" fill="#5E8E3E"/>
     <path d="M48.8 26.1l-4 12.3s-3.5-1.9-7.7-1.9c-6.2 0-6.5 3.9-6.5 4.9 0 5.4 14 7.4 14 20.1 0 9.9-6.3 16.3-14.8 16.3-10.2 0-15.4-6.4-15.4-6.4l2.7-9s5.4 4.6 9.9 4.6c3 0 4.2-2.3 4.2-4 0-7-11.5-7.3-11.5-19 0-9.8 7-19.3 21.1-19.3 5.5 0 8 1.4 8 1.4z" fill="#fff"/>
   </svg>
@@ -40,10 +31,7 @@ const VtexLogo = () => (
 );
 
 const MetaLogo = () => (
-  /* Meta official wordmark on blue — simple, recognizable */
   <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" className="w-12 h-8">
-    <rect width="300" height="100" rx="0" fill="none"/>
-    {/* Meta infinity / M shape */}
     <path d="M30 68 C30 68 30 40 50 40 C62 40 70 52 80 60 C90 68 98 72 106 60 C114 48 114 32 130 32 C150 32 160 52 160 68" stroke="white" strokeWidth="10" fill="none" strokeLinecap="round"/>
     <path d="M160 68 C160 52 170 32 190 32 C206 32 206 48 214 60 C222 72 230 68 240 60 C250 52 258 40 270 40 C290 40 290 68 290 68" stroke="white" strokeWidth="10" fill="none" strokeLinecap="round"/>
     <text x="30" y="96" fontFamily="Helvetica Neue, Arial" fontSize="28" fontWeight="700" fill="white" letterSpacing="2">Meta</text>
@@ -53,7 +41,6 @@ const MetaLogo = () => (
 const GoogleAdsLogo = () => (
   <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
     <rect width="192" height="192" rx="30" fill="#fff"/>
-    {/* Google Ads triangle / bar chart icon */}
     <rect x="20" y="112" width="40" height="60" rx="8" fill="#FBBC04"/>
     <rect x="76" y="72" width="40" height="100" rx="8" fill="#4285F4"/>
     <rect x="132" y="32" width="40" height="140" rx="8" fill="#34A853"/>
@@ -62,10 +49,6 @@ const GoogleAdsLogo = () => (
 
 const TikTokLogo = () => (
   <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
-    {/* TikTok official icon — musical note shape */}
-    <path d="M37.5 8.5A10 10 0 0 1 28 0h-7v32.5a5.5 5.5 0 1 1-5.5-5.5c.6 0 1.2.1 1.7.3V19.7A13.5 13.5 0 0 0 15.5 19 13.5 13.5 0 0 0 2 32.5 13.5 13.5 0 0 0 15.5 46 13.5 13.5 0 0 0 29 32.5V16.8A17.4 17.4 0 0 0 37.5 19V12a10 10 0 0 1-5.5-1.7" fill="#fff" opacity="0.5"/>
-    <path d="M34.5 5.5A10 10 0 0 1 25 -3h-7v32.5a5.5 5.5 0 1 1-5.5-5.5c.6 0 1.2.1 1.7.3V16.7A13.5 13.5 0 0 0 12.5 16 13.5 13.5 0 0 0 -1 29.5 13.5 13.5 0 0 0 12.5 43 13.5 13.5 0 0 0 26 29.5V13.8A17.4 17.4 0 0 0 34.5 16V9a10 10 0 0 1-5.5-1.7" fill="none"/>
-    {/* Simplified clean TikTok icon */}
     <path d="M33 6c0 5 4 9 9 9v7c-3.3 0-6.4-1-9-2.8V34a12 12 0 1 1-12-12c.7 0 1.3.1 2 .2v7.3a5 5 0 1 0 3 4.5V6h7z" fill="#fff"/>
   </svg>
 );
@@ -80,11 +63,9 @@ const LinkedInLogo = () => (
 const GA4Logo = () => (
   <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
     <rect width="192" height="192" rx="16" fill="#fff"/>
-    {/* GA4 bars - orange, the official look */}
     <rect x="16" y="100" width="44" height="76" rx="22" fill="#E8710A"/>
     <rect x="74" y="56" width="44" height="120" rx="22" fill="#E8710A"/>
     <rect x="132" y="16" width="44" height="160" rx="22" fill="#F9AB00"/>
-    {/* small circle bottom left */}
     <circle cx="38" cy="154" r="22" fill="#E8710A"/>
   </svg>
 );
@@ -92,7 +73,6 @@ const GA4Logo = () => (
 const GTMLogo = () => (
   <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
     <rect width="192" height="192" rx="16" fill="#fff"/>
-    {/* GTM official blue/white arrow in box */}
     <rect x="16" y="16" width="160" height="160" rx="24" fill="#4285F4"/>
     <path d="M96 40 L152 96 L96 152 L96 112 L52 112 L52 80 L96 80 Z" fill="#fff"/>
   </svg>
@@ -101,12 +81,10 @@ const GTMLogo = () => (
 const LookerLogo = () => (
   <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
     <rect width="192" height="192" rx="16" fill="#fff"/>
-    {/* Looker Studio official icon – colorful bar chart */}
     <rect x="24" y="120" width="32" height="52" rx="6" fill="#4285F4"/>
     <rect x="68" y="84" width="32" height="88" rx="6" fill="#EA4335"/>
     <rect x="112" y="52" width="32" height="120" rx="6" fill="#34A853"/>
     <rect x="156" y="96" width="12" height="76" rx="4" fill="#FBBC04"/>
-    {/* dots on top */}
     <circle cx="40" cy="110" r="8" fill="#4285F4"/>
     <circle cx="84" cy="74" r="8" fill="#EA4335"/>
     <circle cx="128" cy="42" r="8" fill="#34A853"/>
@@ -157,13 +135,6 @@ const WhatsAppLogo = () => (
   </svg>
 );
 
-const SendPulseLogo = () => (
-  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
-    <rect width="200" height="200" rx="40" fill="#2C82C9"/>
-    <path d="M40 100l120-60-60 120-20-60z" fill="#fff"/>
-  </svg>
-);
-
 const HubSpotLogo = () => (
   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
     <circle cx="100" cy="100" r="100" fill="#FF7A59"/>
@@ -181,250 +152,120 @@ const GoHighLevelLogo = () => (
   </svg>
 );
 
-// ── Tool definitions per category ──
+const SendPulseLogo = () => (
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+    <rect width="200" height="200" rx="40" fill="#2C82C9"/>
+    <path d="M40 100l120-60-60 120-20-60z" fill="#fff"/>
+  </svg>
+);
+
+const WooCommerceLogo = () => (
+  <svg viewBox="0 0 350 212" xmlns="http://www.w3.org/2000/svg" className="w-10 h-7">
+    <path d="M31.1 0h287.8C333.7 0 350 16.3 350 36.5v107.3c0 20.2-16.3 36.5-36.5 36.5H198.3l15.4 31.7-67.8-31.7H31.1C13.9 180.3 0 166.4 0 149.2V36.5C0 16.3 13.9 0 31.1 0z" fill="#9b5c8f"/>
+    <text x="50" y="120" fontFamily="Arial" fontSize="72" fontWeight="bold" fill="#fff">Woo</text>
+  </svg>
+);
+
 const categories = [
   {
     title: "Presencia Digital",
-    subtitle: "Web & E-commerce",
     icon: Globe,
-    gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-    bg: "#21759B",
     tools: [
-      {
-        name: "WordPress",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#21759B" }}><WordPressLogo /></div>,
-      },
-      {
-        name: "WooCommerce",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center px-1" style={{ background: "#7F54B3" }}><WooCommerceLogo /></div>,
-      },
-      {
-        name: "Shopify",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#95BF47" }}><ShopifyLogo /></div>,
-      },
-      {
-        name: "VTEX",
-        logo: (
-          <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center px-1 flex-shrink-0">
-            <VtexLogo />
-          </div>
-        ),
-      },
+      { name: "WordPress", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#21759B" }}><WordPressLogo /></div> },
+      { name: "WooCommerce", logo: <div className="w-10 h-10 flex items-center justify-center px-1" style={{ background: "#7F54B3" }}><WooCommerceLogo /></div> },
+      { name: "Shopify", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#95BF47" }}><ShopifyLogo /></div> },
+      { name: "VTEX", logo: <div className="w-10 h-10 bg-white flex items-center justify-center px-1"><VtexLogo /></div> },
     ],
   },
   {
-    title: "Captura de Tráfico",
-    subtitle: "Paid Media & Ads",
+    title: "Paid Media",
     icon: Megaphone,
-    gradient: "from-blue-500 via-cyan-500 to-teal-500",
     tools: [
-      {
-        name: "Meta Ads",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center px-1" style={{ background: "#0866FF" }}><MetaLogo /></div>,
-      },
-      {
-        name: "Google Ads",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#fff" }}><GoogleAdsLogo /></div>,
-      },
-      {
-        name: "TikTok Ads",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#010101" }}><TikTokLogo /></div>,
-      },
-      {
-        name: "LinkedIn Ads",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#0A66C2" }}><LinkedInLogo /></div>,
-      },
+      { name: "Meta Ads", logo: <div className="w-10 h-10 flex items-center justify-center px-1" style={{ background: "#0866FF" }}><MetaLogo /></div> },
+      { name: "Google Ads", logo: <div className="w-10 h-10 flex items-center justify-center bg-white"><GoogleAdsLogo /></div> },
+      { name: "TikTok Ads", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#010101" }}><TikTokLogo /></div> },
+      { name: "LinkedIn Ads", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#0A66C2" }}><LinkedInLogo /></div> },
     ],
   },
   {
-    title: "Medición & Análisis",
-    subtitle: "Analytics & Tracking",
+    title: "Medición",
     icon: BarChart3,
-    gradient: "from-emerald-500 via-green-500 to-lime-500",
     tools: [
-      {
-        name: "GA4",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#fff" }}><GA4Logo /></div>,
-      },
-      {
-        name: "GTM",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#fff" }}><GTMLogo /></div>,
-      },
-      {
-        name: "Looker Studio",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#fff" }}><LookerLogo /></div>,
-      },
-      {
-        name: "Hotjar",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#FF3C00" }}><HotjarLogo /></div>,
-      },
-      {
-        name: "Clarity",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#fff" }}><ClarityLogo /></div>,
-      },
+      { name: "GA4", logo: <div className="w-10 h-10 flex items-center justify-center bg-white"><GA4Logo /></div> },
+      { name: "GTM", logo: <div className="w-10 h-10 flex items-center justify-center bg-white"><GTMLogo /></div> },
+      { name: "Looker Studio", logo: <div className="w-10 h-10 flex items-center justify-center bg-white"><LookerLogo /></div> },
+      { name: "Hotjar", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#FF3C00" }}><HotjarLogo /></div> },
+      { name: "Clarity", logo: <div className="w-10 h-10 flex items-center justify-center bg-white"><ClarityLogo /></div> },
     ],
   },
   {
-    title: "Conversión & Retención",
-    subtitle: "CRM & Automatización",
+    title: "Automatización",
     icon: Cog,
-    gradient: "from-orange-500 via-amber-500 to-yellow-500",
     tools: [
-      {
-        name: "Make",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center px-1" style={{ background: "#6D00CC" }}><MakeLogo /></div>,
-      },
-      {
-        name: "n8n",
-        logo: (
-          <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center px-1 flex-shrink-0">
-            <N8nLogo />
-          </div>
-        ),
-      },
-      {
-        name: "WhatsApp API",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#25D366" }}><WhatsAppLogo /></div>,
-      },
-      {
-        name: "GoHighLevel",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#fff" }}><GoHighLevelLogo /></div>,
-      },
-      {
-        name: "SendPulse",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#2C82C9" }}><SendPulseLogo /></div>,
-      },
-      {
-        name: "HubSpot",
-        logo: <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "#FF7A59" }}><HubSpotLogo /></div>,
-      },
+      { name: "Make", logo: <div className="w-10 h-10 flex items-center justify-center px-1" style={{ background: "#6D00CC" }}><MakeLogo /></div> },
+      { name: "n8n", logo: <div className="w-10 h-10 bg-white flex items-center justify-center px-1"><N8nLogo /></div> },
+      { name: "WhatsApp API", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#25D366" }}><WhatsAppLogo /></div> },
+      { name: "GoHighLevel", logo: <div className="w-10 h-10 flex items-center justify-center bg-white"><GoHighLevelLogo /></div> },
+      { name: "SendPulse", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#2C82C9" }}><SendPulseLogo /></div> },
+      { name: "HubSpot", logo: <div className="w-10 h-10 flex items-center justify-center" style={{ background: "#FF7A59" }}><HubSpotLogo /></div> },
     ],
   },
 ];
 
-// ── Section ──
 const Skills: React.FC = () => (
-  <section id="stack" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
-        <div className="absolute inset-0 bg-gradient-radial from-primary/8 via-primary/3 to-transparent rounded-full blur-3xl" />
-      </div>
-    </div>
-
-    <div className="container mx-auto px-4 relative z-10">
+  <section id="stack" className="section-padding relative overflow-hidden">
+    <div className="container mx-auto px-4 md:px-8">
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <motion.span
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-primary/10 text-primary border border-primary/20 mb-6"
-        >
-          Growth Marketing Stack
-        </motion.span>
-
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          <span className="text-foreground">Herramientas que </span>
-          <span className="text-gradient">Domino</span>
-        </h2>
-
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          +20 herramientas conectadas en un ecosistema Full-Funnel que genera resultados
-        </p>
-      </motion.div>
-
-      {/* 2×2 grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
-        {categories.map((category, index) => (
-          <motion.div
-            key={category.title}
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="group relative"
-          >
-            {/* Glow */}
-            <div className={`absolute -inset-1 bg-gradient-to-r ${category.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
-
-            {/* Card */}
-            <div className="relative h-full">
-              <div className={`absolute -inset-[1px] bg-gradient-to-r ${category.gradient} rounded-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-300`} />
-
-              <div className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border/50 p-5 sm:p-6 md:p-8 h-full transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl overflow-hidden" />
-
-                {/* Category header */}
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
-                    <category.icon className="w-5 h-5 sm:w-7 sm:h-7" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {category.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{category.subtitle}</p>
-                  </div>
-                </div>
-
-                {/* Tools */}
-                <div className="flex flex-wrap items-center justify-start gap-3 md:gap-4">
-                  {category.tools.map((tool, toolIndex) => (
-                    <motion.div
-                      key={tool.name}
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.3,
-                        delay: 0.2 + index * 0.05 + toolIndex * 0.05,
-                        type: "spring",
-                        stiffness: 200,
-                      }}
-                      whileHover={{ scale: 1.15, y: -5, rotate: 3 }}
-                      className="group/tool relative"
-                    >
-                      <div className="relative p-1.5 rounded-xl bg-background/80 border border-border/50 transition-all duration-300 group-hover/tool:border-primary/50 group-hover/tool:shadow-lg group-hover/tool:shadow-primary/20 group-hover/tool:bg-background">
-                        {tool.logo}
-                      </div>
-
-                      {/* Tooltip */}
-                      <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-foreground text-background text-xs font-medium rounded-lg opacity-0 group-hover/tool:opacity-100 transition-all duration-200 whitespace-nowrap pointer-events-none shadow-lg z-20">
-                        {tool.name}
-                        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-foreground rotate-45" />
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Bottom badge */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="flex justify-center mt-12"
+        transition={{ duration: 0.5 }}
+        className="mb-12"
       >
-        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-violet-500/10 to-orange-500/10 border border-primary/20">
-          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm font-medium text-foreground">
-            Ecosistema integrado de +20 herramientas
-          </span>
-        </div>
+        <div className="section-label">Stack</div>
+        <h2 className="section-title">Herramientas</h2>
+        <p className="text-sm text-muted-foreground max-w-md">
+          +20 herramientas conectadas en un ecosistema full-funnel.
+        </p>
       </motion.div>
+
+      {/* Brutalist grid */}
+      <div className="grid-cards grid grid-cols-1 sm:grid-cols-2">
+        {categories.map((category, index) => (
+          <motion.div
+            key={category.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.05 }}
+            className="p-5 sm:p-8"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <category.icon className="w-4 h-4 text-primary" />
+              <h3 className="font-heading text-xl tracking-wide text-foreground">
+                {category.title}
+              </h3>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              {category.tools.map((tool) => (
+                <div
+                  key={tool.name}
+                  className="group relative"
+                >
+                  <div className="border border-border hover:border-primary/40 transition-colors">
+                    {tool.logo}
+                  </div>
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground text-background text-[0.6rem] font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20">
+                    {tool.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   </section>
 );

@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Target } from "lucide-react";
 import perfilReynaldo from "@/assets/perfil-reynaldo.png";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { trackHeroCTA, trackWhatsAppClick } from "@/lib/gtag";
@@ -20,11 +19,6 @@ const HeroPersonal: React.FC = () => {
     >
       {/* Grid background */}
       <div className="absolute inset-0 bg-grid pointer-events-none" />
-      
-      {/* Glow */}
-      <div className="absolute -top-24 -right-20 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, hsl(var(--primary) / 0.07) 0%, transparent 65%)' }}
-      />
 
       <div className="container mx-auto px-5 sm:px-6 md:px-8 py-10 sm:py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -35,26 +29,26 @@ const HeroPersonal: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center lg:text-left order-2 lg:order-1"
           >
-            {/* Status pill */}
+            {/* Status line */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 mb-6 sm:mb-8"
+              className="inline-flex items-center gap-2 mb-6 sm:mb-8"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-dot" />
-              <span className="text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-primary">
+              <span className="w-8 h-px bg-primary" />
+              <span className="text-[0.62rem] font-bold tracking-[0.15em] uppercase text-primary">
                 Disponible para proyectos
               </span>
             </motion.div>
 
-            <h1 className="font-heading text-[clamp(2rem,5.5vw,5.5rem)] leading-[0.95] tracking-tight mb-4 sm:mb-6">
+            <h1 className="font-heading text-[clamp(2.2rem,6vw,6.5rem)] leading-[0.9] tracking-tight mb-4 sm:mb-6">
               Quieres más clientes.{" "}
-              <span className="text-primary">Yo construyo el camino para conseguirlos.</span>
+              <span className="text-primary">Yo construyo el camino.</span>
             </h1>
 
             <p className="font-serif italic text-sm sm:text-base lg:text-lg text-muted-foreground max-w-lg mb-6 sm:mb-8 leading-relaxed mx-auto lg:mx-0">
-              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo</strong>, consultor de marketing digital en Cartagena. Diseño estrategias de publicidad en Facebook, Instagram y Google para que tu negocio consiga clientes todos los días — con datos, sin adivinar.
+              Soy <strong className="not-italic font-body font-semibold text-foreground">Reynaldo Montalvo</strong>, consultor de marketing digital en Cartagena. Estrategias de publicidad en Facebook, Instagram y Google — con datos, sin adivinar.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -63,14 +57,14 @@ const HeroPersonal: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => { trackHeroCTA(); trackWhatsAppClick('hero_cta'); }}
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-primary text-primary-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider rounded-full hover:shadow-[0_8px_28px_hsl(var(--primary)/0.3)] hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-primary text-primary-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
               >
                 Agendar conversación
               </a>
               <a
                 href="#proceso"
                 onClick={(e) => { e.preventDefault(); document.getElementById("proceso")?.scrollIntoView({ behavior: "smooth" }); }}
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-transparent text-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider rounded-full border border-border hover:border-foreground hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 bg-transparent text-foreground font-body text-[0.75rem] sm:text-[0.78rem] font-bold tracking-wider border border-border hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-all"
               >
                 Ver cómo lo hago →
               </a>
@@ -85,7 +79,6 @@ const HeroPersonal: React.FC = () => {
             className="order-1 lg:order-2 flex justify-center"
           >
             <div className="relative w-[260px] sm:w-[320px] md:w-[400px] max-w-full">
-              {/* Photo card */}
               <div className="w-full aspect-[4/5] relative">
                 <img
                   src={perfilReynaldo}
@@ -100,34 +93,6 @@ const HeroPersonal: React.FC = () => {
                   }}
                 />
               </div>
-
-              {/* Floating badges */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-6 sm:top-8 -left-2 sm:-left-6 z-20 bg-card border border-border rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-1.5 sm:gap-2"
-              >
-                <TrendingUp className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-primary" />
-                <span className="text-[0.6rem] sm:text-[0.7rem] font-semibold text-foreground">+8 años exp.</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                className="absolute bottom-16 sm:bottom-20 -left-2 sm:-left-8 z-20 bg-card border border-border rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-1.5 sm:gap-2"
-              >
-                <span className="text-sm sm:text-base">🚀</span>
-                <span className="text-[0.6rem] sm:text-[0.7rem] font-semibold text-foreground">+50 proyectos</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
-                className="absolute bottom-8 sm:bottom-10 -right-1 sm:-right-4 z-20 bg-card border border-border rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-center gap-1.5 sm:gap-2"
-              >
-                <Target className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-primary" />
-                <span className="text-[0.6rem] sm:text-[0.7rem] font-semibold text-foreground">Resultados reales</span>
-              </motion.div>
             </div>
           </motion.div>
         </div>

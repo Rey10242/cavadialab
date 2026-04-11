@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
-  { href: "#proceso", label: "Cómo funciona" },
+  { href: "#proceso", label: "Proceso" },
   { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#contacto", label: "Contacto" },
 ];
@@ -31,13 +31,11 @@ const CavadiaNavbar: React.FC = () => {
       },
       { rootMargin: "-50% 0px -50% 0px" }
     );
-
     const allLinks = [{ href: "#inicio" }, ...links];
     allLinks.forEach((link) => {
       const el = document.querySelector(link.href);
       if (el) observer.observe(el);
     });
-
     return () => observer.disconnect();
   }, []);
 
@@ -51,16 +49,16 @@ const CavadiaNavbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/92 backdrop-blur-xl border-b border-border"
+          ? "bg-background/95 backdrop-blur-sm border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+      <nav className="container mx-auto px-4 md:px-8 flex items-center justify-between h-14">
         {/* Logo */}
         <a
           href="#inicio"
           onClick={(e) => { e.preventDefault(); handleNavClick("#inicio"); }}
-          className="font-heading text-xl tracking-wider text-primary hover:opacity-80 transition-opacity"
+          className="font-heading text-lg tracking-[0.15em] text-primary hover:opacity-80 transition-opacity"
         >
           REYNALDO MONTALVO
         </a>
@@ -72,7 +70,7 @@ const CavadiaNavbar: React.FC = () => {
               <a
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                className={`text-[0.72rem] font-semibold tracking-[0.1em] uppercase transition-colors ${
+                className={`text-[0.65rem] font-bold tracking-[0.12em] uppercase transition-colors ${
                   active === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -87,7 +85,7 @@ const CavadiaNavbar: React.FC = () => {
           href="https://wa.me/573246875354"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center px-5 py-2 bg-primary text-primary-foreground font-body text-xs font-bold tracking-wider rounded-full hover:shadow-[0_6px_24px_hsl(var(--primary)/0.25)] hover:-translate-y-0.5 transition-all"
+          className="hidden md:inline-flex items-center px-4 py-2 bg-primary text-primary-foreground font-body text-[0.62rem] font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
         >
           Hablemos →
         </a>
@@ -98,7 +96,7 @@ const CavadiaNavbar: React.FC = () => {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -113,7 +111,7 @@ const CavadiaNavbar: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
+          className="md:hidden bg-background border-b border-border"
         >
           <ul className="container mx-auto px-4 py-4 space-y-1">
             {links.map((link) => (
@@ -121,7 +119,7 @@ const CavadiaNavbar: React.FC = () => {
                 <a
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`block px-3 py-2 text-sm font-semibold tracking-wider uppercase transition-colors ${
+                  className={`block px-3 py-2 text-sm font-bold tracking-wider uppercase transition-colors ${
                     active === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -134,7 +132,7 @@ const CavadiaNavbar: React.FC = () => {
                 href="https://wa.me/573246875354"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center px-5 py-2.5 bg-primary text-primary-foreground font-bold text-sm rounded-full"
+                className="block w-full text-center px-5 py-2.5 bg-primary text-primary-foreground font-bold text-sm"
               >
                 Hablemos →
               </a>
