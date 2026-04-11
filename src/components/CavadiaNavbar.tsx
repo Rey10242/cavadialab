@@ -60,7 +60,7 @@ const CavadiaNavbar: React.FC = () => {
           onClick={(e) => { e.preventDefault(); handleNavClick("#inicio"); }}
           className="font-heading text-lg tracking-[0.15em] text-primary hover:opacity-80 transition-opacity"
         >
-          REYNALDO MONTALVO
+          REYNALDO MONTALVO CAVADIA
         </a>
 
         {/* Desktop Nav */}

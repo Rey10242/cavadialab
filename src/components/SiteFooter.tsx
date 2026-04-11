@@ -19,7 +19,7 @@ const SiteFooter: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <span className="font-heading text-sm tracking-[0.15em] text-primary">
-            REYNALDO MONTALVO
+            REYNALDO MONTALVO CAVADIA
           </span>
 
           <nav aria-label="Enlaces del pie de página" className="flex flex-wrap gap-x-6 gap-y-2">
