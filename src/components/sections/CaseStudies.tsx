@@ -143,12 +143,12 @@ const CaseStudies: React.FC = () => {
         </motion.div>
 
         {/* Filter */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex gap-2 mb-10 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible scrollbar-none">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => { setActiveCategory(cat); setShowAll(false); }}
-              className={`px-3 py-1.5 text-[0.62rem] font-bold tracking-wider uppercase transition-colors border ${
+              className={`px-3 py-1.5 text-[0.62rem] font-bold tracking-wider uppercase transition-colors border whitespace-nowrap shrink-0 sm:shrink ${
                 activeCategory === cat
                   ? "bg-primary text-primary-foreground border-primary"
                   : "bg-transparent text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"

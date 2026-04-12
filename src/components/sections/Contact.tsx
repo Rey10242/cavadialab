@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
           className="max-w-2xl mb-12"
         >
           <div className="section-label">Contacto</div>
-          <h2 className="font-heading text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.9] tracking-tight mb-4">
+          <h2 className="font-heading text-[clamp(2.2rem,7vw,6.5rem)] leading-[0.9] tracking-tight mb-4">
             ¿Listo para<br />vender <span className="text-primary">más</span>?
           </h2>
           <p className="font-serif italic text-base text-muted-foreground">
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap gap-3 mb-12"
+          className="flex flex-col sm:flex-row gap-3 mb-12"
         >
           <a
             href="https://wa.me/573246875354"

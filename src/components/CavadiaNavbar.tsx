@@ -53,12 +53,12 @@ const CavadiaNavbar: React.FC = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 md:px-8 flex items-center justify-between h-14">
+      <nav className="container mx-auto px-3 sm:px-4 md:px-8 flex items-center justify-between h-14">
         {/* Logo */}
         <a
           href="#inicio"
           onClick={(e) => { e.preventDefault(); handleNavClick("#inicio"); }}
-          className="font-heading text-lg tracking-[0.15em] text-primary hover:opacity-80 transition-opacity"
+          className="font-heading text-[0.85rem] sm:text-lg tracking-[0.12em] sm:tracking-[0.15em] text-primary hover:opacity-80 transition-opacity"
         >
           REYNALDO MONTALVO CAVADIA
         </a>
