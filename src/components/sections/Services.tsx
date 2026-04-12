@@ -14,20 +14,26 @@ const services = [
   {
     number: "01",
     name: "Meta Ads",
-    description: "Campañas full funnel en Facebook e Instagram. Pixel server-side, CAPI y audiencias avanzadas.",
-    tags: ["TOFU · MOFU · BOFU", "CAPI", "Lookalikes"],
+    description: "Gestión de campañas full funnel como Social Ads Specialist. Pixel server-side, CAPI y audiencias avanzadas para Paid Media de alto rendimiento.",
+    tags: ["Paid Media", "CAPI", "Lookalikes", "Social Ads"],
   },
   {
     number: "02",
     name: "Google Ads",
-    description: "Personas con intención de compra directa. Search + PMAX + Remarketing con Smart Bidding.",
-    tags: ["Search", "PMAX", "Enhanced Conv.", "ROAS"],
+    description: "PPC Management con intención de compra directa. Search + PMAX + Remarketing con Smart Bidding como Google Ads Specialist.",
+    tags: ["PPC", "SEM", "PMAX", "ROAS"],
   },
   {
     number: "03",
     name: "Tracking & Analytics",
-    description: "GTM + GA4 + píxeles + eventos personalizados. Dashboards en Looker Studio que el cliente entiende.",
+    description: "Performance Analysis con GTM + GA4 + píxeles + eventos. Dashboards en Looker Studio para Digital Marketing Analytics data-driven.",
     tags: ["GTM", "GA4", "Looker Studio", "Server-side"],
+  },
+  {
+    number: "04",
+    name: "Performance & Growth",
+    description: "CRO, Demand Generation y User Acquisition. Estrategia de Growth Marketing y Revenue Marketing para escalar resultados de forma sostenible.",
+    tags: ["CRO", "Growth", "Demand Gen", "Revenue"],
   },
 ];
 

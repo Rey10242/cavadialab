@@ -52,7 +52,7 @@ const HeroPersonal: React.FC = () => {
             </p>
 
             <p className="text-xs sm:text-sm uppercase tracking-widest text-muted-foreground mb-6 sm:mb-8 mx-auto lg:mx-0">
-              Meta Ads · Google Ads · Web Data Analytics
+              Paid Media · PPC · Performance Marketing · Growth
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">

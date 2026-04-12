@@ -52,8 +52,8 @@ const AboutMe: React.FC = () => {
             className="bg-card p-6 sm:p-8"
           >
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Más de <strong className="text-foreground font-semibold">8 años</strong> ayudando a negocios a conseguir clientes con publicidad digital.
-              Más de <strong className="text-foreground font-semibold">50 empresas</strong> — desde emprendedores hasta negocios consolidados que querían crecer con orden.
+              Más de <strong className="text-foreground font-semibold">8 años</strong> como <strong className="text-foreground font-semibold">Paid Media Manager</strong> y Performance Marketing Lead ayudando a negocios a conseguir clientes.
+              Más de <strong className="text-foreground font-semibold">50 empresas</strong> — desde emprendedores hasta negocios consolidados que necesitaban un Media Buyer y Growth Marketing Manager con resultados reales.
             </p>
           </motion.div>
 
