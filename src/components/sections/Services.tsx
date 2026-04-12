@@ -79,7 +79,7 @@ const Services: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid-cards grid grid-cols-1 md:grid-cols-3 mb-20"
+          className="grid-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-20"
         >
           {services.map((svc) => (
             <div
