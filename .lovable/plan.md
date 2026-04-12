@@ -1,112 +1,78 @@
-# Reforma completa de la web basada en el nuevo diseño
+# Plan: Implementar estrategia SEO completa para palabras clave de marketing digital
 
 ## Resumen
 
-Transformar la web actual (light theme con gradientes coloridos) al nuevo estilo del archivo adjunto: tema oscuro editorial, tipografia Bebas Neue para titulos, Instrument Sans/Serif para cuerpo, paleta con acento amarillo-verde (#e8ff47), grid lines como fondo, tarjetas con bordes sutiles, y una estetica minimalista-brutalist.
+Integrar las 30 palabras clave de marketing digital/paid media directamente en el sitio web existente, optimizando meta tags, structured data, contenido visible y schema markup para posicionar en Google, Bing y Yahoo.
 
-Se mantiene: la foto del hero con su efecto actual, la esencia de Reynaldo como consultor experto en marketing digital, la estructura de secciones modificarlo conforme al HTML, el formulario de contacto funcional, el WhatsApp flotante, y toda la logica backend (Supabase).
+---
 
-## Cambios principales
+## Contexto actual
 
-### 1. Sistema de diseño (index.css + tailwind.config.ts + index.html)
+El sitio ya tiene una base SEO sólida: JSON-LD con `Person`, `ProfessionalService`, `FAQPage`, meta tags geo-targeting, sitemap.xml y robots.txt. Sin embargo, las palabras clave actuales se enfocan solo en "consultor marketing digital cartagena". Falta cobertura para los roles profesionales objetivo (Paid Media Manager, PPC Manager, Growth Marketing Manager, etc.).
 
-- **Colores**: Fondo oscuro `#0c0c0e`, surface `#131316`, card `#1a1a1f`, border `#26262e`, texto `#f0eff5`, muted `#6b6a78`, acento `#e8ff47`
-- **Fuentes**: Agregar Bebas Neue e Instrument Sans/Serif en index.html. Bebas Neue para titulos grandes, Instrument Sans como body, Instrument Serif italica para quotes
-- **text-gradient**: Cambiarlo por el color acento solido `#e8ff47`
+---
 
-### 2. Navbar (CavadiaNavbar.tsx)
+## Cambios a implementar
 
-- Fondo transparente que se vuelve oscuro con blur al scroll
-- Logo con texto "REYNALDO MONTALVO" en Bebas Neue color acento
-- Links en uppercase, letra pequena, tracking amplio, color muted
-- Boton CTA: pill redondeado, fondo acento, texto oscuro
-- Quitar la barra de progreso de scroll (o hacerla del color acento)
+### 1. Meta tags ampliados (`index.html`)
 
-### 3. Hero (HeroPersonal.tsx)
+- **Title**: Incluir "Paid Media Manager" y "Performance Marketing" en el título.
+- **Description**: Reescribir para cubrir las keywords de mayor volumen: Paid Media Specialist, PPC Manager, Growth Marketing, Media Buyer, etc.
+- **Keywords meta**: Agregar las 30 palabras clave objetivo.
+- **OG/Twitter tags**: Actualizar para reflejar los nuevos términos.
 
-- Layout: grid 2 columnas como el adjunto
-- Izquierda: pill "Disponible para proyectos" con estilo acento, titulo grande en Bebas Neue "TU NEGOCIO NECESITA UN SISTEMA." con "sistema" en color acento, subtitulo en Instrument Serif italica, botones pill
-- Derecha: **mantener la foto actual** con su efecto de mascara y badges flotantes, pero adaptar los badges al nuevo estilo (fondo card, border sutil, tipografia nueva)
-- Agregar stats bar debajo del hero (50+ proyectos, 8+ anos, 3 canales, 100% foco en resultados) como en el adjunto
+### 2. JSON-LD Structured Data ampliado (`index.html`)
 
-### 4. Eliminar secciones redundantes
+- **Person.jobTitle**: Agregar array con múltiples títulos profesionales (Paid Media Manager, Performance Marketing Lead, etc.).
+- **Person.knowsAbout**: Ampliar con todos los roles y disciplinas objetivo.
+- **ProfessionalService**: Agregar nuevos servicios al `hasOfferCatalog` (PPC Management, Programmatic Media, CRO, Demand Generation, etc.).
+- **Agregar schema `Occupation**`: Para los roles profesionales, mejorando la aparición en rich results de "People also ask".
 
-- **ProblemSection**: Eliminar como seccion separada. Su contenido se integra dentro de la seccion Proceso/Metodologia
-- **SolutionSection**: Eliminar. Su contenido ya esta cubierto por la lista de beneficios dentro de Proceso
-- **SectionDivider**: Eliminar todos los dividers SVG. El nuevo diseno usa transiciones de color de fondo limpias
+### 3. Contenido visible optimizado
 
-### 5. Servicios (Services.tsx)
+- **Services.tsx**: Ampliar las descripciones de servicios para incluir keywords objetivo naturalmente. Agregar un nuevo servicio "04 - Performance & Growth" que cubra: CRO, Demand Generation, User Acquisition.
+- **AboutMe.tsx**: Enriquecer el texto con menciones naturales a roles como "Media Buyer", "Performance Marketing Manager", "Growth Lead".
+- **FAQ.tsx**: Agregar 3-4 preguntas nuevas orientadas a las keywords:
+  - "¿Qué hace un Paid Media Manager?"
+  - "¿Cuál es la diferencia entre un PPC Manager y un Media Buyer?"
+  - "¿Necesito un Growth Marketing Manager o un consultor?"
 
-- Estilo de grid con borde y gap de 1px (como en el adjunto)
-- 3 cards: Meta Ads, Google Ads, Tracking & Analytics
-- Cada card con numero grande (01, 02, 03), nombre en Bebas Neue, descripcion, tags como pills, link "Consultar →"
-- Efecto hover: linea amarilla superior que se despliega
-- **Mantener** la seccion de Consultoria Estrategica pero adaptar visualmente al nuevo estilo
-- **Eliminar** la seccion de Crecimiento Integral como card separada. Los 3 servicios ya cubren eso
+### 4. FAQ Schema actualizado (`index.html`)
 
-### 6. Proceso/Metodologia (Methodology.tsx)
+- Sincronizar el JSON-LD `FAQPage` con las nuevas preguntas agregadas al componente FAQ.
 
-- Layout de 2 columnas: izquierda con titulo + descripcion, derecha con lista de beneficios (bullets acento) + quote en Instrument Serif
-- Debajo: grid de 4 pasos en tarjetas con borde, numeros de badge en acento, numero watermark gigante al fondo
-- Cierre: "Sin formulas magicas. Solo decisiones basadas en datos."
+### 5. Sitemap.xml actualizado
 
-### 7. Sobre Mi (AboutMe.tsx)
+- Agregar entrada para `/#faq` con mayor prioridad (las FAQs con schema son high-value para featured snippets).
+- Actualizar `lastmod` dates.
 
-- 2 columnas: izquierda con texto + stats en grid con borde, derecha con lista "Con quien trabajo"
-- Stats con numeros en Bebas Neue color acento
-- Lista con checkmarks estilizados
+### 6. Robots.txt
 
-### 8. Contacto (Contact.tsx)
+- Sin cambios significativos (ya está bien configurado).
 
-- Centrado, mas simple visualmente
-- Titulo grande en Bebas Neue: "HABLAMOS DE TU CUENTA?" con "cuenta" en acento
-- Subtitulo en Instrument Serif italica
-- 2 botones pill: WhatsApp (acento) + Email (ghost/outline)
-- **Mantener** el formulario funcional pero adaptar estilos
+---
 
-### 9. Footer (SiteFooter.tsx)
+## Detalles técnicos
 
-- Fondo surface, borde superior
-- Logo + copyright, minimalista
 
-### 10. Componentes a eliminar/simplificar
+| Archivo                                    | Cambio                                                          |
+| ------------------------------------------ | --------------------------------------------------------------- |
+| `index.html`                               | Meta tags, JSON-LD Person/ProfessionalService/FAQPage ampliados |
+| `src/components/sections/HeroPersonal.tsx` | Línea de keywords semánticas                                    |
+| `src/components/sections/Services.tsx`     | Nuevo servicio #04, descripciones enriquecidas                  |
+| `src/components/sections/AboutMe.tsx`      | Texto con keywords naturales                                    |
+| `src/components/sections/FAQ.tsx`          | 3-4 nuevas preguntas keyword-driven                             |
+| `public/sitemap.xml`                       | Actualización de prioridades y lastmod                          |
 
-- **AnimatedBackground.tsx**: Eliminar o reemplazar por el grid pattern sutil
-- **FloatingElements.tsx**: Eliminar (el nuevo diseno no tiene blobs flotantes)
-- **ScrollProgress.tsx**: Ya integrado en navbar, mantener pero color acento
-- **FloatingWhatsAppButton.tsx**: Mantener pero adaptar colores al nuevo tema
 
-## Detalle tecnico
+---
 
-```text
-Archivos a modificar:
-├── index.html               (fuentes Bebas Neue, Instrument Sans/Serif)
-├── src/index.css             (nuevo sistema de colores oscuro, eliminar gradientes)
-├── tailwind.config.ts        (nuevas font families)
-├── src/pages/Index.tsx       (quitar SectionDivider, ProblemSection, SolutionSection)
-├── src/components/
-│   ├── CavadiaNavbar.tsx     (rediseno completo)
-│   ├── Logo.tsx              (texto en Bebas Neue en vez del SVG badge)
-│   ├── AnimatedBackground.tsx (grid pattern sutil)
-│   ├── FloatingElements.tsx  (eliminar contenido)
-│   ├── SiteFooter.tsx        (minimalista)
-│   ├── FloatingWhatsAppButton.tsx (adaptar tema)
-│   └── sections/
-│       ├── HeroPersonal.tsx  (rediseno con stats bar)
-│       ├── Services.tsx      (grid estilo adjunto)
-│       ├── Methodology.tsx   (2 col + 4 steps grid)
-│       ├── AboutMe.tsx       (2 col con stats)
-│       └── Contact.tsx       (centrado, simplificado)
+## Lo que NO cambia
 
-Archivos a eliminar/vaciar:
-├── src/components/sections/ProblemSection.tsx
-├── src/components/sections/SolutionSection.tsx
-├── src/components/SectionDivider.tsx
-```
+- Diseño visual, colores, layout, responsive
+- Funcionalidad existente (tracking, formularios, WhatsApp)
+- URLs (es una SPA single-page, no se crean nuevas rutas)
 
-Esto es un cambio grande (~12 archivos). Recomiendo implementarlo en fases:
+## Nota importante
 
-1. Sistema de diseno (colores, fuentes, CSS base)
-2. Navbar + Hero + Footer
-3. Servicios + Metodologia
-4. About + Contacto + limpieza
+Este es un sitio single-page. Para posicionar las 30 keywords de forma óptima a largo plazo, eventualmente sería ideal crear páginas individuales (blog/landing pages). Por ahora, maximizamos el SEO on-page con lo que tenemos: structured data, contenido semántico y FAQ schema.
