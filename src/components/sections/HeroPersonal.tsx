@@ -19,7 +19,7 @@ const HeroPersonal: React.FC = () => {
       {/* Grid background */}
       <div className="absolute inset-0 bg-grid pointer-events-none" />
 
-      <div className="container mx-auto px-5 sm:px-6 md:px-8 py-10 sm:py-16 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left — Text */}
           <motion.div
@@ -41,7 +41,7 @@ const HeroPersonal: React.FC = () => {
               </span>
             </motion.div>
 
-            <h1 className="font-heading text-[clamp(2.2rem,6vw,6.5rem)] leading-[0.9] tracking-tight mb-4 sm:mb-6">
+            <h1 className="font-heading text-[clamp(2rem,7vw,6.5rem)] leading-[0.88] tracking-tight mb-3 sm:mb-6">
               ¿Necesitas más clientes?{" "}
               <br />
               <span className="text-primary">De eso me encargo.</span>
@@ -82,7 +82,7 @@ const HeroPersonal: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            <div className="relative w-[260px] sm:w-[320px] md:w-[400px] max-w-full">
+            <div className="relative w-[220px] sm:w-[300px] md:w-[400px] max-w-full">
               <div className="w-full aspect-[4/5] relative">
                 <img
                   src={perfilReynaldo}
@@ -106,14 +106,14 @@ const HeroPersonal: React.FC = () => {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 sm:mt-16 grid-cards grid grid-cols-3"
+          className="mt-8 sm:mt-16 grid-cards grid grid-cols-3"
         >
           {stats.map((stat) => (
-            <div key={stat.label} className="py-4 sm:py-6 px-3 sm:px-4 text-center hover:bg-secondary transition-colors">
-              <div className="font-heading text-3xl sm:text-4xl text-primary leading-none mb-1">
+            <div key={stat.label} className="py-3 sm:py-6 px-2 sm:px-4 text-center hover:bg-secondary transition-colors">
+              <div className="font-heading text-2xl sm:text-4xl text-primary leading-none mb-1">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-[0.55rem] sm:text-[0.62rem] font-semibold tracking-[0.08em] uppercase text-muted-foreground">
+              <div className="text-[0.5rem] sm:text-[0.62rem] font-semibold tracking-[0.06em] sm:tracking-[0.08em] uppercase text-muted-foreground">
                 {stat.label}
               </div>
             </div>

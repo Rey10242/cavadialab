@@ -77,7 +77,7 @@ const Testimonials: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="border-l-[3px] border-primary pl-6 sm:pl-8"
             >
-              <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-foreground leading-relaxed mb-6">
+              <p className="font-serif italic text-base sm:text-xl md:text-2xl text-foreground leading-relaxed mb-6">
                 "{t.content}"
               </p>
               <div>

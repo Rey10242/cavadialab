@@ -32,11 +32,11 @@ const AboutMe: React.FC = () => {
           className="grid-cards grid grid-cols-3 mb-12"
         >
           {stats.map((stat) => (
-            <div key={stat.label} className="py-6 sm:py-8 px-4 text-center">
-              <div className="font-heading text-4xl sm:text-5xl text-primary leading-none">
+            <div key={stat.label} className="py-4 sm:py-8 px-2 sm:px-4 text-center">
+              <div className="font-heading text-3xl sm:text-5xl text-primary leading-none">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-[0.58rem] font-bold tracking-[0.1em] uppercase text-muted-foreground mt-2">
+              <div className="text-[0.5rem] sm:text-[0.58rem] font-bold tracking-[0.06em] sm:tracking-[0.1em] uppercase text-muted-foreground mt-1.5 sm:mt-2">
                 {stat.label}
               </div>
             </div>
