@@ -9,8 +9,8 @@ import {
 
 const faqs = [
   {
-    question: "¿Cuánto cuesta trabajar contigo?",
-    answer: "Depende del alcance. Consultorías desde $130.000 COP (~$50 USD). Para gestión de campañas, armo un plan a la medida según tus objetivos y presupuesto.",
+    question: "¿Cuánto cuesta trabajar con un Paid Media Manager?",
+    answer: "Depende del alcance. Consultorías desde $130.000 COP (~$50 USD). Para gestión de campañas como Paid Media Manager en Meta Ads o Google Ads, armo un plan a la medida según tus objetivos y presupuesto.",
   },
   {
     question: "¿En cuánto tiempo veo resultados?",
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "¿Qué te diferencia de una agencia?",
-    answer: "Trabajo con pocos clientes a la vez. Tienes línea directa conmigo, no con un ejecutivo de cuenta que no toca las campañas.",
+    answer: "Como Paid Media Specialist trabajo con pocos clientes a la vez. Tienes línea directa conmigo como PPC Manager, no con un ejecutivo de cuenta que no toca las campañas.",
   },
   {
     question: "¿Necesito un presupuesto mínimo en ads?",
@@ -26,7 +26,19 @@ const faqs = [
   },
   {
     question: "¿Trabajas fuera de Colombia?",
-    answer: "Sí. Trabajo remoto con clientes en toda Latinoamérica y España. Las herramientas son las mismas y las reuniones se hacen por videollamada.",
+    answer: "Sí. Como Performance Marketing Manager trabajo remoto con clientes en toda Latinoamérica y España. Las herramientas son las mismas y las reuniones se hacen por videollamada.",
+  },
+  {
+    question: "¿Qué hace un Paid Media Manager?",
+    answer: "Un Paid Media Manager gestiona campañas de publicidad pagada en plataformas como Meta Ads, Google Ads y TikTok Ads. Su rol incluye estrategia, implementación, optimización de presupuesto, análisis de datos y maximización del ROAS. Es similar a un Digital Advertising Manager, Traffic Manager o Media Buyer.",
+  },
+  {
+    question: "¿Cuál es la diferencia entre un PPC Manager y un Media Buyer?",
+    answer: "Un PPC Manager se enfoca en campañas de pago por clic (Google Ads, Bing Ads), optimizando keywords y pujas. Un Media Buyer negocia y compra espacios publicitarios en múltiples plataformas. En la práctica, un Performance Marketing Manager combina ambos roles para maximizar resultados.",
+  },
+  {
+    question: "¿Necesito un Growth Marketing Manager o un consultor?",
+    answer: "Si necesitas una estrategia integral de adquisición, retención y revenue marketing, un Growth Marketing Manager a tiempo completo es ideal. Si buscas resultados rápidos en paid media, CRO o demand generation sin contratar a tiempo completo, un consultor especializado es más eficiente y económico.",
   },
 ];
 
