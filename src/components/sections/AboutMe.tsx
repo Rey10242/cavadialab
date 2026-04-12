@@ -51,9 +51,11 @@ const AboutMe: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-card p-6 sm:p-8"
           >
+            <p className="text-sm leading-relaxed text-muted-foreground mb-3">
+              Más de <strong className="text-foreground font-semibold">8 años de experiencia</strong> en el área de marketing digital, especializado en estrategia, <strong className="text-foreground font-semibold">Paid Media</strong> y <strong className="text-foreground font-semibold">Performance Marketing</strong>, con un enfoque claro en growth y adquisición de clientes basada en datos y resultados medibles.
+            </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Más de <strong className="text-foreground font-semibold">8 años</strong> como <strong className="text-foreground font-semibold">Paid Media Manager</strong> y Performance Marketing Lead ayudando a negocios a conseguir clientes.
-              Más de <strong className="text-foreground font-semibold">50 empresas</strong> — desde emprendedores hasta negocios consolidados que necesitaban un Media Buyer y Growth Marketing Manager con resultados reales.
+              He trabajado con más de <strong className="text-foreground font-semibold">50 empresas</strong> —desde emprendedores hasta negocios consolidados— liderando la ejecución como <strong className="text-foreground font-semibold">Media Buyer</strong> y <strong className="text-foreground font-semibold">Growth Marketing Manager</strong>, optimizando su escalabilidad, eficiencia en inversión y rentabilidad.
             </p>
           </motion.div>
 
