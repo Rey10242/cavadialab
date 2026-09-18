@@ -1,4 +1,5 @@
 import React from "react";
+import Seo from "@/components/Seo";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 import Methodology from "@/components/sections/Methodology";
 import Services from "@/components/sections/Services";
@@ -14,14 +15,6 @@ import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index: React.FC = () => {
-  React.useEffect(() => {
-    // Dynamic canonical for SPA — ensures correct URL regardless of deploy domain
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (canonical) {
-      canonical.setAttribute("href", "https://cavadialab.com/");
-    }
-  }, []);
-
   useScrollTracking();
   useScrollAnimation();
 
