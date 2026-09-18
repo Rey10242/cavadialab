@@ -1,78 +1,52 @@
-# Plan: Implementar estrategia SEO completa para palabras clave de marketing digital
+# Plan: conseguir leads orgánicos (SEO de verdad)
 
-## Resumen
+## Diagnóstico (verificado hoy)
 
-Integrar las 30 palabras clave de marketing digital/paid media directamente en el sitio web existente, optimizando meta tags, structured data, contenido visible y schema markup para posicionar en Google, Bing y Yahoo.
+- La revisión técnica **pasa todo**: título, descripción, favicon, vista previa social, idioma y viewport están correctos. El problema no es la ficha técnica.
+- **Google Search Console no está conectado** a este proyecto, así que hoy no hay forma de saber si Google siquiera está indexando el sitio ni qué búsquedas lo muestran. Sin ese dato, cualquier cambio es a ciegas.
+- El sitio es **una sola página**. Google necesita una página por tema para posicionar. Hoy compite con una sola URL contra decenas de keywords ("Paid Media Manager", "consultor marketing digital Cartagena", "PPC", etc.).
+- El `sitemap.xml` lista anclas (`/#servicios`, `/#faq`). Google no las trata como páginas; el sitemap efectivamente declara **una sola URL**.
+- El contenido de la página se arma en el navegador, no en el servidor, lo que hace más lenta y frágil la lectura por parte de buscadores y de las IA de búsqueda.
 
----
+Conclusión: no llegan leads orgánicos porque no hay superficie indexable ni medición, no porque falten etiquetas.
 
-## Contexto actual
+## Fase 1 — Medición (primero, sin esto no se avanza)
 
-El sitio ya tiene una base SEO sólida: JSON-LD con `Person`, `ProfessionalService`, `FAQPage`, meta tags geo-targeting, sitemap.xml y robots.txt. Sin embargo, las palabras clave actuales se enfocan solo en "consultor marketing digital cartagena". Falta cobertura para los roles profesionales objetivo (Paid Media Manager, PPC Manager, Growth Marketing Manager, etc.).
+1. Conectar Google Search Console al proyecto y verificar el dominio `cavadialab.com`.
+2. Enviar el sitemap y revisar cobertura de indexación.
+3. Corregir el `sitemap.xml`: dejar solo URLs reales (hoy, la home) y sumar las nuevas páginas conforme se publiquen.
 
----
+## Fase 2 — Páginas que pueden posicionar
 
-## Cambios a implementar
+Crear páginas propias, cada una con su título, descripción, URL y contenido único (400-800 palabras, enfocadas en una intención):
 
-### 1. Meta tags ampliados (`index.html`)
+- `/consultor-marketing-digital-cartagena` (local, la de mayor intención de compra)
+- `/paid-media-manager` (rol / servicio)
+- `/campanas-google-ads` y `/campanas-meta-ads` (por canal)
+- `/analitica-y-tracking` (GA4, GTM, Looker)
 
-- **Title**: Incluir "Paid Media Manager" y "Performance Marketing" en el título.
-- **Description**: Reescribir para cubrir las keywords de mayor volumen: Paid Media Specialist, PPC Manager, Growth Marketing, Media Buyer, etc.
-- **Keywords meta**: Agregar las 30 palabras clave objetivo.
-- **OG/Twitter tags**: Actualizar para reflejar los nuevos términos.
+Cada página: problema del cliente, cómo trabajas, qué incluye, resultados, preguntas frecuentes propias y un CTA a WhatsApp. Enlazadas desde el menú y el pie de página.
 
-### 2. JSON-LD Structured Data ampliado (`index.html`)
+## Fase 3 — Contenido que atrae búsquedas
 
-- **Person.jobTitle**: Agregar array con múltiples títulos profesionales (Paid Media Manager, Performance Marketing Lead, etc.).
-- **Person.knowsAbout**: Ampliar con todos los roles y disciplinas objetivo.
-- **ProfessionalService**: Agregar nuevos servicios al `hasOfferCatalog` (PPC Management, Programmatic Media, CRO, Demand Generation, etc.).
-- **Agregar schema `Occupation**`: Para los roles profesionales, mejorando la aparición en rich results de "People also ask".
+Un blog con 6-8 artículos iniciales que respondan a lo que tu cliente busca antes de contratar: cuánto cuesta anunciar en Meta, por qué mi publicidad no vende, cómo medir el costo por cliente, etc. Cada artículo enlaza a la página de servicio correspondiente.
 
-### 3. Contenido visible optimizado
+## Fase 4 — Autoridad y local
 
-- **Services.tsx**: Ampliar las descripciones de servicios para incluir keywords objetivo naturalmente. Agregar un nuevo servicio "04 - Performance & Growth" que cubra: CRO, Demand Generation, User Acquisition.
-- **AboutMe.tsx**: Enriquecer el texto con menciones naturales a roles como "Media Buyer", "Performance Marketing Manager", "Growth Lead".
-- **FAQ.tsx**: Agregar 3-4 preguntas nuevas orientadas a las keywords:
-  - "¿Qué hace un Paid Media Manager?"
-  - "¿Cuál es la diferencia entre un PPC Manager y un Media Buyer?"
-  - "¿Necesito un Growth Marketing Manager o un consultor?"
+- Ficha de Google Business Profile para Cartagena (la vía más rápida a leads locales).
+- Perfiles y menciones con enlace: LinkedIn, directorios de marketing, colaboraciones.
 
-### 4. FAQ Schema actualizado (`index.html`)
+## Expectativa de tiempos
 
-- Sincronizar el JSON-LD `FAQPage` con las nuevas preguntas agregadas al componente FAQ.
+Indexación: 1-3 semanas. Primeras impresiones y clics: 4-8 semanas. Leads orgánicos consistentes: 3-6 meses. La ficha local y los enlaces a WhatsApp suelen dar resultado antes.
 
-### 5. Sitemap.xml actualizado
+## Notas técnicas
 
-- Agregar entrada para `/#faq` con mayor prioridad (las FAQs con schema son high-value para featured snippets).
-- Actualizar `lastmod` dates.
+- Páginas nuevas como rutas en `src/App.tsx` + `react-helmet-async` para título/descripción/canónica por ruta.
+- Un canónico por ruta, autorreferenciado; quitar el canónico fijo de `index.html` al adoptar Helmet y dejar los `og:*` generales como respaldo.
+- Schema por página: `Service` en servicios, `Article` + `BreadcrumbList` en blog.
+- Al ser una app que se arma en el navegador, las vistas previas por página y la lectura por buscadores mejoran mucho con renderizado en servidor: se consigue migrando a la plantilla TanStack Start ([qué aporta la migración](https://lovable.dev/blog/building-apps-using-tanstack-start)). Opcional, no bloquea nada de lo anterior.
 
-### 6. Robots.txt
+## Orden sugerido
 
-- Sin cambios significativos (ya está bien configurado).
-
----
-
-## Detalles técnicos
-
-
-| Archivo                                    | Cambio                                                          |
-| ------------------------------------------ | --------------------------------------------------------------- |
-| `index.html`                               | Meta tags, JSON-LD Person/ProfessionalService/FAQPage ampliados |
-| `src/components/sections/HeroPersonal.tsx` | Línea de keywords semánticas                                    |
-| `src/components/sections/Services.tsx`     | Nuevo servicio #04, descripciones enriquecidas                  |
-| `src/components/sections/AboutMe.tsx`      | Texto con keywords naturales                                    |
-| `src/components/sections/FAQ.tsx`          | 3-4 nuevas preguntas keyword-driven                             |
-| `public/sitemap.xml`                       | Actualización de prioridades y lastmod                          |
-
-
----
-
-## Lo que NO cambia
-
-- Diseño visual, colores, layout, responsive
-- Funcionalidad existente (tracking, formularios, WhatsApp)
-- URLs (es una SPA single-page, no se crean nuevas rutas)
-
-## Nota importante
-
-Este es un sitio single-page. Para posicionar las 30 keywords de forma óptima a largo plazo, eventualmente sería ideal crear páginas individuales (blog/landing pages). Por ahora, maximizamos el SEO on-page con lo que tenemos: structured data, contenido semántico y FAQ schema.
+Empezar por Fase 1 + las dos primeras páginas de Fase 2 en esta iteración, y seguir con el resto.
