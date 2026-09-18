@@ -20,6 +20,11 @@ const Index: React.FC = () => {
 
     return (
     <div className="relative">
+      <Seo
+        title="Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo Cavadia"
+        description="Reynaldo Montalvo Cavadia — consultor de marketing digital en Cartagena de Indias. Especialista en Meta Ads, Google Ads, automatización y analítica. Estrategias de publicidad digital para conseguir clientes con datos reales."
+        path="/"
+      />
       <AnimatedBackground />
       <div className="relative z-10">
         <CavadiaNavbar />
