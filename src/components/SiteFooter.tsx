@@ -1,17 +1,23 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { landings } from "@/content/landings";
 
-const footerLinks = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#proceso", label: "Proceso" },
-  { href: "#sobre-mi", label: "Sobre mí" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contacto", label: "Contacto" },
+const sectionLinks = [
+  { hash: "#servicios", label: "Servicios" },
+  { hash: "#proceso", label: "Proceso" },
+  { hash: "#sobre-mi", label: "Sobre mí" },
+  { hash: "#faq", label: "FAQ" },
+  { hash: "#contacto", label: "Contacto" },
 ];
 
 const SiteFooter: React.FC = () => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    if (!isHome) return;
     e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -23,11 +29,11 @@ const SiteFooter: React.FC = () => {
           </span>
 
           <nav aria-label="Enlaces del pie de página" className="flex flex-wrap gap-x-6 gap-y-2">
-            {footerLinks.map((link) => (
+            {sectionLinks.map((link) => (
               <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
+                key={link.hash}
+                href={`/${link.hash}`}
+                onClick={(e) => handleClick(e, link.hash)}
                 className="text-[0.62rem] font-bold tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
               >
                 {link.label}
@@ -35,6 +41,21 @@ const SiteFooter: React.FC = () => {
             ))}
           </nav>
         </div>
+
+        <nav
+          aria-label="Servicios"
+          className="mt-6 pt-6 border-t border-border flex flex-wrap gap-x-6 gap-y-2"
+        >
+          {landings.map((l) => (
+            <Link
+              key={l.slug}
+              to={l.slug}
+              className="text-[0.62rem] font-bold tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
 
         <div className="mt-6 pt-4 border-t border-border">
           <span className="text-[0.58rem] text-muted-foreground tracking-wider">
