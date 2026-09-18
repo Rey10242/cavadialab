@@ -11,6 +11,8 @@ export interface LandingFaq {
 
 export interface Landing {
   slug: string;
+  lang?: "es" | "en";
+  market?: string;
   label: string;
   metaTitle: string;
   metaDescription: string;
@@ -323,6 +325,183 @@ export const landings: Landing[] = [
       },
     ],
     serviceName: "Analítica, tracking y dashboards",
+  },
+  {
+    slug: "/consultor-marketing-digital-espana",
+    lang: "es",
+    market: "España",
+    label: "España",
+    metaTitle:
+      "Consultor de Marketing Digital en España | Meta Ads y Google Ads | Reynaldo Montalvo",
+    metaDescription:
+      "Consultor de marketing digital freelance para empresas en España. Campañas de Google Ads y Meta Ads, medición real y coste por cliente controlado. Trabajo en remoto, en tu horario.",
+    eyebrow: "España",
+    h1: "Consultor de marketing digital",
+    h1Accent: "para empresas en España",
+    intro:
+      "Trabajo en remoto con pymes y negocios en España que invierten en publicidad digital y quieren saber exactamente qué les devuelve cada euro. Estrategia, campañas y medición, sin la capa de gestores de una agencia.",
+    blocks: [
+      {
+        heading: "Qué hago por un negocio en España",
+        bullets: [
+          "Campañas de Google Ads (Search, Performance Max y Shopping) enfocadas en coste por cliente, no en clics.",
+          "Campañas de Meta Ads para captar solicitudes de presupuesto, reservas y ventas.",
+          "Medición con GA4, Google Tag Manager y consentimiento conforme al RGPD.",
+          "Informe mensual en Looker Studio: inversión, leads, coste por lead y retorno.",
+        ],
+      },
+      {
+        heading: "Cómo trabajamos en remoto",
+        paragraphs: [
+          "Reuniones por videollamada en horario peninsular, comunicación diaria por WhatsApp o correo y acceso permanente al panel de resultados. La distancia no cambia nada: las plataformas publicitarias son las mismas y los datos se revisan juntos.",
+          "Facturo en euros y puedo trabajar con tus cuentas publicitarias existentes o crear unas nuevas a tu nombre — las cuentas siempre son tuyas.",
+        ],
+      },
+      {
+        heading: "Para qué tipo de negocio funciona mejor",
+        bullets: [
+          "Servicios profesionales que captan clientes por formulario, llamada o WhatsApp.",
+          "Clínicas, academias, inmobiliarias y negocios locales con varias sedes.",
+          "Ecommerce que ya vende y necesita escalar con rentabilidad.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Trabajas con empresas españolas estando en Colombia?",
+        answer:
+          "Sí. Trabajo en remoto con clientes en España desde hace años, con reuniones en horario peninsular y comunicación diaria. Las campañas se gestionan igual desde cualquier lugar.",
+      },
+      {
+        question: "¿Facturas en euros?",
+        answer:
+          "Sí, se factura en euros. La inversión publicitaria la pagas directamente a Google o Meta desde tus propias cuentas, así mantienes el control total del gasto.",
+      },
+      {
+        question: "¿Te encargas del cumplimiento del RGPD en la medición?",
+        answer:
+          "Implemento la medición con banner de consentimiento y Consent Mode de Google, de forma que solo se recogen datos cuando el usuario lo autoriza.",
+      },
+    ],
+    serviceName: "Consultoría de marketing digital para España",
+  },
+  {
+    slug: "/consultor-marketing-digital-mexico",
+    lang: "es",
+    market: "México",
+    label: "México",
+    metaTitle:
+      "Consultor de Marketing Digital en México | Google Ads y Meta Ads | Reynaldo Montalvo",
+    metaDescription:
+      "Consultor de marketing digital freelance para negocios en México. Campañas de Google Ads y Meta Ads con seguimiento de WhatsApp y costo por cliente medido. Trabajo remoto en horario de CDMX.",
+    eyebrow: "México",
+    h1: "Consultor de marketing digital",
+    h1Accent: "para negocios en México",
+    intro:
+      "Ayudo a negocios mexicanos a convertir su inversión publicitaria en clientes reales: campañas en Google y Meta, seguimiento de cada contacto por WhatsApp y números claros sobre cuánto cuesta cada venta.",
+    blocks: [
+      {
+        heading: "Qué incluye el trabajo",
+        bullets: [
+          "Campañas de Google Ads para captar a quien ya está buscando lo que vendes.",
+          "Campañas de Facebook e Instagram orientadas a mensajes de WhatsApp y formularios.",
+          "Medición completa: GA4, Tag Manager, píxel y clics a WhatsApp atribuidos a su campaña.",
+          "Reporte mensual con inversión, contactos, costo por contacto y ventas cerradas.",
+        ],
+      },
+      {
+        heading: "Pensado para el mercado mexicano",
+        paragraphs: [
+          "La mayoría de los negocios en México cierra por WhatsApp, no por carrito de compra. Por eso monto las campañas y la medición alrededor de la conversación: cuántos escriben, cuántos responden y cuántos compran.",
+          "Trabajo en horario de Ciudad de México, con reuniones por videollamada y reportes que entiende cualquier dueño de negocio, no solo un especialista.",
+        ],
+      },
+      {
+        heading: "Negocios con los que más resultados veo",
+        bullets: [
+          "Clínicas, consultorios y servicios de salud.",
+          "Inmobiliarias y desarrollos que necesitan leads calificados.",
+          "Academias, franquicias y comercios locales con varias sucursales.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Cobras en pesos mexicanos o en dólares?",
+        answer:
+          "Se puede acordar en dólares o en pesos mexicanos. La inversión publicitaria la pagas directo a Google o Meta desde tus cuentas, así el gasto siempre queda bajo tu control.",
+      },
+      {
+        question: "¿Puedes medir las ventas que llegan por WhatsApp?",
+        answer:
+          "Sí. Se etiqueta cada clic a WhatsApp con su campaña de origen, así se sabe qué anuncio genera conversaciones y cuáles terminan en venta.",
+      },
+      {
+        question: "¿Necesito tener ya cuentas publicitarias?",
+        answer:
+          "No es necesario. Si no las tienes, las creo a tu nombre con la configuración correcta de facturación y seguimiento; si ya las tienes, las audito antes de invertir.",
+      },
+    ],
+    serviceName: "Consultoría de marketing digital para México",
+  },
+  {
+    slug: "/paid-media-consultant-usa",
+    lang: "en",
+    market: "United States",
+    label: "United States",
+    metaTitle:
+      "Paid Media Consultant for US Businesses | Google & Facebook Ads | Reynaldo Montalvo",
+    metaDescription:
+      "Freelance paid media consultant for US businesses. Google Ads and Facebook Ads campaigns managed around cost per customer, with full tracking and plain-English monthly reporting.",
+    eyebrow: "United States",
+    h1: "Paid media consultant",
+    h1Accent: "for US businesses",
+    intro:
+      "I run Google Ads and Facebook Ads for US companies that want a senior specialist on the account instead of a junior at an agency. Strategy, campaign management, tracking and reporting — measured by cost per customer, not impressions.",
+    blocks: [
+      {
+        heading: "What I do",
+        bullets: [
+          "Google Ads: Search, Performance Max and Shopping campaigns built around qualified demand.",
+          "Facebook and Instagram Ads for lead generation and ecommerce sales.",
+          "Conversion tracking with GA4, Google Tag Manager, Meta Conversions API and offline conversions.",
+          "Monthly Looker Studio reporting: spend, leads, cost per lead, ROAS.",
+        ],
+      },
+      {
+        heading: "How working together looks",
+        paragraphs: [
+          "I work remotely with US clients across all time zones, with video calls, a shared reporting dashboard and direct messaging — no account managers in between. You keep ownership of every ad account, pixel and data source.",
+          "Billing is in USD, and you pay Google and Meta directly so your ad spend stays under your control.",
+        ],
+      },
+      {
+        heading: "A good fit if",
+        bullets: [
+          "You already get customers organically and want to scale with paid traffic.",
+          "You are spending on ads but cannot tell which campaigns produce revenue.",
+          "You need bilingual campaigns (English and Spanish) for the US Hispanic market.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you work with clients in the United States remotely?",
+        answer:
+          "Yes. I work remotely with clients across the US, with calls scheduled in your time zone and a live reporting dashboard you can check any time.",
+      },
+      {
+        question: "Can you run campaigns in both English and Spanish?",
+        answer:
+          "Yes. I run bilingual campaigns and can target the US Hispanic market with dedicated creative and landing pages in Spanish.",
+      },
+      {
+        question: "Who owns the ad accounts and data?",
+        answer:
+          "You do. Campaigns run inside your own Google Ads and Meta Business accounts, and all tracking is set up on your properties, so nothing is lost if we stop working together.",
+      },
+    ],
+    serviceName: "Paid media consulting for the United States",
   },
 ];
 
