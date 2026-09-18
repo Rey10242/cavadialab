@@ -31,12 +31,6 @@ const services = [
   },
   {
     number: "04",
-    name: "Performance & Growth",
-    description: "CRO, Demand Generation y User Acquisition. Estrategia de Growth Marketing y Revenue Marketing para escalar resultados de forma sostenible.",
-    tags: ["CRO", "Growth", "Demand Gen", "Revenue"],
-  },
-  {
-    number: "05",
     name: "Desarrollo Web & Apps",
     description: "Diseño y desarrollo de páginas web, landing pages de conversión y aplicaciones web a medida. Sitios rápidos, responsive y optimizados para SEO que convierten visitas en clientes.",
     tags: ["Páginas Web", "Landing Pages", "Web Apps", "SEO Técnico", "Core Web Vitals"],
@@ -85,23 +79,23 @@ const Services: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-20"
+          className="grid-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-20"
         >
           {services.map((svc) => (
             <div
               key={svc.number}
-              className="relative p-5 sm:p-8 flex flex-col gap-3 transition-colors hover:bg-[hsl(var(--surface))] group overflow-hidden"
+              className="relative p-5 sm:p-6 lg:p-5 xl:p-7 flex flex-col gap-3 transition-colors hover:bg-[hsl(var(--surface))] group overflow-hidden"
             >
               {/* Accent top line on hover */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
 
-              <div className="font-heading text-5xl text-border group-hover:text-primary/20 transition-colors leading-none">
+              <div className="font-heading text-3xl xl:text-5xl text-border group-hover:text-primary/20 transition-colors leading-none">
                 {svc.number}
               </div>
-              <div className="font-heading text-2xl tracking-wide text-foreground">
+              <div className="font-heading text-lg xl:text-2xl tracking-wide text-foreground">
                 {svc.name}
               </div>
-              <p className="text-[0.78rem] leading-relaxed text-muted-foreground flex-1">
+              <p className="text-[0.72rem] xl:text-[0.78rem] leading-relaxed text-muted-foreground flex-1">
                 {svc.description}
               </p>
               <div className="flex flex-wrap gap-1.5">
