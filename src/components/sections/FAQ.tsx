@@ -40,6 +40,10 @@ const faqs = [
     question: "¿Necesito un Growth Marketing Manager o un consultor?",
     answer: "Si necesitas una estrategia integral de adquisición, retención y revenue marketing, un Growth Marketing Manager a tiempo completo es ideal. Si buscas resultados rápidos en paid media, CRO o demand generation sin contratar a tiempo completo, un consultor especializado es más eficiente y económico.",
   },
+  {
+    question: "¿También haces páginas web y aplicaciones web?",
+    answer: "Sí. Diseño y desarrollo páginas web, landing pages de conversión y aplicaciones web a medida: carga rápida, diseño responsive, SEO técnico y medición conectada a GA4 y Google Tag Manager desde el primer día.",
+  },
 ];
 
 const FAQ: React.FC = () => {

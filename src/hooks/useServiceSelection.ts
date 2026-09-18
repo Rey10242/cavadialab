@@ -1,9 +1,9 @@
 // Map service titles to project types for the contact form
 export const serviceToProjectType: Record<string, string> = {
-  "Gestión de Crecimiento Integral": "marketing",
-  "SEO": "marketing",
   "Meta Ads": "marketing",
   "Google Ads": "marketing",
+  "Tracking & Analytics": "marketing",
+  "Desarrollo Web & Apps": "web",
   "Consultoría Estratégica": "consulting",
 };
 

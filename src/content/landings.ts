@@ -327,6 +327,70 @@ export const landings: Landing[] = [
     serviceName: "Analítica, tracking y dashboards",
   },
   {
+    slug: "/desarrollo-web-y-apps",
+    label: "Desarrollo Web",
+    metaTitle: "Desarrollo Web y Aplicaciones Web a Medida | Páginas que convierten | Reynaldo Montalvo",
+    metaDescription:
+      "Diseño y desarrollo de páginas web, landing pages de conversión y aplicaciones web a medida. Sitios rápidos, responsive, con SEO técnico y medición conectada a GA4 y Google Tag Manager.",
+    eyebrow: "Desarrollo Web & Apps",
+    h1: "Páginas web y apps",
+    h1Accent: "que convierten visitas en clientes",
+    intro:
+      "Una web bonita que no vende es un gasto. Diseño y desarrollo sitios, landing pages y aplicaciones web pensados desde el negocio: velocidad, claridad, SEO técnico y medición conectada desde el primer día.",
+    blocks: [
+      {
+        heading: "Qué desarrollo",
+        bullets: [
+          "Páginas web corporativas y sitios de servicio con estructura orientada a conversión.",
+          "Landing pages para campañas de Meta Ads y Google Ads, listas para medir.",
+          "Aplicaciones web a medida: paneles, reservas, catálogos y procesos internos.",
+          "Tiendas y checkouts con eventos de compra bien medidos.",
+          "Rediseños de sitios lentos o desactualizados, sin perder posicionamiento.",
+        ],
+      },
+      {
+        heading: "Cómo se construye",
+        bullets: [
+          "Diseño responsive: se ve bien en móvil, tablet y escritorio.",
+          "Core Web Vitals optimizados: carga rápida y buena experiencia de uso.",
+          "SEO técnico: títulos, metadatos, datos estructurados, sitemap y URLs limpias.",
+          "GA4 + Google Tag Manager configurados con eventos reales de negocio.",
+          "Formularios y WhatsApp conectados al seguimiento de conversiones.",
+        ],
+      },
+      {
+        heading: "Por qué la web y la publicidad van juntas",
+        paragraphs: [
+          "La mayoría de campañas no fallan en la plataforma: fallan cuando el clic llega a una página lenta, confusa o sin una acción clara.",
+          "Al hacer la web y las campañas con la misma cabeza, la página se diseña para el mensaje del anuncio y la medición queda alineada de punta a punta.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Cuánto tarda hacer una página web?",
+        answer:
+          "Una landing page de conversión suele tomar entre 5 y 10 días. Un sitio completo o una aplicación web a medida depende del alcance: se define el plazo antes de empezar.",
+      },
+      {
+        question: "¿La web queda optimizada para SEO?",
+        answer:
+          "Sí. Se entrega con SEO técnico base: estructura de encabezados, metadatos, datos estructurados, sitemap, velocidad optimizada y versión móvil cuidada.",
+      },
+      {
+        question: "¿Puedo editar el contenido después?",
+        answer:
+          "Sí. Se define contigo qué secciones necesitas editar y se entrega la forma de hacerlo, además de una explicación práctica del funcionamiento del sitio.",
+      },
+      {
+        question: "¿También conectas la web con las campañas?",
+        answer:
+          "Sí. La web sale con píxel de Meta, GA4 y Google Tag Manager configurados, y con los eventos de formulario, llamada y WhatsApp listos para optimizar campañas.",
+      },
+    ],
+    serviceName: "Desarrollo web y aplicaciones web a medida",
+  },
+  {
     slug: "/consultor-marketing-digital-espana",
     lang: "es",
     market: "España",
