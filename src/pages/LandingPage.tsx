@@ -1,40 +1,58 @@
 import React from "react";
+import { ArrowRight, BarChart3, Check, Crosshair, Search, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 import Seo from "@/components/Seo";
 import SiteFooter from "@/components/SiteFooter";
-import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
-import AnimatedBackground from "@/components/AnimatedBackground";
-import NotFound from "@/pages/NotFound";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { landingBySlug, landings, type Landing } from "@/content/landings";
+import NotFound from "@/pages/NotFound";
 
 const WHATSAPP = "https://wa.me/573246875354";
+const icons = [Crosshair, BarChart3, Search, Sparkles];
 
 const COPY = {
   es: {
     home: "Inicio",
     breadcrumb: "Ruta de navegación",
-    cta: "Hablemos por WhatsApp →",
-    navCta: "Hablemos →",
+    cta: "Hablemos por WhatsApp",
+    navCta: "Hablemos",
+    scan: "Lo esencial",
+    process: "Un sistema, no improvisación",
+    processText: "Cada decisión tiene un objetivo, una métrica y un siguiente paso.",
     faq: "Preguntas frecuentes",
+    faqText: "Respuestas directas antes de empezar.",
     closingTitle: "¿Listo para vender más?",
-    closingText:
-      "Conversemos sin compromiso. Reviso tu situación y te digo qué cambiaría — con números, no con promesas.",
-    closingCta: "Escribir por WhatsApp →",
-    others: "Otros servicios",
+    closingText: "Cuéntame dónde estás hoy. Te diré con claridad qué haría para avanzar.",
+    closingCta: "Abrir conversación",
+    others: "Explora otras soluciones",
   },
   en: {
     home: "Home",
     breadcrumb: "Breadcrumb",
-    cta: "Talk on WhatsApp →",
-    navCta: "Let's talk →",
+    cta: "Talk on WhatsApp",
+    navCta: "Let's talk",
+    scan: "The essentials",
+    process: "A system, not guesswork",
+    processText: "Every decision has an objective, a metric and a clear next step.",
     faq: "Frequently asked questions",
+    faqText: "Straight answers before we start.",
     closingTitle: "Ready to grow?",
-    closingText:
-      "Let's have a no-commitment call. I'll review your current setup and tell you what I would change — with numbers, not promises.",
-    closingCta: "Message me on WhatsApp →",
-    others: "Other services",
+    closingText: "Tell me where you are today. I'll tell you clearly what I would do next.",
+    closingCta: "Start a conversation",
+    others: "Explore other solutions",
   },
 } as const;
+
+const reveal = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.5 },
+};
 
 const LandingPage: React.FC = () => {
   const { pathname } = useLocation();
@@ -44,6 +62,8 @@ const LandingPage: React.FC = () => {
 
   const lang = landing.lang ?? "es";
   const t = COPY[lang];
+  const others = landings.filter((item) => item.slug !== landing.slug && (item.lang ?? "es") === lang);
+  const allBullets = landing.blocks.flatMap((block) => block.bullets ?? []).slice(0, 6);
 
   const jsonLd = [
     {
@@ -52,191 +72,171 @@ const LandingPage: React.FC = () => {
       name: landing.serviceName,
       serviceType: landing.serviceName,
       url: `https://cavadialab.com${landing.slug}`,
-      provider: {
-        "@type": "Person",
-        name: "Reynaldo Montalvo Cavadia",
-        url: "https://cavadialab.com/",
-      },
+      provider: { "@type": "Person", name: "Reynaldo Montalvo Cavadia", url: "https://cavadialab.com/" },
       areaServed: landing.market
         ? [{ "@type": "Country", name: landing.market }]
-        : [
-            { "@type": "Country", name: "Colombia" },
-            { "@type": "Country", name: "México" },
-            { "@type": "Country", name: "España" },
-          ],
+        : ["Colombia", "México", "España"].map((name) => ({ "@type": "Country", name })),
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: t.home, item: "https://cavadialab.com/" },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: landing.label,
-          item: `https://cavadialab.com${landing.slug}`,
-        },
+        { "@type": "ListItem", position: 2, name: landing.label, item: `https://cavadialab.com${landing.slug}` },
       ],
     },
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: landing.faqs.map((f) => ({
+      mainEntity: landing.faqs.map((faq) => ({
         "@type": "Question",
-        name: f.question,
-        acceptedAnswer: { "@type": "Answer", text: f.answer },
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
       })),
     },
   ];
 
-  const others = landings.filter(
-    (l) => l.slug !== landing.slug && (l.lang ?? "es") === lang,
-  );
-
   return (
-    <div className="relative">
-      <Seo
-        title={landing.metaTitle}
-        description={landing.metaDescription}
-        path={landing.slug}
-        lang={lang}
-        jsonLd={jsonLd}
-      />
+    <div className="relative overflow-hidden bg-background">
+      <Seo title={landing.metaTitle} description={landing.metaDescription} path={landing.slug} lang={lang} jsonLd={jsonLd} />
       <AnimatedBackground />
 
       <div className="relative z-10">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-          <nav className="container mx-auto px-3 sm:px-4 md:px-8 flex items-center justify-between h-14">
-            <Link
-              to="/"
-              className="font-heading text-[0.85rem] sm:text-lg tracking-[0.12em] sm:tracking-[0.15em] text-primary hover:opacity-80 transition-opacity"
-            >
+        <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+          <nav className="container mx-auto flex h-14 items-center justify-between px-4 md:px-8">
+            <Link to="/" className="font-heading text-base text-primary transition-opacity hover:opacity-70 sm:text-lg">
               REYNALDO MONTALVO CAVADIA
             </Link>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground font-body text-[0.62rem] font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
-            >
-              {t.navCta}
-            </a>
+            <Button asChild size="sm" className="rounded-none font-body text-[0.65rem] font-bold uppercase">
+              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">{t.navCta}<ArrowRight /></a>
+            </Button>
           </nav>
         </header>
 
-        <main id="main" role="main" className="pt-24 pb-10">
-          <article className="container mx-auto px-4 sm:px-6 md:px-8 max-w-3xl">
-            <nav aria-label={t.breadcrumb} className="mb-6">
-              <ol className="flex items-center gap-2 text-[0.6rem] font-bold uppercase tracking-wider text-muted-foreground">
-                <li>
-                  <Link to="/" className="hover:text-primary transition-colors">
-                    {t.home}
-                  </Link>
-                </li>
-                <li aria-hidden>/</li>
-                <li className="text-foreground">{landing.label}</li>
-              </ol>
-            </nav>
+        <main id="main" className="pb-16 pt-14">
+          <article>
+            <section className="border-b border-border">
+              <div className="container mx-auto grid min-h-[72vh] max-w-6xl items-end gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1fr_18rem] md:px-8 md:py-20 lg:min-h-[78vh]">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
+                  <nav aria-label={t.breadcrumb} className="mb-8">
+                    <ol className="flex items-center gap-2 text-[0.62rem] font-bold uppercase text-muted-foreground">
+                      <li><Link to="/" className="hover:text-primary">{t.home}</Link></li>
+                      <li aria-hidden>/</li>
+                      <li className="text-foreground">{landing.label}</li>
+                    </ol>
+                  </nav>
+                  <p className="mb-4 font-body text-[0.68rem] font-bold uppercase text-primary">{landing.eyebrow}</p>
+                  <h1 className="max-w-4xl font-heading text-[clamp(3.7rem,10vw,8.5rem)] leading-[0.82] text-foreground">
+                    {landing.h1}<br /><span className="text-primary">{landing.h1Accent}</span>
+                  </h1>
+                </motion.div>
 
-            <div className="section-label">{landing.eyebrow}</div>
-            <h1 className="font-heading text-[clamp(2.2rem,6vw,4rem)] leading-[0.95] tracking-tight mb-5">
-              {landing.h1}{" "}
-              <span className="text-primary">{landing.h1Accent}</span>
-            </h1>
-            <p className="font-serif italic text-base sm:text-lg text-muted-foreground leading-relaxed mb-10">
-              {landing.intro}
-            </p>
-
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground font-body text-xs font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all mb-14"
-            >
-              {t.cta}
-            </a>
-
-            {landing.blocks.map((block) => (
-              <section key={block.heading} className="mb-12">
-                <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] leading-tight tracking-tight mb-4">
-                  {block.heading}
-                </h2>
-                {block.paragraphs?.map((p) => (
-                  <p
-                    key={p}
-                    className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3"
-                  >
-                    {p}
-                  </p>
-                ))}
-                {block.bullets && (
-                  <ul className="space-y-2.5 mt-2">
-                    {block.bullets.map((b) => (
-                      <li
-                        key={b}
-                        className="flex gap-3 text-sm sm:text-base text-muted-foreground leading-relaxed"
-                      >
-                        <span className="text-primary font-bold shrink-0">—</span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
-            ))}
-
-            <section className="mb-14">
-              <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] leading-tight tracking-tight mb-5">
-                {t.faq}
-              </h2>
-              <dl className="space-y-5">
-                {landing.faqs.map((faq) => (
-                  <div key={faq.question} className="border-t border-border pt-4">
-                    <dt className="text-sm font-semibold text-foreground mb-2">
-                      {faq.question}
-                    </dt>
-                    <dd className="text-sm text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.18 }} className="border-l-2 border-primary pl-5 md:mb-2">
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{landing.intro}</p>
+                  <Button asChild className="mt-6 w-full rounded-none font-body text-xs font-bold uppercase">
+                    <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">{t.cta}<ArrowRight /></a>
+                  </Button>
+                </motion.div>
+              </div>
             </section>
 
-            <section className="border border-border bg-card p-6 sm:p-8 mb-14">
-              <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] leading-tight tracking-tight mb-3">
-                {t.closingTitle}
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                {t.closingText}
-              </p>
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#25D366] text-black font-body text-xs font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
-              >
-                {t.closingCta}
-              </a>
-            </section>
+            <section className="container mx-auto max-w-6xl px-4 py-16 sm:px-6 md:px-8 md:py-24">
+              <motion.div {...reveal} className="mb-9 flex items-end justify-between gap-6 border-b border-border pb-5">
+                <div><p className="mb-2 text-[0.65rem] font-bold uppercase text-primary">01 / {t.scan}</p><h2 className="font-heading text-4xl sm:text-6xl">{landing.serviceName}</h2></div>
+                <span className="hidden font-heading text-7xl text-border md:block">RMC</span>
+              </motion.div>
 
-            <section>
-              <h2 className="font-heading text-xl tracking-tight mb-4">
-                {t.others}
-              </h2>
-              <ul className="grid sm:grid-cols-2 gap-3">
-                {others.map((o) => (
-                  <li key={o.slug}>
-                    <Link
-                      to={o.slug}
-                      className="block border border-border p-4 hover:border-primary/50 transition-colors"
+              <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-6">
+                {landing.blocks.map((block, index) => {
+                  const Icon = icons[index % icons.length];
+                  const wide = index === 0 || index === 3;
+                  return (
+                    <motion.section
+                      key={block.heading}
+                      {...reveal}
+                      transition={{ duration: 0.45, delay: index * 0.06 }}
+                      className={`group min-h-[17rem] bg-card p-6 transition-colors duration-300 hover:bg-secondary sm:p-8 ${wide ? "md:col-span-4" : "md:col-span-2"}`}
                     >
-                      <span className="block text-[0.6rem] font-bold uppercase tracking-wider text-primary mb-1">
-                        {o.eyebrow}
-                      </span>
-                      <span className="block text-sm text-foreground">
-                        {o.h1} {o.h1Accent}
-                      </span>
+                      <div className="mb-10 flex items-center justify-between">
+                        <Icon className="h-6 w-6 text-primary transition-transform duration-300 group-hover:translate-x-1" />
+                        <span className="font-heading text-3xl text-muted">0{index + 1}</span>
+                      </div>
+                      <h2 className="mb-4 max-w-xl font-heading text-3xl leading-none sm:text-4xl">{block.heading}</h2>
+                      {block.paragraphs?.map((paragraph) => (
+                        <p key={paragraph} className="mb-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">{paragraph}</p>
+                      ))}
+                      {block.bullets && (
+                        <ul className="grid gap-3 sm:grid-cols-2">
+                          {block.bullets.map((bullet) => (
+                            <li key={bullet} className="flex gap-2 text-sm leading-snug text-muted-foreground"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /><span>{bullet}</span></li>
+                          ))}
+                        </ul>
+                      )}
+                    </motion.section>
+                  );
+                })}
+              </div>
+            </section>
+
+            {allBullets.length > 0 && (
+              <section className="border-y border-border bg-secondary">
+                <div className="container mx-auto max-w-6xl px-4 py-16 sm:px-6 md:px-8 md:py-24">
+                  <motion.div {...reveal} className="mb-10 grid gap-4 md:grid-cols-2 md:items-end">
+                    <div><p className="mb-2 text-[0.65rem] font-bold uppercase text-primary">02 / Proceso</p><h2 className="font-heading text-5xl sm:text-7xl">{t.process}</h2></div>
+                    <p className="max-w-md text-sm text-muted-foreground md:justify-self-end">{t.processText}</p>
+                  </motion.div>
+                  <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    {allBullets.slice(0, 4).map((bullet, index) => (
+                      <motion.div key={bullet} {...reveal} transition={{ duration: 0.4, delay: index * 0.08 }} className="border-t border-border pt-5">
+                        <span className="font-heading text-6xl text-primary">0{index + 1}</span>
+                        <p className="mt-4 text-sm leading-relaxed text-foreground">{bullet}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            <section className="container mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-[0.75fr_1.25fr] md:px-8 md:py-24">
+              <motion.div {...reveal}>
+                <p className="mb-2 text-[0.65rem] font-bold uppercase text-primary">03 / FAQ</p>
+                <h2 className="font-heading text-5xl sm:text-7xl">{t.faq}</h2>
+                <p className="mt-4 text-sm text-muted-foreground">{t.faqText}</p>
+              </motion.div>
+              <motion.div {...reveal}>
+                <Accordion type="single" collapsible>
+                  {landing.faqs.map((faq, index) => (
+                    <AccordionItem key={faq.question} value={`faq-${index}`} className="border-border">
+                      <AccordionTrigger className="gap-5 py-6 text-left text-sm font-semibold hover:text-primary hover:no-underline sm:text-base">
+                        <span className="mr-auto"><span className="mr-3 font-heading text-xl text-primary">0{index + 1}</span>{faq.question}</span>
+                      </AccordionTrigger>
+                      <AccordionContent className="max-w-2xl pl-9 text-sm leading-relaxed text-muted-foreground">{faq.answer}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </motion.div>
+            </section>
+
+            <section className="container mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:px-8">
+              <motion.div {...reveal} className="grid overflow-hidden border border-primary bg-primary md:grid-cols-[1fr_auto] md:items-center">
+                <div className="p-7 sm:p-10 md:p-14">
+                  <h2 className="font-heading text-5xl leading-none text-primary-foreground sm:text-7xl">{t.closingTitle}</h2>
+                  <p className="mt-4 max-w-xl text-sm text-primary-foreground/80 sm:text-base">{t.closingText}</p>
+                </div>
+                <Button asChild variant="secondary" size="lg" className="m-7 rounded-none border border-primary-foreground/20 font-body text-xs font-bold uppercase sm:m-10">
+                  <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">{t.closingCta}<ArrowRight /></a>
+                </Button>
+              </motion.div>
+            </section>
+
+            <section className="container mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:px-8">
+              <h2 className="mb-6 font-heading text-3xl">{t.others}</h2>
+              <ul className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+                {others.map((item) => (
+                  <li key={item.slug} className="bg-card">
+                    <Link to={item.slug} className="group flex min-h-32 flex-col justify-between p-5 transition-colors hover:bg-secondary">
+                      <span className="text-[0.62rem] font-bold uppercase text-primary">{item.eyebrow}</span>
+                      <span className="mt-8 flex items-end justify-between gap-4 font-heading text-2xl leading-none">{item.h1} {item.h1Accent}<ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" /></span>
                     </Link>
                   </li>
                 ))}
