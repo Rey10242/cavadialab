@@ -9,11 +9,41 @@ import { landingBySlug, landings, type Landing } from "@/content/landings";
 
 const WHATSAPP = "https://wa.me/573246875354";
 
+const COPY = {
+  es: {
+    home: "Inicio",
+    breadcrumb: "Ruta de navegación",
+    cta: "Hablemos por WhatsApp →",
+    navCta: "Hablemos →",
+    faq: "Preguntas frecuentes",
+    closingTitle: "¿Listo para vender más?",
+    closingText:
+      "Conversemos sin compromiso. Reviso tu situación y te digo qué cambiaría — con números, no con promesas.",
+    closingCta: "Escribir por WhatsApp →",
+    others: "Otros servicios",
+  },
+  en: {
+    home: "Home",
+    breadcrumb: "Breadcrumb",
+    cta: "Talk on WhatsApp →",
+    navCta: "Let's talk →",
+    faq: "Frequently asked questions",
+    closingTitle: "Ready to grow?",
+    closingText:
+      "Let's have a no-commitment call. I'll review your current setup and tell you what I would change — with numbers, not promises.",
+    closingCta: "Message me on WhatsApp →",
+    others: "Other services",
+  },
+} as const;
+
 const LandingPage: React.FC = () => {
   const { pathname } = useLocation();
   const landing = landingBySlug(pathname.replace(/\/$/, "")) as Landing | undefined;
 
   if (!landing) return <NotFound />;
+
+  const lang = landing.lang ?? "es";
+  const t = COPY[lang];
 
   const jsonLd = [
     {
@@ -27,17 +57,19 @@ const LandingPage: React.FC = () => {
         name: "Reynaldo Montalvo Cavadia",
         url: "https://cavadialab.com/",
       },
-      areaServed: [
-        { "@type": "Country", name: "Colombia" },
-        { "@type": "Country", name: "México" },
-        { "@type": "Country", name: "España" },
-      ],
+      areaServed: landing.market
+        ? [{ "@type": "Country", name: landing.market }]
+        : [
+            { "@type": "Country", name: "Colombia" },
+            { "@type": "Country", name: "México" },
+            { "@type": "Country", name: "España" },
+          ],
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://cavadialab.com/" },
+        { "@type": "ListItem", position: 1, name: t.home, item: "https://cavadialab.com/" },
         {
           "@type": "ListItem",
           position: 2,
@@ -57,7 +89,9 @@ const LandingPage: React.FC = () => {
     },
   ];
 
-  const others = landings.filter((l) => l.slug !== landing.slug);
+  const others = landings.filter(
+    (l) => l.slug !== landing.slug && (l.lang ?? "es") === lang,
+  );
 
   return (
     <div className="relative">
@@ -65,6 +99,7 @@ const LandingPage: React.FC = () => {
         title={landing.metaTitle}
         description={landing.metaDescription}
         path={landing.slug}
+        lang={lang}
         jsonLd={jsonLd}
       />
       <AnimatedBackground />
@@ -84,18 +119,18 @@ const LandingPage: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground font-body text-[0.62rem] font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
             >
-              Hablemos →
+              {t.navCta}
             </a>
           </nav>
         </header>
 
         <main id="main" role="main" className="pt-24 pb-10">
           <article className="container mx-auto px-4 sm:px-6 md:px-8 max-w-3xl">
-            <nav aria-label="Ruta de navegación" className="mb-6">
+            <nav aria-label={t.breadcrumb} className="mb-6">
               <ol className="flex items-center gap-2 text-[0.6rem] font-bold uppercase tracking-wider text-muted-foreground">
                 <li>
                   <Link to="/" className="hover:text-primary transition-colors">
-                    Inicio
+                    {t.home}
                   </Link>
                 </li>
                 <li aria-hidden>/</li>
@@ -118,7 +153,7 @@ const LandingPage: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground font-body text-xs font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all mb-14"
             >
-              Hablemos por WhatsApp →
+              {t.cta}
             </a>
 
             {landing.blocks.map((block) => (
@@ -152,7 +187,7 @@ const LandingPage: React.FC = () => {
 
             <section className="mb-14">
               <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] leading-tight tracking-tight mb-5">
-                Preguntas frecuentes
+                {t.faq}
               </h2>
               <dl className="space-y-5">
                 {landing.faqs.map((faq) => (
@@ -170,11 +205,10 @@ const LandingPage: React.FC = () => {
 
             <section className="border border-border bg-card p-6 sm:p-8 mb-14">
               <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] leading-tight tracking-tight mb-3">
-                ¿Listo para vender más?
+                {t.closingTitle}
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                Conversemos sin compromiso. Reviso tu situación y te digo qué
-                cambiaría — con números, no con promesas.
+                {t.closingText}
               </p>
               <a
                 href={WHATSAPP}
@@ -182,13 +216,13 @@ const LandingPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-[#25D366] text-black font-body text-xs font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
               >
-                Escribir por WhatsApp →
+                {t.closingCta}
               </a>
             </section>
 
             <section>
               <h2 className="font-heading text-xl tracking-tight mb-4">
-                Otros servicios
+                {t.others}
               </h2>
               <ul className="grid sm:grid-cols-2 gap-3">
                 {others.map((o) => (
