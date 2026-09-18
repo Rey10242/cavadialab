@@ -21,7 +21,7 @@ export default {
 				fontFamily: {
 					heading: ["'Bebas Neue'", "ui-sans-serif", "system-ui", "sans-serif"],
 					serif: ["'Instrument Serif'", "Georgia", "serif"],
-					body: ["'Instrument Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
+					body: ["'Barlow'", "'Instrument Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
 				},
 				colors: {
 					border: 'hsl(var(--border))',
