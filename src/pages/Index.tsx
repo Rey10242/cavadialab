@@ -24,6 +24,7 @@ const Index: React.FC = () => {
         title="Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo Cavadia"
         description="Reynaldo Montalvo Cavadia — consultor de marketing digital en Cartagena de Indias. Especialista en Meta Ads, Google Ads, automatización y analítica. Estrategias de publicidad digital para conseguir clientes con datos reales."
         path="/"
+        ogType="profile"
       />
       <AnimatedBackground />
       <div className="relative z-10">
