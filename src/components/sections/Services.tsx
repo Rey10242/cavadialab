@@ -35,6 +35,12 @@ const services = [
     description: "CRO, Demand Generation y User Acquisition. Estrategia de Growth Marketing y Revenue Marketing para escalar resultados de forma sostenible.",
     tags: ["CRO", "Growth", "Demand Gen", "Revenue"],
   },
+  {
+    number: "05",
+    name: "Desarrollo Web & Apps",
+    description: "Diseño y desarrollo de páginas web, landing pages de conversión y aplicaciones web a medida. Sitios rápidos, responsive y optimizados para SEO que convierten visitas en clientes.",
+    tags: ["Páginas Web", "Landing Pages", "Web Apps", "SEO Técnico", "Core Web Vitals"],
+  },
 ];
 
 const packs = [
@@ -79,7 +85,7 @@ const Services: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-20"
+          className="grid-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-20"
         >
           {services.map((svc) => (
             <div
