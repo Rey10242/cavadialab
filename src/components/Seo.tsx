@@ -11,6 +11,7 @@ interface SeoProps {
   description: string;
   path: string;
   ogType?: string;
+  lang?: "es" | "en";
   image?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -20,12 +21,14 @@ const Seo: React.FC<SeoProps> = ({
   description,
   path,
   ogType = "website",
+  lang = "es",
   image = DEFAULT_IMAGE,
   jsonLd,
 }) => {
   const url = `${SITE}${path}`;
   return (
     <Helmet>
+      <html lang={lang === "en" ? "en" : "es-CO"} />
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
@@ -37,6 +40,7 @@ const Seo: React.FC<SeoProps> = ({
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={IMAGE_ALT} />
+      <meta property="og:locale" content={lang === "en" ? "en_US" : "es_CO"} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
