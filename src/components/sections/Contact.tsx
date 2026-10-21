@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { whatsappUrl } from "@/content/site";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -25,6 +26,8 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
+  const [notificationSent, setNotificationSent] = useState(false);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -50,27 +53,29 @@ const Contact: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    setSubmissionError("");
     try {
       const { error } = await supabase
         .from("contact_submissions")
         .insert({ name: data.name, email: data.email, phone: data.phone || null, message: data.message });
       if (error) throw error;
+      let notified = false;
       try {
-        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-        const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-        await fetch(`${supabaseUrl}/functions/v1/notify-contact`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Authorization": `Bearer ${supabaseKey}` },
+        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-contact`, {
+          method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}` },
           body: JSON.stringify({ name: data.name, email: data.email, phone: data.phone || undefined, message: data.message }),
         });
-      } catch (emailError) { console.error("Error sending email notification:", emailError); }
+        const result = await response.json();
+        notified = response.ok && result.success === true && !result.data?.error && Boolean(result.data?.data?.id);
+      } catch { /* Storage succeeded; notification remains unconfirmed. Do not retry the insert. */ }
+      setNotificationSent(notified);
       setIsSubmitted(true);
       trackFormSubmit();
-      toast.success("¡Mensaje enviado!");
+      toast.success("Tu solicitud quedó guardada.");
       form.reset();
-      setTimeout(() => setIsSubmitted(false), 5000);
+
     } catch (error) {
-      console.error("Error submitting contact form:", error);
+      setSubmissionError("No pudimos guardar tu mensaje. Intenta de nuevo o escríbeme por WhatsApp.");
       toast.error("Error al enviar. Intenta de nuevo.");
     } finally {
       setIsSubmitting(false);
@@ -79,83 +84,67 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contacto" className="section-padding relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-2xl mb-12"
+      <div className="page-shell">
+        <div className="max-w-2xl mb-12"
         >
           <div className="section-label">Contacto</div>
-          <h2 className="font-heading text-[clamp(2.2rem,7vw,6.5rem)] leading-[0.9] tracking-tight mb-4">
-            ¿Listo para<br />vender <span className="text-primary">más</span>?
+          <h2 className="section-title">
+            Tu próximo paso<br /><span className="text-primary">empieza aquí.</span>
           </h2>
           <p className="font-serif italic text-base text-muted-foreground">
-            Sin compromiso. Sin presión. Solo una conversación para ver si tiene sentido trabajar juntos.
+            Cuéntame qué quieres resolver. Revisemos si publicidad, medición o tecnología son el siguiente paso para tu negocio.
           </p>
-        </motion.div>
+        </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-col sm:flex-row gap-3 mb-12"
+        <div className="flex flex-col sm:flex-row gap-3 mb-12"
         >
-          <a
-            href="https://wa.me/573246875354"
+          <Button asChild variant="whatsapp"><a
+            href={whatsappUrl("mi proyecto y sus necesidades")}
             target="_blank"
             rel="noopener noreferrer"
             onClick={trackContactWhatsApp}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-body text-[0.72rem] font-bold tracking-wider hover:brightness-110 hover:-translate-y-0.5 transition-all"
+            
           >
-            Escríbeme por WhatsApp
-          </a>
-          <button
-            onClick={() => { setShowForm(!showForm); trackContactFormOpen(); }}
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-body text-[0.72rem] font-bold tracking-wider hover:border-primary hover:text-primary transition-all"
+            Hablemos de tu proyecto <MessageCircle className="w-4 h-4" />
+          </a></Button>
+          <Button variant="outline" aria-expanded={showForm} aria-controls="contact-form"
+            onClick={() => { setShowForm(!showForm); if (!showForm) trackContactFormOpen(); }}
           >
             {showForm ? "Cerrar formulario" : "Enviar mensaje"}
-          </button>
-        </motion.div>
+          </Button>
+        </div>
 
         {/* Expandable form */}
         {showForm && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="max-w-3xl"
+          <div id="contact-form" className="max-w-5xl"
           >
             <div className="grid lg:grid-cols-2 gap-px bg-border border border-border">
               {/* Form */}
               <div className="bg-card p-6 md:p-8">
                 {isSubmitted ? (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                  <div
                     className="flex flex-col items-center justify-center py-12 text-center"
                   >
                     <CheckCircle className="w-10 h-10 text-primary mb-4" />
-                    <h4 className="font-heading text-xl text-foreground mb-2">Mensaje Enviado</h4>
-                    <p className="text-sm text-muted-foreground">Te responderé lo antes posible.</p>
-                  </motion.div>
+                    <h3 className="font-heading text-2xl text-foreground mb-2">Solicitud guardada</h3>
+                    <p role="status" className="text-base text-muted-foreground">{notificationSent ? "Tu solicitud quedó guardada y el servicio de correo aceptó la notificación. Esto no confirma su entrega." : "Tu solicitud quedó guardada, pero no pudimos confirmar la notificación por correo. Puedes contactarme por WhatsApp; no necesitas reenviar el formulario."}</p><Button variant="outline" className="mt-5" onClick={() => setIsSubmitted(false)}>Enviar otra solicitud</Button>
+                  </div>
                 ) : (
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                      {submissionError && <p role="alert" className="text-destructive">{submissionError}</p>}
                       <div className="grid sm:grid-cols-2 gap-4">
                         <FormField control={form.control} name="name" render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[0.62rem] font-bold tracking-wider uppercase">Nombre *</FormLabel>
+                            <FormLabel className="text-sm font-semibold">Nombre *</FormLabel>
                             <FormControl><Input placeholder="Tu nombre" {...field} className="bg-background border-border rounded-none" /></FormControl>
                             <FormMessage />
                           </FormItem>
                         )} />
                         <FormField control={form.control} name="email" render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-[0.62rem] font-bold tracking-wider uppercase">Email *</FormLabel>
+                            <FormLabel className="text-sm font-semibold">Email *</FormLabel>
                             <FormControl><Input type="email" placeholder="tu@email.com" {...field} className="bg-background border-border rounded-none" /></FormControl>
                             <FormMessage />
                           </FormItem>
@@ -163,21 +152,21 @@ const Contact: React.FC = () => {
                       </div>
                       <FormField control={form.control} name="phone" render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[0.62rem] font-bold tracking-wider uppercase">Teléfono (opcional)</FormLabel>
-                          <FormControl><Input type="tel" placeholder="+57 300 123 4567" {...field} className="bg-background border-border rounded-none" /></FormControl>
+                          <FormLabel className="text-sm font-semibold">Teléfono (opcional)</FormLabel>
+                          <FormControl><Input type="tel" placeholder="Tu número de contacto" {...field} className="bg-background border-border rounded-none" /></FormControl>
                           <FormMessage />
                         </FormItem>
                       )} />
                       <FormField control={form.control} name="message" render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[0.62rem] font-bold tracking-wider uppercase">Mensaje *</FormLabel>
+                          <FormLabel className="text-sm font-semibold">Mensaje *</FormLabel>
                           <FormControl><Textarea placeholder="Cuéntame brevemente tu situación..." rows={4} {...field} className="bg-background border-border rounded-none" /></FormControl>
                           <FormMessage />
                         </FormItem>
                       )} />
-                      <button type="submit" className="w-full py-3 bg-primary text-primary-foreground text-[0.72rem] font-bold tracking-wider uppercase hover:brightness-110 transition-all disabled:opacity-50" disabled={isSubmitting}>
+                      <Button type="submit" className="w-full" disabled={isSubmitting}>
                         {isSubmitting ? "Enviando..." : "Enviar Mensaje →"}
-                      </button>
+                      </Button>
                     </form>
                   </Form>
                 )}
@@ -189,39 +178,33 @@ const Contact: React.FC = () => {
                 <a href="mailto:rmontalvocavadia@gmail.com" className="flex items-center gap-3 p-3 hover:bg-background/50 transition-colors group">
                   <Mail className="w-4 h-4 text-primary shrink-0" />
                   <div>
-                    <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">Email</p>
-                    <p className="text-sm text-foreground">rmontalvocavadia@gmail.com</p>
+                    <p className="text-sm font-semibold text-muted-foreground">Email</p>
+                    <p className="text-sm text-foreground break-all">rmontalvocavadia@gmail.com</p>
                   </div>
                 </a>
-                <a href="https://wa.me/573246875354" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 hover:bg-background/50 transition-colors group">
+                <a href={whatsappUrl("mi proyecto y sus necesidades")} onClick={() => trackContactWhatsApp()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 hover:bg-background/50 transition-colors group">
                   <Phone className="w-4 h-4 text-primary shrink-0" />
                   <div>
-                    <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">WhatsApp</p>
+                    <p className="text-sm font-semibold text-muted-foreground">WhatsApp</p>
                     <p className="text-sm text-foreground">+57 324 687 5354</p>
                   </div>
                 </a>
                 <div className="flex items-center gap-3 p-3">
                   <MapPin className="w-4 h-4 text-primary shrink-0" />
                   <div>
-                    <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">Ubicación</p>
+                    <p className="text-sm font-semibold text-muted-foreground">Ubicación</p>
                     <p className="text-sm text-foreground">Cartagena, Colombia</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-3 border border-border">
-                  <Clock className="w-4 h-4 text-primary shrink-0" />
-                  <div>
-                    <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">Disponibilidad</p>
-                    <p className="text-sm text-foreground">Lun - Vie: 9:00 AM - 6:00 PM</p>
-                  </div>
-                </div>
+
                 <div className="flex gap-2 pt-4 border-t border-border">
                   {[
                     { icon: Linkedin, href: "https://www.linkedin.com/in/rmontalvocavadia/", label: "LinkedIn" },
                     { icon: Instagram, href: "https://www.instagram.com/reynaldo.cavadia/", label: "Instagram" },
                     { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp" },
                   ].map((s) => (
-                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                      className="w-9 h-9 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                    <a key={s.label} href={s.label === "WhatsApp" ? whatsappUrl("mi proyecto") : s.href} onClick={() => { if (s.label === "WhatsApp") trackContactWhatsApp(); }} target="_blank" rel="noopener noreferrer"
+                      className="w-12 h-12 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
                       aria-label={s.label}>
                       <s.icon className="w-4 h-4" />
                     </a>
@@ -229,7 +212,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>

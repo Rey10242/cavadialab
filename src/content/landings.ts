@@ -27,547 +27,167 @@ export interface Landing {
 
 export const landings: Landing[] = [
   {
-    slug: "/consultor-marketing-digital-cartagena",
-    label: "Cartagena",
-    metaTitle:
-      "Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo Cavadia",
-    metaDescription:
-      "Consultor de marketing digital en Cartagena de Indias. Campañas de Meta Ads y Google Ads, medición real y más clientes para tu negocio. Habla directo conmigo, no con una agencia.",
-    eyebrow: "Cartagena de Indias",
-    h1: "Consultor de marketing digital",
-    h1Accent: "en Cartagena",
-    intro:
-      "Ayudo a negocios de Cartagena a conseguir clientes todos los días con publicidad digital bien hecha: estrategia, campañas, medición y decisiones basadas en números, no en corazonadas.",
+    slug: "/consultor-marketing-digital-cartagena", label: "Cartagena",
+    metaTitle: "Consultor de marketing digital en Cartagena | Cavadia Lab",
+    metaDescription: "Reynaldo Montalvo Cavadia: publicidad en Meta Ads y Google Ads, analítica y desarrollo web desde Cartagena. Conversemos sobre tu proyecto.",
+    eyebrow: "Cartagena · Estrategia y ejecución", h1: "Marketing digital", h1Accent: "desde Cartagena",
+    intro: "Soy Reynaldo Montalvo Cavadia. Conecto publicidad, medición y tecnología para ordenar el recorrido entre descubrir tu negocio y contactarte.",
     blocks: [
-      {
-        heading: "El problema que veo todos los días en Cartagena",
-        paragraphs: [
-          "Restaurantes, clínicas, inmobiliarias, hoteles y tiendas invierten en publicidad porque alguien les dijo que había que hacerlo. Pagan, ven likes, reciben mensajes que no compran y al final del mes nadie sabe cuánto costó cada cliente real.",
-          "El problema casi nunca es el producto. Es que no hay una estrategia detrás: no se sabe a quién se le está hablando, qué se le está ofreciendo ni cómo se mide si funcionó. Sin eso, invertir más solo significa perder más rápido.",
-        ],
-      },
-      {
-        heading: "Cómo trabajo contigo",
-        bullets: [
-          "Diagnóstico: reviso qué estás haciendo hoy, cuánto inviertes y qué te está devolviendo.",
-          "Estructuración: definimos qué anunciar, a quién, en qué canal y cómo vamos a medirlo antes de gastar un peso.",
-          "Ejecución: monto y gestiono las campañas en Meta Ads y Google Ads.",
-          "Medición: instalo el seguimiento (GA4, Google Tag Manager, WhatsApp) para saber de dónde viene cada contacto.",
-          "Escalamiento: cuando los números cuadran, subimos la inversión con confianza.",
-        ],
-      },
-      {
-        heading: "Negocios con los que trabajo bien",
-        paragraphs: [
-          "Negocios locales de Cartagena y Bolívar que venden por WhatsApp o reciben clientes en punto físico: salud y estética, servicios profesionales, turismo, inmobiliaria, educación y comercio.",
-          "También trabajo de forma remota con clientes en el resto de Colombia, Latinoamérica y España. Las herramientas son las mismas y las reuniones se hacen por videollamada.",
-        ],
-      },
-      {
-        heading: "Qué te llevas",
-        bullets: [
-          "Campañas activas con objetivo claro, no publicaciones promocionadas.",
-          "Un número de contacto por cliente: cuánto te costó cada persona interesada y cada venta.",
-          "Un reporte que entiendes, sin métricas de vanidad.",
-          "Línea directa conmigo. Trabajo con pocos clientes a la vez.",
-        ],
-      },
+      { heading: "Una mirada al recorrido completo", paragraphs: ["Una campaña puede generar visitas sin generar conversaciones relevantes. Revisamos la oferta, la página de destino y la atención comercial, no solo la plataforma de anuncios."] },
+      { heading: "Publicidad con intención", bullets: ["Meta Ads para presentar tu oferta en Facebook e Instagram.", "Google Ads para captar búsquedas relevantes."] },
+      { heading: "Hospitality y otros sectores", paragraphs: ["Hospitality es una experiencia destacada en mi enfoque. Consultas, reservas y atención necesitan estar conectadas. También evaluamos proyectos de servicios, comercio y otros sectores."] },
+      { heading: "Medición y tecnología", bullets: ["GA4 y Google Tag Manager con eventos definidos.", "Páginas web y aplicaciones según el problema del negocio.", "Reportes que distinguen clics, solicitudes y ventas."] },
     ],
     faqs: [
-      {
-        question: "¿Cuánto cuesta una consultoría de marketing digital en Cartagena?",
-        answer:
-          "Las consultorías arrancan desde $130.000 COP (~$50 USD) por sesión. Para gestión de campañas armo un plan según tus objetivos y tu presupuesto publicitario.",
-      },
-      {
-        question: "¿Cuánto debo invertir en publicidad para empezar?",
-        answer:
-          "Recomiendo mínimo $500.000 COP mensuales (~$150 USD) en inversión publicitaria para que los datos sean significativos y se pueda optimizar con criterio.",
-      },
-      {
-        question: "¿Atiendes presencialmente en Cartagena?",
-        answer:
-          "Sí, puedo reunirme presencialmente en Cartagena de Indias, y también trabajo por videollamada con clientes de otras ciudades y países.",
-      },
-    ],
-    serviceName: "Consultoría de marketing digital en Cartagena",
+      { question: "¿Cuánto cuesta una consultoría?", answer: "La sesión de 1 hora cuesta $130.000 COP y el pack de 4 horas cuesta $440.000 COP. La gestión de campañas y el desarrollo web se cotizan por alcance; la pauta se paga aparte." },
+      { question: "¿Debo estar en Cartagena?", answer: "No. Podemos coordinar reuniones remotas desde Cartagena. El horario y las condiciones se acuerdan antes de empezar." },
+      { question: "¿Por dónde empezamos?", answer: "Cuéntame tu oferta, el problema que quieres resolver y qué tienes funcionando. Definimos si necesitas consultoría, campañas, medición o desarrollo web." },
+    ], serviceName: "Consultoría de marketing digital en Cartagena",
   },
   {
-    slug: "/paid-media-manager",
-    label: "Paid Media",
-    metaTitle: "Paid Media Manager Freelance | Performance Marketing | Reynaldo Montalvo",
-    metaDescription:
-      "Paid Media Manager y Performance Marketing Specialist freelance. Gestión de Meta Ads, Google Ads, TikTok y LinkedIn con foco en CPA, ROAS y crecimiento rentable.",
-    eyebrow: "Paid Media",
-    h1: "Paid Media Manager",
-    h1Accent: "freelance",
-    intro:
-      "Gestiono la inversión publicitaria de negocios que necesitan resultados medibles: estructura de campañas, creatividades, medición y optimización continua hacia CPA y ROAS.",
+    slug: "/paid-media-manager", label: "Paid Media",
+    metaTitle: "Paid Media Manager: Meta Ads y Google Ads | Cavadia Lab",
+    metaDescription: "Gestión de publicidad en Meta Ads y Google Ads con estrategia, medición y revisión de campañas. Trabajo directo con Reynaldo Montalvo Cavadia.",
+    eyebrow: "Publicidad pagada", h1: "Tu inversión publicitaria", h1Accent: "con una dirección clara",
+    intro: "Paid Media significa gestionar anuncios pagados. Mi enfoque conecta la oferta, el canal y la medición para evaluar qué aporta cada campaña al negocio.",
     blocks: [
-      {
-        heading: "Qué hace un Paid Media Manager (y qué hago yo)",
-        paragraphs: [
-          "Un Paid Media Manager es responsable de que cada peso invertido en publicidad tenga una razón de ser y un resultado que se pueda medir. No es 'poner anuncios': es decidir la estructura de cuenta, la segmentación, el mensaje, el presupuesto y el criterio de optimización.",
-          "En la práctica, yo asumo el rol completo: Media Buyer, Performance Marketing Manager y responsable de la medición. Tú ves los resultados; yo me encargo de todo lo que hay detrás.",
-        ],
-      },
-      {
-        heading: "Canales que gestiono",
-        bullets: [
-          "Meta Ads (Facebook e Instagram): captación, remarketing y catálogo.",
-          "Google Ads: Search, Performance Max, Shopping, YouTube y display.",
-          "TikTok Ads: contenido nativo para audiencias frías.",
-          "LinkedIn Ads: generación de leads B2B.",
-        ],
-      },
-      {
-        heading: "Cómo optimizo una cuenta",
-        bullets: [
-          "Auditoría de la estructura actual y de la calidad de la medición.",
-          "Reestructuración por objetivo real de negocio, no por plataforma.",
-          "Testeo ordenado de públicos, creatividades y ofertas.",
-          "Lectura semanal de CPA, ROAS, frecuencia y tasa de conversión.",
-          "Corte de lo que no funciona y escalamiento de lo que sí.",
-        ],
-      },
-      {
-        heading: "Para quién tiene sentido",
-        paragraphs: [
-          "Negocios que ya invierten entre $500.000 COP y varios miles de dólares al mes y no tienen claridad sobre el retorno; equipos de marketing sin especialista en paid media interno; y empresas que quieren una segunda opinión antes de escalar presupuesto.",
-        ],
-      },
+      { heading: "No es solo activar anuncios", paragraphs: ["Definimos a quién quieres llegar, qué propuesta vas a presentar y qué acción tiene valor. La estructura y el presupuesto responden a ese objetivo."] },
+      { heading: "Dos canales, roles distintos", bullets: ["Meta Ads: presentar tu oferta y generar interés.", "Google Ads: responder a búsquedas con intención."] },
+      { heading: "Datos antes de conclusiones", paragraphs: ["Un contacto no es una venta. Revisamos la calidad de las solicitudes y acordamos cómo conectar los datos comerciales cuando estén disponibles."] },
+      { heading: "Qué revisamos", bullets: ["Oferta y página de destino.", "Configuración de eventos y campañas.", "Presupuesto, mensajes y criterios de prueba."] },
     ],
     faqs: [
-      {
-        question: "¿Trabajas como Paid Media Manager externo o in-house?",
-        answer:
-          "Trabajo de forma externa, integrado al equipo del cliente. Participo en las reuniones que hagan falta y tengo comunicación directa, sin intermediarios.",
-      },
-      {
-        question: "¿Cuál es la diferencia entre un Media Buyer y un Paid Media Manager?",
-        answer:
-          "El Media Buyer ejecuta la compra de medios. El Paid Media Manager además define la estrategia, la medición y el criterio de escalamiento. Yo cubro ambos roles.",
-      },
-      {
-        question: "¿En cuánto tiempo se ven resultados?",
-        answer:
-          "Las primeras métricas llegan en la semana 1. Resultados consistentes de leads o ventas, entre 2 y 4 semanas según el canal y la industria.",
-      },
-    ],
-    serviceName: "Gestión de Paid Media",
+      { question: "¿Trabajas de forma externa?", answer: "Sí. Podemos definir una colaboración externa con comunicación directa, responsabilidades y frecuencia de revisión acordadas." },
+      { question: "¿Qué canales gestionas?", answer: "Las soluciones publicitarias de Cavadia Lab se enfocan en Meta Ads y Google Ads, apoyadas por analítica y desarrollo web cuando el proyecto lo necesita." },
+      { question: "¿Garantizas ventas?", answer: "No. Los resultados dependen del mercado, la oferta, la inversión y el proceso comercial. Acordamos objetivos de medición y revisamos avances sin prometer resultados garantizados." },
+    ], serviceName: "Gestión de publicidad en Meta Ads y Google Ads",
   },
   {
-    slug: "/campanas-google-ads",
-    label: "Google Ads",
-    metaTitle: "Especialista en Google Ads en Colombia | Campañas SEM | Reynaldo Montalvo",
-    metaDescription:
-      "Especialista en Google Ads: campañas de Search, Performance Max y Shopping para captar clientes que ya están buscando lo que vendes. Medición y optimización por costo por cliente.",
-    eyebrow: "Google Ads",
-    h1: "Campañas de Google Ads",
-    h1Accent: "que traen clientes",
-    intro:
-      "Google Ads te pone frente a personas que ya están buscando lo que vendes. Bien configurado, es el canal con la intención de compra más alta que existe. Mal configurado, es la forma más rápida de quemar presupuesto.",
+    slug: "/campanas-google-ads", label: "Google Ads",
+    metaTitle: "Gestión de campañas de Google Ads | Cavadia Lab",
+    metaDescription: "Campañas de Google Ads con intención de búsqueda, presupuesto definido y seguimiento de solicitudes. Consultoría directa desde Cartagena y atención remota.",
+    eyebrow: "Google Ads", h1: "Aparece cuando buscan", h1Accent: "lo que tu negocio ofrece",
+    intro: "Conectamos búsquedas relevantes con una oferta clara. El objetivo es evaluar solicitudes y oportunidades, no acumular clics sin contexto.",
     blocks: [
-      {
-        heading: "Tipos de campaña que implemento",
-        bullets: [
-          "Search: captación por palabras clave con intención de compra.",
-          "Performance Max: cobertura completa del inventario de Google con señales de audiencia bien alimentadas.",
-          "Shopping: catálogo de producto para e-commerce.",
-          "YouTube y display: alcance y remarketing con creatividad en video.",
-        ],
-      },
-      {
-        heading: "Los errores que más dinero cuestan",
-        bullets: [
-          "Campañas en concordancia amplia sin lista de negativas: pagas por búsquedas que nunca te van a comprar.",
-          "Conversiones mal configuradas: Google optimiza hacia el objetivo equivocado.",
-          "Una sola campaña para todos los servicios: no puedes saber cuál rinde.",
-          "Página de destino genérica: el clic llega, pero nadie escribe.",
-        ],
-      },
-      {
-        heading: "Cómo lo trabajo",
-        paragraphs: [
-          "Primero reviso la intención de búsqueda real de tu categoría y el costo por clic del mercado. Luego estructuro la cuenta por objetivo de negocio, configuro las conversiones en GA4 y Google Tag Manager, y recién ahí se activa la inversión.",
-          "A partir de la semana 1 optimizo con datos: términos de búsqueda, dispositivos, horarios, ubicaciones y creatividades. El indicador que manda es el costo por cliente, no el costo por clic.",
-        ],
-      },
+      { heading: "Intención antes que volumen", paragraphs: ["Revisamos qué busca tu audiencia y si tu oferta puede responder a esa necesidad. Elegimos términos, ubicaciones y una página de destino coherente."] },
+      { heading: "Una estructura enfocada", bullets: ["Campañas según objetivos y servicios.", "Términos de búsqueda y palabras negativas.", "Presupuesto y criterios de revisión."] },
+      { heading: "Una página a la altura del anuncio", paragraphs: ["El anuncio abre el recorrido. La página debe explicar tu propuesta, resolver dudas y facilitar el contacto; podemos mejorarla o construirla según el alcance."] },
+      { heading: "Qué medimos", bullets: ["Clics y solicitudes como acciones distintas.", "Calidad de contactos con información comercial.", "Costes y evolución por campaña."] },
     ],
     faqs: [
-      {
-        question: "¿Google Ads sirve para negocios pequeños?",
-        answer:
-          "Sí, especialmente para servicios locales con demanda de búsqueda clara (salud, legal, reparaciones, educación). Con presupuestos pequeños hay que ser muy selectivo en palabras clave y zona geográfica.",
-      },
-      {
-        question: "¿Cuánto cuesta un clic en Colombia?",
-        answer:
-          "Depende de la categoría: puede ir desde unos cientos de pesos hasta varios miles en sectores competidos. Por eso la conversación real es el costo por cliente, no el costo por clic.",
-      },
-      {
-        question: "¿Google Ads o Meta Ads?",
-        answer:
-          "Google capta demanda existente; Meta crea demanda. Si la gente ya busca tu servicio, Google primero. Si hay que despertar el interés, Meta. En muchos casos la combinación es lo que mejor rinde.",
-      },
-    ],
-    serviceName: "Gestión de campañas en Google Ads",
+      { question: "¿Google Ads sirve para mi negocio?", answer: "Depende de la demanda de búsqueda, la oferta y la competencia. Lo evaluamos antes de recomendar un canal o un presupuesto." },
+      { question: "¿La inversión está incluida?", answer: "No. La gestión se cotiza por alcance y el presupuesto publicitario se paga directamente desde tus cuentas a la plataforma." },
+      { question: "¿Google Ads o Meta Ads?", answer: "Google puede captar búsquedas existentes y Meta puede presentar tu oferta a nuevas audiencias. La elección depende del recorrido de tu cliente, no de una receta universal." },
+    ], serviceName: "Google Ads",
   },
   {
-    slug: "/campanas-meta-ads",
-    label: "Meta Ads",
-    metaTitle: "Especialista en Meta Ads (Facebook e Instagram) | Reynaldo Montalvo",
-    metaDescription:
-      "Especialista en Meta Ads: campañas de Facebook e Instagram para generar leads y ventas por WhatsApp. Estructura, creatividades y medición real del costo por cliente.",
-    eyebrow: "Meta Ads",
-    h1: "Campañas de Facebook",
-    h1Accent: "e Instagram que venden",
-    intro:
-      "Meta Ads es el canal más potente para crear demanda: le muestra tu negocio a personas que todavía no te buscan, pero que sí te necesitan. La diferencia entre gastar y vender está en la estructura, el mensaje y la medición.",
+    slug: "/campanas-meta-ads", label: "Meta Ads",
+    metaTitle: "Campañas de Meta Ads: Facebook e Instagram | Cavadia Lab",
+    metaDescription: "Estrategia y gestión de anuncios en Facebook e Instagram. Mensajes, audiencias y medición de solicitudes para evaluar tu inversión con contexto.",
+    eyebrow: "Meta Ads", h1: "Presenta tu oferta", h1Accent: "a personas relevantes",
+    intro: "Campañas en Facebook e Instagram que conectan mensaje, creatividad y página de destino. Definimos qué acción buscamos y cómo la revisaremos.",
     blocks: [
-      {
-        heading: "Qué incluye la gestión",
-        bullets: [
-          "Estructura de campañas por objetivo: mensajes a WhatsApp, formularios, ventas o tráfico calificado.",
-          "Públicos fríos, lookalikes y remarketing bien separados.",
-          "Dirección creativa: qué decir, en qué formato y con qué ángulo.",
-          "Instalación del píxel y la API de conversiones para no perder datos.",
-          "Optimización semanal por costo por resultado y frecuencia.",
-        ],
-      },
-      {
-        heading: "Por qué 'promocionar publicación' no funciona",
-        paragraphs: [
-          "El botón de promocionar optimiza para interacción: le muestra tu contenido a quienes suelen dar like, no a quienes suelen comprar. Es barato en apariencia y carísimo en resultado.",
-          "Una campaña bien armada le dice a Meta exactamente qué acción vale dinero para ti, y el algoritmo va a buscar a esas personas. Ese solo cambio suele reducir el costo por cliente de forma notable.",
-        ],
-      },
-      {
-        heading: "Ventas por WhatsApp",
-        paragraphs: [
-          "En Colombia y Latinoamérica la mayoría de las ventas se cierran por WhatsApp. Configuro las campañas para llevar la conversación al chat, con medición de cuántos mensajes llegan, cuántos responden y cuántos compran — para que sepas si el problema es la campaña o la atención.",
-        ],
-      },
+      { heading: "Del anuncio a la conversación", paragraphs: ["Una creatividad debe ayudar a entender la oferta, no solo llamar la atención. Revisamos el mensaje y el recorrido de contacto para que ambos cuenten la misma historia."] },
+      { heading: "Qué trabajamos", bullets: ["Objetivos y estructura de campañas.", "Audiencias y pruebas de mensajes.", "Orientación de material creativo real."] },
+      { heading: "WhatsApp con contexto", paragraphs: ["Abrir WhatsApp no confirma una conversación ni una venta. Podemos medir el clic y, con datos del proceso comercial, evaluar qué sucede después."] },
+      { heading: "Revisión con criterio", bullets: ["Eventos definidos y calidad de la medición.", "Presupuesto, frecuencia y solicitudes.", "Cambios evaluados contra el objetivo acordado."] },
     ],
     faqs: [
-      {
-        question: "¿Cuánto debo invertir en Meta Ads al mes?",
-        answer:
-          "Desde $500.000 COP (~$150 USD) mensuales para obtener datos suficientes. Por debajo de eso el aprendizaje del algoritmo es lento y las decisiones se toman con poca información.",
-      },
-      {
-        question: "¿Necesito tener contenido para anunciar?",
-        answer:
-          "Necesitas material básico: fotos o videos reales del producto o servicio. Yo te indico qué grabar y con qué ángulo; no hace falta producción de agencia.",
-      },
-      {
-        question: "¿Se puede medir cuántas ventas vinieron de Facebook?",
-        answer:
-          "Sí. Con píxel, API de conversiones y seguimiento de WhatsApp se puede atribuir la mayoría de los contactos y ventas a su campaña de origen.",
-      },
-    ],
-    serviceName: "Gestión de campañas en Meta Ads",
+      { question: "¿Necesito fotos o videos?", answer: "Necesitamos material auténtico de tu producto o servicio. Acordamos qué contenido existe y qué producción requiere el proyecto." },
+      { question: "¿Hay un presupuesto mínimo?", answer: "No aplico un mínimo universal. Lo definimos según la oferta, el mercado y el objetivo de prueba, separado de los honorarios de gestión." },
+      { question: "¿Se pueden atribuir todas las ventas?", answer: "No siempre. El consentimiento, las plataformas y el proceso comercial limitan la atribución. Diferenciamos señales medidas de resultados confirmados." },
+    ], serviceName: "Meta Ads",
   },
   {
-    slug: "/analitica-y-tracking",
-    label: "Analítica",
-    metaTitle: "Analítica y Tracking: GA4, Google Tag Manager y Looker Studio | Reynaldo Montalvo",
-    metaDescription:
-      "Implementación de GA4, Google Tag Manager, píxeles y dashboards en Looker Studio para saber de dónde viene cada cliente y cuánto te cuesta conseguirlo.",
-    eyebrow: "Analítica & Tracking",
-    h1: "Medición que te dice",
-    h1Accent: "de dónde viene cada cliente",
-    intro:
-      "Sin medición, la publicidad es una apuesta. Implemento el seguimiento completo para que cada contacto, formulario y venta quede atribuido a su origen, y para que puedas decidir con datos en vez de intuición.",
+    slug: "/analitica-y-tracking", label: "Tracking & Analytics",
+    metaTitle: "Tracking y analítica web: GA4 y GTM | Cavadia Lab",
+    metaDescription: "Medición con GA4, Google Tag Manager y reportes. Separa clics, formularios y resultados comerciales para entender mejor tu inversión digital.",
+    eyebrow: "Tracking & Analytics", h1: "Menos datos sueltos.", h1Accent: "Más decisiones con contexto.",
+    intro: "Definimos qué necesitas saber y construimos la medición alrededor de esas preguntas. Un evento útil debe representar una acción real, no una promesa de venta.",
     blocks: [
-      {
-        heading: "Qué implemento",
-        bullets: [
-          "Google Analytics 4 con eventos y conversiones definidos según tu negocio.",
-          "Google Tag Manager como capa única de etiquetas, sin tocar el código cada vez.",
-          "Píxel de Meta y API de conversiones para recuperar datos que el navegador bloquea.",
-          "Seguimiento de clics a WhatsApp, llamadas y formularios.",
-          "Dashboards en Looker Studio con las métricas que de verdad importan.",
-        ],
-      },
-      {
-        heading: "Las preguntas que vas a poder responder",
-        bullets: [
-          "¿Cuánto me costó cada cliente este mes, por canal?",
-          "¿Qué campaña trae contactos que compran y cuál trae curiosos?",
-          "¿En qué paso de la página se me está cayendo la gente?",
-          "¿Vale la pena subir el presupuesto esta semana?",
-        ],
-      },
-      {
-        heading: "Por qué se hace antes de invertir",
-        paragraphs: [
-          "Las plataformas optimizan hacia el evento que les indiques. Si ese evento está mal definido — o no existe — el algoritmo va a buscar el resultado equivocado durante todo el mes, con tu dinero.",
-          "Por eso la medición es el paso 2 de mi método, siempre antes de escalar inversión.",
-        ],
-      },
+      { heading: "Primero, las preguntas", paragraphs: ["¿De dónde llegan las solicitudes? ¿Qué páginas ayudan al contacto? ¿Qué se puede confirmar con datos comerciales? El plan de medición parte de tu negocio."] },
+      { heading: "Una implementación ordenada", bullets: ["GA4 y Google Tag Manager.", "Eventos de contacto y formularios.", "Validación de disparos y duplicados."] },
+      { heading: "Los límites también importan", paragraphs: ["No toda venta puede atribuirse a una campaña. La medición depende del consentimiento, los accesos y los datos disponibles. Documentamos lo observado y lo que no se puede confirmar."] },
+      { heading: "Una lectura compartida", bullets: ["Reportes según preguntas del negocio.", "Clics, solicitudes y ventas separados.", "Revisión de consistencia de los datos."] },
     ],
     faqs: [
-      {
-        question: "¿Sirve si mi página está en WordPress, Shopify o un constructor?",
-        answer:
-          "Sí. Google Tag Manager funciona en prácticamente cualquier plataforma; en Shopify y WooCommerce además se puede medir el valor real de cada compra.",
-      },
-      {
-        question: "¿Cuánto tarda la implementación?",
-        answer:
-          "Una implementación estándar toma entre 3 y 7 días, según la cantidad de eventos y la complejidad del sitio.",
-      },
-      {
-        question: "¿Me entregas un reporte o tengo que entrar a las plataformas?",
-        answer:
-          "Te entrego un dashboard en Looker Studio con acceso permanente, actualizado de forma automática y explicado en lenguaje de negocio.",
-      },
-    ],
-    serviceName: "Analítica, tracking y dashboards",
+      { question: "¿Funciona con mi plataforma web?", answer: "Revisamos la plataforma, los accesos y las integraciones antes de confirmar el alcance. No todas las implementaciones tienen las mismas posibilidades." },
+      { question: "¿Cuánto tarda?", answer: "El plazo se define después de revisar eventos, accesos, consentimiento e integraciones. No doy un plazo único sin conocer el sitio." },
+      { question: "¿Un clic es un lead confirmado?", answer: "No. Un clic es interacción; un formulario guardado es una solicitud recibida. La calificación del contacto y la venta necesitan validación comercial." },
+    ], serviceName: "Tracking & Analytics",
   },
   {
-    slug: "/desarrollo-web-y-apps",
-    label: "Desarrollo Web",
-    metaTitle: "Desarrollo Web y Aplicaciones Web a Medida | Páginas que convierten | Reynaldo Montalvo",
-    metaDescription:
-      "Diseño y desarrollo de páginas web, landing pages de conversión y aplicaciones web a medida. Sitios rápidos, responsive, con SEO técnico y medición conectada a GA4 y Google Tag Manager.",
-    eyebrow: "Desarrollo Web & Apps",
-    h1: "Páginas web y apps",
-    h1Accent: "que convierten visitas en clientes",
-    intro:
-      "Una web bonita que no vende es un gasto. Diseño y desarrollo sitios, landing pages y aplicaciones web pensados desde el negocio: velocidad, claridad, SEO técnico y medición conectada desde el primer día.",
+    slug: "/desarrollo-web-y-apps", label: "Desarrollo Web & Apps",
+    metaTitle: "Desarrollo de páginas y aplicaciones web | Cavadia Lab",
+    metaDescription: "Páginas web, landing pages y aplicaciones a medida con experiencia móvil, estructura SEO y medición. Diseño y desarrollo según tu objetivo de negocio.",
+    eyebrow: "Desarrollo Web & Apps", h1: "Una web que acompaña", h1Accent: "el recorrido de tu cliente",
+    intro: "Diseño y desarrollo páginas y aplicaciones alrededor de una necesidad concreta: presentar tu oferta, recibir solicitudes o facilitar un proceso del negocio.",
     blocks: [
-      {
-        heading: "Qué desarrollo",
-        bullets: [
-          "Páginas web corporativas y sitios de servicio con estructura orientada a conversión.",
-          "Landing pages para campañas de Meta Ads y Google Ads, listas para medir.",
-          "Aplicaciones web a medida: paneles, reservas, catálogos y procesos internos.",
-          "Tiendas y checkouts con eventos de compra bien medidos.",
-          "Rediseños de sitios lentos o desactualizados, sin perder posicionamiento.",
-        ],
-      },
-      {
-        heading: "Cómo se construye",
-        bullets: [
-          "Diseño responsive: se ve bien en móvil, tablet y escritorio.",
-          "Core Web Vitals optimizados: carga rápida y buena experiencia de uso.",
-          "SEO técnico: títulos, metadatos, datos estructurados, sitemap y URLs limpias.",
-          "GA4 + Google Tag Manager configurados con eventos reales de negocio.",
-          "Formularios y WhatsApp conectados al seguimiento de conversiones.",
-        ],
-      },
-      {
-        heading: "Por qué la web y la publicidad van juntas",
-        paragraphs: [
-          "La mayoría de campañas no fallan en la plataforma: fallan cuando el clic llega a una página lenta, confusa o sin una acción clara.",
-          "Al hacer la web y las campañas con la misma cabeza, la página se diseña para el mensaje del anuncio y la medición queda alineada de punta a punta.",
-        ],
-      },
+      { heading: "El objetivo define la web", paragraphs: ["Una página corporativa, una landing y una aplicación resuelven problemas distintos. Acordamos usuarios, contenido y acciones antes de decidir funciones."] },
+      { heading: "Qué podemos construir", bullets: ["Páginas corporativas y de servicios.", "Landings para campañas.", "Aplicaciones y procesos a medida."] },
+      { heading: "Diseño y tecnología conectados", paragraphs: ["Trabajamos legibilidad, navegación y experiencia móvil. La estructura SEO y la medición forman parte del alcance técnico, sin prometer rankings ni conversiones garantizadas."] },
+      { heading: "Lo que acordamos antes", bullets: ["Contenido, funciones e integraciones.", "Revisión, entrega y accesos.", "Edición y mantenimiento posterior."] },
     ],
     faqs: [
-      {
-        question: "¿Cuánto tarda hacer una página web?",
-        answer:
-          "Una landing page de conversión suele tomar entre 5 y 10 días. Un sitio completo o una aplicación web a medida depende del alcance: se define el plazo antes de empezar.",
-      },
-      {
-        question: "¿La web queda optimizada para SEO?",
-        answer:
-          "Sí. Se entrega con SEO técnico base: estructura de encabezados, metadatos, datos estructurados, sitemap, velocidad optimizada y versión móvil cuidada.",
-      },
-      {
-        question: "¿Puedo editar el contenido después?",
-        answer:
-          "Sí. Se define contigo qué secciones necesitas editar y se entrega la forma de hacerlo, además de una explicación práctica del funcionamiento del sitio.",
-      },
-      {
-        question: "¿También conectas la web con las campañas?",
-        answer:
-          "Sí. La web sale con píxel de Meta, GA4 y Google Tag Manager configurados, y con los eventos de formulario, llamada y WhatsApp listos para optimizar campañas.",
-      },
-    ],
-    serviceName: "Desarrollo web y aplicaciones web a medida",
+      { question: "¿Cuánto cuesta y cuánto tarda?", answer: "Depende del contenido, las funciones y las integraciones. Después del diagnóstico definimos propuesta, alcance y plazo antes de iniciar." },
+      { question: "¿Incluye SEO?", answer: "Podemos incluir estructura de encabezados, metadatos, URLs, sitemap y revisión móvil. La indexación y el posicionamiento dependen también de contenido, autoridad y buscadores." },
+      { question: "¿Puedo editar el contenido?", answer: "Lo definimos en el alcance: qué necesitas editar, con qué herramienta y qué mantenimiento se requiere. No todas las aplicaciones tienen las mismas opciones." },
+      { question: "¿Puedes conectar la medición?", answer: "Sí, podemos incluir eventos de formulario y contacto, y las integraciones acordadas. Las ventas solo se confirman con los datos comerciales correspondientes." },
+    ], serviceName: "Desarrollo Web & Apps",
   },
   {
-    slug: "/consultor-marketing-digital-espana",
-    lang: "es",
-    market: "España",
-    label: "España",
-    metaTitle:
-      "Consultor de Marketing Digital en España | Meta Ads y Google Ads | Reynaldo Montalvo",
-    metaDescription:
-      "Consultor de marketing digital freelance para empresas en España. Campañas de Google Ads y Meta Ads, medición real y coste por cliente controlado. Trabajo en remoto, en tu horario.",
-    eyebrow: "España",
-    h1: "Consultor de marketing digital",
-    h1Accent: "para empresas en España",
-    intro:
-      "Trabajo en remoto con pymes y negocios en España que invierten en publicidad digital y quieren saber exactamente qué les devuelve cada euro. Estrategia, campañas y medición, sin la capa de gestores de una agencia.",
+    slug: "/consultor-marketing-digital-espana", lang: "es", market: "España", label: "España",
+    metaTitle: "Marketing digital remoto para negocios en España | Cavadia Lab",
+    metaDescription: "Consultoría desde Cartagena para proyectos en España: Meta Ads, Google Ads, analítica y desarrollo web. Alcance, horarios y condiciones acordados previamente.",
+    eyebrow: "España · Servicio remoto desde Colombia", h1: "Marketing digital remoto", h1Accent: "para proyectos en España",
+    intro: "Si tu negocio está en España, podemos evaluar una colaboración remota desde Cartagena. Publicidad, medición y web conectadas a tus objetivos, sin presentarnos como una agencia local.",
     blocks: [
-      {
-        heading: "Qué hago por un negocio en España",
-        bullets: [
-          "Campañas de Google Ads (Search, Performance Max y Shopping) enfocadas en coste por cliente, no en clics.",
-          "Campañas de Meta Ads para captar solicitudes de presupuesto, reservas y ventas.",
-          "Medición con GA4, Google Tag Manager y consentimiento conforme al RGPD.",
-          "Informe mensual en Looker Studio: inversión, leads, coste por lead y retorno.",
-        ],
-      },
-      {
-        heading: "Cómo trabajamos en remoto",
-        paragraphs: [
-          "Reuniones por videollamada en horario peninsular, comunicación diaria por WhatsApp o correo y acceso permanente al panel de resultados. La distancia no cambia nada: las plataformas publicitarias son las mismas y los datos se revisan juntos.",
-          "Facturo en euros y puedo trabajar con tus cuentas publicitarias existentes o crear unas nuevas a tu nombre — las cuentas siempre son tuyas.",
-        ],
-      },
-      {
-        heading: "Para qué tipo de negocio funciona mejor",
-        bullets: [
-          "Servicios profesionales que captan clientes por formulario, llamada o WhatsApp.",
-          "Clínicas, academias, inmobiliarias y negocios locales con varias sedes.",
-          "Ecommerce que ya vende y necesita escalar con rentabilidad.",
-        ],
-      },
+      { heading: "Una propuesta para tu contexto", paragraphs: ["Revisamos tu oferta, mercado y recorrido comercial. La estrategia se plantea según tu proyecto, no como una adaptación automática de campañas de otro país."] },
+      { heading: "Soluciones conectadas", bullets: ["Google Ads y Meta Ads.", "Tracking y analítica.", "Páginas y aplicaciones web."] },
+      { heading: "Condiciones claras antes de empezar", paragraphs: ["Acordamos horarios de reunión, responsabilidades, moneda y facturación antes de contratar. Esta página ofrece atención remota; no acredita una oficina ni una cartera de clientes en España."] },
+      { heading: "Medición y consentimiento", paragraphs: ["La configuración técnica debe revisarse con tus requisitos de privacidad. La asesoría legal y la validación de cumplimiento normativo requieren profesionales competentes; no se promete cumplimiento automático del RGPD."] },
     ],
     faqs: [
-      {
-        question: "¿Trabajas con empresas españolas estando en Colombia?",
-        answer:
-          "Sí. Trabajo en remoto con clientes en España desde hace años, con reuniones en horario peninsular y comunicación diaria. Las campañas se gestionan igual desde cualquier lugar.",
-      },
-      {
-        question: "¿Facturas en euros?",
-        answer:
-          "Sí, se factura en euros. La inversión publicitaria la pagas directamente a Google o Meta desde tus propias cuentas, así mantienes el control total del gasto.",
-      },
-      {
-        question: "¿Te encargas del cumplimiento del RGPD en la medición?",
-        answer:
-          "Implemento la medición con banner de consentimiento y Consent Mode de Google, de forma que solo se recogen datos cuando el usuario lo autoriza.",
-      },
-    ],
-    serviceName: "Consultoría de marketing digital para España",
+      { question: "¿Dónde estás ubicado?", answer: "En Cartagena, Colombia. Podemos coordinar colaboración remota para un proyecto en España, con horario y canales acordados." },
+      { question: "¿Facturas en euros?", answer: "La moneda y las condiciones de facturación deben confirmarse antes de contratar. Los precios de consultoría publicados en la portada están en COP." },
+      { question: "¿Garantizas cumplimiento del RGPD?", answer: "No. Podemos revisar las necesidades técnicas de consentimiento dentro del alcance, pero la validación legal del cumplimiento no se sustituye por una configuración de etiquetas." },
+    ], serviceName: "Consultoría remota de marketing digital para España",
   },
   {
-    slug: "/consultor-marketing-digital-mexico",
-    lang: "es",
-    market: "México",
-    label: "México",
-    metaTitle:
-      "Consultor de Marketing Digital en México | Google Ads y Meta Ads | Reynaldo Montalvo",
-    metaDescription:
-      "Consultor de marketing digital freelance para negocios en México. Campañas de Google Ads y Meta Ads con seguimiento de WhatsApp y costo por cliente medido. Trabajo remoto en horario de CDMX.",
-    eyebrow: "México",
-    h1: "Consultor de marketing digital",
-    h1Accent: "para negocios en México",
-    intro:
-      "Ayudo a negocios mexicanos a convertir su inversión publicitaria en clientes reales: campañas en Google y Meta, seguimiento de cada contacto por WhatsApp y números claros sobre cuánto cuesta cada venta.",
+    slug: "/consultor-marketing-digital-mexico", lang: "es", market: "México", label: "México",
+    metaTitle: "Marketing digital remoto para negocios en México | Cavadia Lab",
+    metaDescription: "Meta Ads, Google Ads, analítica y desarrollo web para proyectos en México con atención remota desde Cartagena. Evaluemos tu oferta y proceso comercial.",
+    eyebrow: "México · Servicio remoto desde Colombia", h1: "Una visión digital conectada", h1Accent: "para proyectos en México",
+    intro: "Podemos evaluar tu proyecto en México desde Cartagena. El punto de partida es tu oferta y cómo atiendes a quienes te contactan, no una promesa de resultados por ubicación.",
     blocks: [
-      {
-        heading: "Qué incluye el trabajo",
-        bullets: [
-          "Campañas de Google Ads para captar a quien ya está buscando lo que vendes.",
-          "Campañas de Facebook e Instagram orientadas a mensajes de WhatsApp y formularios.",
-          "Medición completa: GA4, Tag Manager, píxel y clics a WhatsApp atribuidos a su campaña.",
-          "Reporte mensual con inversión, contactos, costo por contacto y ventas cerradas.",
-        ],
-      },
-      {
-        heading: "Pensado para el mercado mexicano",
-        paragraphs: [
-          "La mayoría de los negocios en México cierra por WhatsApp, no por carrito de compra. Por eso monto las campañas y la medición alrededor de la conversación: cuántos escriben, cuántos responden y cuántos compran.",
-          "Trabajo en horario de Ciudad de México, con reuniones por videollamada y reportes que entiende cualquier dueño de negocio, no solo un especialista.",
-        ],
-      },
-      {
-        heading: "Negocios con los que más resultados veo",
-        bullets: [
-          "Clínicas, consultorios y servicios de salud.",
-          "Inmobiliarias y desarrollos que necesitan leads calificados.",
-          "Academias, franquicias y comercios locales con varias sucursales.",
-        ],
-      },
+      { heading: "El recorrido que ya usa tu cliente", paragraphs: ["Si vendes por WhatsApp, formulario o una tienda online, la estrategia debe responder a ese recorrido. Revisamos la experiencia antes de elegir anuncios y eventos."] },
+      { heading: "Publicidad con un objetivo", bullets: ["Google Ads para búsquedas relevantes.", "Meta Ads para presentar tu oferta.", "Página de destino coherente con el anuncio."] },
+      { heading: "Medir sin confundir señales", paragraphs: ["Etiquetar un clic a WhatsApp no confirma una venta. Para revisar calidad y cierre necesitamos información del proceso comercial, además de los eventos del sitio."] },
+      { heading: "Colaboración remota", paragraphs: ["Acordamos zona horaria, canales, alcance y condiciones de pago antes de comenzar. No afirmamos oficina local ni resultados de clientes mexicanos sin evidencia."] },
     ],
     faqs: [
-      {
-        question: "¿Cobras en pesos mexicanos o en dólares?",
-        answer:
-          "Se puede acordar en dólares o en pesos mexicanos. La inversión publicitaria la pagas directo a Google o Meta desde tus cuentas, así el gasto siempre queda bajo tu control.",
-      },
-      {
-        question: "¿Puedes medir las ventas que llegan por WhatsApp?",
-        answer:
-          "Sí. Se etiqueta cada clic a WhatsApp con su campaña de origen, así se sabe qué anuncio genera conversaciones y cuáles terminan en venta.",
-      },
-      {
-        question: "¿Necesito tener ya cuentas publicitarias?",
-        answer:
-          "No es necesario. Si no las tienes, las creo a tu nombre con la configuración correcta de facturación y seguimiento; si ya las tienes, las audito antes de invertir.",
-      },
-    ],
-    serviceName: "Consultoría de marketing digital para México",
+      { question: "¿Cobras en pesos mexicanos o dólares?", answer: "La moneda y facturación deben acordarse antes de contratar. Las tarifas de consultoría publicadas en la portada están en pesos colombianos (COP)." },
+      { question: "¿Puedes medir ventas por WhatsApp?", answer: "Podemos medir clics y diseñar un seguimiento comercial. Las ventas requieren confirmación en tus registros; un clic no demuestra que hubo conversación o compra." },
+      { question: "¿Debo tener cuentas publicitarias?", answer: "Revisamos qué cuentas y accesos existen. La propiedad de las cuentas debe mantenerse en tu negocio y las responsabilidades se acuerdan en la propuesta." },
+    ], serviceName: "Consultoría remota de marketing digital para México",
   },
   {
-    slug: "/paid-media-consultant-usa",
-    lang: "en",
-    market: "United States",
-    label: "United States",
-    metaTitle:
-      "Paid Media Consultant for US Businesses | Google & Facebook Ads | Reynaldo Montalvo",
-    metaDescription:
-      "Freelance paid media consultant for US businesses. Google Ads and Facebook Ads campaigns managed around cost per customer, with full tracking and plain-English monthly reporting.",
-    eyebrow: "United States",
-    h1: "Paid media consultant",
-    h1Accent: "for US businesses",
-    intro:
-      "I run Google Ads and Facebook Ads for US companies that want a senior specialist on the account instead of a junior at an agency. Strategy, campaign management, tracking and reporting — measured by cost per customer, not impressions.",
+    slug: "/paid-media-consultant-usa", lang: "en", market: "United States", label: "United States",
+    metaTitle: "Remote Paid Media Consulting for US Projects | Cavadia Lab",
+    metaDescription: "Explore remote Meta Ads, Google Ads, analytics and web development with Reynaldo Montalvo Cavadia in Cartagena, Colombia. Scope and working terms agreed first.",
+    eyebrow: "US projects · Remote service from Colombia", h1: "Advertising, data and web", h1Accent: "for your next business step",
+    intro: "I am Reynaldo Montalvo Cavadia, based in Cartagena, Colombia. We can explore a remote collaboration for your US project, connecting advertising, measurement and the customer journey.",
     blocks: [
-      {
-        heading: "What I do",
-        bullets: [
-          "Google Ads: Search, Performance Max and Shopping campaigns built around qualified demand.",
-          "Facebook and Instagram Ads for lead generation and ecommerce sales.",
-          "Conversion tracking with GA4, Google Tag Manager, Meta Conversions API and offline conversions.",
-          "Monthly Looker Studio reporting: spend, leads, cost per lead, ROAS.",
-        ],
-      },
-      {
-        heading: "How working together looks",
-        paragraphs: [
-          "I work remotely with US clients across all time zones, with video calls, a shared reporting dashboard and direct messaging — no account managers in between. You keep ownership of every ad account, pixel and data source.",
-          "Billing is in USD, and you pay Google and Meta directly so your ad spend stays under your control.",
-        ],
-      },
-      {
-        heading: "A good fit if",
-        bullets: [
-          "You already get customers organically and want to scale with paid traffic.",
-          "You are spending on ads but cannot tell which campaigns produce revenue.",
-          "You need bilingual campaigns (English and Spanish) for the US Hispanic market.",
-        ],
-      },
+      { heading: "Start with the business question", paragraphs: ["We review your offer, current campaigns and the path from an ad to a customer enquiry. The objective is a clear scope and useful measurement, not a guaranteed revenue claim."] },
+      { heading: "Connected services", bullets: ["Meta Ads and Google Ads.", "Tracking and analytics.", "Websites and custom web applications."] },
+      { heading: "Clicks are not customers", paragraphs: ["An outbound click does not prove a conversation or a sale. Commercial outcomes require confirmation from your sales process, with measurement limits documented."] },
+      { heading: "Remote, with agreed expectations", paragraphs: ["We agree meeting times, working language, account access, scope and billing terms before starting. This page does not claim a US office or an established US client portfolio."] },
     ],
     faqs: [
-      {
-        question: "Do you work with clients in the United States remotely?",
-        answer:
-          "Yes. I work remotely with clients across the US, with calls scheduled in your time zone and a live reporting dashboard you can check any time.",
-      },
-      {
-        question: "Can you run campaigns in both English and Spanish?",
-        answer:
-          "Yes. I run bilingual campaigns and can target the US Hispanic market with dedicated creative and landing pages in Spanish.",
-      },
-      {
-        question: "Who owns the ad accounts and data?",
-        answer:
-          "You do. Campaigns run inside your own Google Ads and Meta Business accounts, and all tracking is set up on your properties, so nothing is lost if we stop working together.",
-      },
-    ],
-    serviceName: "Paid media consulting for the United States",
+      { question: "Are you based in the United States?", answer: "No. I am based in Cartagena, Colombia. We can evaluate remote collaboration for a US project and agree meeting times before starting." },
+      { question: "Do you offer bilingual campaigns?", answer: "Language, copy review and any translation requirements must be agreed for the project before we commit to campaign production." },
+      { question: "Who owns the accounts and data?", answer: "Your business should retain ownership of its advertising accounts and properties. Access, deliverables and any integrations are agreed in the scope." },
+    ], serviceName: "Remote paid media, analytics and web consulting",
   },
 ];
-
-export const landingBySlug = (slug: string) =>
-  landings.find((l) => l.slug === slug);
+export const landingBySlug = (slug: string) => landings.find(l => l.slug === slug);
