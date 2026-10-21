@@ -24,8 +24,8 @@ const SiteFooter: React.FC = () => {
     <footer className="border-t border-border py-8 px-4 md:px-8" role="contentinfo">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <span className="font-heading text-sm tracking-[0.15em] text-primary">
-            REYNALDO MONTALVO CAVADIA
+          <span className="font-heading text-2xl text-primary">
+            CAVADIA LAB
           </span>
 
           <nav aria-label="Enlaces del pie de página" className="flex flex-wrap gap-x-6 gap-y-2">
@@ -34,7 +34,7 @@ const SiteFooter: React.FC = () => {
                 key={link.hash}
                 href={`/${link.hash}`}
                 onClick={(e) => handleClick(e, link.hash)}
-                className="text-[0.62rem] font-bold tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
+                className="inline-flex items-center min-h-11 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
@@ -50,7 +50,7 @@ const SiteFooter: React.FC = () => {
             <Link
               key={l.slug}
               to={l.slug}
-              className="text-[0.62rem] font-bold tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center min-h-11 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {l.label}
             </Link>
@@ -58,8 +58,8 @@ const SiteFooter: React.FC = () => {
         </nav>
 
         <div className="mt-6 pt-4 border-t border-border">
-          <span className="text-[0.58rem] text-muted-foreground tracking-wider">
-            © {new Date().getFullYear()} Reynaldo Montalvo Cavadia · Cartagena, Colombia
+          <span className="text-sm text-muted-foreground tracking-wider">
+            © {new Date().getFullYear()} Reynaldo Montalvo Cavadia · Cartagena, Colombia · Atención remota
           </span>
         </div>
       </div>

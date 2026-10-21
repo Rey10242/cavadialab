@@ -43,7 +43,7 @@ export const trackPlanCardClick = (planName: string, price: string) => {
   const numericPrice = parseInt(price.replace(/[^\d]/g, ''));
   
   trackEvent(`plan_card_click_${planSlug}`, {
-    event_category: 'conversion',
+    event_category: 'engagement',
     event_label: planName,
     value: numericPrice
   });
@@ -54,7 +54,7 @@ export const trackFormStart = () => trackEvent('form_start', {
   event_label: 'contact_form'
 });
 
-export const trackFormSubmit = () => trackEvent('form_submit', {
+export const trackFormSubmit = () => trackEvent('contact_submission_saved', {
   event_category: 'lead_generation', 
   event_label: 'contact_form',
   value: 1
@@ -66,16 +66,12 @@ export const trackWhatsAppClick = (source?: string) => trackEvent('whatsapp_clic
 });
 
 export const trackServiceCTAClick = (serviceName: string) => trackEvent('service_cta_click', {
-  event_category: 'conversion',
+  event_category: 'engagement',
   event_label: serviceName,
   value: 1
 });
 
-export const trackContactWhatsApp = () => trackEvent('contact_whatsapp_click', {
-  event_category: 'conversion',
-  event_label: 'contact_section_whatsapp',
-  value: 1
-});
+export const trackContactWhatsApp = () => trackWhatsAppClick('home_contact');
 
 export const trackContactFormOpen = () => trackEvent('contact_form_open', {
   event_category: 'engagement',

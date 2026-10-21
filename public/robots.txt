@@ -21,7 +21,6 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
 
 Sitemap: https://cavadialab.com/sitemap.xml
 Host: https://cavadialab.com
