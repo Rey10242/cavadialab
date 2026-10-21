@@ -121,9 +121,9 @@ const LandingPage: React.FC = () => {
           <section className="lp-process">
             <div className="page-shell lp-section">
               <Reveal className="lp-head"><p className="eyebrow">02 · {t.process}</p><h2>{lang === "en" ? "Four clear steps." : "Cuatro pasos claros."}</h2></Reveal>
-              <ol className="lp-steps">
+              <div className="lp-steps">
                 {processSteps.map((step, i) => <Reveal key={step} delay={i * 0.08} className="lp-step"><span>0{i + 1}</span><p>{step}</p></Reveal>)}
-              </ol>
+              </div>
             </div>
           </section>
 
