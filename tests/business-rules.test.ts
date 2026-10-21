@@ -38,6 +38,6 @@ describe("Owner-approved business rules", () => {
   test("robots allows search and AI crawlers to read the whole site", () => {
     const txt = readFileSync("public/robots.txt", "utf8");
     expect(txt).not.toMatch(/^Disallow:\s*\/\s*$/m);
-    for (const bot of ["GPTBot", "PerplexityBot", "ClaudeBot", "OAI-SearchBot"]) expect(txt).toContain(`User-agent: ${bot}`);
+    for (const bot of ["GPTBot", "PerplexityBot", "ClaudeBot", "OAI-SearchBot", "Applebot-Extended", "Meta-ExternalAgent", "Google-Extended"]) expect(txt).toContain(`User-agent: ${bot}`);
   });
 });
