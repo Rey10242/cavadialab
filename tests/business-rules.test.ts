@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { consultingPacks, solutions, SITE_URL, whatsappUrl } from "../content/site";
-import { landings } from "../content/landings";
+import { consultingPacks, solutions, SITE_URL, whatsappUrl } from "../src/content/site";
+import { landings } from "../src/content/landings";
 import { readFileSync } from "node:fs";
 
 describe("Owner-approved business rules", () => {

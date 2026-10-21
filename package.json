@@ -9,7 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "bun test src/test"
+    "test": "bun test tests"
   },
   "dependencies": {
     "@fontsource/barlow": "^5.3.0",

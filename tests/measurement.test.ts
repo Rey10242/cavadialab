@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { trackContactWhatsApp, trackFormSubmit, trackWhatsAppClick } from "../lib/gtag";
+import { trackContactWhatsApp, trackFormSubmit, trackWhatsAppClick } from "../src/lib/gtag";
 
 test("WhatsApp is engagement, not a confirmed lead", () => {
   const calls: unknown[][] = [];
