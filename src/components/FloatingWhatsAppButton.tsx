@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { MessageCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import waLogo from "@/assets/logos/whatsapp.svg";
 import { whatsappUrl } from "@/content/site";
 import { trackWhatsAppClick } from "@/lib/gtag";
 export default function FloatingWhatsAppButton() {
