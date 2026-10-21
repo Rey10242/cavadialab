@@ -164,3 +164,20 @@ input,textarea { font-size:1rem!important;min-height:44px; }
  .page-shell { width:calc(100% - 2.5rem); }.studio-section { padding:3.5rem 0; }.spatial-hero { padding-top:2.5rem; }.spatial-hero h1 { font-size:2.9rem;line-height:1.04; }.spatial-hero .eyebrow { font-size:.7rem;margin-bottom:1.5rem; }.studio-lead { font-size:1rem;margin-top:1.5rem; }.hero-actions { margin-top:1.5rem;gap:.5rem; }.hero-actions a { font-size:.85rem; }.hero-location { margin-top:1rem; }.journey-grid { gap:1rem; }.core-stage { height:280px;aspect-ratio:auto; }.core-caption { font-size:.6rem; }.story-heading h2 { font-size:1.5rem; }.story-chapter h3 { font-size:2.5rem; }.chapter-description { font-size:1rem; }.studio-section h2 { font-size:2.7rem; }.studio-section-heading { margin-bottom:2rem;flex-direction:column;align-items:start;gap:1.5rem; }.service-intro { font-size:.95rem; }.section-aside { display:none; }.service-row { grid-template-columns:24px 1fr 24px;gap:1rem;padding:1.6rem 0; }.service-row h3 { font-size:1.5rem; }.service-row p { grid-column:2;grid-row:2;font-size:.9rem; }.service-row > svg { grid-column:3;grid-row:1; }.personal-grid { display:flex;flex-direction:column-reverse;gap:2rem; }.personal-portrait { width:100%; }.personal-portrait img { max-width:260px; }.personal-copy > p:not(.eyebrow) { font-size:1rem; }.consult-packs { grid-template-columns:1fr; }.consult-faq-layout { gap:2.5rem; }.consult-pack ul { min-height:0;margin:1.25rem 0; }.studio-contact h2 { font-size:3.5rem; }.studio-contact .mb-12 { margin-bottom:2rem; }.landing-studio .landing-hero h1 { font-size:2.7rem; }.landing-studio h2.font-heading { font-size:2.2rem; }.landing-studio .landing-module-grid { grid-template-columns:1fr; }.landing-studio .landing-module { grid-column:auto; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important;transition:none!important; }.chapter-links svg,.service-row > svg { transform:none!important; } }
+
+/* Hero tool stage: authentic portrait + real platform pills */
+.tool-stage { position:relative;width:100%;aspect-ratio:4/5;max-height:640px;display:flex;align-items:flex-end;justify-content:center; }
+.tool-glow { position:absolute;inset:12% 8% 0;border-radius:50%;background:radial-gradient(circle at 50% 55%, hsl(var(--primary) / .35), transparent 65%);filter:blur(20px); }
+.tool-portrait { position:relative;width:78%;height:auto;object-fit:contain;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent);mask-image:linear-gradient(to bottom,#000 80%,transparent); }
+.tool-pills { position:absolute;inset:0;list-style:none;margin:0;padding:0;pointer-events:none; }
+.tool-pill { position:absolute;display:flex;align-items:center;gap:.55rem;padding:.6rem .95rem;border-radius:999px;background:hsl(var(--warm, 36 33% 97%));color:hsl(var(--navy-ink, 220 50% 12%));font-weight:600;font-size:.88rem;box-shadow:0 12px 30px -12px hsl(220 60% 4% / .6);border:2px solid transparent;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s;animation:pill-float 6s ease-in-out infinite;pointer-events:auto; }
+.tool-pill img { width:22px;height:22px;object-fit:contain; }
+.tool-pill svg { color:hsl(var(--primary)); }
+.tool-pill.is-lit { border-color:hsl(var(--primary));box-shadow:0 14px 36px -10px hsl(var(--primary) / .55);transform:scale(1.06); }
+.tool-pill:hover { transform:scale(1.08); }
+.t-meta { top:30%;left:0;animation-delay:-1s; }.t-gads { top:47%;right:0;animation-delay:-2s; }.t-tiktok { top:68%;left:2%;animation-delay:-3s; }
+.t-web { top:14%;right:6%;animation-delay:-4s; }.t-ga4 { top:8%;left:8%;animation-delay:-.5s; }.t-gtm { bottom:6%;right:4%;animation-delay:-2.5s; }
+@keyframes pill-float { 0%,100% { translate:0 0; } 50% { translate:0 -8px; } }
+@media (max-width:900px) { .tool-stage { max-width:420px;margin-inline:auto; } .tool-pill { font-size:.78rem;padding:.5rem .8rem; } }
+@media (max-width:420px) { .tool-pill { font-size:.7rem;padding:.4rem .65rem;gap:.4rem; } .tool-pill img { width:18px;height:18px; } }
+@media (prefers-reduced-motion:reduce) { .tool-pill { animation:none;transition:none; } }
