@@ -17,7 +17,7 @@ describe("Owner-approved business rules", () => {
   });
   test("all existing public routes are preserved", () => {
     expect(landings.map(l => l.slug).sort()).toEqual([
-      "/consultor-marketing-digital-cartagena", "/paid-media-manager", "/campanas-google-ads", "/campanas-meta-ads", "/analitica-y-tracking", "/desarrollo-web-y-apps", "/consultor-marketing-digital-espana", "/consultor-marketing-digital-mexico", "/paid-media-consultant-usa",
+      "/consultor-marketing-digital-cartagena", "/paid-media-manager", "/campanas-google-ads", "/campanas-meta-ads", "/analitica-y-tracking", "/desarrollo-web-y-apps", "/consultor-marketing-digital-espana", "/consultor-marketing-digital-mexico", "/paid-media-consultant-usa", "/marketing-para-restaurantes",
     ].sort());
   });
   test("four approved solutions point to existing public pages", () => {
