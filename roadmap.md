@@ -1,6 +1,5 @@
-# Integral review
-- [x] Refine complete homepage and accessible navigation/contact.
-- [x] Remove unsupported claims; align service and country landings.
-- [x] Unify metadata/schema, sitemap and tracking.
-- [x] Verify preview desktop/mobile, rules, links and errors.
-- [x] Record checked outcomes and separate SSR follow-up.
+# Visual redesign
+- [ ] Recompose home into six visual blocks with bento, portrait and accessible process tabs.
+- [ ] Align all service/market landings with the renewed visual system, preserving useful content.
+- [ ] Verify desktop 1440, mobile 360/390, keyboard, contrast, contact without hosted writes and reduced motion.
+- [ ] Record word comparison, screenshots, decisions and real pending items; do not publish.
