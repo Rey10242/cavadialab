@@ -123,9 +123,7 @@ const Contact: React.FC = () => {
               {/* Form */}
               <div className="bg-card p-6 md:p-8">
                 {isSubmitted ? (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                  <div
                     className="flex flex-col items-center justify-center py-12 text-center"
                   >
                     <CheckCircle className="w-10 h-10 text-primary mb-4" />
@@ -184,7 +182,7 @@ const Contact: React.FC = () => {
                     <p className="text-sm text-foreground break-all">rmontalvocavadia@gmail.com</p>
                   </div>
                 </a>
-                <a href={whatsappUrl("mi proyecto y sus necesidades")} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 hover:bg-background/50 transition-colors group">
+                <a href={whatsappUrl("mi proyecto y sus necesidades")} onClick={() => trackContactWhatsApp()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 hover:bg-background/50 transition-colors group">
                   <Phone className="w-4 h-4 text-primary shrink-0" />
                   <div>
                     <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">WhatsApp</p>
@@ -205,7 +203,7 @@ const Contact: React.FC = () => {
                     { icon: Instagram, href: "https://www.instagram.com/reynaldo.cavadia/", label: "Instagram" },
                     { icon: MessageCircle, href: "https://wa.me/573246875354", label: "WhatsApp" },
                   ].map((s) => (
-                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                    <a key={s.label} href={s.label === "WhatsApp" ? whatsappUrl("mi proyecto") : s.href} onClick={() => { if (s.label === "WhatsApp") trackContactWhatsApp(); }} target="_blank" rel="noopener noreferrer"
                       className="w-12 h-12 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
                       aria-label={s.label}>
                       <s.icon className="w-4 h-4" />
