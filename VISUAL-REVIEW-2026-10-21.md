@@ -18,6 +18,7 @@
 - `src/components/sections/FAQ.tsx`
 - `src/components/sections/Contact.tsx` (presentation only, submit flow unchanged)
 - `src/components/CavadiaNavbar.tsx`
+- `src/components/FloatingWhatsAppButton.tsx` (also hidden over mobile FAQ)
 - `src/content/site.ts` (four general FAQs selected from retained source)
 - `src/pages/LandingPage.tsx`
 - `src/index.css`
@@ -41,6 +42,7 @@ Count whitespace-delimited words in `main`, excluding navigation/footer, with th
 - Main links/buttons measured ≥44×44px; floating contact hidden when contact is in view.
 - Page-error listener collected zero errors during main verification. Build/typecheck supplied by preview harness; latest build OK. No manual build/typecheck invoked.
 - Axe AA checks on home at all three widths and web landing at mobile reported zero violations. Additional desktop landing check caught low-contrast ordinal numbers; changed those to `text-muted-foreground` and repeated the check.
+- Final desktop landing recheck: zero AA violations. Spotlight, actual tilt, keyboard card link, touch target measurements and CTA clearance passed.
 
 ## Screenshot evidence (sandbox)
 `/tmp/browser/redesign/desktop1440.png`, `home1440.png`, `home390.png`, `home360.png`, `bento1440.png`, `bento390.png`, `bento360.png`, `about.png`, `process.png`, `faq1440.png`, `faq390.png`, `faq360.png`, `landing1440.png`, `landing360.png`, `spotlight.png`, `form-blocked.png`, `reduced-motion.png`.
