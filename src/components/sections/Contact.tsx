@@ -87,12 +87,12 @@ const Contact: React.FC = () => {
       <div className="page-shell">
         <div className="max-w-2xl mb-12"
         >
-          <div className="section-label">Contacto</div>
+          <div className="section-label">Da el primer paso</div>
           <h2 className="section-title">
-            ¿Lo conectamos?<br /><span className="serif-word text-primary">Hablemos.</span>
+            ¿Revisamos tu caso?<br /><span className="serif-word text-primary">Escríbeme y lo miramos.</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-md">
-            Tu proyecto merece un siguiente paso claro. Empecemos por una conversación.
+            Cuéntame qué vendes y qué problema tienes hoy para conseguir clientes o medir tus campañas. Te respondo con honestidad sobre el camino más corto para resolverlo.
           </p>
         </div>
 
@@ -106,12 +106,12 @@ const Contact: React.FC = () => {
             onClick={trackContactWhatsApp}
             
           >
-            Hablemos de tu proyecto <MessageCircle className="w-4 h-4" />
+            Escribir a WhatsApp ahora <MessageCircle className="w-4 h-4" />
           </a></Button>
           <Button variant="outline" aria-expanded={showForm} aria-controls="contact-form"
             onClick={() => { setShowForm(!showForm); if (!showForm) trackContactFormOpen(); }}
           >
-            {showForm ? "Cerrar formulario" : "Enviar mensaje"}
+            {showForm ? "Cerrar formulario" : "Prefiero usar el formulario"}
           </Button>
         </div>
 

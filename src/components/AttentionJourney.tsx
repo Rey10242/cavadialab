@@ -11,9 +11,9 @@ import gtmLogo from "@/assets/logos/gtm.svg";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 
 const chapters = [
- { id: "demanda", label: "ADS", title: "Primero, la atención.", text: "Tu oferta frente a las personas correctas. Publicidad que conecta intención, mensaje y canal para abrir una conversación relevante.", links: [{ name: "Campañas Meta Ads", path: "/campanas-meta-ads" }, { name: "Campañas Google Ads", path: "/campanas-google-ads" }] },
- { id: "experiencia", label: "EXPERIENCIA WEB", title: "Después, el siguiente paso.", text: "El interés necesita un camino claro. Páginas y aplicaciones que facilitan explorar, consultar o reservar, sin fricción innecesaria.", links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
- { id: "datos", label: "DATOS", title: "Siempre, una lectura clara.", text: "Medir no es acumular números. Conectamos eventos y objetivos para entender el recorrido, distinguir señales y decidir qué ajustar.", links: [{ name: "Tracking & Analytics", path: "/analitica-y-tracking" }] },
+ { id: "demanda", label: "ANUNCIOS", title: "Poner tu oferta frente a gente lista para comprar.", text: "No se trata de pagar por likes ni clics vacíos. Creo anuncios en Facebook, Instagram, Google y TikTok pensados para despertar interés real en quien sí puede comprarte.", links: [{ name: "Campañas Meta Ads", path: "/campanas-meta-ads" }, { name: "Campañas Google Ads", path: "/campanas-google-ads" }] },
+ { id: "experiencia", label: "TU WEB", title: "Una página donde sea fácil pedir información o comprar.", text: "Si alguien hace clic en tu anuncio y llega a una página lenta, enredada o sin botón de WhatsApp, perdiste tu dinero. Construyo sitios rápidos y claros.", links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
+ { id: "datos", label: "DATOS Y CONTROL", title: "Saber qué anuncio trajo ese mensaje a tu WhatsApp.", text: "El eslabón que a la mayoría de empresas les falta: saber qué campaña te genera ventas y cuál te hace perder plata. Cero adivinanzas, números claros.", links: [{ name: "Tracking & Analítica", path: "/analitica-y-tracking" }] },
 ];
 
 const tools = [

@@ -13,7 +13,7 @@ describe("Owner-approved business rules", () => {
     expect(consultingPacks.find(p => p.name === "Sesión Puntual")?.price).toBe(130000);
   });
   test("strategic pack remains COP 440000", () => {
-    expect(consultingPacks.find(p => p.name === "Pack Estratégico")?.price).toBe(440000);
+    expect(consultingPacks.find(p => p.name === "Pack de Acompañamiento")?.price).toBe(440000);
   });
   test("all existing public routes are preserved", () => {
     expect(landings.map(l => l.slug).sort()).toEqual([
