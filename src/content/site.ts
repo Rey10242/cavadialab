@@ -27,4 +27,4 @@ export const serviceFaqs = [
   { question: "¿También desarrollas páginas y aplicaciones web?", answer: "Sí. El alcance puede incluir una página corporativa, una landing para campañas o una aplicación a medida. Acordamos funciones, contenidos, integraciones y mantenimiento antes de construir." },
 ];
 // Only these four general questions appear on home and in its FAQ graph.
-export const homeFaqs = [serviceFaqs[0], serviceFaqs[1], serviceFaqs[2], serviceFaqs[5]];
+export const homeFaqs = [serviceFaqs[1], serviceFaqs[3], serviceFaqs[2]];
