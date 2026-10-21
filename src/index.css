@@ -181,3 +181,5 @@ input,textarea { font-size:1rem!important;min-height:44px; }
 @media (max-width:900px) { .tool-stage { max-width:420px;margin-inline:auto; } .tool-pill { font-size:.78rem;padding:.5rem .8rem; } }
 @media (max-width:420px) { .tool-pill { font-size:.7rem;padding:.4rem .65rem;gap:.4rem; } .tool-pill img { width:18px;height:18px; } }
 @media (prefers-reduced-motion:reduce) { .tool-pill { animation:none;transition:none; } }
+
+@media (max-width:900px) { .personal-portrait { display:none; } }

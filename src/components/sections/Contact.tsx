@@ -89,10 +89,10 @@ const Contact: React.FC = () => {
         >
           <div className="section-label">Da el primer paso</div>
           <h2 className="section-title">
-            ¿Revisamos tu caso?<br /><span className="serif-word text-primary">Escríbeme y lo miramos.</span>
+            Cuéntame tu caso.<br /><span className="serif-word text-primary">Te respondo yo mismo.</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-md">
-            Cuéntame qué vendes y qué problema tienes hoy para conseguir clientes o medir tus campañas. Te respondo con honestidad sobre el camino más corto para resolverlo.
+            Dime qué vendes y qué te está fallando. Te digo con honestidad por dónde empezar.
           </p>
         </div>
 
