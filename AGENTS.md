@@ -5,6 +5,8 @@
 - GTM stays in the static entry document once; contact clicks are engagement, and only a successful stored form submission emits form success.
 - Keep the Classic stack for this change; SSR requires the official gated in-place TanStack migration and a separate preflight, not ad-hoc prerendering.
 - Keep Bun business-rule and measurement tests under `tests/`, outside the browser-only application typecheck; run them with `bun run test`.
-- Keep shared decorative diagrams, pointer surfaces and readable-first-paint reveals in `StudioVisuals`; effects never gate content and pointer tracking is fine-pointer only with reduced-motion opt-out.
-- Use Radix tabs/accordions for process and FAQs; homepage FAQ UI and schema consume the same four-entry selection while service-specific detail remains on public landings.
-- Express the studio visual system through semantic global CSS tokens shared by home and landings; use mixed sans/serif headings rather than uppercase display type for all content.
+- Keep readable-first-paint reveals and landing diagrams in `StudioVisuals`; effects never gate content.
+- Use native anchor chapters for the homepage narrative and Radix accordions for FAQs; homepage FAQ UI and schema consume the same four-entry selection to prevent contradictory claims.
+- Express the studio visual system through semantic global CSS tokens and a single principal sans family shared by home and landings for cohesive editorial rhythm.
+- `AttentionJourney` owns the one homepage core; dynamically import the minimal direct Three renderer only on fine-pointer desktop without reduced motion, because HTML and the static SVG must remain independent of WebGL.
+- Render the core on demand, settling scroll/pointer changes with delta-time damping; stop offscreen or in hidden documents to avoid perpetual GPU work.
