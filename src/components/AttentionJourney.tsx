@@ -26,8 +26,11 @@ export default function AttentionJourney() {
   const el=host.current;
   if (!el || reduce || !window.matchMedia("(min-width: 901px) and (pointer: fine)").matches) return;
   let cancelled=false;
+  const media=window.matchMedia("(min-width: 901px) and (pointer: fine)");
+  const changed=()=> { if(!media.matches) { api.current?.dispose();api.current=null;setReady(false); } };
+  media.addEventListener("change",changed);
   const timer=window.setTimeout(()=> { import("./coreRenderer").then(({mountCore})=> { if(cancelled)return; try { api.current=mountCore(el,progress.current);setReady(true); } catch { setReady(false); } }).catch(()=>setReady(false)); },600);
-  return ()=> { cancelled=true;clearTimeout(timer);api.current?.dispose();api.current=null;setReady(false); };
+  return ()=> { cancelled=true;clearTimeout(timer);media.removeEventListener("change",changed);api.current?.dispose();api.current=null;setReady(false); };
  },[reduce]);
  return <section className="attention-journey" aria-label="De la atención a la acción"><div className="page-shell journey-grid"><div className="journey-copy"><HeroPersonal/><div id="proceso" ref={story} className="story-chapters"><div className="story-heading"><p className="eyebrow">De la atención a la acción</p><h2>Todo está conectado.</h2></div>{chapters.map((chapter,i)=><article key={chapter.id} id={chapter.id} className={`story-chapter ${active===i?"is-active":""}`}><p className="chapter-number">0{i+1} <span>/ {chapter.label}</span></p><h3>{chapter.title}</h3><p className="chapter-description">{chapter.text}</p><div className="chapter-links">{chapter.links.map(link=><Link key={link.path} to={link.path}>{link.name}<ArrowUpRight size={18}/></Link>)}</div></article>)}</div></div><div className="core-column"><div className="core-sticky"><div className="core-stage" data-ready={ready} aria-hidden="true"><StaticCore/><div ref={host} className="core-webgl"/></div><div className="core-caption"><span>CAVADIA LAB / SISTEMAS CONECTADOS</span><ArrowDown size={16}/></div><nav className="chapter-indicator" aria-label="Capítulos del recorrido">{chapters.map((c,i)=><a key={c.id} href={`#${c.id}`} aria-current={active===i?"step":undefined}><span>0{i+1}</span>{c.label}</a>)}</nav></div></div></div></section>;
 }
