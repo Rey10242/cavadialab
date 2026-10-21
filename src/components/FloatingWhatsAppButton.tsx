@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { MessageCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import waLogo from "@/assets/logos/whatsapp.svg";
 import { whatsappUrl } from "@/content/site";
 import { trackWhatsAppClick } from "@/lib/gtag";
 export default function FloatingWhatsAppButton() {
@@ -17,6 +16,6 @@ export default function FloatingWhatsAppButton() {
   const observer = new MutationObserver(check); observer.observe(document.body,{childList:true,subtree:true});
   return () => { window.removeEventListener("scroll",check);observer.disconnect(); };
  }, [pathname]);
- if (!visible) return null;
- return <Button asChild size="icon" variant="whatsapp" className="floating-contact" ><a href={whatsappUrl("un proyecto que vi en Cavadia Lab")} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="Contactar por WhatsApp" onClick={() => trackWhatsAppClick(`floating_${pathname === "/" ? "home" : pathname.slice(1)}`)}><MessageCircle /></a></Button>;
+  if (!visible) return null;
+ return <a className="floating-contact" href={whatsappUrl("un proyecto que vi en Cavadia Lab")} target="_blank" rel="noopener noreferrer" aria-label="Escríbeme por WhatsApp" onClick={() => trackWhatsAppClick(`floating_${pathname === "/" ? "home" : pathname.slice(1)}`)}><span className="wa-icon"><img src={waLogo} alt="" width={22} height={22}/><span className="wa-dot" aria-hidden="true"/></span><span className="wa-label">Escríbeme</span></a>;
 }
