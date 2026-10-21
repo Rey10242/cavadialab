@@ -1,9 +1,14 @@
 import { describe, expect, test } from "bun:test";
-import { consultingPacks, solutions, SITE_URL, whatsappUrl } from "../src/content/site";
+import { consultingPacks, homeFaqs, solutions, SITE_URL, whatsappUrl } from "../src/content/site";
 import { landings } from "../src/content/landings";
 import { readFileSync } from "node:fs";
 
 describe("Owner-approved business rules", () => {
+  test("homepage contains at most four distinct relevant FAQs", () => {
+    expect(homeFaqs.length).toBeGreaterThan(0);
+    expect(homeFaqs.length).toBeLessThanOrEqual(4);
+    expect(new Set(homeFaqs).size).toBe(homeFaqs.length);
+  });
   test("session remains COP 130000", () => {
     expect(consultingPacks.find(p => p.name === "Sesión Puntual")?.price).toBe(130000);
   });
