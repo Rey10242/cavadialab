@@ -8,5 +8,4 @@
 - Keep readable-first-paint reveals and landing diagrams in `StudioVisuals`; effects never gate content.
 - Use native anchor chapters for the homepage narrative and Radix accordions for FAQs; homepage FAQ UI and schema consume the same four-entry selection to prevent contradictory claims.
 - Express the studio visual system through semantic global CSS tokens and a single principal sans family shared by home and landings for cohesive editorial rhythm.
-- `AttentionJourney` owns the one homepage core; dynamically import the minimal direct Three renderer only on fine-pointer desktop without reduced motion, because HTML and the static SVG must remain independent of WebGL.
-- Render the core on demand, settling scroll/pointer changes with delta-time damping; stop offscreen or in hidden documents to avoid perpetual GPU work.
+- `AttentionJourney` owns the homepage hero visual: authentic cutout portrait with real platform logo pills highlighted by scroll chapter, plain HTML/CSS with no WebGL, because a person-led visual communicates trust faster than abstract 3D.
