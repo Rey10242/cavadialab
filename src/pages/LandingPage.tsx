@@ -144,7 +144,6 @@ const LandingPage: React.FC = () => {
             <section className="container mx-auto max-w-6xl px-4 py-16 sm:px-6 md:px-8 md:py-24">
               <motion.div {...reveal} className="mb-9 flex items-end justify-between gap-6 border-b border-border pb-5">
                 <div><p className="mb-2 text-sm font-bold uppercase text-primary">01 / {t.scan}</p><h2 className="font-heading text-4xl sm:text-6xl">{landing.serviceName}</h2></div>
-                <span className="hidden font-heading text-7xl text-border md:block">RMC</span>
               </motion.div>
 
               <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-6">
