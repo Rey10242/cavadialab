@@ -99,6 +99,24 @@ export const landings: Landing[] = [
     ], serviceName: "Meta Ads",
   },
   {
+    slug: "/marketing-para-restaurantes", label: "Restaurantes",
+    metaTitle: "Marketing para restaurantes: más reservas y pedidos | Cavadia Lab",
+    metaDescription: "Marketing digital para restaurantes: anuncios en Instagram, Facebook y Google, web con menú y reservas, y medición de cada pedido. Desde Cartagena para toda Colombia.",
+    eyebrow: "Restaurantes · Cartagena y toda Colombia", h1: "Marketing para restaurantes", h1Accent: "que llena mesas",
+    intro: "Anuncios que abren el apetito, una web que facilita reservar o pedir y datos para saber qué trajo a cada cliente.",
+    blocks: [
+      { heading: "Lo que suele fallar", bullets: ["Publicas en Instagram, pero no llegan reservas.", "Te escriben por WhatsApp y nadie sabe de dónde vinieron.", "Dependes de apps de domicilio que cobran comisión alta."] },
+      { heading: "Qué hacemos", bullets: ["Anuncios en Instagram y Facebook para tu zona.", "Google Ads y Google Maps para quien busca dónde comer.", "Web con menú, reservas y pedidos directos."] },
+      { heading: "Qué medimos", bullets: ["Clics a reservar, llamar y WhatsApp.", "Qué anuncio trae más contactos.", "Costo por cada reserva o pedido registrado."] },
+      { heading: "Para quién es", paragraphs: ["Restaurantes, cafés, bares y negocios de comida que quieren más clientes directos, en Cartagena o en cualquier ciudad de Colombia."] },
+    ],
+    faqs: [
+      { question: "¿Cuánto debo invertir en anuncios?", answer: "Depende de tu zona, ticket promedio y objetivo. Lo definimos juntos; la inversión en anuncios se paga aparte de la gestión." },
+      { question: "¿Sirve si ya uso apps de domicilio?", answer: "Sí. La idea es sumar pedidos directos por tu web o WhatsApp para depender menos de comisiones, no reemplazar de golpe lo que funciona." },
+      { question: "¿Puedo empezar con una asesoría?", answer: "Sí. La sesión de 1 hora cuesta $130.000 COP: revisamos tu Instagram, tu ficha de Google y cómo llegan hoy tus clientes." },
+    ], serviceName: "Marketing digital para restaurantes",
+  },
+  {
     slug: "/analitica-y-tracking", label: "Tracking & Analytics",
     metaTitle: "Tracking y analítica web: GA4 y GTM | Cavadia Lab",
     metaDescription: "Medición con GA4, Google Tag Manager y reportes. Separa clics, formularios y resultados comerciales para entender mejor tu inversión digital.",

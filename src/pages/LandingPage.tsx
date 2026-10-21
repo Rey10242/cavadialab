@@ -38,6 +38,7 @@ const visuals: Record<string, { art: string; tools: Tool[] }> = {
   "/paid-media-manager": { art: adsArt, tools: [T.meta, T.gads] },
   "/analitica-y-tracking": { art: dataArt, tools: [T.ga4, T.gtm] },
   "/desarrollo-web-y-apps": { art: webArt, tools: [T.web, T.ga4] },
+  "/marketing-para-restaurantes": { art: adsArt, tools: [T.meta, T.gads, T.ga4] },
 };
 const fallbackVisual = { art: growthArt, tools: [T.meta, T.gads, T.ga4] };
 export const artFor = (slug: string) => (visuals[slug] ?? fallbackVisual).art;
