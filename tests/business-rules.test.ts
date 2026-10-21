@@ -35,4 +35,9 @@ describe("Owner-approved business rules", () => {
     const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
     expect(urls.sort()).toEqual([SITE_URL + "/", ...landings.map(l => SITE_URL + l.slug)].sort());
   });
+  test("robots allows search and AI crawlers to read the whole site", () => {
+    const txt = readFileSync("public/robots.txt", "utf8");
+    expect(txt).not.toMatch(/^Disallow:\s*\/\s*$/m);
+    for (const bot of ["GPTBot", "PerplexityBot", "ClaudeBot", "OAI-SearchBot"]) expect(txt).toContain(`User-agent: ${bot}`);
+  });
 });
