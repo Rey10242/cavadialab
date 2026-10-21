@@ -9,3 +9,4 @@
 - Use native anchor chapters for the homepage narrative and Radix accordions for FAQs; homepage FAQ UI and schema consume the same four-entry selection to prevent contradictory claims.
 - Express the studio visual system through semantic global CSS tokens and a single principal sans family shared by home and landings for cohesive editorial rhythm.
 - `AttentionJourney` owns the homepage hero visual: authentic cutout portrait with real platform logo pills highlighted by scroll chapter, plain HTML/CSS with no WebGL, because a person-led visual communicates trust faster than abstract 3D.
+- Landings share one scan-first template in `LandingPage` (art + real tool pills, bento chips, steps, FAQ, CTA); per-service illustrations live in `src/assets/landing` as decorative webp, never presented as real work.
