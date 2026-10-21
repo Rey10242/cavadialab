@@ -1,7 +1,6 @@
 import React from "react";
 import Seo from "@/components/Seo";
-import HeroPersonal from "@/components/sections/HeroPersonal";
-import Methodology from "@/components/sections/Methodology";
+import AttentionJourney from "@/components/AttentionJourney";
 import Services from "@/components/sections/Services";
 import AboutMe from "@/components/sections/AboutMe";
 import Contact from "@/components/sections/Contact";
@@ -30,9 +29,8 @@ const Index: React.FC = () => {
       <div className="relative z-10">
         <CavadiaNavbar />
         <main id="main" role="main">
-          <HeroPersonal />
+          <AttentionJourney />
           <Services />
-          <Methodology />
           <AboutMe />
           <FAQ />
           <Contact />
