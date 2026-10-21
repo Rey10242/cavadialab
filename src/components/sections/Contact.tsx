@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
           body: JSON.stringify({ name: data.name, email: data.email, phone: data.phone || undefined, message: data.message }),
         });
         const result = await response.json();
-        notified = response.ok && result.success === true;
+        notified = response.ok && result.success === true && !result.data?.error && Boolean(result.data?.data?.id);
       } catch { /* Storage succeeded; notification remains unconfirmed. Do not retry the insert. */ }
       setNotificationSent(notified);
       setIsSubmitted(true);
@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
                   >
                     <CheckCircle className="w-10 h-10 text-primary mb-4" />
                     <h3 className="font-heading text-2xl text-foreground mb-2">Solicitud guardada</h3>
-                    <p role="status" className="text-base text-muted-foreground">{notificationSent ? "Tu solicitud quedó guardada y la notificación se envió." : "Tu solicitud quedó guardada, pero no pudimos confirmar la notificación por correo. Puedes contactarme por WhatsApp; no necesitas reenviar el formulario."}</p><Button variant="outline" className="mt-5" onClick={() => setIsSubmitted(false)}>Enviar otra solicitud</Button>
+                    <p role="status" className="text-base text-muted-foreground">{notificationSent ? "Tu solicitud quedó guardada y el servicio de correo aceptó la notificación. Esto no confirma su entrega." : "Tu solicitud quedó guardada, pero no pudimos confirmar la notificación por correo. Puedes contactarme por WhatsApp; no necesitas reenviar el formulario."}</p><Button variant="outline" className="mt-5" onClick={() => setIsSubmitted(false)}>Enviar otra solicitud</Button>
                   </div>
                 ) : (
                   <Form {...form}>
@@ -164,7 +164,7 @@ const Contact: React.FC = () => {
                           <FormMessage />
                         </FormItem>
                       )} />
-                      <Button type="submit" className="w-full py-3 bg-primary text-primary-foreground text-[0.72rem] font-bold tracking-wider uppercase hover:brightness-110 transition-all disabled:opacity-50" disabled={isSubmitting}>
+                      <Button type="submit" className="w-full" disabled={isSubmitting}>
                         {isSubmitting ? "Enviando..." : "Enviar Mensaje →"}
                       </Button>
                     </form>
@@ -178,21 +178,21 @@ const Contact: React.FC = () => {
                 <a href="mailto:rmontalvocavadia@gmail.com" className="flex items-center gap-3 p-3 hover:bg-background/50 transition-colors group">
                   <Mail className="w-4 h-4 text-primary shrink-0" />
                   <div>
-                    <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">Email</p>
+                    <p className="text-sm font-semibold text-muted-foreground">Email</p>
                     <p className="text-sm text-foreground break-all">rmontalvocavadia@gmail.com</p>
                   </div>
                 </a>
                 <a href={whatsappUrl("mi proyecto y sus necesidades")} onClick={() => trackContactWhatsApp()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 hover:bg-background/50 transition-colors group">
                   <Phone className="w-4 h-4 text-primary shrink-0" />
                   <div>
-                    <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">WhatsApp</p>
+                    <p className="text-sm font-semibold text-muted-foreground">WhatsApp</p>
                     <p className="text-sm text-foreground">+57 324 687 5354</p>
                   </div>
                 </a>
                 <div className="flex items-center gap-3 p-3">
                   <MapPin className="w-4 h-4 text-primary shrink-0" />
                   <div>
-                    <p className="text-[0.58rem] font-bold tracking-wider uppercase text-muted-foreground">Ubicación</p>
+                    <p className="text-sm font-semibold text-muted-foreground">Ubicación</p>
                     <p className="text-sm text-foreground">Cartagena, Colombia</p>
                   </div>
                 </div>
