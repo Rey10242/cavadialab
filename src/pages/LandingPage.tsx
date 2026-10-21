@@ -160,7 +160,7 @@ const LandingPage: React.FC = () => {
                     >
                       <div className="mb-10 flex items-center justify-between">
                         <Icon className="h-6 w-6 text-primary transition-transform duration-300 group-hover:translate-x-1" />
-                        <span className="font-heading text-3xl text-muted">0{index + 1}</span>
+                        <span className="font-heading text-3xl text-muted-foreground">0{index + 1}</span>
                       </div>
                       <h2 className="mb-4 max-w-xl font-heading text-3xl leading-none sm:text-4xl">{block.heading}</h2>
                       {block.paragraphs?.map((paragraph) => (
