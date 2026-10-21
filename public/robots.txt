@@ -2,7 +2,20 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# Buscadores con IA: pueden leer y citar el sitio
+# Buscadores clásicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# OpenAI (ChatGPT)
 User-agent: GPTBot
 Allow: /
 
@@ -12,13 +25,58 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: PerplexityBot
-Allow: /
-
+# Anthropic (Claude)
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google Gemini / AI Overviews
 User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Microsoft Copilot, Amazon, Mistral, DuckDuckGo AI, You.com
+User-agent: Amazonbot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://cavadialab.com/sitemap.xml
