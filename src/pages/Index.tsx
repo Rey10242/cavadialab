@@ -10,23 +10,23 @@ import FAQ from "@/components/sections/FAQ";
 import CavadiaNavbar from "@/components/CavadiaNavbar";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import { HOME_TITLE, HOME_DESCRIPTION, homeFaqs } from "@/content/site";
 import { useScrollTracking } from "@/hooks/useScrollTracking";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 const Index: React.FC = () => {
   useScrollTracking();
-  useScrollAnimation();
+
 
     return (
     <div className="relative">
       <Seo
-        title="Consultor de Marketing Digital en Cartagena | Reynaldo Montalvo Cavadia"
-        description="Reynaldo Montalvo Cavadia — consultor de marketing digital en Cartagena de Indias. Especialista en Meta Ads, Google Ads, automatización y analítica. Estrategias de publicidad digital para conseguir clientes con datos reales."
+        title={HOME_TITLE}
+        description={HOME_DESCRIPTION}
         path="/"
-        ogType="profile"
+        jsonLd={{ "@type": "FAQPage", mainEntity: homeFaqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }}
       />
-      <AnimatedBackground />
+
       <div className="relative z-10">
         <CavadiaNavbar />
         <main id="main" role="main">

@@ -24,7 +24,8 @@ export default {
 					body: ["'Barlow'", "'Instrument Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
 				},
 				colors: {
-					border: 'hsl(var(--border))',
+					whatsapp: { DEFAULT: 'hsl(var(--whatsapp))', foreground: 'hsl(var(--whatsapp-foreground))' },
+				border: 'hsl(var(--border))',
 					input: 'hsl(var(--input))',
 					ring: 'hsl(var(--ring))',
 					background: 'hsl(var(--background))',
