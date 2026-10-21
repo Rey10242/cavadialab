@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { landingBySlug, landings, type Landing } from "@/content/landings";
 import NotFound from "@/pages/NotFound";
+import { Connections } from "@/components/StudioVisuals";
 
 
 const icons = [Crosshair, BarChart3, Search, Sparkles];
@@ -49,8 +50,8 @@ const COPY = {
 } as const;
 
 const reveal = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: false as const,
+  whileInView: { opacity: [.85, 1] },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.5 },
 };
@@ -98,7 +99,7 @@ const LandingPage: React.FC = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-background">
+    <div className="landing-studio relative bg-background">
       <Seo title={landing.metaTitle} description={landing.metaDescription} path={landing.slug} lang={lang} jsonLd={jsonLd} />
 
 
@@ -117,8 +118,8 @@ const LandingPage: React.FC = () => {
         <main id="main" className="pb-16 pt-20">
           <article>
             <section className="border-b border-border">
-              <div className="container mx-auto grid min-h-[72vh] max-w-6xl items-end gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_22rem] md:px-8 md:py-20 lg:min-h-[78vh]">
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
+              <div className="container mx-auto landing-hero grid min-h-[72vh] max-w-6xl items-end gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_22rem] md:px-8 md:py-20 lg:min-h-[78vh]">
+                <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
                   <nav aria-label={t.breadcrumb} className="mb-8">
                     <ol className="flex items-center gap-2 text-sm font-bold uppercase text-muted-foreground">
                       <li><Link to="/" className="hover:text-primary">{t.home}</Link></li>
@@ -132,8 +133,8 @@ const LandingPage: React.FC = () => {
                   </h1>
                 </motion.div>
 
-                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.18 }} className="border-l-2 border-primary pl-5 md:mb-2">
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-base">{landing.intro}</p>
+                <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.18 }} className="border-l-2 border-primary pl-5 md:mb-2">
+                  <div className="landing-hero-art" aria-hidden="true"><Connections active={2} /></div><p className="text-base leading-relaxed text-muted-foreground sm:text-base">{landing.intro}</p>
                   <Button asChild className="mt-6 w-full rounded-none font-body text-xs font-bold uppercase">
                     <a href={whatsappUrl(landing.serviceName)} onClick={() => trackWhatsAppClick(`landing_${landing.slug.slice(1)}`)} target="_blank" rel="noopener noreferrer">{t.cta}<ArrowRight /></a>
                   </Button>
@@ -146,7 +147,7 @@ const LandingPage: React.FC = () => {
                 <div><p className="mb-2 text-sm font-bold uppercase text-primary">01 / {t.scan}</p><h2 className="font-heading text-4xl sm:text-6xl">{landing.serviceName}</h2></div>
               </motion.div>
 
-              <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-6">
+              <div className="landing-module-grid grid md:grid-cols-6">
                 {landing.blocks.map((block, index) => {
                   const Icon = icons[index % icons.length];
                   const wide = index === 0 || index === 3;
@@ -155,11 +156,11 @@ const LandingPage: React.FC = () => {
                       key={block.heading}
                       {...reveal}
                       transition={{ duration: 0.45, delay: index * 0.06 }}
-                      className={`group min-h-[17rem] bg-card p-6 transition-colors duration-300 hover:bg-secondary sm:p-8 ${wide ? "md:col-span-3" : "md:col-span-3"}`}
+                      className={`landing-module group min-h-[17rem] bg-card p-6 transition-colors duration-300 hover:bg-secondary sm:p-8 ${wide ? "md:col-span-4" : "md:col-span-2"}`}
                     >
                       <div className="mb-10 flex items-center justify-between">
                         <Icon className="h-6 w-6 text-primary transition-transform duration-300 group-hover:translate-x-1" />
-                        <span className="font-heading text-3xl text-muted">0{index + 1}</span>
+                        <span className="font-heading text-3xl text-muted-foreground">0{index + 1}</span>
                       </div>
                       <h2 className="mb-4 max-w-xl font-heading text-3xl leading-none sm:text-4xl">{block.heading}</h2>
                       {block.paragraphs?.map((paragraph) => (
@@ -179,7 +180,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             {processSteps.length > 0 && (
-              <section className="border-y border-border bg-secondary">
+              <section className="landing-process border-y border-border bg-secondary">
                 <div className="container mx-auto max-w-6xl px-4 py-16 sm:px-6 md:px-8 md:py-24">
                   <motion.div {...reveal} className="mb-10 grid gap-4 md:grid-cols-2 md:items-end">
                     <div><p className="mb-2 text-sm font-bold uppercase text-primary">02 / {lang === "en" ? "Process" : "Proceso"}</p><h2 className="font-heading text-5xl sm:text-7xl">{t.process}</h2></div>
@@ -210,7 +211,7 @@ const LandingPage: React.FC = () => {
                       <AccordionTrigger className="gap-5 py-6 text-left text-sm font-semibold hover:text-primary hover:no-underline sm:text-base">
                         <span className="mr-auto"><span className="mr-3 font-heading text-xl text-primary">0{index + 1}</span>{faq.question}</span>
                       </AccordionTrigger>
-                      <AccordionContent className="max-w-2xl pl-9 text-base leading-relaxed text-muted-foreground">{faq.answer}</AccordionContent>
+                      <AccordionContent forceMount className="faq-preserved max-w-2xl pl-9 text-base leading-relaxed text-muted-foreground">{faq.answer}</AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
@@ -231,7 +232,7 @@ const LandingPage: React.FC = () => {
 
             <section className="container mx-auto max-w-6xl px-4 pb-20 sm:px-6 md:px-8">
               <h2 className="mb-6 font-heading text-3xl">{t.others}</h2>
-              <ul className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="landing-related grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
                 {others.map((item) => (
                   <li key={item.slug} className="bg-card">
                     <Link to={item.slug} className="group flex min-h-32 flex-col justify-between p-5 transition-colors hover:bg-secondary">

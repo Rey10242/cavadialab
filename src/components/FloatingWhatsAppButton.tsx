@@ -9,9 +9,9 @@ export default function FloatingWhatsAppButton() {
  const [visible, setVisible] = useState(false);
  useEffect(() => {
   const check = () => {
-   const footer = document.querySelector("footer"); const contact = document.getElementById("contacto");
+   const footer = document.querySelector("footer"); const contact = document.getElementById("contacto"); const faq = document.getElementById("faq");
    const inView = (el: Element | null) => { if (!el) return false; const r=el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; };
-   setVisible(window.scrollY > 400 && !inView(footer) && !inView(contact) && !document.querySelector('[role="dialog"]'));
+   setVisible(window.scrollY > 400 && !inView(footer) && !inView(contact) && !(window.innerWidth < 768 && inView(faq)) && !document.querySelector('[role="dialog"]'));
   };
   check(); window.addEventListener("scroll",check,{passive:true});
   const observer = new MutationObserver(check); observer.observe(document.body,{childList:true,subtree:true});

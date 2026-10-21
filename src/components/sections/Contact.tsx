@@ -83,16 +83,16 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contacto" className="section-padding relative overflow-hidden">
+    <section id="contacto" className="studio-section studio-contact relative overflow-hidden">
       <div className="page-shell">
         <div className="max-w-2xl mb-12"
         >
           <div className="section-label">Contacto</div>
           <h2 className="section-title">
-            Tu próximo paso<br /><span className="text-primary">empieza aquí.</span>
+            ¿Lo conectamos?<br /><span className="serif-word text-primary">Hablemos.</span>
           </h2>
-          <p className="font-serif italic text-base text-muted-foreground">
-            Cuéntame qué quieres resolver. Revisemos si publicidad, medición o tecnología son el siguiente paso para tu negocio.
+          <p className="text-base text-muted-foreground max-w-md">
+            Tu proyecto merece un siguiente paso claro. Empecemos por una conversación.
           </p>
         </div>
 

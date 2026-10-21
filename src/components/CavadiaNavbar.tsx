@@ -6,6 +6,8 @@ import { trackWhatsAppClick } from "@/lib/gtag";
 const links = [{ href: "#servicios", label: "Soluciones" }, { href: "#proceso", label: "Método" }, { href: "#sobre-mi", label: "Sobre mí" }, { href: "#contacto", label: "Contacto" }];
 export default function CavadiaNavbar() {
  const [open, setOpen] = useState(false);
+ const [scrolled, setScrolled] = useState(false);
+ useEffect(() => { const update = () => setScrolled(window.scrollY > 24); update(); window.addEventListener("scroll", update, { passive: true }); return () => window.removeEventListener("scroll", update); }, []);
  const toggle = useRef<HTMLButtonElement>(null);
  useEffect(() => {
   const close = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); toggle.current?.focus(); } };
@@ -13,7 +15,7 @@ export default function CavadiaNavbar() {
   window.addEventListener("keydown", close); window.addEventListener("resize", resize);
   return () => { window.removeEventListener("keydown", close); window.removeEventListener("resize", resize); };
  }, []);
- return <header className="site-header"><nav className="page-shell flex items-center justify-between gap-4 min-h-20" aria-label="Navegación principal">
+ return <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}><nav className="page-shell flex items-center justify-between gap-4 min-h-20" aria-label="Navegación principal">
   <a href="#inicio" className="brand-lockup" onClick={() => setOpen(false)}><span>Cavadia<span className="text-primary"> Lab</span></span><small>Reynaldo Montalvo Cavadia</small></a>
   <ul className="hidden md:flex items-center gap-6">{links.map(l => <li key={l.href}><a className="nav-link" href={l.href}>{l.label}</a></li>)}</ul>
   <Button asChild variant="outline" className="hidden lg:inline-flex"><a href={whatsappUrl("mi proyecto")} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("home_nav")}>Hablemos <ArrowUpRight /></a></Button>
