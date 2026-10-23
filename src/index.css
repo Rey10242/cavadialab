@@ -279,12 +279,6 @@ input,textarea { font-size:1rem!important;min-height:44px; }
 
 /* ===== Site footer ===== */
 .site-footer { border-top:1px solid hsl(var(--border)); background:hsl(var(--card) / .6); margin-top:6rem; }
-.footer-cta { display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:3rem 0;border-bottom:1px solid hsl(var(--border)); }
-.footer-eyebrow { color:hsl(var(--primary));font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase; }
-.footer-claim { font-size:clamp(1.4rem,3vw,1.9rem);font-weight:500;line-height:1.2;margin-top:.5rem;max-width:22ch; }
-.footer-wa-btn { display:inline-flex;align-items:center;gap:.6rem;min-height:48px;padding:.75rem 1.25rem;border:1px solid hsl(var(--primary) / .45);border-radius:999px;font-weight:500;color:hsl(var(--foreground));white-space:nowrap;transition:border-color .25s,background .25s,color .25s,box-shadow .25s,transform .25s; }
-.footer-wa-btn img { width:18px;height:18px; }
-.footer-wa-btn:hover { border-color:hsl(var(--primary));background:hsl(var(--primary) / .1);color:hsl(var(--primary));box-shadow:0 10px 30px -12px hsl(var(--primary) / .45);transform:translateY(-2px); }
 .footer-grid { display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:2.5rem;padding:3rem 0; }
 .footer-brand .brand-lockup { min-height:0; }
 .footer-tagline { color:hsl(var(--muted-foreground));font-size:.9rem;line-height:1.65;margin-top:1rem;max-width:34ch; }
@@ -299,8 +293,7 @@ input,textarea { font-size:1rem!important;min-height:44px; }
 @media (max-width:1100px) { .footer-grid { grid-template-columns:1fr 1fr;gap:2rem; } }
 @media (max-width:767px) {
   .site-footer { margin-top:3.5rem; }
-  .footer-cta { flex-direction:column;align-items:flex-start;gap:1.25rem;padding:2.25rem 0; }
   .footer-grid { grid-template-columns:1fr 1fr;gap:1.75rem;padding:2.25rem 0; }
   .footer-brand { grid-column:1 / -1; }
 }
-@media (prefers-reduced-motion:reduce) { .footer-wa-btn, .footer-link, .footer-link::after { transition:none; } }
+@media (prefers-reduced-motion:reduce) { .footer-link, .footer-link::after { transition:none; } }

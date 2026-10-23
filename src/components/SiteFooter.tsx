@@ -1,10 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 import { landings } from "@/content/landings";
-import { whatsappUrl } from "@/content/site";
-import { trackWhatsAppClick } from "@/lib/gtag";
-import waLogo from "@/assets/logos/whatsapp.svg";
 
 const sectionLinks = [
   { hash: "#servicios", label: "Soluciones" },
@@ -32,23 +28,6 @@ const SiteFooter: React.FC = () => {
   return (
     <footer className="site-footer" role="contentinfo">
       <div className="page-shell">
-        <div className="footer-cta">
-          <div>
-            <span className="footer-eyebrow">Hablemos</span>
-            <p className="footer-claim">Cuéntame tu caso. Te respondo yo mismo.</p>
-          </div>
-          <a
-            className="footer-wa-btn"
-            href={whatsappUrl("mi proyecto")}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick("footer")}
-          >
-            <img src={waLogo} alt="" width={18} height={18} />
-            Escríbeme por WhatsApp
-            <ArrowUpRight size={16} aria-hidden />
-          </a>
-        </div>
 
         <div className="footer-grid">
           <div className="footer-brand">
