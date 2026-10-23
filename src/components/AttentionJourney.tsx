@@ -27,7 +27,7 @@ const T: Record<string, Tool> = {
 const chapters = [
  { id: "base", label: "LA BASE", title: "Te armo una web rápida y lista para vender.", text: "Si la página es lenta o confusa, cualquier anuncio es plata botada.", tools: [T.web], links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
  { id: "ojos", label: "LOS OJOS", title: "Te configuro el rastreo antes de gastar un peso.", text: "Así sabes de dónde llega cada visita y qué botón toca.", tools: [T.gtm, T.ga4, T.sc], links: [{ name: "Tracking & Analítica", path: "/analitica-y-tracking" }] },
- { id: "trafico", label: "EL TRÁFICO", title: "Te creo anuncios para compradores, no curiosos.", text: "Campañas para gente con ganas reales de comprar.", tools: [T.meta, T.gads], links: [{ name: "Meta Ads", path: "/campanas-meta-ads" }, { name: "Google Ads", path: "/campanas-google-ads" }] },
+ { id: "trafico", label: "EL TRÁFICO", title: "Te creo anuncios para compradores, no curiosos.", text: "Campañas para gente con ganas reales de comprar.", tools: [T.meta, T.gads, T.tiktok], links: [{ name: "Meta Ads", path: "/campanas-meta-ads" }, { name: "Google Ads", path: "/campanas-google-ads" }] },
  { id: "control", label: "EL CONTROL", title: "Te muestro qué anuncio te dio cada cliente.", text: "Sabes dónde invertir más y qué apagar, sin adivinar.", tools: [T.ds], links: [{ name: "Informes en Data Studio", path: "/analitica-y-tracking" }] },
 ];
 
