@@ -3,12 +3,12 @@ import { motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowUpRight, Globe } from "lucide-react";
 import portrait from "@/assets/perfil-reynaldo.png";
-import metaLogo from "@/assets/logos/meta.svg";
-import googleAdsLogo from "@/assets/logos/googleads.svg";
-import tiktokLogo from "@/assets/logos/tiktok.svg";
-import ga4Logo from "@/assets/logos/ga4.svg";
+import metaLogo from "@/assets/logos/meta-color.svg";
+import googleAdsLogo from "@/assets/logos/googleads-color.svg";
+import tiktokLogo from "@/assets/logos/tiktok-color.svg";
+import ga4Logo from "@/assets/logos/ga4-color.svg";
 import dataStudioLogo from "@/assets/logos/lookerstudio.svg";
-import gtmLogo from "@/assets/logos/gtm.svg";
+import gtmLogo from "@/assets/logos/gtm-color.svg";
 import searchConsoleLogo from "@/assets/logos/searchconsole.png";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 
