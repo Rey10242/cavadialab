@@ -195,7 +195,7 @@ input,textarea { font-size:1rem!important;min-height:44px; }
 .t-meta { top:30%;left:0;animation-delay:-1s; }.t-gads { top:47%;right:0;animation-delay:-2s; }.t-tiktok { top:68%;left:2%;animation-delay:-3s; }
 .t-web { top:14%;right:6%;animation-delay:-4s; }.t-ga4 { top:8%;left:8%;animation-delay:-.5s; }.t-gtm { bottom:6%;right:4%;animation-delay:-2.5s; }.t-sc { bottom:13%;left:0;animation-delay:-3.5s; }
 @keyframes pill-float { 0%,100% { translate:0 0; } 50% { translate:0 -8px; } }
-@media (max-width:900px) { .tool-stage { max-width:420px;margin-inline:auto; } .tool-pill { font-size:.78rem;padding:.5rem .8rem; } }
+@media (max-width:900px) { .tool-stage { max-width:420px;margin-inline:auto; } .tool-pill { font-size:.78rem;padding:.5rem .8rem; } .t-meta,.t-sc { left:4%; } .t-tiktok { left:7%; } .t-gads { right:4%; } .t-web { right:4%; } }
 @media (max-width:420px) { .tool-pill { font-size:.7rem;padding:.4rem .65rem;gap:.4rem; } .tool-pill img { width:18px;height:18px; } }
 @media (prefers-reduced-motion:reduce) { .tool-pill { animation:none;transition:none; } }
 
