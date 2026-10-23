@@ -7,7 +7,7 @@ import metaLogo from "@/assets/logos/meta.svg";
 import googleAdsLogo from "@/assets/logos/googleads.svg";
 import tiktokLogo from "@/assets/logos/tiktok.svg";
 import ga4Logo from "@/assets/logos/ga4.svg";
-import dataStudioLogo from "@/assets/logos/looker.png";
+import dataStudioLogo from "@/assets/logos/lookerstudio.svg";
 import gtmLogo from "@/assets/logos/gtm.svg";
 import searchConsoleLogo from "@/assets/logos/searchconsole.png";
 import HeroPersonal from "@/components/sections/HeroPersonal";
