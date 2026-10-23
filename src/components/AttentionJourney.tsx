@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowUpRight, Globe } from "lucide-react";
 import portrait from "@/assets/perfil-reynaldo.png";
@@ -8,30 +8,39 @@ import googleAdsLogo from "@/assets/logos/googleads.svg";
 import tiktokLogo from "@/assets/logos/tiktok.svg";
 import ga4Logo from "@/assets/logos/ga4.svg";
 import gtmLogo from "@/assets/logos/gtm.svg";
-import adsArt from "@/assets/landing/ads.webp";
-import webArt from "@/assets/landing/web.webp";
-import dataArt from "@/assets/landing/data.webp";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 
+type Tool = { name: string; logo: string | null };
+const T: Record<string, Tool> = {
+ web: { name: "Desarrollo web", logo: null },
+ gtm: { name: "Tag Manager", logo: gtmLogo },
+ meta: { name: "Meta Ads", logo: metaLogo },
+ gads: { name: "Google Ads", logo: googleAdsLogo },
+ tiktok: { name: "TikTok Ads", logo: tiktokLogo },
+ ga4: { name: "Google Analytics 4", logo: ga4Logo },
+};
+
 const chapters = [
- { id: "demanda", label: "ANUNCIOS", art: adsArt, title: "Anuncios que atraen compradores, no curiosos.", text: "Hoy te escriben para preguntar precio y desaparecen.", links: [{ name: "Meta Ads", path: "/campanas-meta-ads" }, { name: "Google Ads", path: "/campanas-google-ads" }] },
- { id: "experiencia", label: "TU WEB", art: webArt, title: "Una web rápida que lleva directo a WhatsApp.", text: "Hoy la gente entra, no entiende y se va.", links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
- { id: "datos", label: "MEDICIÓN", art: dataArt, title: "Sabes qué anuncio te trajo cada cliente.", text: "Hoy no sabes qué apagar ni dónde invertir más.", links: [{ name: "Tracking & Analítica", path: "/analitica-y-tracking" }] },
+ { id: "base", label: "LA BASE", title: "Te armo una web rápida y lista para vender.", text: "Si la página es lenta o confusa, cualquier anuncio es plata botada.", tools: [T.web], links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
+ { id: "ojos", label: "LOS OJOS", title: "Te configuro el rastreo antes de gastar un peso.", text: "Así sabes de dónde llega cada visita y qué botón toca.", tools: [T.gtm], links: [{ name: "Tracking & Analítica", path: "/analitica-y-tracking" }] },
+ { id: "trafico", label: "EL TRÁFICO", title: "Te creo anuncios para compradores, no curiosos.", text: "Campañas para gente con ganas reales de comprar.", tools: [T.meta, T.gads], links: [{ name: "Meta Ads", path: "/campanas-meta-ads" }, { name: "Google Ads", path: "/campanas-google-ads" }] },
+ { id: "control", label: "EL CONTROL", title: "Te muestro qué anuncio te dio cada cliente.", text: "Sabes dónde invertir más y qué apagar, sin adivinar.", tools: [T.ga4], links: [{ name: "Analítica GA4", path: "/analitica-y-tracking" }] },
 ];
 
 const tools = [
- { name: "Meta Ads", logo: metaLogo, pos: "t-meta", ch: 0 },
- { name: "Google Ads", logo: googleAdsLogo, pos: "t-gads", ch: 0 },
- { name: "TikTok Ads", logo: tiktokLogo, pos: "t-tiktok", ch: 0 },
- { name: "Desarrollo web", logo: null, pos: "t-web", ch: 1 },
- { name: "Google Analytics 4", logo: ga4Logo, pos: "t-ga4", ch: 2 },
- { name: "Tag Manager", logo: gtmLogo, pos: "t-gtm", ch: 2 },
+ { ...T.meta, pos: "t-meta", ch: 2 },
+ { ...T.gads, pos: "t-gads", ch: 2 },
+ { ...T.tiktok, pos: "t-tiktok", ch: 2 },
+ { ...T.web, pos: "t-web", ch: 0 },
+ { ...T.ga4, pos: "t-ga4", ch: 3 },
+ { ...T.gtm, pos: "t-gtm", ch: 1 },
 ];
 
 export default function AttentionJourney() {
  const story = useRef<HTMLDivElement>(null);
  const [active,setActive] = useState(0);
  const { scrollYProgress } = useScroll({ target: story, offset: ["start center", "end center"] });
- useMotionValueEvent(scrollYProgress,"change",value=> setActive(Math.min(2,Math.floor(value*3))));
- return <section className="attention-journey" aria-label="De la atención a la acción"><div className="page-shell journey-grid"><div className="journey-copy"><HeroPersonal/><div id="proceso" ref={story} className="story-chapters"><div className="story-heading"><p className="eyebrow">Lo que resuelvo</p><h2>Tres problemas. Una sola solución conectada.</h2></div>{chapters.map((chapter,i)=><article key={chapter.id} id={chapter.id} className={`story-chapter ${active===i?"is-active":""}`}><img className="chapter-art" src={chapter.art} alt="" width={120} height={120} loading="lazy" decoding="async"/><p className="chapter-number">0{i+1} <span>/ {chapter.label}</span></p><h3>{chapter.title}</h3><p className="chapter-description">{chapter.text}</p><div className="chapter-links">{chapter.links.map(link=><Link key={link.path} to={link.path}>{link.name}<ArrowUpRight size={18}/></Link>)}</div></article>)}</div></div><div className="core-column"><div className="core-sticky"><div className="tool-stage"><div className="tool-glow" aria-hidden="true"/><img className="tool-portrait" src={portrait} alt="Reynaldo Montalvo Cavadia, consultor de marketing digital" width={433} height={577} fetchPriority="high"/><ul className="tool-pills" aria-label="Plataformas con las que trabajo">{tools.map(t=><li key={t.name} className={`tool-pill ${t.pos} ${active===t.ch?"is-lit":""}`}>{t.logo?<img src={t.logo} alt="" width={22} height={22}/>:<Globe size={20} aria-hidden="true"/>}<span>{t.name}</span></li>)}</ul></div><div className="core-caption"><span>CAVADIA LAB / HERRAMIENTAS QUE USO A DIARIO</span><ArrowDown size={16}/></div><nav className="chapter-indicator" aria-label="Capítulos del recorrido">{chapters.map((c,i)=><a key={c.id} href={`#${c.id}`} aria-current={active===i?"step":undefined}><span>0{i+1}</span>{c.label}</a>)}</nav></div></div></div></section>;
+ const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
+ useMotionValueEvent(scrollYProgress,"change",value=> setActive(Math.max(0,Math.min(3,Math.floor(value*4)))));
+ return <section className="attention-journey" aria-label="De la atención a la acción"><div className="page-shell journey-grid"><div className="journey-copy"><HeroPersonal/><div id="proceso" ref={story} className="story-chapters"><div className="story-heading"><p className="eyebrow">Cómo lo hago</p><h2>Cuatro pasos. Yo me encargo de todo.</h2></div><div className="story-track"><div className="story-line" aria-hidden="true"><motion.span style={{ scaleY: progress }}/></div>{chapters.map((chapter,i)=><motion.article key={chapter.id} id={chapter.id} className={`story-chapter ${active===i?"is-active":""} ${active>i?"is-done":""}`} initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true, margin: "-15% 0px" }} transition={{ duration: .6, ease: [.2,.8,.2,1] }}><span className="story-dot" aria-hidden="true"/><p className="chapter-number">0{i+1} <span>/ {chapter.label}</span></p><h3>{chapter.title}</h3><p className="chapter-description">{chapter.text}</p><ul className="chapter-tools" aria-label="Herramientas de este paso">{chapter.tools.map((t,k)=><motion.li key={t.name} className="float-pill" initial={{ opacity: 0, scale: .7, y: 12 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: .25 + k*.12, type: "spring", stiffness: 260, damping: 18 }} style={{ animationDelay: `${-k*1.3}s` }}>{t.logo?<img src={t.logo} alt="" width={20} height={20}/>:<Globe size={18} aria-hidden="true"/>}<span>{t.name}</span></motion.li>)}</ul><div className="chapter-links">{chapter.links.map(link=><Link key={link.path+link.name} to={link.path}>{link.name}<ArrowUpRight size={16}/></Link>)}</div></motion.article>)}</div></div></div><div className="core-column"><div className="core-sticky"><div className="tool-stage"><div className="tool-glow" aria-hidden="true"/><img className="tool-portrait" src={portrait} alt="Reynaldo Montalvo Cavadia, consultor de marketing digital" width={433} height={577} fetchPriority="high"/><ul className="tool-pills" aria-label="Plataformas con las que trabajo">{tools.map(t=><li key={t.name} className={`tool-pill ${t.pos} ${active===t.ch?"is-lit":""}`}>{t.logo?<img src={t.logo} alt="" width={22} height={22}/>:<Globe size={20} aria-hidden="true"/>}<span>{t.name}</span></li>)}</ul></div><div className="core-caption"><span>CAVADIA LAB / HERRAMIENTAS QUE USO A DIARIO</span><ArrowDown size={16}/></div><nav className="chapter-indicator" aria-label="Pasos del recorrido">{chapters.map((c,i)=><a key={c.id} href={`#${c.id}`} aria-current={active===i?"step":undefined}><span>0{i+1}</span>{c.label}</a>)}</nav></div></div></div></section>;
 }
