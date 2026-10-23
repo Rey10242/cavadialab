@@ -7,6 +7,7 @@ import metaLogo from "@/assets/logos/meta.svg";
 import googleAdsLogo from "@/assets/logos/googleads.svg";
 import tiktokLogo from "@/assets/logos/tiktok.svg";
 import ga4Logo from "@/assets/logos/ga4.svg";
+import dataStudioLogo from "@/assets/logos/looker.png";
 import gtmLogo from "@/assets/logos/gtm.svg";
 import searchConsoleLogo from "@/assets/logos/searchconsole.png";
 import HeroPersonal from "@/components/sections/HeroPersonal";
@@ -19,6 +20,7 @@ const T: Record<string, Tool> = {
  gads: { name: "Google Ads", logo: googleAdsLogo },
  tiktok: { name: "TikTok Ads", logo: tiktokLogo },
  ga4: { name: "Google Analytics 4", logo: ga4Logo },
+ ds: { name: "Data Studio", logo: dataStudioLogo },
  sc: { name: "Search Console", logo: searchConsoleLogo },
 };
 
@@ -26,7 +28,7 @@ const chapters = [
  { id: "base", label: "LA BASE", title: "Te armo una web rápida y lista para vender.", text: "Si la página es lenta o confusa, cualquier anuncio es plata botada.", tools: [T.web], links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
  { id: "ojos", label: "LOS OJOS", title: "Te configuro el rastreo antes de gastar un peso.", text: "Así sabes de dónde llega cada visita y qué botón toca.", tools: [T.gtm, T.ga4, T.sc], links: [{ name: "Tracking & Analítica", path: "/analitica-y-tracking" }] },
  { id: "trafico", label: "EL TRÁFICO", title: "Te creo anuncios para compradores, no curiosos.", text: "Campañas para gente con ganas reales de comprar.", tools: [T.meta, T.gads], links: [{ name: "Meta Ads", path: "/campanas-meta-ads" }, { name: "Google Ads", path: "/campanas-google-ads" }] },
- { id: "control", label: "EL CONTROL", title: "Te muestro qué anuncio te dio cada cliente.", text: "Sabes dónde invertir más y qué apagar, sin adivinar.", tools: [T.ga4], links: [{ name: "Analítica GA4", path: "/analitica-y-tracking" }] },
+ { id: "control", label: "EL CONTROL", title: "Te muestro qué anuncio te dio cada cliente.", text: "Sabes dónde invertir más y qué apagar, sin adivinar.", tools: [T.ds], links: [{ name: "Informes en Data Studio", path: "/analitica-y-tracking" }] },
 ];
 
 const tools = [
@@ -34,7 +36,7 @@ const tools = [
  { ...T.gads, pos: "t-gads", chs: [2] },
  { ...T.tiktok, pos: "t-tiktok", chs: [2] },
  { ...T.web, pos: "t-web", chs: [0] },
- { ...T.ga4, pos: "t-ga4", chs: [1, 3] },
+ { ...T.ga4, pos: "t-ga4", chs: [1] },
  { ...T.gtm, pos: "t-gtm", chs: [1] },
  { ...T.sc, pos: "t-sc", chs: [1] },
 ];
@@ -42,6 +44,7 @@ const tools = [
 export default function AttentionJourney() {
  const story = useRef<HTMLDivElement>(null);
  const [active,setActive] = useState(0);
+ const visibleTools = tools.map(tool => tool.pos === "t-ga4" && active === 3 ? { ...T.ds, pos: tool.pos, chs: [3] } : tool);
  const { scrollYProgress } = useScroll({ target: story, offset: ["start center", "end center"] });
  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
  useMotionValueEvent(scrollYProgress,"change",value=> setActive(Math.max(0,Math.min(3,Math.floor(value*4)))));
