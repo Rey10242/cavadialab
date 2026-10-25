@@ -17,11 +17,11 @@ describe("Owner-approved business rules", () => {
   });
   test("all existing public routes are preserved", () => {
     expect(landings.map(l => l.slug).sort()).toEqual([
-      "/consultor-marketing-digital-cartagena", "/paid-media-manager", "/campanas-google-ads", "/campanas-meta-ads", "/analitica-y-tracking", "/desarrollo-web-y-apps", "/consultor-marketing-digital-espana", "/consultor-marketing-digital-mexico", "/paid-media-consultant-usa", "/marketing-para-restaurantes",
+      "/consultor-marketing-digital-cartagena", "/paid-media-manager", "/campanas-google-ads", "/campanas-meta-ads", "/campanas-tiktok-ads", "/analitica-y-tracking", "/desarrollo-web-y-apps", "/consultor-marketing-digital-espana", "/consultor-marketing-digital-mexico", "/paid-media-consultant-usa", "/marketing-para-restaurantes",
     ].sort());
   });
-  test("four approved solutions point to existing public pages", () => {
-    expect(solutions.map(s => s.name)).toEqual(["Meta Ads", "Google Ads", "Tracking & Analytics", "Desarrollo Web & Apps"]);
+  test("five approved solutions point to existing public pages", () => {
+    expect(solutions.map(s => s.name)).toEqual(["Meta Ads", "Google Ads", "TikTok Ads", "Desarrollo Web & Apps", "Tracking & Analytics"]);
     for (const solution of solutions) expect(landings.some(l => l.slug === solution.path)).toBe(true);
   });
   test("primary domain and WhatsApp channel remain unchanged", () => {

@@ -4,10 +4,11 @@ export const HOME_DESCRIPTION = "Reynaldo Montalvo Cavadia conecta Meta Ads, Goo
 export const whatsappUrl = (context: string) => `https://wa.me/573246875354?text=${encodeURIComponent(`Hola Reynaldo, me gustaría conversar sobre ${context}.`)}`;
 
 export const solutions = [
-  { name: "Meta Ads", path: "/campanas-meta-ads", problem: "Tu negocio necesita generar interés.", description: "Campañas en Facebook e Instagram que conectan tu oferta con personas relevantes y abren conversaciones.", deliverable: "Segmentación · Creatividad · Campañas" },
-  { name: "Google Ads", path: "/campanas-google-ads", problem: "Te buscan, pero no te encuentran.", description: "Anuncios para aparecer cuando alguien busca lo que ofreces, con presupuesto y objetivos bien definidos.", deliverable: "Búsqueda · Intención · Optimización" },
-  { name: "Tracking & Analytics", path: "/analitica-y-tracking", problem: "Inviertes sin una lectura clara.", description: "GA4, Google Tag Manager y reportes que separan clics, contactos y ventas para decidir con más criterio.", deliverable: "Medición · Eventos · Reportes" },
-  { name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps", problem: "Tu web no acompaña a tu negocio.", description: "Páginas, landing pages y aplicaciones web con un recorrido claro, experiencia móvil y medición desde el diseño.", deliverable: "Diseño · Desarrollo · Integraciones" },
+  { name: "Meta Ads", path: "/campanas-meta-ads", problem: "La gente aún no conoce tu negocio.", description: "Gestiono tus anuncios en Facebook e Instagram para que más personas interesadas te conozcan y te contacten.", deliverable: "Audiencias · Anuncios · Revisión" },
+  { name: "Google Ads", path: "/campanas-google-ads", problem: "Te buscan, pero no te encuentran.", description: "Tu negocio aparece en Google justo cuando alguien busca lo que vendes.", deliverable: "Búsqueda · Anuncios · Optimización" },
+  { name: "TikTok Ads", path: "/campanas-tiktok-ads", problem: "Quieres llegar a audiencias nuevas.", description: "Llevo tu negocio a TikTok con anuncios en video para personas que todavía no te conocen.", deliverable: "Video · Audiencias · Campañas" },
+  { name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps", problem: "Tu web no acompaña a tu negocio.", description: "Creo tu página web o una aplicación a la medida: rápida, clara en celular y lista para recibir clientes.", deliverable: "Diseño · Desarrollo · Integraciones" },
+  { name: "Tracking & Analytics", path: "/analitica-y-tracking", problem: "Inviertes sin saber qué funciona.", description: "Configuro la medición para que sepas de dónde viene cada llamada, formulario o mensaje.", deliverable: "Medición · Eventos · Reportes" },
 ];
 
 export const consultingPacks = [

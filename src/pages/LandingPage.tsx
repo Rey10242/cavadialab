@@ -97,7 +97,7 @@ const LandingPage: React.FC = () => {
                 </div>
               </div>
               <div className="lp-art" aria-hidden="true">
-                <img src={visual.art} alt="" width={560} height={560} fetchPriority="high" />
+                <img src={visual.art} alt="" width={560} height={560} />
                 <ul className="lp-art-pills">
                   {visual.tools.map((tool) => <li key={tool.name}>{tool.logo ? <img src={tool.logo} alt="" width={20} height={20} /> : <Globe size={18} />}{tool.name}</li>)}
                 </ul>

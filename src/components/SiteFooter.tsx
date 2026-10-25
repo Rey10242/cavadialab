@@ -10,7 +10,7 @@ const sectionLinks = [
   { hash: "#contacto", label: "Contacto" },
 ];
 
-const serviceSlugs = ["paid-media-manager", "campanas-google-ads", "campanas-meta-ads", "analitica-y-tracking", "desarrollo-web-y-apps"];
+const serviceSlugs = ["paid-media-manager", "campanas-google-ads", "campanas-meta-ads", "campanas-tiktok-ads", "analitica-y-tracking", "desarrollo-web-y-apps"];
 const nicheSlugs = ["marketing-para-restaurantes", "consultor-marketing-digital-cartagena", "consultor-marketing-digital-espana", "consultor-marketing-digital-mexico", "paid-media-consultant-usa"];
 
 const bySlug = (slugs: string[]) => slugs.map((s) => landings.find((l) => l.slug.endsWith(s))).filter(Boolean) as typeof landings;
@@ -36,7 +36,7 @@ const SiteFooter: React.FC = () => {
               <small>Reynaldo Montalvo Cavadia</small>
             </a>
             <p className="footer-tagline">
-              Publicidad en Meta y Google, web que convierte y datos de dónde viene cada contacto.
+              Publicidad en Google, Meta y TikTok, páginas y aplicaciones web, y datos para entender qué funciona.
             </p>
             <p className="footer-location">Cartagena, Colombia · Atención remota</p>
           </div>
