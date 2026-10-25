@@ -35,7 +35,8 @@ const T = {
 const visuals: Record<string, { art: string; tools: Tool[] }> = {
   "/campanas-meta-ads": { art: adsArt, tools: [T.meta, T.tiktok] },
   "/campanas-google-ads": { art: searchArt, tools: [T.gads, T.ga4] },
-  "/paid-media-manager": { art: adsArt, tools: [T.meta, T.gads] },
+  "/paid-media-manager": { art: adsArt, tools: [T.meta, T.gads, T.tiktok] },
+  "/campanas-tiktok-ads": { art: adsArt, tools: [T.tiktok] },
   "/analitica-y-tracking": { art: dataArt, tools: [T.ga4, T.gtm] },
   "/desarrollo-web-y-apps": { art: webArt, tools: [T.web, T.ga4] },
   "/marketing-para-restaurantes": { art: adsArt, tools: [T.meta, T.gads, T.ga4] },
