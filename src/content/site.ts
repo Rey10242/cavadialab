@@ -1,6 +1,6 @@
 export const SITE_URL = "https://cavadialab.com";
 export const HOME_TITLE = "Cavadia Lab | Marketing digital y desarrollo web en Cartagena";
-export const HOME_DESCRIPTION = "Reynaldo Montalvo Cavadia conecta Meta Ads, Google Ads, analítica y desarrollo web. Consultoría desde Cartagena y atención remota para tu proyecto.";
+export const HOME_DESCRIPTION = "Google Ads, Meta Ads y TikTok Ads, páginas y aplicaciones web a medida y analítica. Reynaldo Montalvo Cavadia, desde Cartagena con atención remota.";
 export const whatsappUrl = (context: string) => `https://wa.me/573246875354?text=${encodeURIComponent(`Hola Reynaldo, me gustaría conversar sobre ${context}.`)}`;
 
 export const solutions = [
@@ -8,7 +8,7 @@ export const solutions = [
   { name: "Google Ads", path: "/campanas-google-ads", problem: "Te buscan, pero no te encuentran.", description: "Tu negocio aparece en Google justo cuando alguien busca lo que vendes.", deliverable: "Búsqueda · Anuncios · Optimización" },
   { name: "TikTok Ads", path: "/campanas-tiktok-ads", problem: "Quieres llegar a audiencias nuevas.", description: "Llevo tu negocio a TikTok con anuncios en video para personas que todavía no te conocen.", deliverable: "Video · Audiencias · Campañas" },
   { name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps", problem: "Tu web no acompaña a tu negocio.", description: "Creo tu página web o una aplicación a la medida: rápida, clara en celular y lista para recibir clientes.", deliverable: "Diseño · Desarrollo · Integraciones" },
-  { name: "Tracking & Analytics", path: "/analitica-y-tracking", problem: "Inviertes sin saber qué funciona.", description: "Configuro la medición para que sepas de dónde viene cada llamada, formulario o mensaje.", deliverable: "Medición · Eventos · Reportes" },
+  { name: "Tracking & Analytics", path: "/analitica-y-tracking", problem: "Inviertes sin saber qué funciona.", description: "Configuro eventos y reportes para entender de dónde llegan las solicitudes, según los datos disponibles.", deliverable: "Medición · Eventos · Reportes" },
 ];
 
 export const consultingPacks = [
