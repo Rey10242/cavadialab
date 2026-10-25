@@ -10,11 +10,13 @@ import ga4Logo from "@/assets/logos/ga4-color.svg";
 import dataStudioLogo from "@/assets/logos/lookerstudio.svg";
 import gtmLogo from "@/assets/logos/gtm-color.svg";
 import searchConsoleLogo from "@/assets/logos/searchconsole.png";
+import wordpressLogo from "@/assets/logos/wordpress.svg";
 import HeroPersonal from "@/components/sections/HeroPersonal";
 
 type Tool = { name: string; logo: string | null };
 const T: Record<string, Tool> = {
  web: { name: "Desarrollo web", logo: null },
+ wp: { name: "WordPress", logo: wordpressLogo },
  gtm: { name: "Tag Manager", logo: gtmLogo },
  meta: { name: "Meta Ads", logo: metaLogo },
  gads: { name: "Google Ads", logo: googleAdsLogo },
@@ -25,9 +27,9 @@ const T: Record<string, Tool> = {
 };
 
 const chapters = [
- { id: "base", label: "LA BASE", title: "Primero, una web que responde.", text: "Te construyo una página rápida, clara en celular y pensada para convertir visitas en contactos.", tools: [T.web], links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
+ { id: "base", label: "LA BASE", title: "Primero, una web que responde.", text: "Te construyo una página o una aplicación a la medida: rápida, clara en celular y pensada para convertir visitas en contactos.", tools: [T.web, T.wp], links: [{ name: "Desarrollo Web & Apps", path: "/desarrollo-web-y-apps" }] },
  { id: "ojos", label: "LA MEDICIÓN", title: "Después, medición desde el día uno.", text: "Te configuro Analytics, Tag Manager y Search Console para saber de dónde llega cada visita.", tools: [T.gtm, T.ga4, T.sc], links: [{ name: "Tracking & Analítica", path: "/analitica-y-tracking" }] },
- { id: "trafico", label: "LA PUBLICIDAD", title: "Luego, publicidad en Google y Meta.", text: "Te gestiono campañas orientadas a personas con intención real de compra o contacto.", tools: [T.meta, T.gads, T.tiktok], links: [{ name: "Meta Ads", path: "/campanas-meta-ads" }, { name: "Google Ads", path: "/campanas-google-ads" }] },
+ { id: "trafico", label: "LA PUBLICIDAD", title: "Luego, publicidad en Google, Meta y TikTok.", text: "Te gestiono campañas orientadas a personas con intención real de compra o contacto.", tools: [T.meta, T.gads, T.tiktok], links: [{ name: "Meta Ads", path: "/campanas-meta-ads" }, { name: "Google Ads", path: "/campanas-google-ads" }, { name: "TikTok Ads", path: "/campanas-tiktok-ads" }] },
  { id: "control", label: "EL CONTROL", title: "Al final, datos para decidir.", text: "Te entrego reportes claros para saber qué canal funciona y dónde ajustar la inversión.", tools: [T.ds], links: [{ name: "Informes en Data Studio", path: "/analitica-y-tracking" }] },
 ];
 
@@ -36,6 +38,7 @@ const tools = [
  { ...T.gads, pos: "t-gads", chs: [2] },
  { ...T.tiktok, pos: "t-tiktok", chs: [2] },
  { ...T.web, pos: "t-web", chs: [0] },
+ { ...T.wp, pos: "t-wp", chs: [0] },
  { ...T.ga4, pos: "t-ga4", chs: [1] },
  { ...T.gtm, pos: "t-gtm", chs: [1] },
  { ...T.sc, pos: "t-sc", chs: [1] },

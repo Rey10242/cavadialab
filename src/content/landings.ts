@@ -99,6 +99,24 @@ export const landings: Landing[] = [
     ], serviceName: "Meta Ads",
   },
   {
+    slug: "/campanas-tiktok-ads", label: "TikTok Ads",
+    metaTitle: "Campañas de TikTok Ads para tu negocio | Cavadia Lab",
+    metaDescription: "Anuncios en TikTok gestionados por Reynaldo Montalvo Cavadia: video, audiencias y medición para llegar a clientes nuevos. Desde Cartagena, atención remota.",
+    eyebrow: "TikTok Ads", h1: "Tu negocio en TikTok", h1Accent: "frente a audiencias nuevas",
+    intro: "TikTok muestra tu negocio a personas que todavía no te buscan. Creo anuncios en video pensados para esa audiencia y mido qué contactos llegan.",
+    blocks: [
+      { heading: "Por qué TikTok es distinto", paragraphs: ["En Google la gente ya te busca; en TikTok te descubre. Por eso los anuncios aquí necesitan video corto, auténtico y directo, no el mismo material de otras redes."] },
+      { heading: "Qué trabajamos", bullets: ["Objetivos y estructura de campañas.", "Orientación para tus videos: qué mostrar y qué decir.", "Audiencias y presupuesto de prueba."] },
+      { heading: "Medición desde el inicio", paragraphs: ["Configuro la medición antes de invertir para saber cuántos contactos llegan desde TikTok y cuánto cuesta cada uno."] },
+      { heading: "Para quién funciona", paragraphs: ["Negocios con productos o servicios que se puedan mostrar en video: comercio, restaurantes, turismo, belleza, educación y más. Lo evaluamos juntos antes de invertir."] },
+    ],
+    faqs: [
+      { question: "¿Necesito grabar videos profesionales?", answer: "No. En TikTok funcionan mejor los videos auténticos grabados con celular. Te oriento sobre qué grabar y cómo mostrarlo." },
+      { question: "¿Cuánto debo invertir?", answer: "Lo definimos según tu mercado y objetivo, con un presupuesto de prueba acordado. La inversión en anuncios se paga aparte de la gestión." },
+      { question: "¿TikTok sirve para mi tipo de negocio?", answer: "No siempre. Depende de tu producto, tu audiencia y tu capacidad de producir video. Lo revisamos antes de recomendar el canal." },
+    ], serviceName: "TikTok Ads",
+  },
+  {
     slug: "/marketing-para-restaurantes", label: "Restaurantes",
     metaTitle: "Marketing para restaurantes: más reservas y pedidos | Cavadia Lab",
     metaDescription: "Marketing digital para restaurantes: anuncios en Instagram, Facebook y Google, web con menú y reservas, y medición de cada pedido. Desde Cartagena para toda Colombia.",
