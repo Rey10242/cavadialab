@@ -1,4 +1,5 @@
 # Attention to action redesign
+- [ ] Review Google evidence, AI readability and realistic Colombia keyword opportunities; correct verified inconsistencies without publishing.
 - [x] Apply exact approved homepage hero copy and verify WhatsApp tracking, retained portrait and eight tool visuals, mobile 360/390/tablet/desktop layout, ten tests and successful compilation without publishing.
 - [x] Create a coherent spatial hero and native three-chapter scrollytelling with one lazy 3D core and static fallbacks.
 - [x] Replace bento with a service index, move the authentic portrait to the warm personal section and unify sans typography.
