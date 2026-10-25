@@ -1,6 +1,7 @@
 import React from "react";
 import Seo from "@/components/Seo";
 import AttentionJourney from "@/components/AttentionJourney";
+import Services from "@/components/sections/Services";
 import AboutMe from "@/components/sections/AboutMe";
 import Contact from "@/components/sections/Contact";
 import FAQ from "@/components/sections/FAQ";
@@ -29,6 +30,7 @@ const Index: React.FC = () => {
         <CavadiaNavbar />
         <main id="main" role="main">
           <AttentionJourney />
+          <Services />
           <FAQ />
           <AboutMe />
           <Contact />
